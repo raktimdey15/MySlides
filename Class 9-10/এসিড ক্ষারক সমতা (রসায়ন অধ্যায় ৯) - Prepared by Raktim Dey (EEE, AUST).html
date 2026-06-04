@@ -1,0 +1,1491 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>অধ্যায় ৯ – এসিড ক্ষারক সমতা | Raktim Dey</title>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Playfair+Display:wght@700;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a1a;
+    --surface: #111128;
+    --card: #181836;
+    --border: rgba(120,100,255,0.18);
+    --accent1: #7c5cfc;
+    --accent2: #00d4aa;
+    --accent3: #ff6b6b;
+    --accent4: #ffd166;
+    --text: #e8e6ff;
+    --muted: #9890c8;
+    --heading: #ffffff;
+    --slide-w: 1100px;
+    --slide-h: 620px;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background: #06060f;
+    font-family: 'Hind Siliguri', sans-serif;
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 20px 60px;
+    gap: 0;
+  }
+
+  /* ── TOP BAR ── */
+  .topbar {
+    width: var(--slide-w);
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0 18px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 32px;
+  }
+  .topbar .brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    color: var(--accent2);
+    letter-spacing: 0.04em;
+  }
+  .topbar .chapter-tag {
+    background: linear-gradient(135deg,var(--accent1),var(--accent2));
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 14px;
+    border-radius: 20px;
+    letter-spacing: 0.06em;
+  }
+
+  /* ── SLIDE WRAPPER ── */
+  .slide-wrap {
+    width: var(--slide-w);
+    max-width: 100%;
+    margin-bottom: 28px;
+  }
+  .slide-num-label {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    padding-left: 4px;
+  }
+
+  /* ── SLIDE ── */
+  .slide {
+    width: 100%;
+    min-height: var(--slide-h);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    padding: 48px 56px;
+    display: flex;
+    flex-direction: column;
+  }
+  .slide::before {
+    content:'';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 40% at 85% 15%, rgba(124,92,252,0.12) 0%, transparent 70%),
+                radial-gradient(ellipse 50% 50% at 10% 90%, rgba(0,212,170,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* ── TITLE SLIDE ── */
+  .slide-title-main {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 620px;
+  }
+  .slide-title-main .chapter-badge {
+    display: inline-block;
+    background: rgba(124,92,252,0.18);
+    border: 1px solid var(--accent1);
+    color: var(--accent1);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 20px;
+    border-radius: 30px;
+    margin-bottom: 28px;
+    letter-spacing: 0.08em;
+  }
+  .slide-title-main h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 52px;
+    font-weight: 900;
+    color: var(--heading);
+    line-height: 1.15;
+    margin-bottom: 14px;
+    background: linear-gradient(135deg, #fff 0%, var(--accent2) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .slide-title-main .subtitle {
+    font-size: 18px;
+    color: var(--muted);
+    margin-bottom: 40px;
+  }
+  .slide-title-main .divider {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent1), var(--accent2));
+    border-radius: 2px;
+    margin: 0 auto 36px;
+  }
+  .slide-title-main .author-box {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    padding: 12px 24px;
+  }
+  .author-avatar {
+    width: 40px; height: 40px;
+    background: linear-gradient(135deg, var(--accent1), var(--accent2));
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 14px; color: #fff;
+  }
+  .author-info { text-align: left; }
+  .author-info .name { font-size: 14px; font-weight: 600; color: var(--heading); }
+  .author-info .dept { font-size: 12px; color: var(--muted); }
+
+  /* ── CONTENT SLIDE HEADER ── */
+  .slide-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .slide-icon {
+    width: 46px; height: 46px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+  .icon-purple { background: rgba(124,92,252,0.18); }
+  .icon-teal   { background: rgba(0,212,170,0.15); }
+  .icon-red    { background: rgba(255,107,107,0.15); }
+  .icon-amber  { background: rgba(255,209,102,0.15); }
+  .icon-blue   { background: rgba(100,180,255,0.15); }
+  .icon-green  { background: rgba(100,220,130,0.15); }
+
+  .slide-header-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--heading);
+    line-height: 1.2;
+    margin-bottom: 4px;
+  }
+  .slide-header-text p {
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  /* ── CONTENT ELEMENTS ── */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  .four-col { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 14px; }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px 20px;
+  }
+  .card-accent-l {
+    border-left: 3px solid var(--accent1);
+    border-radius: 0 14px 14px 0;
+  }
+  .card-teal { border-left-color: var(--accent2) !important; }
+  .card-red  { border-left-color: var(--accent3) !important; }
+  .card-amber{ border-left-color: var(--accent4) !important; }
+
+  .card h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--heading);
+    margin-bottom: 8px;
+  }
+  .card p, .card li {
+    font-size: 13.5px;
+    color: var(--text);
+    line-height: 1.65;
+  }
+  .card ul { list-style: none; padding: 0; }
+  .card ul li::before {
+    content: '▸ ';
+    color: var(--accent2);
+    font-size: 11px;
+  }
+
+  .tag {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 12px;
+    border-radius: 20px;
+    margin-bottom: 8px;
+  }
+  .tag-purple { background: rgba(124,92,252,0.2); color: #a98fff; }
+  .tag-teal   { background: rgba(0,212,170,0.15); color: #00d4aa; }
+  .tag-red    { background: rgba(255,107,107,0.18); color: #ff8f8f; }
+  .tag-amber  { background: rgba(255,209,102,0.2); color: #ffd166; }
+  .tag-blue   { background: rgba(100,180,255,0.15); color: #80c4ff; }
+
+  /* equation block */
+  .eq {
+    background: #0d0d22;
+    border: 1px solid rgba(124,92,252,0.25);
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--accent2);
+    margin: 6px 0;
+    text-align: center;
+  }
+
+  /* big number cards */
+  .stat-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+    text-align: center;
+  }
+  .stat-card .stat-val {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--accent2);
+    margin-bottom: 6px;
+  }
+  .stat-card .stat-label {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  /* timeline / steps */
+  .steps { display: flex; flex-direction: column; gap: 12px; }
+  .step {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .step-num {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent1), var(--accent2));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700; color: #fff;
+    flex-shrink: 0;
+  }
+  .step-content h4 { font-size: 14px; font-weight: 600; color: var(--heading); }
+  .step-content p  { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+  /* pill row */
+  .pill-row { display: flex; flex-wrap: wrap; gap: 10px; }
+  .pill {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    padding: 8px 18px;
+    font-size: 13px;
+    color: var(--text);
+  }
+
+  /* table */
+  .styled-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .styled-table th {
+    background: rgba(124,92,252,0.2);
+    color: #a98fff;
+    padding: 9px 14px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .styled-table td {
+    padding: 9px 14px;
+    color: var(--text);
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .styled-table tr:hover td { background: rgba(124,92,252,0.06); }
+
+  /* pH bar */
+  .ph-bar {
+    height: 32px;
+    border-radius: 8px;
+    background: linear-gradient(to right,
+      #e74c3c 0%, #e67e22 16%, #f1c40f 28%,
+      #2ecc71 50%,
+      #27ae60 64%, #2980b9 80%, #8e44ad 100%);
+    position: relative;
+    margin: 12px 0 20px;
+  }
+  .ph-labels {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    padding: 0 2px;
+  }
+  .ph-section-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+
+  /* alert box */
+  .alert {
+    background: rgba(255,107,107,0.1);
+    border: 1px solid rgba(255,107,107,0.3);
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 13px;
+    color: #ff9898;
+    margin-top: 10px;
+  }
+  .alert-info {
+    background: rgba(0,212,170,0.08);
+    border-color: rgba(0,212,170,0.25);
+    color: var(--accent2);
+  }
+
+  /* section divider inside slide */
+  .sec-div {
+    height: 1px;
+    background: var(--border);
+    margin: 20px 0;
+  }
+
+  /* footer bar on each slide */
+  .slide-footer {
+    margin-top: auto;
+    padding-top: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border);
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+  }
+  .slide-footer .dot { color: var(--accent1); }
+
+  /* watermark corner */
+  .corner-mark {
+    position: absolute;
+    bottom: 18px;
+    right: 24px;
+    font-size: 10px;
+    color: rgba(255,255,255,0.1);
+    letter-spacing: 0.1em;
+    font-weight: 600;
+  }
+
+  /* flow diagram */
+  .flow { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .flow-box {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 8px 14px;
+    font-size: 13px;
+    color: var(--text);
+    text-align: center;
+  }
+  .flow-arrow { color: var(--accent2); font-size: 18px; }
+
+  /* nav hint */
+  .nav-hint {
+    width: var(--slide-w);
+    max-width: 100%;
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 16px;
+    letter-spacing: 0.06em;
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="brand">রসায়ন · Chemistry</div>
+  <div class="chapter-tag">অধ্যায় ৯ · Chapter 9</div>
+</div>
+
+<!-- ═══════════════════════════════════════════ SLIDE 1: TITLE -->
+<div class="slide-wrap">
+  <div class="slide slide-title-main">
+    <div class="chapter-badge">CHEMISTRY · CHAPTER 09</div>
+    <h1>এসিড ক্ষারক সমতা</h1>
+    <p class="subtitle">Balance of Acid-Base · অ্যাসিড-ক্ষার ভারসাম্য</p>
+    <div class="divider"></div>
+    <div class="author-box">
+      <div class="author-avatar">RD</div>
+      <div class="author-info">
+        <div class="name">Raktim Dey</div>
+        <div class="dept">EEE, AUST</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ SLIDE 2: OVERVIEW -->
+<div class="slide-wrap">
+  <div class="slide-num-label">SLIDE 02 · বিষয়বস্তু সংক্ষেপ</div>
+  <div class="slide">
+    <div class="slide-header">
+      <div class="slide-icon icon-purple">📋</div>
+      <div class="slide-header-text">
+        <h2>অধ্যায়ের মূল বিষয়সমূহ</h2>
+        <p>Main Topics at a Glance</p>
+      </div>
+    </div>
+    <div class="four-col">
+      <div class="card card-accent-l">
+        <div class="tag tag-purple">এসিড</div>
+        <h3>Acid</h3>
+        <ul>
+          <li>লঘু এসিড</li>
+          <li>গাঢ় এসিড</li>
+          <li>তীব্র এসিড</li>
+          <li>মৃদু এসিড</li>
+        </ul>
+      </div>
+      <div class="card card-accent-l card-teal">
+        <div class="tag tag-teal">ক্ষারক</div>
+        <h3>Base / Alkali</h3>
+        <ul>
+          <li>লঘু ক্ষার</li>
+          <li>গাঢ় ক্ষার</li>
+          <li>তীব্র ক্ষার</li>
+          <li>দুর্বল ক্ষার</li>
+        </ul>
+      </div>
+      <div class="card card-accent-l card-amber">
+        <div class="tag tag-amber">pH স্কেল</div>
+        <h3>pH & প্রশমন</h3>
+        <ul>
+          <li>pH নির্ণয়</li>
+          <li>প্রশমন বিক্রিয়া</li>
+          <li>লবণ গঠন</li>
+          <li>pH গুরুত্ব</li>
+        </ul>
+      </div>
+      <div class="card card-accent-l card-red">
+        <div class="tag tag-red">পানি</div>
+        <h3>পানির গুণাগুণ</h3>
+        <ul>
+          <li>খরতা</li>
+          <li>এসিড বৃষ্টি</li>
+          <li>বিশুদ্ধতা</li>
+          <li>BOD / COD</li>
+        </ul>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Raktim Dey · EEE, AUST</span>
+      <span><span class="dot">●</span> এসিড ক্ষারক সমতা</span>
+      <span>02 / 18</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ SLIDE 3: ACID DEFINITIONS -->
+<div class="slide-wrap">
+  <div class="slide-num-label">SLIDE 03 · এসিডের সংজ্ঞা</div>
+  <div class="slide">
+    <div class="slide-header">
+      <div class="slide-icon icon-red">🧪</div>
+      <div class="slide-header-text">
+        <h2>এসিড — সংজ্ঞা ও প্রকারভেদ</h2>
+        <p>Acid — Definition & Classification</p>
+      </div>
+    </div>
+    <div class="two-col">
+      <div>
+        <div class="card card-accent-l card-red" style="margin-bottom:14px;">
+          <div class="tag tag-red">সংজ্ঞা</div>
+          <p>যা পানিতে দ্রবীভূত করলে এসিডের অণু বিয়োজিত হয়ে <strong style="color:var(--accent3)">হাইড্রোজেন আয়ন (H⁺)</strong> বা প্রোটন দান করে তাকে <strong style="color:var(--heading)">এসিড</strong> বলে।</p>
+        </div>
+        <div class="card card-accent-l" style="margin-bottom:14px;">
+          <div class="tag tag-purple">তীব্র এসিড</div>
+          <p style="margin-bottom:6px;">পানিতে <strong style="color:var(--accent1)">সম্পূর্ণ বিয়োজিত</strong> হয়। একমুখী তীর (→) ব্যবহার করা হয়।</p>
+          <div class="eq">HCl(aq) → H⁺(aq) + Cl⁻(aq)</div>
+        </div>
+        <div class="card card-accent-l card-teal">
+          <div class="tag tag-teal">মৃদু এসিড</div>
+          <p style="margin-bottom:6px;">পানিতে <strong style="color:var(--accent2)">আংশিক বিয়োজিত</strong> হয়। উভমুখী তীর (⇌) ব্যবহার করা হয়।</p>
+          <div class="eq">CH₃COOH(aq) ⇌ H⁺(aq) + CH₃COO⁻(aq)</div>
+        </div>
+      </div>
+      <div>
+        <div class="card card-accent-l card-amber" style="margin-bottom:14px;">
+          <div class="tag tag-amber">লঘু এসিড</div>
+          <p>এসিড ও পানির দ্রবণে <strong style="color:var(--accent4)">পানির পরিমাণ বেশি</strong>, এসিড কম।</p>
+        </div>
+        <div class="card card-accent-l card-red" style="margin-bottom:14px;">
+          <div class="tag tag-red">গাঢ় এসিড</div>
+          <p>এসিড ও পানির দ্রবণে <strong style="color:var(--accent3)">এসিডের পরিমাণ বেশি</strong>।</p>
+        </div>
+        <div class="card" style="margin-bottom:14px;">
+          <h3 style="margin-bottom:10px; color:var(--accent4);">🍋 খাবারে এসিড</h3>
+          <table class="styled-table">
+            <tr><th>খাবার</th><th>এসিড</th></tr>
+            <tr><td>দুধ</td><td>ল্যাকটিক এসিড</td></tr>
+            <tr><td>তেঁতুল</td><td>টারটারিক এসিড</td></tr>
+            <tr><td>ভিনেগার</td><td>ইথানয়িক এসিড</td></tr>
+            <tr><td>চা</td><td>ট্যানিক এসিড</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Raktim Dey · EEE, AUST</span>
+      <span><span class="dot">●</span> এসিড ক্ষারক সমতা</span>
+      <span>03 / 18</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ SLIDE 4: BASE & ALKALI -->
+<div class="slide-wrap">
+  <div class="slide-num-label">SLIDE 04 · ক্ষারক ও ক্ষার</div>
+  <div class="slide">
+    <div class="slide-header">
+      <div class="slide-icon icon-teal">⚗️</div>
+      <div class="slide-header-text">
+        <h2>ক্ষারক ও ক্ষার</h2>
+        <p>Base and Alkali</p>
+      </div>
+    </div>
+    <div class="two-col">
+      <div>
+        <div class="card card-accent-l card-teal" style="margin-bottom:14px;">
+          <div class="tag tag-teal">ক্ষারক (Base)</div>
+          <p>যে ধাতু বা ধাতুর মতো ক্রিয়াশীল যৌগমূলকের <strong style="color:var(--accent2)">অক্সাইড ও হাইড্রোক্সাইড</strong> এসিডের সাথে বিক্রিয়া করে তাকে ক্ষারক বলে।</p>
+          <div class="eq" style="margin-top:8px;">NH₄OH + HCl → NH₄Cl + H₂O</div>
+        </div>
+        <div class="card card-accent-l" style="margin-bottom:14px;">
+          <div class="tag tag-purple">ক্ষার (Alkali)</div>
+          <p>যে হাইড্রোক্সাইড যৌগ <strong style="color:var(--accent1)">পানিতে দ্রবণীয়</strong> তাকে ক্ষার বলে।</p>
+          <div class="alert-info alert" style="margin-top:8px;">সকল ক্ষার → ক্ষারক, কিন্তু সকল ক্ষারক → ক্ষার নয়!</div>
+        </div>
+        <div class="card card-accent-l card-amber">
+          <div class="tag tag-amber">ক্ষারের ব্যবহার</div>
+          <ul>
+            <li>টয়লেট ক্লিনার → NaOH</li>
+            <li>গ্লাস ক্লিনার → NH₄OH</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="card" style="margin-bottom:14px;">
+          <h3 style="margin-bottom:12px; color:var(--accent2);">ক্ষারের প্রকারভেদ</h3>
+          <div style="display:flex; gap:12px;">
+            <div class="stat-card" style="flex:1;">
+              <div class="stat-val" style="font-size:18px; color:var(--accent4);">দুর্বল</div>
+              <div class="stat-label">জলীয় দ্রবণে আংশিক বিয়োজিত হয়</div>
+            </div>
+            <div class="stat-card" style="flex:1;">
+              <div class="stat-val" style="font-size:18px; color:var(--accent2);">তীব্র</div>
+              <div class="stat-label">জলীয় দ্রবণে সম্পূর্ণ বিয়োজিত হয়</div>
+            </div>
+          </div>
+        </div>
+        <div class="card card-accent-l card-teal" style="margin-bottom:14px;">
+          <div class="tag tag-teal">ক্ষারের ধর্ম</div>
+          <ul>
+            <li>লিটমাস পরীক্ষা: লাল লিটমাস → নীল</li>
+            <li>অনুভব: পিচ্ছিল জাতীয়</li>
+            <li>OH⁻ আয়ন প্রদান করে</li>
+          </ul>
+          <div class="eq" style="margin-top:8px;">NaOH → Na⁺(aq) + OH⁻</div>
+        </div>
+        <div class="alert">
+          ⚠️ গাঢ় এসিড ও গাঢ় ক্ষার অত্যন্ত ক্ষয়কারী — সরাসরি স্পর্শ করবেন না!
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Raktim Dey · EEE, AUST</span>
+      <span><span class="dot">●</span> এসিড ক্ষারক সমতা</span>
+      <span>04 / 18</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ SLIDE 5: DILUTE ACID PROPERTIES -->
+<div class="slide-wrap">
+  <div class="slide-num-label">SLIDE 05 · লঘু এসিডের ধর্ম</div>
+  <div class="slide">
+    <div class="slide-header">
+      <div class="slide-icon icon-amber">🔬</div>
+      <div class="slide-header-text">
+        <h2>লঘু এসিডের ধর্মসমূহ</h2>
+        <p>Properties of Dilute Acids — with Experimental Proof</p>
+      </div>
+    </div>
+    <div class="three-col">
+      <div class="card card-accent-l card-amber">
+        <div class="tag tag-amber">স্বাদ ও লিটমাস</div>
+        <h3>Physical Properties</h3>
+        <ul>
+          <li>স্বাদ: টক</li>
+          <li>ক্ষয়কারী পদার্থ</li>
+          <li>নীল লিটমাস → লাল</li>
+          <li>লোহা ঝাঁঝরা করে</li>
+        </ul>
+      </div>
+      <div class="card card-accent-l">
+        <div class="tag tag-purple">সক্রিয় ধাতু + এসিড</div>
+        <div class="eq" style="font-size:11px;">ধাতু + লঘু এসিড → ধাতুর লবণ + H₂</div>
+        <div class="sec-div" style="margin:10px 0;"></div>
+        <div class="tag tag-teal">ধাতব কার্বোনেট + এসিড</div>
+        <div class="eq" style="font-size:11px;">ধাতব কার্বোনেট + লঘু এসিড → লবণ + H₂O + CO₂↑</div>
+        <div class="eq" style="font-size:11px; margin-top:4px;">MgCO₃ + H₂SO₄ → MgSO₄ + H₂O + CO₂</div>
+      </div>
+      <div class="card card-accent-l card-teal">
+        <div class="tag tag-teal">CO₂ + চুনের পানি</div>
+        <div class="eq" style="font-size:11px;">Ca(OH)₂ + CO₂ → H₂O + CaCO₃↓</div>
+        <p style="font-size:12px; margin:6px 0;">অদ্রবণীয় CaCO₃ → চুনের পানি ঘোলা দেখায়</p>
+        <div class="sec-div" style="margin:8px 0;"></div>
+        <div class="tag tag-amber">ধাতব বাইকার্বোনেট + এসিড</div>
+        <div class="eq" style="font-size:11px;">KHCO₃ + HNO₃ → KNO₃ + H₂O + CO₂</div>
+        <div class="sec-div" style="margin:8px 0;"></div>
+        <div class="tag tag-purple">ক্ষার (অক্সাইড) + এসিড</div>
+        <div class="eq" style="font-size:11px;">MgO + HCl → MgCl₂ + H₂O</div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Raktim Dey · EEE, AUST</span>
+      <span><span class="dot">●</span> এসিড ক্ষারক সমতা</span>
+      <span>05 / 18</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ SLIDE 6: DILUTE ALKALI PROPERTIES -->
+<div class="slide-wrap">
+  <div class="slide-num-label">SLIDE 06 · লঘু ক্ষারের ধর্ম</div>
+  <div class="slide">
+    <div class="slide-header">
+      <div class="slide-icon icon-teal">🧫</div>
+      <div class="slide-header-text">
+        <h2>লঘু ক্ষারের ধর্মসমূহ</h2>
+        <p>Properties of Dilute Alkali — Ion Identification</p>
+      </div>
+    </div>
+    <div class="two-col">
+      <div>
+        <div class="card card-accent-l card-teal" style="margin-bottom:14px;">
+          <div class="tag tag-teal">ধাতব লবণ + NaOH → ধাতব হাইড্রোক্সাইড</div>
+          <table class="styled-table" style="margin-top:8px;">
+            <tr><th>লবণ</th><th>অধঃক্ষেপ</th><th>বর্ণ</th></tr>
+            <tr><td>Al(NO₃)₂</td><td>Al(OH)₃↓</td><td>সাদা</td></tr>
+            <tr><td>Fe(NO₃)₂</td><td>Fe(OH)₂↓</td><td>সবুজ</td></tr>
+            <tr><td>Fe(NO₃)₃</td><td>Fe(OH)₃↓</td><td>লালচে বাদামী</td></tr>
+            <tr><td>Cu(NO₃)₂</td><td>Cu(OH)₂↓</td><td>হালকা নীল</td></tr>
+            <tr><td>Zn(NO₃)₂</td><td>Zn(OH)₂↓</td><td>সাদা</td></tr>
+          </table>
+        </div>
+      </div>
+      <div>
+        <div class="card card-accent-l" style="margin-bottom:14px;">
+          <div class="tag tag-purple">অ্যামোনিয়াম লবণ + NaOH → NH₃ গ্যাস</div>
+          <div class="eq">NH₄Cl + NaOH → NH₃↑ + H₂O + NaCl</div>
+          <p style="margin-top:8px; font-size:13px; color:var(--muted);">উৎপন্ন NH₃ গ্যাস — ক্ষারধর্মী; ভিজা লাল লিটমাস নীল করে।</p>
+        </div>
+        <div class="card card-accent-l card-teal" style="margin-bottom:14px;">
+          <div class="tag tag-teal">লিটমাস পরীক্ষা</div>
+          <p>লঘু ক্ষারের দ্রবণে <strong style="color:var(--accent2)">লাল লিটমাস → নীল</strong>, নীল লিটমাস নীলই থাকে।</p>
+        </div>
+        <div class="card card-accent-l card-amber">
+          <div class="tag tag-amber">আয়ন শনাক্তকরণ সূত্র</div>
+          <ul>
+            <li>সবুজ অধঃক্ষেপ → Fe²⁺ আয়ন</li>
+            <li>লালচে বাদামী → Fe³⁺ আয়ন</li>
+            <li>হালকা নীল → Cu²⁺ আয়ন</li>
+            <li>সাদা অধঃক্ষেপ → Al³⁺ বা Zn²⁺</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Raktim Dey · EEE, AUST</span>
+      <span><span class="dot">●</span> এসিড ক্ষারক সমতা</span>
+      <span>06 / 18</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ SLIDE 7: CONCENTRATED ACIDS -->
+<div class="slide-wrap">
+  <div class="slide-num-label">SLIDE 07 · গাঢ় এসিড</div>
+  <div class="slide">
+    <div class="slide-header">
+      <div class="slide-icon icon-red">⚡</div>
+      <div class="slide-header-text">
+        <h2>গাঢ় এসিডের ধর্মসমূহ</h2>
+        <p>Properties of Concentrated Acids</p>
+      </div>
+    </div>
+    <div class="three-col">
+      <div class="card card-accent-l card-red">
+        <div class="tag tag-red">গাঢ় HCl</div>
+        <p style="margin-bottom:8px;">তুলনামূলক কম পানিতে বেশি HCl গ্যাস দ্রবীভূত।</p>
+        <div class="eq">HCl + H₂O → HCl (গাঢ়)</div>
+        <p style="font-size:12px; color:var(--muted); margin-top:8px;">বোতল খুললে — হালকা কুয়াশা ও তীব্র ঝাঁঝালো গন্ধ। হাত/চোখে পড়লে ক্ষত হয়।</p>
+      </div>
+      <div class="card card-accent-l card-amber">
+        <div class="tag tag-amber">গাঢ় HNO₃</div>
+        <div class="eq">3NO₂ + H₂O → HNO₃</div>
+        <p style="font-size:12px; color:var(--muted); margin-top:8px;">বাদামী রঙের বোতলে রাখা হয় — কারণ আলো পড়লে বিয়োজন হয়।</p>
+        <div class="alert" style="font-size:12px; margin-top:6px;">তীব্র জারক পদার্থ। Cu-এর সাথে বিক্রিয়া করে।</div>
+      </div>
+      <div class="card card-accent-l card-red">
+        <div class="tag tag-red">গাঢ় H₂SO₄</div>
+        <div class="eq">SO₃ + H₂O → H₂SO₄</div>
+        <p style="font-size:12px; color:var(--muted); margin-top:8px;">সরাসরি পানি যোগ করলে বিস্ফোরণ হতে পারে! সর্বদা এসিডে পানি — কখনো পানিতে এসিড নয়।</p>
+        <div class="alert" style="font-size:12px; margin-top:6px;">Cu + গাঢ় H₂SO₄ → CuSO₄ + SO₂ + H₂O</div>
+      </div>
+    </div>
+    <div class="sec-div"></div>
+    <div class="card" style="background:rgba(255,107,107,0.06); border-color:rgba(255,107,107,0.2);">
+      <h3 style="color:var(--accent3); margin-bottom:10px;">⚠️ ক্ষয়কারী ধর্ম (Corrosive Properties)</h3>
+      <p style="font-size:13.5px;">তীব্র এসিড সম্পূর্ণ বিয়োজিত হওয়ায় দুর্বল এসিডের তুলনায় বেশি H⁺ সরবরাহ করে → বেশি বিদ্যুৎ পরিবহন করে। গাঢ় এসিড ও গাঢ় ক্ষার কাপড় ও শরীর ক্ষয় করে, চোখ ক্ষতিগ্রস্ত করে।</p>
+    </div>
+    <div class="slide-footer">
+      <span>Raktim Dey · EEE, AUST</span>
+      <span><span class="dot">●</span> এসিড ক্ষারক সমতা</span>
+      <span>07 / 18</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ SLIDE 8: NEUTRALIZATION -->
+<div class="slide-wrap">
+  <div class="slide-num-label">SLIDE 08 · প্রশমন বিক্রিয়া</div>
+  <div class="slide">
+    <div class="slide-header">
+      <div class="slide-icon icon-green">⚖️</div>
+      <div class="slide-header-text">
+        <h2>প্রশমন বিক্রিয়া</h2>
+        <p>Neutralization Reaction</p>
+      </div>
+    </div>
+    <div class="two-col">
+      <div>
+        <div class="card card-accent-l card-teal" style="margin-bottom:14px;">
+          <div class="tag tag-teal">সংজ্ঞা</div>
+          <p>যে বিক্রিয়ায় <strong style="color:var(--accent2)">এসিড + ক্ষার → লবণ + পানি</strong> উৎপন্ন হয়, তাকে প্রশমন বিক্রিয়া বলে।</p>
+          <div class="eq" style="margin-top:10px;">HCl + NaOH → NaCl + H₂O</div>
+        </div>
+        <div class="card card-accent-l" style="margin-bottom:14px;">
+          <div class="tag tag-purple">পরিপাক</div>
+          <p>পাকস্থলীতে অতিরিক্ত HCl → এসিডিটি → এন্টাসিড (Mg(OH)₂ বা Al(OH)₃) সেবনে প্রশমিত হয়।</p>
+          <div class="eq" style="font-size:11px; margin-top:6px;">HCl + Mg(OH)₂ → MgCl₂ + H₂O</div>
+        </div>
+        <div class="card card-accent-l card-amber">
+          <div class="tag tag-amber">দাঁতের যত্ন</div>
+          <p style="font-size:13px;">ব্যাকটেরিয়া → জৈব এসিড → দাঁতের এনামেল ক্ষয়। টুথপেস্ট (ক্ষারজাতীয়) প্রশমিত করে।</p>
+        </div>
+      </div>
+      <div>
+        <div class="card card-accent-l card-red" style="margin-bottom:14px;">
+          <div class="tag tag-red">কৃষিক্ষেত্রে</div>
+          <p style="font-size:13px;">মাটির অম্লতা কমাতে চুন (CaO) প্রয়োগ করা হয়। অতিরিক্ত ক্ষারীয় মাটিতে (NH₄)₂SO₄ সার দেওয়া হয়।</p>
+        </div>
+        <div class="card" style="margin-bottom:14px;">
+          <h3 style="margin-bottom:10px; color:var(--accent2);">লবণের প্রকৃতি</h3>
+          <table class="styled-table">
+            <tr><th>এসিড + ক্ষার</th><th>লবণের প্রকৃতি</th></tr>
+            <tr><td>তীব্র + তীব্র</td><td style="color:var(--accent2);">নিরপেক্ষ</td></tr>
+            <tr><td>তীব্র + মৃদু ক্ষার</td><td style="color:var(--accent3);">অম্লীয়</td></tr>
+            <tr><td>মৃদু + তীব্র ক্ষার</td><td style="color:var(--accent4);">ক্ষারীয়</td></tr>
+          </table>
+        </div>
+        <div class="alert-info alert">
+          📌 প্রশমন বিক্রিয়া একটি নন-রেডক্স বিক্রিয়া — জারণ সংখ্যার কোনো পরিবর্তন ঘটে না।
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Raktim Dey · EEE, AUST</span>
+      <span><span class="dot">●</span> এসিড ক্ষারক সমতা</span>
+      <span>08 / 18</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ SLIDE 9: pH CONCEPT -->
+<div class="slide-wrap">
+  <div class="slide-num-label">SLIDE 09 · pH এর ধারণা</div>
+  <div class="slide">
+    <div class="slide-header">
+      <div class="slide-icon icon-purple">📊</div>
+      <div class="slide-header-text">
+        <h2>pH এর ধারণা</h2>
+        <p>The Concept of pH</p>
+      </div>
+    </div>
+    <div class="two-col">
+      <div>
+        <div class="card card-accent-l" style="margin-bottom:16px;">
+          <div class="tag tag-purple">সংজ্ঞা</div>
+          <p>কোনো দ্রবণে উপস্থিত হাইড্রোজেন আয়নের (H⁺) মোলার ঘনমাত্রার ঋণাত্মক লগারিদমকে pH বলে।</p>
+          <div class="eq" style="margin-top:10px; font-size:16px;">pH = − log [H⁺]</div>
+          <div class="eq" style="margin-top:6px;">pOH + pH = 14</div>
+        </div>
+        <div class="card card-accent-l card-teal" style="margin-bottom:16px;">
+          <div class="tag tag-teal">pH পরিমাপের পদ্ধতি</div>
+          <ul>
+            <li>pH পেপার (Standard color chart)</li>
+            <li>ইউনিভার্সাল নির্দেশক</li>
+            <li>pH মিটার (Digital)</li>
+            <li>লিটমাস পেপার (সহজলভ্য)</li>
+          </ul>
+        </div>
+        <div class="card card-accent-l card-amber">
+          <div class="tag tag-amber">উদাহরণ</div>
+          <p>250 mL, 0.5 M NaOH এর pH নির্ণয়:</p>
+          <div class="eq" style="font-size:11px; margin-top:6px;">pOH = −log[0.5] = 0.301</div>
+          <div class="eq" style="font-size:11px;">pH = 14 − 0.301 = 13.698</div>
+        </div>
+      </div>
+      <div>
+        <div class="card" style="margin-bottom:14px;">
+          <h3 style="margin-bottom:12px; color:var(--accent4);">pH স্কেল</h3>
+          <div class="ph-section-label">
+            <span style="color:var(--accent3);">← অম্লীয়</span>
+            <span style="color:var(--accent2);">নিরপেক্ষ</span>
+            <span style="color:var(--accent1);">ক্ষারীয় →</span>
+          </div>
+          <div class="ph-bar"></div>
+          <div class="ph-labels">
+            <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span style="color:var(--heading);">7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span>
+          </div>
+        </div>
+        <div class="three-col" style="gap:10px;">
+          <div class="stat-card">
+            <div class="stat-val" style="color:var(--accent3);">0–7</div>
+            <div class="stat-label">এসিড</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-val" style="color:var(--accent2);">7</div>
+            <div class="stat-label">নিরপেক্ষ</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-val" style="color:var(--accent1);">7–14</div>
+            <div class="stat-label">ক্ষার</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Raktim Dey · EEE, AUST</span>
+      <span><span class="dot">●</span> এসিড ক্ষারক সমতা</span>
+      <span>09 / 18</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ SLIDE 10: pH IMPORTANCE -->
+<div class="slide-wrap">
+  <div class="slide-num-label">SLIDE 10 · pH এর গুরুত্ব</div>
+  <div class="slide">
+    <div class="slide-header">
+      <div class="slide-icon icon-green">🌿</div>
+      <div class="slide-header-text">
+        <h2>pH এর গুরুত্ব</h2>
+        <p>Importance of pH in Daily Life</p>
+      </div>
+    </div>
+    <div class="four-col">
+      <div class="card card-accent-l card-teal">
+        <div class="tag tag-teal">কৃষিক্ষেত্র</div>
+        <p style="font-size:13px;">মাটির আদর্শ pH: <strong style="color:var(--accent2);">6 ≤ pH ≤ 8</strong></p>
+        <p style="font-size:12px; color:var(--muted); margin-top:6px;">pH &lt; 3 বা &gt; 10 হলে উপকারী অণুজীব মরে যায়। চুন (CaO) বা সার দিয়ে নিয়ন্ত্রণ।</p>
+      </div>
+      <div class="card card-accent-l card-red">
+        <div class="tag tag-red">মানবদেহ</div>
+        <div style="display:flex; flex-direction:column; gap:6px; margin-top:4px;">
+          <div class="eq" style="font-size:11px;">রক্ত: 7.43 – 7.45</div>
+          <div class="eq" style="font-size:11px;">প্রস্রাব: ~6</div>
+          <div class="eq" style="font-size:11px;">ত্বক: 4.8 – 5.5</div>
+          <div class="eq" style="font-size:11px;">পাকস্থলী: 1.0 – 3.5</div>
+        </div>
+      </div>
+      <div class="card card-accent-l card-amber">
+        <div class="tag tag-amber">প্রসাধনী</div>
+        <p style="font-size:13px;">ত্বকের pH (4.8–5.5) অনুযায়ী প্রসাধনী ব্যবহার করা উচিত।</p>
+        <p style="font-size:12px; color:var(--muted); margin-top:6px;">pH বেড়ে গেলে নানা পার্শ্বপ্রতিক্রিয়া — ত্বক অম্লীয় প্রকৃতির।</p>
+      </div>
+      <div class="card card-accent-l">
+        <div class="tag tag-purple">পানি</div>
+        <p style="font-size:13px;">বিশুদ্ধ পানির pH = 7</p>
+        <p style="font-size:12px; color:var(--muted); margin-top:6px;">পানযোগ্য পানির আদর্শ সীমা: <strong style="color:var(--accent1);">4.5 ≤ pH ≤ 9.5</strong></p>
+        <p style="font-size:12px; color:var(--muted); margin-top:4px;">এর বাইরে গেলে জীবের জন্য প্রাণঘাতী।</p>
+      </div>
+    </div>
+    <div class="sec-div"></div>
+    <div class="card" style="background:rgba(0,212,170,0.05);">
+      <h3 style="color:var(--accent2); margin-bottom:10px;">মানবদেহে pH এর ভূমিকা</h3>
+      <div style="display:flex; gap:16px; flex-wrap:wrap;">
+        <div class="pill">🫀 হার্ট: 7.0–7.4</div>
+        <div class="pill">🧠 মস্তিষ্ক: 7.1</div>
+        <div class="pill">🫁 ফুসফুস: 7.35–7.45</div>
+        <div class="pill">🩸 ধমনীর রক্ত: 7.4–7.45</div>
+        <div class="pill">💧 পিত্ত: 7.8</div>
+        <div class="pill">🦴 হাড়: 7.4</div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Raktim Dey · EEE, AUST</span>
+      <span><span class="dot">●</span> এসিড ক্ষারক সমতা</span>
+      <span>10 / 18</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ SLIDE 11: WATER HARDNESS -->
+<div class="slide-wrap">
+  <div class="slide-num-label">SLIDE 11 · পানির খরতা</div>
+  <div class="slide">
+    <div class="slide-header">
+      <div class="slide-icon icon-blue">💧</div>
+      <div class="slide-header-text">
+        <h2>পানির খরতা</h2>
+        <p>Hardness of Water</p>
+      </div>
+    </div>
+    <div class="two-col">
+      <div>
+        <div class="card card-accent-l card-teal" style="margin-bottom:14px;">
+          <div class="tag tag-teal">সংজ্ঞা</div>
+          <p>পানিতে যে ধর্মের জন্য সাবান মেশালে সহজে ফেনা হয় না, তাকে <strong style="color:var(--accent2)">পানির খরতা</strong> বলে। কারণ: Ca²⁺, Mg²⁺, Fe²⁺ আয়ন সাবানের সাথে অদ্রবণীয় গাদ তৈরি করে।</p>
+        </div>
+        <div class="card card-accent-l card-amber" style="margin-bottom:14px;">
+          <div class="tag tag-amber">অস্থায়ী খরতা</div>
+          <p style="font-size:13px;">Ca²⁺, Mg²⁺, Fe²⁺ এর বাইকার্বোনেট লবণ দ্রবীভূত থাকলে। <strong style="color:var(--accent4)">দূরীকরণ: ফুটালে</strong> অদ্রবণীয় কার্বোনেট লবণ তলানিতে জমে।</p>
+          <div class="eq" style="font-size:11px; margin-top:6px;">Ca(HCO₃)₂ →(∆) CaCO₃↓ + CO₂ + H₂O</div>
+        </div>
+        <div class="card card-accent-l card-red">
+          <div class="tag tag-red">স্থায়ী খরতা</div>
+          <p style="font-size:13px;">Ca²⁺, Mg²⁺ এর ক্লোরাইড বা সালফেট লবণ দ্রবীভূত থাকলে। <strong style="color:var(--accent3)">দূরীকরণ: Na₂CO₃</strong> যোগ করলে অধঃক্ষেপ পড়ে।</p>
+          <div class="eq" style="font-size:11px; margin-top:6px;">CaCl₂ + Na₂CO₃ → CaCO₃↓ + 2NaCl</div>
+        </div>
+      </div>
+      <div>
+        <div class="card" style="margin-bottom:14px;">
+          <h3 style="margin-bottom:10px; color:var(--accent4);">খরতার তুলনা</h3>
+          <table class="styled-table">
+            <tr><th></th><th>অস্থায়ী</th><th>স্থায়ী</th></tr>
+            <tr><td>কারণ</td><td>বাইকার্বোনেট</td><td>ক্লোরাইড/সালফেট</td></tr>
+            <tr><td>দূরীকরণ</td><td>ফুটানো</td><td>Na₂CO₃ যোগ</td></tr>
+            <tr><td>পানির ধরন</td><td>নদী, বৃষ্টি</td><td>কূপ, ভূগর্ভ</td></tr>
+          </table>
+        </div>
+        <div class="card card-accent-l card-teal">
+          <div class="tag tag-teal">মৃদু পানি</div>
+          <p style="font-size:13px;">সাধারণত বদ্ধ জলাশয় — পুকুর, ডোবা ও বৃষ্টির পানি মৃদু হয় (লবণমুক্ত)।</p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Raktim Dey · EEE, AUST</span>
+      <span><span class="dot">●</span> এসিড ক্ষারক সমতা</span>
+      <span>11 / 18</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ SLIDE 12: ACID RAIN -->
+<div class="slide-wrap">
+  <div class="slide-num-label">SLIDE 12 · এসিড বৃষ্টি</div>
+  <div class="slide">
+    <div class="slide-header">
+      <div class="slide-icon icon-red">🌧️</div>
+      <div class="slide-header-text">
+        <h2>এসিড বৃষ্টি</h2>
+        <p>Acid Rain — Causes & Effects</p>
+      </div>
+    </div>
+    <div class="two-col">
+      <div>
+        <div class="card card-accent-l card-red" style="margin-bottom:14px;">
+          <div class="tag tag-red">সংজ্ঞা</div>
+          <p>বৃষ্টির পানির pH <strong style="color:var(--accent3)">4 বা তার কম</strong> হলে তাকে এসিড বৃষ্টি বলে।</p>
+        </div>
+        <div class="card card-accent-l card-amber" style="margin-bottom:14px;">
+          <div class="tag tag-amber">কারণ</div>
+          <div class="steps" style="gap:8px;">
+            <div class="step">
+              <div class="step-num">১</div>
+              <div class="step-content">
+                <p style="font-size:12.5px;">CO₂ + বৃষ্টির পানি → H₂CO₃ (কার্বনিক এসিড)</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">২</div>
+              <div class="step-content">
+                <p style="font-size:12.5px;">বজ্রপাতে N₂ + O₂ → NO → NO₂ → HNO₃</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">৩</div>
+              <div class="step-content">
+                <p style="font-size:12.5px;">কলকারখানা থেকে SO₂ → H₂SO₄ (সালফিউরাস/সালফিউরিক)</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">৪</div>
+              <div class="step-content">
+                <p style="font-size:12.5px;">ইটভাটা থেকে N/S যুক্ত কয়লা → অক্সাইড → বৃষ্টিতে</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="card card-accent-l card-red" style="margin-bottom:14px;">
+          <div class="tag tag-red">প্রধান বিক্রিয়া</div>
+          <div class="eq" style="font-size:11px;">H₂O + CO₂ → H₂CO₃(aq)</div>
+          <div class="eq" style="font-size:11px;">2NO₂ + H₂O → HNO₂ + HNO₃(aq)</div>
+          <div class="eq" style="font-size:11px;">SO₂ + H₂O → H₂SO₃ (সালফিউরাস)</div>
+          <div class="eq" style="font-size:11px;">SO₃ + H₂O → H₂SO₄</div>
+        </div>
+        <div class="card card-accent-l card-amber">
+          <div class="tag tag-amber">ক্ষতিকর প্রভাব</div>
+          <ul>
+            <li>মাটির pH কমে → গাছপালার ক্ষতি</li>
+            <li>জলাশয়ের pH কমে → জলজ প্রাণী হুমকিতে</li>
+            <li>দালানকোঠা, ধাতব স্থাপনা ক্ষতিগ্রস্ত</li>
+            <li>মার্বেল পাথরের ভাস্কর্য নষ্ট হয়</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Raktim Dey · EEE, AUST</span>
+      <span><span class="dot">●</span> এসিড ক্ষারক সমতা</span>
+      <span>12 / 18</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ SLIDE 13: WATER PURIFICATION -->
+<div class="slide-wrap">
+  <div class="slide-num-label">SLIDE 13 · পানির বিশুদ্ধতা</div>
+  <div class="slide">
+    <div class="slide-header">
+      <div class="slide-icon icon-teal">🧹</div>
+      <div class="slide-header-text">
+        <h2>পানির বিশুদ্ধতা ও বিশুদ্ধকরণ</h2>
+        <p>Water Purity Test & Purification Methods</p>
+      </div>
+    </div>
+    <div class="two-col">
+      <div>
+        <div class="card card-accent-l card-teal" style="margin-bottom:14px;">
+          <h3 style="margin-bottom:10px; color:var(--accent2);">বিশুদ্ধ পানির বৈশিষ্ট্য</h3>
+          <ul>
+            <li>বর্ণহীন ও গন্ধহীন তরল</li>
+            <li>তাপমাত্রা: গ্রীষ্মে 30–40°C</li>
+            <li>pH: 4.5 ≤ pH ≤ 9.5</li>
+            <li>কোনো তলানি নেই</li>
+          </ul>
+        </div>
+        <div class="card card-accent-l card-amber" style="margin-bottom:14px;">
+          <div class="tag tag-amber">BOD vs COD</div>
+          <table class="styled-table" style="margin-top:6px;">
+            <tr><th>BOD</th><th>COD</th></tr>
+            <tr><td>শুধু জৈব দূষণ ভাঙার O₂</td><td>জৈব + অজৈব উভয়</td></tr>
+            <tr><td>BOD মান কম</td><td>COD মান বেশি</td></tr>
+          </table>
+        </div>
+        <div class="card card-accent-l card-red">
+          <div class="tag tag-red">পানি দূষণের কারণ</div>
+          <ul>
+            <li>গৃহস্থলি বর্জ্য ও মলমূত্র</li>
+            <li>শিল্পকারখানার বর্জ্য ও ভারী ধাতু</li>
+            <li>হাসপাতালের বর্জ্য</li>
+            <li>ভূগর্ভস্থ পানিতে আর্সেনিক</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="card" style="margin-bottom:14px;">
+          <h3 style="margin-bottom:12px; color:var(--accent4);">পানি বিশুদ্ধকরণ পদ্ধতি</h3>
+          <div class="steps">
+            <div class="step">
+              <div class="step-num">১</div>
+              <div class="step-content">
+                <h4>ক্লোরিনেশন</h4>
+                <p>ব্লিচিং পাউডার যোগ → ক্লোরিন → জীবাণু ধ্বংস (সবচেয়ে সহজ পদ্ধতি)</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">২</div>
+              <div class="step-content">
+                <h4>ফুটানো (Boiling)</h4>
+                <p>কমপক্ষে কয়েক মিনিট ফুটালে জীবাণুমুক্ত হয়।</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">৩</div>
+              <div class="step-content">
+                <h4>থিতানো (Sedimentation)</h4>
+                <p>ফিটকিরি (K₂SO₄·Al₂(SO₄)₃·24H₂O) যোগ → আধা ঘণ্টা → অপদ্রব্য নিচে জমে।</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">৪</div>
+              <div class="step-content">
+                <h4>ছাঁকন (Filtration)</h4>
+                <p>ফিল্টার — জীবাণু, আর্সেনিক ও অন্যান্য দূষক দূর করে।</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Raktim Dey · EEE, AUST</span>
+      <span><span class="dot">●</span> এসিড ক্ষারক সমতা</span>
+      <span>13 / 18</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ SLIDE 14: SALT -->
+<div class="slide-wrap">
+  <div class="slide-num-label">SLIDE 14 · লবণ</div>
+  <div class="slide">
+    <div class="slide-header">
+      <div class="slide-icon icon-amber">🧂</div>
+      <div class="slide-header-text">
+        <h2>লবণ (Salt)</h2>
+        <p>Formation, Types & Properties</p>
+      </div>
+    </div>
+    <div class="two-col">
+      <div>
+        <div class="card card-accent-l card-amber" style="margin-bottom:14px;">
+          <div class="tag tag-amber">লবণ গঠন</div>
+          <p>এসিডের <strong style="color:var(--accent4)">ঋণাত্মক অম্লীয় মূলক (Acid radical)</strong> + ক্ষারকের <strong style="color:var(--accent2)">ধনাত্মক ক্ষারীয় মূলক (Basic radical)</strong> মিলে লবণ তৈরি করে।</p>
+          <div class="eq" style="margin-top:8px;">HCl + CaO → CaCl₂ + H₂O</div>
+          <p style="font-size:12px; color:var(--muted); margin-top:4px;">এখানে Cl⁻ (অম্লীয়) + Ca²⁺ (ক্ষারীয়) → CaCl₂ লবণ</p>
+        </div>
+        <div class="card card-accent-l">
+          <div class="tag tag-purple">লবণের প্রকৃতি নির্ধারণ</div>
+          <table class="styled-table" style="margin-top:6px;">
+            <tr><th>উৎস</th><th>উদাহরণ</th><th>প্রকৃতি</th></tr>
+            <tr><td>তীব্র + তীব্র</td><td>NaCl, Na₂SO₄</td><td style="color:var(--accent2);">নিরপেক্ষ</td></tr>
+            <tr><td>তীব্র + মৃদু ক্ষার</td><td>FeCl₃, Zn(NO₃)</td><td style="color:var(--accent3);">অম্লীয়</td></tr>
+            <tr><td>তীব্র ক্ষার + মৃদু</td><td>Na₂CO₃, CH₃COO⁻</td><td style="color:var(--accent4);">ক্ষারীয়</td></tr>
+          </table>
+        </div>
+      </div>
+      <div>
+        <div class="card card-accent-l card-teal" style="margin-bottom:14px;">
+          <div class="tag tag-teal">উদাহরণ</div>
+          <div class="steps" style="gap:8px;">
+            <div style="background:rgba(0,212,170,0.07); border-radius:8px; padding:8px 12px;">
+              <div class="eq" style="font-size:11px;">H₂SO₄ + NaOH → Na₂SO₄ + H₂O</div>
+              <p style="font-size:11px; color:var(--muted); margin-top:4px;">তীব্র এসিড + তীব্র ক্ষার → নিরপেক্ষ লবণ (pH=7)</p>
+            </div>
+            <div style="background:rgba(124,92,252,0.07); border-radius:8px; padding:8px 12px;">
+              <div class="eq" style="font-size:11px;">HCl + NH₄OH → NH₄Cl + H₂O</div>
+              <p style="font-size:11px; color:var(--muted); margin-top:4px;">তীব্র এসিড + মৃদু ক্ষার → অম্লীয় লবণ</p>
+            </div>
+            <div style="background:rgba(255,209,102,0.07); border-radius:8px; padding:8px 12px;">
+              <div class="eq" style="font-size:11px;">NaOH + H₂CO₃ → Na₂CO₃ + H₂O</div>
+              <p style="font-size:11px; color:var(--muted); margin-top:4px;">তীব্র ক্ষার + মৃদু এসিড → ক্ষারীয় লবণ</p>
+            </div>
+          </div>
+        </div>
+        <div class="alert-info alert">
+          📌 বেকিং পাউডার = সোডিয়াম বাইকার্বোনেট + টারটারিক এসিডের শুষ্ক মিশ্রণ
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Raktim Dey · EEE, AUST</span>
+      <span><span class="dot">●</span> এসিড ক্ষারক সমতা</span>
+      <span>14 / 18</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ SLIDE 15: WATER ROLE IN ACID-BASE -->
+<div class="slide-wrap">
+  <div class="slide-num-label">SLIDE 15 · পানির ভূমিকা</div>
+  <div class="slide">
+    <div class="slide-header">
+      <div class="slide-icon icon-blue">🌊</div>
+      <div class="slide-header-text">
+        <h2>এসিড-ক্ষারের রাসায়নিক ধর্মে পানির ভূমিকা</h2>
+        <p>Role of Water in Acid-Base Chemistry</p>
+      </div>
+    </div>
+    <div class="two-col">
+      <div>
+        <div class="card card-accent-l card-teal" style="margin-bottom:14px;">
+          <div class="tag tag-teal">এসিডের ক্ষেত্রে</div>
+          <p style="font-size:13px; margin-bottom:8px;">অনার্দ্র এসিডে কোনো H⁺ আয়ন নেই → নীল লিটমাস লাল করে না। কিন্তু পানিতে দ্রবীভূত হলে বিয়োজন ঘটে এবং H⁺ আয়ন দান করে।</p>
+          <div class="eq" style="font-size:11px;">সাইট্রিক এসিড (কঠিন) + পানি → সাইট্রিক এসিড(aq)</div>
+          <div class="eq" style="font-size:11px; margin-top:4px;">H₂SO₄(l) + H₂O → H₂SO₄(aq)</div>
+          <div class="eq" style="font-size:11px; margin-top:4px;">H₂SO₄(aq) → H⁺(aq) + SO₄²⁻</div>
+        </div>
+        <div class="card card-accent-l">
+          <div class="tag tag-purple">ক্ষারের ক্ষেত্রে</div>
+          <p style="font-size:13px; margin-bottom:8px;">ক্ষার পানিতে দ্রবীভূত হলে OH⁻ আয়ন উৎপন্ন হয়, যার উপর ক্ষারের বৈশিষ্ট্য নির্ভর করে।</p>
+          <div class="eq" style="font-size:11px;">NaOH → Na⁺(aq) + OH⁻</div>
+        </div>
+      </div>
+      <div>
+        <div class="card card-accent-l card-amber" style="margin-bottom:14px;">
+          <div class="tag tag-amber">গ্যাস্ট্রিক আলসার</div>
+          <p style="font-size:13px;">পাকস্থলীতে অতিরিক্ত HCl নিঃসৃত হলে পাকস্থলীর দেয়ালের কোষ ভেঙে ক্ষতের সৃষ্টি হয় → পেপটিক আলসার। দীর্ঘক্ষণ পাকস্থলী খালি রাখলেও হয়।</p>
+        </div>
+        <div class="card card-accent-l card-red">
+          <div class="tag tag-red">তীব্র বনাম দুর্বল এসিড</div>
+          <table class="styled-table" style="margin-top:6px;">
+            <tr><th>বৈশিষ্ট্য</th><th>তীব্র</th><th>দুর্বল</th></tr>
+            <tr><td>বিয়োজন</td><td>সম্পূর্ণ</td><td>আংশিক</td></tr>
+            <tr><td>H⁺ সরবরাহ</td><td>বেশি</td><td>কম</td></tr>
+            <tr><td>তীর চিহ্ন</td><td>→</td><td>⇌</td></tr>
+            <tr><td>বিদ্যুৎ পরিবহন</td><td>অধিক</td><td>কম</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Raktim Dey · EEE, AUST</span>
+      <span><span class="dot">●</span> এসিড ক্ষারক সমতা</span>
+      <span>15 / 18</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ SLIDE 16: QUICK REVISION -->
+<div class="slide-wrap">
+  <div class="slide-num-label">SLIDE 16 · দ্রুত পুনরাবৃত্তি</div>
+  <div class="slide">
+    <div class="slide-header">
+      <div class="slide-icon icon-amber">⚡</div>
+      <div class="slide-header-text">
+        <h2>দ্রুত পুনরাবৃত্তি — গুরুত্বপূর্ণ তথ্য</h2>
+        <p>Quick Revision — Important Facts</p>
+      </div>
+    </div>
+    <div class="three-col">
+      <div class="card card-accent-l card-teal" style="margin-bottom:14px;">
+        <h3 style="margin-bottom:8px; color:var(--accent2);">pH মান সমূহ</h3>
+        <ul>
+          <li>বিশুদ্ধ পানি: 7</li>
+          <li>রক্ত: 7.43–7.45</li>
+          <li>ত্বক: 4.8–5.5</li>
+          <li>প্রস্রাব: ~6</li>
+          <li>মাটি (আদর্শ): 6–8</li>
+          <li>এসিড বৃষ্টি: ≤ 4</li>
+        </ul>
+      </div>
+      <div class="card card-accent-l card-amber">
+        <h3 style="margin-bottom:8px; color:var(--accent4);">গুরুত্বপূর্ণ সংকেত</h3>
+        <ul>
+          <li>ফিটকিরি: K₂SO₄·Al₂(SO₄)₃·24H₂O</li>
+          <li>এন্টাসিড: Mg(OH)₂ / Al(OH)₃</li>
+          <li>সাবান: C₁₇H₃₅COONa</li>
+          <li>বেকিং পাউডার: NaHCO₃ + টারটারিক</li>
+        </ul>
+      </div>
+      <div class="card card-accent-l card-red">
+        <h3 style="margin-bottom:8px; color:var(--accent3);">অধঃক্ষেপের বর্ণ</h3>
+        <ul>
+          <li>Al(OH)₃ → সাদা</li>
+          <li>Fe(OH)₂ → সবুজ</li>
+          <li>Fe(OH)₃ → লালচে বাদামী</li>
+          <li>Cu(OH)₂ → হালকা নীল</li>
+          <li>Zn(OH)₂ → সাদা</li>
+          <li>CaCO₃ → সাদা তলানি</li>
+        </ul>
+      </div>
+    </div>
+    <div class="sec-div"></div>
+    <div class="three-col">
+      <div class="card" style="text-align:center;">
+        <div style="font-size:24px; color:var(--accent3); font-weight:700; font-family:monospace;">HCl, H₂SO₄, HNO₃</div>
+        <p style="font-size:12px; color:var(--muted); margin-top:4px;">তীব্র এসিড (Strong Acids)</p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div style="font-size:24px; color:var(--accent4); font-weight:700; font-family:monospace;">CH₃COOH, H₂CO₃</div>
+        <p style="font-size:12px; color:var(--muted); margin-top:4px;">দুর্বল এসিড (Weak Acids)</p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div style="font-size:24px; color:var(--accent2); font-weight:700; font-family:monospace;">NaOH, KOH, Ca(OH)₂</div>
+        <p style="font-size:12px; color:var(--muted); margin-top:4px;">তীব্র ক্ষার (Strong Alkalis)</p>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Raktim Dey · EEE, AUST</span>
+      <span><span class="dot">●</span> এসিড ক্ষারক সমতা</span>
+      <span>16 / 18</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ SLIDE 17: MCQ PRACTICE -->
+<div class="slide-wrap">
+  <div class="slide-num-label">SLIDE 17 · MCQ Practice</div>
+  <div class="slide">
+    <div class="slide-header">
+      <div class="slide-icon icon-purple">❓</div>
+      <div class="slide-header-text">
+        <h2>গুরুত্বপূর্ণ MCQ — বোর্ড প্রশ্ন</h2>
+        <p>Important Multiple Choice Questions</p>
+      </div>
+    </div>
+    <div class="two-col">
+      <div class="steps">
+        <div class="card card-accent-l" style="margin-bottom:10px;">
+          <p style="font-size:13px; font-weight:600; color:var(--heading); margin-bottom:6px;">Q1. কোনটি মৃদু এসিড?</p>
+          <div class="pill-row">
+            <div class="pill">HCl</div>
+            <div class="pill" style="background:rgba(0,212,170,0.15); border-color:var(--accent2); color:var(--accent2);">H₂CO₃ ✓</div>
+            <div class="pill">HNO₃</div>
+            <div class="pill">H₂SO₄</div>
+          </div>
+        </div>
+        <div class="card card-accent-l card-teal" style="margin-bottom:10px;">
+          <p style="font-size:13px; font-weight:600; color:var(--heading); margin-bottom:6px;">Q2. প্রশমন বিক্রিয়ায় pH এর মান?</p>
+          <div class="pill-row">
+            <div class="pill">pH = 8</div>
+            <div class="pill">pH > 7</div>
+            <div class="pill" style="background:rgba(0,212,170,0.15); border-color:var(--accent2); color:var(--accent2);">pH = 7 ✓</div>
+            <div class="pill">pH < 7</div>
+          </div>
+        </div>
+        <div class="card card-accent-l card-amber" style="margin-bottom:10px;">
+          <p style="font-size:13px; font-weight:600; color:var(--heading); margin-bottom:6px;">Q3. Fe(OH)₃ এর বর্ণ কীরূপ?</p>
+          <div class="pill-row">
+            <div class="pill">সাদা</div>
+            <div class="pill">সবুজ</div>
+            <div class="pill" style="background:rgba(255,107,107,0.15); border-color:var(--accent3); color:var(--accent3);">লালচে বাদামী ✓</div>
+            <div class="pill">নীল</div>
+          </div>
+        </div>
+        <div class="card card-accent-l card-red" style="margin-bottom:10px;">
+          <p style="font-size:13px; font-weight:600; color:var(--heading); margin-bottom:6px;">Q4. দেহ ত্বকের আদর্শ pH মান?</p>
+          <div class="pill-row">
+            <div class="pill" style="background:rgba(255,107,107,0.15); border-color:var(--accent3); color:var(--accent3);">5.5 ✓</div>
+            <div class="pill">6.5</div>
+            <div class="pill">7.45</div>
+            <div class="pill">8</div>
+          </div>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="card card-accent-l" style="margin-bottom:10px;">
+          <p style="font-size:13px; font-weight:600; color:var(--heading); margin-bottom:6px;">Q5. বজ্রপাতের কারণে কোন এসিড উৎপন্ন হয়?</p>
+          <div class="pill-row">
+            <div class="pill">H₂CO₃</div>
+            <div class="pill" style="background:rgba(0,212,170,0.15); border-color:var(--accent2); color:var(--accent2);">HNO₂ ✓</div>
+            <div class="pill">H₃PO₄</div>
+            <div class="pill">H₂SO₄</div>
+          </div>
+        </div>
+        <div class="card card-accent-l card-teal" style="margin-bottom:10px;">
+          <p style="font-size:13px; font-weight:600; color:var(--heading); margin-bottom:6px;">Q6. মানুষের রক্তের pH মান?</p>
+          <div class="pill-row">
+            <div class="pill">4–6</div>
+            <div class="pill">7.3–8.3</div>
+            <div class="pill" style="background:rgba(0,212,170,0.15); border-color:var(--accent2); color:var(--accent2);">7.43–7.45 ✓</div>
+            <div class="pill">5.55–6.55</div>
+          </div>
+        </div>
+        <div class="card card-accent-l card-amber" style="margin-bottom:10px;">
+          <p style="font-size:13px; font-weight:600; color:var(--heading); margin-bottom:6px;">Q7. ফিটকিরিতে কত অণু কেলাস পানি থাকে?</p>
+          <div class="pill-row">
+            <div class="pill">2</div>
+            <div class="pill">7</div>
+            <div class="pill">10</div>
+            <div class="pill" style="background:rgba(255,209,102,0.18); border-color:var(--accent4); color:var(--accent4);">24 ✓</div>
+          </div>
+        </div>
+        <div class="card card-accent-l card-red" style="margin-bottom:10px;">
+          <p style="font-size:13px; font-weight:600; color:var(--heading); margin-bottom:6px;">Q8. পানিতে CaSO₄ থাকলে কী হয়?</p>
+          <div class="pill-row">
+            <div class="pill" style="background:rgba(255,107,107,0.15); border-color:var(--accent3); color:var(--accent3);">স্থায়ী খরতা ✓</div>
+            <div class="pill">অস্থায়ী খরতা</div>
+            <div class="pill">pH কমে</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Raktim Dey · EEE, AUST</span>
+      <span><span class="dot">●</span> এসিড ক্ষারক সমতা</span>
+      <span>17 / 18</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ SLIDE 18: END -->
+<div class="slide-wrap">
+  <div class="slide-num-label">SLIDE 18 · সমাপ্তি</div>
+  <div class="slide slide-title-main" style="min-height:550px;">
+    <div class="chapter-badge" style="background:rgba(0,212,170,0.15); border-color:var(--accent2); color:var(--accent2);">অধ্যায় ৯ — সমাপ্ত</div>
+    <h1 style="font-size:40px; margin-bottom:10px;">ধন্যবাদ!</h1>
+    <p class="subtitle" style="margin-bottom:30px;">এসিড ক্ষারক সমতা — সম্পূর্ণ পাঠ শেষ</p>
+    <div class="divider"></div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin-bottom:30px; width:100%;">
+      <div class="stat-card">
+        <div class="stat-val">pH = 7</div>
+        <div class="stat-label">নিরপেক্ষ দ্রবণ</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val" style="color:var(--accent3);">pH &lt; 7</div>
+        <div class="stat-label">অম্লীয় দ্রবণ</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val" style="color:var(--accent1);">pH &gt; 7</div>
+        <div class="stat-label">ক্ষারীয় দ্রবণ</div>
+      </div>
+    </div>
+
+    <div class="author-box" style="margin-bottom:0;">
+      <div class="author-avatar">RD</div>
+      <div class="author-info">
+        <div class="name">Raktim Dey</div>
+        <div class="dept">EEE, AUST</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="nav-hint">রসায়ন · অধ্যায় ৯ · এসিড ক্ষারক সমতা &nbsp;|&nbsp; Prepared by Raktim Dey, EEE, AUST</div>
+
+</body>
+</html>
