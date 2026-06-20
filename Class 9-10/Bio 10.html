@@ -1,0 +1,2642 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>অধ্যায় ১০ - সমন্বয় | Raktim Dey</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Raleway:wght@400;600;700;800;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Hind Siliguri', sans-serif;
+    background: #1a1a2e;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 40px 20px;
+  }
+
+  .slide {
+    width: 297mm;
+    min-height: 210mm;
+    background: #ffffff;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    border-radius: 8px;
+    page-break-after: always;
+  }
+
+  /* ===== DECORATIVE ELEMENTS ===== */
+  .slide::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 8px;
+    background: linear-gradient(90deg, #1e3a5f, #2980b9, #27ae60, #f39c12, #e74c3c);
+  }
+
+  .slide-header {
+    background: linear-gradient(135deg, #1e3a5f 0%, #2c5282 50%, #1a365d 100%);
+    padding: 18px 35px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+
+  .slide-header::after {
+    content: '';
+    position: absolute;
+    bottom: -12px; left: 0; right: 0;
+    height: 12px;
+    background: linear-gradient(135deg, #2980b9 25%, transparent 25%) -20px 0,
+                linear-gradient(225deg, #2980b9 25%, transparent 25%) -20px 0,
+                linear-gradient(315deg, #2980b9 25%, transparent 25%),
+                linear-gradient(45deg, #2980b9 25%, transparent 25%);
+    background-size: 40px 12px;
+    background-color: transparent;
+    z-index: 10;
+  }
+
+  .header-title {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .header-chapter {
+    font-family: 'Raleway', sans-serif;
+    font-size: 11px;
+    color: #90cdf4;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .header-main {
+    font-family: 'Raleway', sans-serif;
+    font-size: 26px;
+    font-weight: 900;
+    color: #ffffff;
+    letter-spacing: 1px;
+  }
+
+  .header-sub {
+    font-size: 13px;
+    color: #bee3f8;
+    margin-top: 2px;
+  }
+
+  .author-badge {
+    background: rgba(255,255,255,0.12);
+    border: 1.5px solid rgba(255,255,255,0.3);
+    border-radius: 25px;
+    padding: 8px 18px;
+    text-align: right;
+    backdrop-filter: blur(5px);
+  }
+
+  .author-name {
+    font-family: 'Raleway', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #ffd700;
+    letter-spacing: 0.5px;
+  }
+
+  .author-dept {
+    font-size: 10px;
+    color: #bee3f8;
+    margin-top: 2px;
+  }
+
+  .slide-content {
+    padding: 28px 35px 20px;
+    margin-top: 10px;
+  }
+
+  /* ===== SECTION TITLE ===== */
+  .section-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #1e3a5f, #2980b9);
+    color: white;
+    padding: 8px 22px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 18px;
+    box-shadow: 0 4px 15px rgba(41,128,185,0.4);
+  }
+
+  .section-title::before {
+    content: '◆';
+    font-size: 10px;
+    color: #ffd700;
+  }
+
+  /* ===== DEFINITION BOX ===== */
+  .def-box {
+    background: linear-gradient(135deg, #ebf8ff, #dbeafe);
+    border-left: 5px solid #2980b9;
+    border-radius: 0 10px 10px 0;
+    padding: 12px 18px;
+    margin-bottom: 14px;
+    position: relative;
+  }
+
+  .def-box .def-label {
+    font-weight: 700;
+    color: #1e3a5f;
+    font-size: 14px;
+  }
+
+  .def-box .def-label span {
+    color: #e74c3c;
+  }
+
+  .def-box p {
+    font-size: 13px;
+    color: #2d3748;
+    line-height: 1.6;
+    margin-top: 3px;
+  }
+
+  /* ===== HORMONE CARDS ===== */
+  .hormone-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 12px;
+  }
+
+  .hormone-card {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  }
+
+  .hormone-card-header {
+    padding: 10px 15px;
+    font-weight: 700;
+    font-size: 14px;
+    color: white;
+    text-align: center;
+    letter-spacing: 0.5px;
+  }
+
+  .hc-green .hormone-card-header { background: linear-gradient(135deg, #27ae60, #229954); }
+  .hc-blue .hormone-card-header { background: linear-gradient(135deg, #2980b9, #1a6fa8); }
+  .hc-purple .hormone-card-header { background: linear-gradient(135deg, #8e44ad, #7d3c98); }
+  .hc-orange .hormone-card-header { background: linear-gradient(135deg, #e67e22, #ca6f1e); }
+  .hc-red .hormone-card-header { background: linear-gradient(135deg, #e74c3c, #c0392b); }
+
+  .hormone-card-body {
+    background: #f8fafc;
+    padding: 10px 14px;
+    border: 1.5px solid #e2e8f0;
+    border-top: none;
+    border-radius: 0 0 12px 12px;
+  }
+
+  .hormone-card-body li {
+    font-size: 11.5px;
+    color: #2d3748;
+    line-height: 1.7;
+    padding-left: 5px;
+    list-style: none;
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .hormone-card-body li::before {
+    content: '✓';
+    color: #27ae60;
+    font-weight: 700;
+    font-size: 11px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .sub-info {
+    font-size: 11px;
+    color: #718096;
+    font-style: italic;
+    margin-top: 4px;
+    padding: 4px 8px;
+    background: rgba(41,128,185,0.08);
+    border-radius: 5px;
+  }
+
+  /* ===== TWO COLUMN LAYOUT ===== */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 4px;
+  }
+
+  .three-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+  }
+
+  /* ===== INFO CARDS ===== */
+  .info-card {
+    background: #f7fafc;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 14px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .info-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    border-radius: 10px 0 0 10px;
+  }
+
+  .ic-green::before { background: #27ae60; }
+  .ic-blue::before { background: #2980b9; }
+  .ic-purple::before { background: #8e44ad; }
+  .ic-orange::before { background: #e67e22; }
+  .ic-red::before { background: #e74c3c; }
+  .ic-teal::before { background: #16a085; }
+
+  .info-card-title {
+    font-weight: 700;
+    font-size: 13px;
+    color: #1e3a5f;
+    margin-bottom: 8px;
+    padding-left: 8px;
+  }
+
+  .info-card ul li {
+    font-size: 11.5px;
+    color: #4a5568;
+    line-height: 1.65;
+    list-style: none;
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    padding-left: 8px;
+  }
+
+  .info-card ul li::before {
+    content: '▸';
+    color: #2980b9;
+    font-size: 10px;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  /* ===== HIGHLIGHT BOX ===== */
+  .highlight-box {
+    background: linear-gradient(135deg, #fff5f5, #fed7d7);
+    border: 1.5px solid #fc8181;
+    border-radius: 10px;
+    padding: 10px 16px;
+    margin-top: 10px;
+  }
+
+  .highlight-box .hl-title {
+    font-weight: 700;
+    color: #c53030;
+    font-size: 13px;
+    margin-bottom: 4px;
+  }
+
+  .highlight-box p, .highlight-box li {
+    font-size: 11.5px;
+    color: #742a2a;
+    line-height: 1.6;
+  }
+
+  /* ===== TAG BADGE ===== */
+  .tag {
+    display: inline-block;
+    background: linear-gradient(135deg, #2980b9, #1a6fa8);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+  }
+
+  .tag-green { background: linear-gradient(135deg, #27ae60, #229954); }
+  .tag-purple { background: linear-gradient(135deg, #8e44ad, #7d3c98); }
+  .tag-orange { background: linear-gradient(135deg, #e67e22, #ca6f1e); }
+  .tag-red { background: linear-gradient(135deg, #e74c3c, #c0392b); }
+
+  /* ===== BULLET LIST ===== */
+  .bullet-list li {
+    font-size: 12px;
+    color: #2d3748;
+    line-height: 1.7;
+    list-style: none;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 2px 0;
+  }
+
+  .bullet-list li::before {
+    content: '●';
+    color: #2980b9;
+    font-size: 8px;
+    flex-shrink: 0;
+    margin-top: 5px;
+  }
+
+  /* ===== BRAIN DIAGRAM REPLACEMENT ===== */
+  .brain-diagram {
+    background: linear-gradient(135deg, #ebf8ff, #dbeafe);
+    border: 2px solid #90cdf4;
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .brain-svg-container {
+    display: flex;
+    justify-content: center;
+    margin: 8px 0;
+  }
+
+  .brain-label-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    margin-top: 10px;
+  }
+
+  .brain-label {
+    background: white;
+    border: 1.5px solid #bee3f8;
+    border-radius: 8px;
+    padding: 5px 10px;
+    font-size: 11px;
+    color: #1e3a5f;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .brain-label::before {
+    content: '';
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .bl-1::before { background: #e74c3c; }
+  .bl-2::before { background: #2980b9; }
+  .bl-3::before { background: #27ae60; }
+  .bl-4::before { background: #f39c12; }
+  .bl-5::before { background: #8e44ad; }
+  .bl-6::before { background: #16a085; }
+  .bl-7::before { background: #e67e22; }
+  .bl-8::before { background: #c0392b; }
+
+  /* ===== NEURON DIAGRAM ===== */
+  .neuron-labels {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
+    margin-top: 8px;
+  }
+
+  .neuron-label {
+    background: white;
+    border: 1.5px solid #c6f6d5;
+    border-radius: 6px;
+    padding: 4px 12px;
+    font-size: 11px;
+    color: #276749;
+    font-weight: 600;
+  }
+
+  /* ===== FOOTER ===== */
+  .slide-footer {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(135deg, #1e3a5f, #2c5282);
+    padding: 7px 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-text {
+    font-size: 10px;
+    color: #bee3f8;
+    font-family: 'Raleway', sans-serif;
+    letter-spacing: 0.5px;
+  }
+
+  .footer-author {
+    font-size: 10px;
+    color: #ffd700;
+    font-weight: 700;
+    font-family: 'Raleway', sans-serif;
+  }
+
+  .slide-number {
+    background: rgba(255,255,255,0.15);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 10px;
+    font-family: 'Raleway', sans-serif;
+  }
+
+  /* ===== COVER SLIDE ===== */
+  .cover-slide {
+    background: linear-gradient(135deg, #1e3a5f 0%, #2c5282 40%, #1a365d 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 210mm;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover-slide::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 300px; height: 300px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 50%;
+  }
+
+  .cover-slide::after {
+    content: '';
+    position: absolute;
+    bottom: -100px; left: -60px;
+    width: 350px; height: 350px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 50%;
+  }
+
+  .cover-deco-top {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 8px;
+    background: linear-gradient(90deg, #e74c3c, #f39c12, #27ae60, #2980b9, #8e44ad);
+  }
+
+  .cover-deco-bottom {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 8px;
+    background: linear-gradient(90deg, #8e44ad, #2980b9, #27ae60, #f39c12, #e74c3c);
+  }
+
+  .cover-chapter-badge {
+    background: rgba(255,255,255,0.1);
+    border: 2px solid rgba(255,255,255,0.2);
+    color: #90cdf4;
+    font-family: 'Raleway', sans-serif;
+    font-size: 13px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    padding: 8px 24px;
+    border-radius: 30px;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+
+  .cover-title {
+    font-family: 'Raleway', sans-serif;
+    font-size: 60px;
+    font-weight: 900;
+    color: #ffffff;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+
+  .cover-subtitle {
+    font-size: 15px;
+    color: #bee3f8;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+  }
+
+  .cover-divider {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #ffd700, #f39c12);
+    border-radius: 3px;
+    margin: 0 auto 30px;
+  }
+
+  .cover-topics {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 700px;
+  }
+
+  .cover-topic-badge {
+    background: rgba(255,255,255,0.1);
+    border: 1.5px solid rgba(255,255,255,0.2);
+    color: white;
+    font-size: 12px;
+    padding: 7px 16px;
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+  }
+
+  .cover-author-section {
+    background: rgba(255,255,255,0.08);
+    border: 1.5px solid rgba(255,215,0,0.4);
+    border-radius: 15px;
+    padding: 16px 40px;
+    text-align: center;
+  }
+
+  .cover-author-name {
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: #ffd700;
+    letter-spacing: 1px;
+  }
+
+  .cover-author-dept {
+    font-size: 13px;
+    color: #bee3f8;
+    margin-top: 4px;
+    letter-spacing: 0.5px;
+  }
+
+  /* ===== MOVEMENT TYPE BOXES ===== */
+  .movement-box {
+    background: white;
+    border-radius: 10px;
+    border: 1.5px solid #e2e8f0;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.07);
+  }
+
+  .mb-header {
+    padding: 9px 15px;
+    font-weight: 700;
+    font-size: 13px;
+    color: white;
+  }
+
+  .mb-body {
+    padding: 10px 14px;
+  }
+
+  .mb-body p {
+    font-size: 11.5px;
+    color: #4a5568;
+    line-height: 1.65;
+  }
+
+  /* ===== PLANT TYPE TABLE ===== */
+  .plant-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 6px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  }
+
+  .plant-table th {
+    background: linear-gradient(135deg, #1e3a5f, #2980b9);
+    color: white;
+    padding: 10px 14px;
+    font-size: 12px;
+    text-align: left;
+    font-weight: 700;
+  }
+
+  .plant-table td {
+    padding: 9px 14px;
+    font-size: 11.5px;
+    color: #2d3748;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .plant-table tr:nth-child(even) td { background: #f7fafc; }
+  .plant-table tr:nth-child(odd) td { background: #ffffff; }
+  .plant-table tr:last-child td { border-bottom: none; }
+
+  /* ===== GLAND CARD ===== */
+  .gland-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .gland-card {
+    background: white;
+    border-radius: 10px;
+    border: 1.5px solid #e2e8f0;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+  }
+
+  .gland-header {
+    padding: 9px 14px;
+    color: white;
+    font-weight: 700;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .gland-body {
+    padding: 10px 14px;
+  }
+
+  .gland-info {
+    display: flex;
+    gap: 6px;
+    align-items: flex-start;
+    margin-bottom: 4px;
+  }
+
+  .gland-info-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: #1e3a5f;
+    background: #ebf8ff;
+    padding: 2px 7px;
+    border-radius: 10px;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  .gland-info-text {
+    font-size: 11px;
+    color: #4a5568;
+    line-height: 1.5;
+  }
+
+  .gland-body ul li {
+    font-size: 11px;
+    color: #4a5568;
+    line-height: 1.65;
+    list-style: none;
+    display: flex;
+    gap: 5px;
+    align-items: flex-start;
+  }
+
+  .gland-body ul li::before {
+    content: '✓';
+    color: #27ae60;
+    font-weight: 700;
+    font-size: 10px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* ===== DISEASE CARD ===== */
+  .disease-card {
+    background: white;
+    border-radius: 12px;
+    border: 1.5px solid #e2e8f0;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    margin-bottom: 14px;
+  }
+
+  .disease-header {
+    padding: 11px 18px;
+    color: white;
+    font-weight: 700;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .disease-body {
+    padding: 14px 18px;
+  }
+
+  .symptom-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    margin-top: 8px;
+  }
+
+  .symptom-item {
+    background: #fff5f5;
+    border: 1px solid #fed7d7;
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-size: 11px;
+    color: #742a2a;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .symptom-item::before {
+    content: '⚠';
+    font-size: 10px;
+    color: #e53e3e;
+  }
+
+  .note-box {
+    background: linear-gradient(135deg, #fffbeb, #fef3c7);
+    border: 1.5px solid #fcd34d;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-top: 10px;
+  }
+
+  .note-box .note-title {
+    font-weight: 700;
+    color: #92400e;
+    font-size: 12px;
+    margin-bottom: 4px;
+  }
+
+  .note-box p {
+    font-size: 11px;
+    color: #78350f;
+    line-height: 1.6;
+  }
+
+  /* ===== SEPARATOR ===== */
+  .section-sep {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #2980b9, transparent);
+    margin: 14px 0;
+    opacity: 0.3;
+  }
+
+  /* ===== SPINAL CORD LABELS ===== */
+  .spinal-label-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    margin-top: 8px;
+  }
+
+  .reflex-box {
+    background: linear-gradient(135deg, #f0fff4, #c6f6d5);
+    border: 1.5px solid #68d391;
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin-top: 12px;
+  }
+
+  .reflex-box .rb-title {
+    font-weight: 700;
+    color: #276749;
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+
+  .reflex-box p {
+    font-size: 12px;
+    color: #22543d;
+    line-height: 1.65;
+  }
+
+  /* responsive */
+  @media (max-width: 1000px) {
+    .slide { width: 98vw; }
+  }
+
+  /* ===== DIAGRAM PLACEHOLDER ===== */
+  .diagram-placeholder {
+    background: linear-gradient(135deg, #f0f4f8, #e8edf5);
+    border: 2px dashed #90afc5;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+    text-align: center;
+  }
+
+  .dp-icon {
+    font-size: 36px;
+    margin-bottom: 6px;
+  }
+
+  .dp-title {
+    font-weight: 700;
+    color: #1e3a5f;
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+
+  /* ===== NERVOUS SYSTEM FLOW ===== */
+  .ns-flow {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .ns-flow-item {
+    background: white;
+    border: 1.5px solid #90cdf4;
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #1e3a5f;
+    text-align: center;
+  }
+
+  .ns-arrow {
+    color: #2980b9;
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  /* ===== PARTS LIST ===== */
+  .parts-container {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+  }
+
+  .parts-box {
+    flex: 1;
+    background: white;
+    border-radius: 10px;
+    border: 1.5px solid #e2e8f0;
+    padding: 12px 14px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+
+  .pb-number {
+    display: inline-block;
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    color: white;
+    font-weight: 700;
+    font-size: 12px;
+    text-align: center;
+    line-height: 24px;
+    margin-bottom: 6px;
+  }
+
+  .pb-n1 { background: #e74c3c; }
+  .pb-n2 { background: #2980b9; }
+  .pb-n3 { background: #27ae60; }
+
+  .pb-title {
+    font-weight: 700;
+    color: #1e3a5f;
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- SLIDE 1: COVER -->
+<!-- ============================================================ -->
+<div class="slide">
+  <div class="cover-slide">
+    <div class="cover-deco-top"></div>
+    <div class="cover-deco-bottom"></div>
+
+    <div class="cover-chapter-badge">এসএসসি · জীববিজ্ঞান · অধ্যায় ১০</div>
+
+    <div class="cover-title">সমন্বয়</div>
+    <div class="cover-subtitle">Coordination — হরমোন · স্নায়ুতন্ত্র · চলন · বৃদ্ধি</div>
+    <div class="cover-divider"></div>
+
+    <div class="cover-topics">
+      <span class="cover-topic-badge">🌿 ফাইটোহরমোন</span>
+      <span class="cover-topic-badge">🧠 কেন্দ্রীয় স্নায়ুতন্ত্র</span>
+      <span class="cover-topic-badge">⚡ নিউরন</span>
+      <span class="cover-topic-badge">🔄 প্রতিবর্তী ক্রিয়া</span>
+      <span class="cover-topic-badge">💉 মানব হরমোন</span>
+      <span class="cover-topic-badge">🏥 হরমোনজনিত রোগ</span>
+    </div>
+
+    <div class="cover-author-section">
+      <div class="cover-author-name">Raktim Dey</div>
+      <div class="cover-author-dept">EEE, Ahsanullah University of Science & Technology (AUST)</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 2: HORMONE & PHYTOHORMONE INTRO -->
+<!-- ============================================================ -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="header-title">
+      <span class="header-chapter">অধ্যায় ১০ · সমন্বয়</span>
+      <span class="header-main">হরমোন ও ফাইটোহরমোন</span>
+      <span class="header-sub">Hormone & Phytohormone</span>
+    </div>
+    <div class="author-badge">
+      <div class="author-name">Raktim Dey</div>
+      <div class="author-dept">EEE, AUST</div>
+    </div>
+  </div>
+
+  <div class="slide-content">
+    <div class="two-col" style="margin-top:0;">
+      <div>
+        <div class="def-box">
+          <div class="def-label"><span>হরমোন</span> কী?</div>
+          <p>যে রাসায়নিক বস্তু কোষে উৎপন্ন হয় এবং উৎপত্তিস্থল থেকে বাহিত হয়ে দূরবর্তী স্থানের কোষ বা কোষপুঞ্জের কার্যাবলী নিয়ন্ত্রণ করে, তাকে <strong>হরমোন</strong> বলে।</p>
+        </div>
+
+        <div class="def-box" style="background: linear-gradient(135deg,#f0fff4,#c6f6d5); border-color:#27ae60;">
+          <div class="def-label" style="color:#276749;"><span style="color:#27ae60;">ফাইটোহরমোন</span> কী?</div>
+          <p style="color:#22543d;">উদ্ভিদ হরমোনকে <strong>ফাইটোহরমোন</strong> বলে।</p>
+          <div class="sub-info" style="background:rgba(39,174,96,0.08); color:#276749;">উদাহরণ: অক্সিন · জিবেরেলিন · সাইটোকাইনিন · অ্যাবসিসিক এসিড · ইথিলিন</div>
+        </div>
+
+        <div style="margin-top:12px;">
+          <div class="section-title" style="font-size:13px; margin-bottom:10px;">🌱 উদ্ভিদ হরমোনসমূহের বৈশিষ্ট্য</div>
+
+          <div class="hormone-card hc-green" style="margin-bottom:10px;">
+            <div class="hormone-card-header">অক্সিন <span style="font-size:11px; opacity:0.8;">· আবিষ্কারক: চার্লস ডারউইন</span></div>
+            <div class="hormone-card-body">
+              <ul>
+                <li>শাখা কলমে মূল গজায়</li>
+                <li>ফলের অকালে ঝরে পড়া রোধ করে</li>
+                <li>অভিস্রবন ও শ্বসন ক্রিয়ার হার বৃদ্ধি ঘটায়</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div>
+        <div class="hormone-card hc-blue" style="margin-bottom:10px;">
+          <div class="hormone-card-header">জিবেরেলিন</div>
+          <div class="hormone-card-body">
+            <ul>
+              <li>কান্ডের অতি বৃদ্ধি ঘটায়</li>
+              <li>বীজের সুপ্তাবস্থা ও দৈর্ঘ্য কমায়</li>
+              <li>অঙ্কুরোদগমে কার্যকারিতা রয়েছে</li>
+              <li>পর্বমধ্য গুলো দৈর্ঘ্যে বৃদ্ধি পায়</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="hormone-card hc-purple" style="margin-bottom:10px;">
+          <div class="hormone-card-header">সাইটোকাইনিন</div>
+          <div class="hormone-card-body">
+            <ul>
+              <li>কোষের বৃদ্ধি ঘটায়</li>
+              <li>অঙ্গের বিকাশ সাধন করে</li>
+              <li>বীজ ও অঙ্গের সুপ্তাবস্থা ভঙ্গ করে</li>
+              <li>বার্ধক্য বিলম্বিত করতে সাহায্য করে</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="hormone-card hc-orange">
+          <div class="hormone-card-header">ইথিলিন <span style="font-size:11px; opacity:0.8;">· গ্যাসীয় পদার্থ</span></div>
+          <div class="hormone-card-body">
+            <ul>
+              <li>বীজ ও মুকুলের সুপ্তাবস্থা ভঙ্গ করে</li>
+              <li>চারা গাছের কান্ডের বৃদ্ধি ঘটিয়ে লম্বা হতে সাহায্য করে</li>
+              <li>ফুল ও ফল সৃষ্টির সূচনা করে</li>
+              <li>পাতা, ফুল ও ফলের ঝরে পড়া ত্বরান্বিত করে</li>
+              <li>কৃত্রিম উপায়ে ফল পাকাতে ব্যবহার হয়</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <span class="footer-text">SSC Biology · Chapter 10 · Coordination</span>
+    <span class="footer-author">Raktim Dey | EEE, AUST</span>
+    <span class="slide-number">02</span>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 3: PLANT GROWTH & MOVEMENT -->
+<!-- ============================================================ -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="header-title">
+      <span class="header-chapter">অধ্যায় ১০ · সমন্বয়</span>
+      <span class="header-main">উদ্ভিদের বৃদ্ধি ও চলন</span>
+      <span class="header-sub">Plant Growth & Movement</span>
+    </div>
+    <div class="author-badge">
+      <div class="author-name">Raktim Dey</div>
+      <div class="author-dept">EEE, AUST</div>
+    </div>
+  </div>
+
+  <div class="slide-content">
+    <div class="two-col">
+      <div>
+        <div class="section-title" style="font-size:13px;">🌱 বৃদ্ধি (Growth)</div>
+        <div class="info-card ic-blue" style="margin-bottom:12px;">
+          <p style="font-size:12px; color:#2d3748; line-height:1.65; padding-left:8px;">উদ্ভিদের বিভিন্ন অঙ্গ বিকাশে <strong>আলো ও উষ্ণতার</strong> প্রভাব লক্ষণীয়। আলোর উপস্থিতিতে অক্সিন হরমোন নিষ্ক্রিয় হয়ে যায়, ফলে অন্ধকারের দিকে অক্সিনের ঘনত্ব বাড়ে। এজন্য উদ্ভিদ আলোর দিকে বেঁকে বৃদ্ধি পায়।</p>
+        </div>
+
+        <div class="info-card ic-teal" style="margin-bottom:12px;">
+          <div class="info-card-title">⚖️ অভিকর্ষ উপলব্ধি (Geoperception)</div>
+          <p style="font-size:11.5px; color:#2d3748; padding-left:8px; line-height:1.65;">ভ্রূণমূল বা ভ্রূণকাণ্ডের অগ্রাংশ অভিকর্ষের উদ্দীপনা অনুভব করতে পারে। অভিকর্ষণের ফলে কোষের উপাদানগুলো নিচের দিকে স্থানান্তরিত হয়, এদের চাপ পড়ে পার্শ্বীয় কোষের প্রাচীরে — ফলে <strong>অভিকর্ষণীয় চলন</strong> দেখা যায়।</p>
+        </div>
+
+        <div class="info-card ic-orange">
+          <div class="info-card-title">🌸 ভার্নালাইজেশন (Vernalization)</div>
+          <p style="font-size:11.5px; color:#2d3748; padding-left:8px; line-height:1.65;">শৈত্য প্রদানের মাধ্যমে উদ্ভিদের ফুল ধারণ ত্বরান্বিত করার প্রক্রিয়াকে <strong>ভার্নালাইজেশন</strong> বলে। বীজ রোপণের পূর্বে ২°–৫° সেলসিয়াস উষ্ণতা প্রয়োগ করলে স্বাভাবিক পুষ্প প্রস্ফুটন ঘটে।</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-title" style="font-size:13px;">🔄 চলন (Movement)</div>
+
+        <div style="margin-bottom:10px;">
+          <span class="tag">সামগ্রিক চলন</span>
+          <div class="info-card ic-green" style="margin-top:4px;">
+            <p style="font-size:11.5px; color:#2d3748; padding-left:8px; line-height:1.65;">উদ্ভিদদেহের কোনো অংশ যখন এক স্থান থেকে অন্য স্থানে যায়। যেমন: ছত্রাক ও উন্নত শ্রেণির উদ্ভিদের যৌনজনন কোষ (Gametes), Volvox, Chlamydomonas ও ডায়াটম শৈবালে।</p>
+          </div>
+        </div>
+
+        <div style="margin-bottom:10px;">
+          <span class="tag tag-purple">বক্রচলন</span>
+          <div class="info-card ic-purple" style="margin-top:4px;">
+            <p style="font-size:11.5px; color:#2d3748; padding-left:8px; line-height:1.65;">মাটিতে আবদ্ধ উন্নতশ্রেণির উদ্ভিদের অঙ্গগুলো নানাভাবে বেঁকে যায়। যেমন: কাণ্ডের আলোকমুখী চলন, মূলের অন্ধকারমুখী চলন।</p>
+          </div>
+        </div>
+
+        <div class="section-title" style="font-size:13px; margin-top:4px;">☀️ ফটোট্রপিজম</div>
+
+        <div class="two-col" style="gap:8px;">
+          <div class="info-card ic-green">
+            <div class="info-card-title" style="color:#276749;">✅ পজিটিভ</div>
+            <p style="font-size:11px; color:#22543d; padding-left:8px;">কাণ্ডের <strong>আলোর দিকে</strong> চলন — পজিটিভ ফটোট্রপিজম</p>
+          </div>
+          <div class="info-card ic-red">
+            <div class="info-card-title" style="color:#c53030;">❌ নেগেটিভ</div>
+            <p style="font-size:11px; color:#742a2a; padding-left:8px;">মূলের <strong>আলোর বিপরীত দিকে</strong> চলন — নেগেটিভ ফটোট্রপিজম</p>
+          </div>
+        </div>
+
+        <div class="section-sep"></div>
+
+        <table class="plant-table">
+          <thead>
+            <tr>
+              <th>উদ্ভিদের ধরন</th>
+              <th>আলো প্রয়োজন</th>
+              <th>উদাহরণ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ছোটদিনের উদ্ভিদ</td>
+              <td>৪–১২ ঘণ্টা</td>
+              <td>চন্দ্রমল্লিকা, ডালিয়া</td>
+            </tr>
+            <tr>
+              <td>বড়দিনের উদ্ভিদ</td>
+              <td>১২–১৬ ঘণ্টা</td>
+              <td>লেটুস, ঝিঙা</td>
+            </tr>
+            <tr>
+              <td>আলোক নিরপেক্ষ উদ্ভিদ</td>
+              <td>কোনো প্রভাব নেই</td>
+              <td>শসা, সূর্যমুখী</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <span class="footer-text">SSC Biology · Chapter 10 · Coordination</span>
+    <span class="footer-author">Raktim Dey | EEE, AUST</span>
+    <span class="slide-number">03</span>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 4: CENTRAL NERVOUS SYSTEM + BRAIN DIAGRAM -->
+<!-- ============================================================ -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="header-title">
+      <span class="header-chapter">অধ্যায় ১০ · সমন্বয়</span>
+      <span class="header-main">কেন্দ্রীয় স্নায়ুতন্ত্র ও মস্তিষ্ক</span>
+      <span class="header-sub">Central Nervous System & Brain</span>
+    </div>
+    <div class="author-badge">
+      <div class="author-name">Raktim Dey</div>
+      <div class="author-dept">EEE, AUST</div>
+    </div>
+  </div>
+
+  <div class="slide-content">
+
+    <div class="def-box" style="margin-bottom:14px;">
+      <div class="def-label"><span>মস্তিষ্ক</span> — সংজ্ঞা</div>
+      <p>সুষুম্নাকাণ্ডের শীর্ষে কেন্দ্রীয় স্নায়ুতন্ত্রের যে স্ফীত অংশ করোটিকার মধ্যে অবস্থান করে তাকে <strong>মস্তিষ্ক</strong> বলে। মস্তিষ্ক তিনটি অংশে বিভক্ত: অগ্র, মধ্য ও পশ্চাৎমস্তিষ্ক।</p>
+    </div>
+
+    <!-- Brain diagram simplified -->
+    <div class="brain-diagram" style="margin-bottom:14px;">
+      <div style="font-weight:700; color:#1e3a5f; font-size:14px; margin-bottom:10px;">🧠 মস্তিষ্কের চিত্র ও গঠন</div>
+      <!-- SVG Brain illustration -->
+      <svg width="420" height="140" viewBox="0 0 420 140" style="display:block; margin:0 auto;">
+        <!-- skull outline -->
+        <ellipse cx="210" cy="65" rx="190" ry="55" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+        <!-- cerebrum -->
+        <ellipse cx="170" cy="55" rx="120" ry="40" fill="#bfdbfe" stroke="#3b82f6" stroke-width="1.5"/>
+        <text x="170" y="52" text-anchor="middle" font-size="11" fill="#1e3a5f" font-weight="700">সেরিব্রাম</text>
+        <text x="170" y="66" text-anchor="middle" font-size="9" fill="#1e40af">(Cerebrum)</text>
+        <!-- cerebellum -->
+        <ellipse cx="330" cy="80" rx="55" ry="38" fill="#bbf7d0" stroke="#22c55e" stroke-width="1.5"/>
+        <text x="330" y="78" text-anchor="middle" font-size="11" fill="#166534" font-weight="700">সেরিবেলাম</text>
+        <text x="330" y="92" text-anchor="middle" font-size="9" fill="#166534">(Cerebellum)</text>
+        <!-- brain stem -->
+        <rect x="280" y="95" width="40" height="30" rx="8" fill="#fca5a5" stroke="#ef4444" stroke-width="1.5"/>
+        <text x="300" y="108" text-anchor="middle" font-size="9" fill="#7f1d1d" font-weight="600">পনস</text>
+        <text x="300" y="120" text-anchor="middle" font-size="8" fill="#7f1d1d">Pons</text>
+        <!-- medulla -->
+        <rect x="248" y="118" width="44" height="18" rx="6" fill="#d8b4fe" stroke="#9333ea" stroke-width="1.5"/>
+        <text x="270" y="131" text-anchor="middle" font-size="8" fill="#4c1d95" font-weight="600">মেডুলা অবলংগাটা</text>
+        <!-- thalamus -->
+        <ellipse cx="210" cy="65" rx="25" ry="18" fill="#fed7aa" stroke="#f97316" stroke-width="1.5"/>
+        <text x="210" y="62" text-anchor="middle" font-size="9" fill="#7c2d12" font-weight="600">থ্যালামাস</text>
+        <text x="210" y="73" text-anchor="middle" font-size="8" fill="#7c2d12">Thalamus</text>
+        <!-- spinal cord -->
+        <rect x="258" y="130" width="16" height="30" rx="4" fill="#93c5fd" stroke="#2563eb" stroke-width="1.5"/>
+        <text x="267" y="152" text-anchor="middle" font-size="8" fill="#1e3a5f" font-weight="600">সুষুম্না</text>
+        <!-- labels with lines -->
+        <line x1="90" y1="30" x2="110" y2="42" stroke="#1e3a5f" stroke-width="1" stroke-dasharray="3,2"/>
+        <text x="20" y="28" font-size="10" fill="#1e3a5f" font-weight="600">করপাস ক্যালোসাম</text>
+        <line x1="85" y1="95" x2="115" y2="82" stroke="#1e3a5f" stroke-width="1" stroke-dasharray="3,2"/>
+        <text x="5" y="93" font-size="10" fill="#1e3a5f" font-weight="600">হাইপোথ্যালামাস</text>
+      </svg>
+      <div class="brain-label-grid">
+        <div class="brain-label bl-1">করোটি (Cranium)</div>
+        <div class="brain-label bl-2">সেরিব্রাম (অগ্রমস্তিষ্ক)</div>
+        <div class="brain-label bl-3">সেরিবেলাম (পশ্চাৎমস্তিষ্ক)</div>
+        <div class="brain-label bl-4">থ্যালামাস ও হাইপোথ্যালামাস</div>
+        <div class="brain-label bl-5">মেডুলা অবলংগাটা</div>
+        <div class="brain-label bl-6">পনস (Pons)</div>
+        <div class="brain-label bl-7">করপাস ক্যালোসাম</div>
+        <div class="brain-label bl-8">সুষুম্নাকাণ্ড</div>
+      </div>
+    </div>
+
+    <div class="three-col">
+      <div class="parts-box">
+        <div><span class="pb-number pb-n1">১</span></div>
+        <div class="pb-title">অগ্রমস্তিষ্ক (সেরিব্রাম)</div>
+        <ul class="bullet-list">
+          <li>সবচেয়ে বড় অংশ — "গুরু মস্তিষ্ক"</li>
+          <li>ডান ও বাম সেরিব্রাল হেমিস্ফিয়ার</li>
+          <li>করপাস ক্যালোসাম দিয়ে সংযুক্ত</li>
+          <li>বাইরে গ্রে ম্যাটার (কর্টেক্স)</li>
+          <li>ভেতরে হোয়াইট ম্যাটার (মায়েলিন)</li>
+          <li>মেনিনজেস দিয়ে আবৃত</li>
+        </ul>
+      </div>
+      <div class="parts-box">
+        <div><span class="pb-number pb-n2">২</span></div>
+        <div class="pb-title">মধ্যমস্তিষ্ক</div>
+        <ul class="bullet-list">
+          <li>অগ্র ও পশ্চাৎ মস্তিষ্ককে সংযুক্ত করে</li>
+          <li>পেছনে নলাকৃতি বৃহৎ অংশ — পনস</li>
+          <li>বিভিন্ন পেশির কাজে সমন্বয়</li>
+          <li>ভারসাম্য রক্ষা করে</li>
+          <li>দর্শন ও শ্রবণে গুরুত্বপূর্ণ ভূমিকা</li>
+        </ul>
+      </div>
+      <div class="parts-box">
+        <div><span class="pb-number pb-n3">৩</span></div>
+        <div class="pb-title">পশ্চাৎমস্তিষ্ক</div>
+        <ul class="bullet-list">
+          <li>সেরিবেলাম + পনস + মেডুলা অবলংগাটা</li>
+          <li>সেরিবেলাম: পেশির টান নিয়ন্ত্রণ, ভারসাম্য, চলনে সমন্বয়</li>
+          <li>মেডুলা: পনস ও সুষুম্নার মাঝে সংযোগ</li>
+          <li>৮ জোড়া করোটিক স্নায়ু উৎপন্ন</li>
+          <li>শ্রবণ ও ভারসাম্য নিয়ন্ত্রণ</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <span class="footer-text">SSC Biology · Chapter 10 · Coordination</span>
+    <span class="footer-author">Raktim Dey | EEE, AUST</span>
+    <span class="slide-number">04</span>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 5: SPINAL CORD & NEURON -->
+<!-- ============================================================ -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="header-title">
+      <span class="header-chapter">অধ্যায় ১০ · সমন্বয়</span>
+      <span class="header-main">মেরুরজ্জু ও নিউরন</span>
+      <span class="header-sub">Spinal Cord & Neuron</span>
+    </div>
+    <div class="author-badge">
+      <div class="author-name">Raktim Dey</div>
+      <div class="author-dept">EEE, AUST</div>
+    </div>
+  </div>
+
+  <div class="slide-content">
+    <div class="two-col">
+      <!-- LEFT: Spinal Cord -->
+      <div>
+        <div class="section-title" style="font-size:13px; margin-bottom:12px;">🦴 মেরুরজ্জু (Spinal Cord)</div>
+
+        <!-- Spinal cord diagram -->
+        <div class="brain-diagram" style="margin-bottom:12px; padding:12px;">
+          <svg width="280" height="160" viewBox="0 0 280 160" style="display:block; margin:0 auto;">
+            <!-- human body silhouette outline -->
+            <ellipse cx="140" cy="22" rx="30" ry="20" fill="#fde8d8" stroke="#cbd5e0" stroke-width="1.5"/>
+            <rect x="115" y="40" width="50" height="80" rx="10" fill="#fde8d8" stroke="#cbd5e0" stroke-width="1.5"/>
+            <!-- spine -->
+            <rect x="135" y="38" width="10" height="85" rx="4" fill="#bfdbfe" stroke="#3b82f6" stroke-width="1.5"/>
+            <!-- vertebrae marks -->
+            <line x1="130" y1="50" x2="150" y2="50" stroke="#3b82f6" stroke-width="1" stroke-dasharray="2,2"/>
+            <line x1="130" y1="62" x2="150" y2="62" stroke="#3b82f6" stroke-width="1" stroke-dasharray="2,2"/>
+            <line x1="130" y1="74" x2="150" y2="74" stroke="#3b82f6" stroke-width="1" stroke-dasharray="2,2"/>
+            <line x1="130" y1="86" x2="150" y2="86" stroke="#3b82f6" stroke-width="1" stroke-dasharray="2,2"/>
+            <line x1="130" y1="98" x2="150" y2="98" stroke="#3b82f6" stroke-width="1" stroke-dasharray="2,2"/>
+            <!-- nerves -->
+            <line x1="130" y1="50" x2="100" y2="48" stroke="#a78bfa" stroke-width="1.5"/>
+            <line x1="150" y1="50" x2="180" y2="48" stroke="#a78bfa" stroke-width="1.5"/>
+            <line x1="130" y1="65" x2="95" y2="63" stroke="#a78bfa" stroke-width="1.5"/>
+            <line x1="150" y1="65" x2="185" y2="63" stroke="#a78bfa" stroke-width="1.5"/>
+            <line x1="130" y1="80" x2="92" y2="79" stroke="#a78bfa" stroke-width="1.5"/>
+            <line x1="150" y1="80" x2="188" y2="79" stroke="#a78bfa" stroke-width="1.5"/>
+            <line x1="130" y1="95" x2="95" y2="95" stroke="#a78bfa" stroke-width="1.5"/>
+            <line x1="150" y1="95" x2="185" y2="95" stroke="#a78bfa" stroke-width="1.5"/>
+            <!-- labels -->
+            <text x="50" y="25" font-size="10" fill="#1e3a5f" font-weight="700">মস্তিষ্ক</text>
+            <text x="155" y="60" font-size="9" fill="#2563eb">মেরুরজ্জু</text>
+            <text x="60" y="82" font-size="9" fill="#7c3aed">স্নায়ু</text>
+            <text x="30" y="140" font-size="8" fill="#4a5568">দুই কশেরুকার মধ্যবর্তী ছিদ্র দিয়ে ৩১ জোড়া মেরুরজ্জীয় স্নায়ু বের হয়</text>
+          </svg>
+        </div>
+
+        <div class="info-card ic-blue">
+          <ul>
+            <li>দুই কশেরুকার মধ্যবর্তী ছিদ্র দিয়ে <strong>৩১ জোড়া</strong> মেরুরজ্জীয় স্নায়ু বের হয়</li>
+            <li>এগুলো ঘাড়, গলা, বুক, পিঠ, হাত ও পায়ের স্নায়ু</li>
+            <li>মেরুরজ্জুতে বাইরে — শ্বেত পদার্থ; ভেতরে — ধূসর পদার্থ</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- RIGHT: Neuron -->
+      <div>
+        <div class="section-title" style="font-size:13px; margin-bottom:12px;">⚡ নিউরন (Neuron)</div>
+
+        <!-- Neuron SVG -->
+        <div class="brain-diagram" style="margin-bottom:12px; padding:12px;">
+          <svg width="280" height="150" viewBox="0 0 280 150" style="display:block; margin:0 auto;">
+            <!-- dendrites -->
+            <line x1="60" y1="75" x2="30" y2="55" stroke="#f59e0b" stroke-width="2"/>
+            <line x1="60" y1="75" x2="20" y2="75" stroke="#f59e0b" stroke-width="2"/>
+            <line x1="60" y1="75" x2="30" y2="95" stroke="#f59e0b" stroke-width="2"/>
+            <line x1="30" y1="55" x2="10" y2="40" stroke="#f59e0b" stroke-width="1.5"/>
+            <line x1="30" y1="55" x2="8" y2="60" stroke="#f59e0b" stroke-width="1.5"/>
+            <line x1="30" y1="95" x2="10" y2="110" stroke="#f59e0b" stroke-width="1.5"/>
+            <!-- cell body -->
+            <ellipse cx="80" cy="75" rx="25" ry="25" fill="#bfdbfe" stroke="#3b82f6" stroke-width="2"/>
+            <!-- nucleus -->
+            <ellipse cx="80" cy="75" rx="10" ry="10" fill="#93c5fd" stroke="#2563eb" stroke-width="1.5"/>
+            <text x="80" y="79" text-anchor="middle" font-size="7" fill="#1e40af" font-weight="700">নিউ</text>
+            <!-- axon -->
+            <rect x="105" y="68" width="100" height="14" rx="7" fill="#a7f3d0" stroke="#10b981" stroke-width="1.5"/>
+            <!-- myelin sheaths -->
+            <ellipse cx="125" cy="75" rx="12" ry="7" fill="#6ee7b7" stroke="#10b981" stroke-width="1" opacity="0.7"/>
+            <ellipse cx="155" cy="75" rx="12" ry="7" fill="#6ee7b7" stroke="#10b981" stroke-width="1" opacity="0.7"/>
+            <ellipse cx="185" cy="75" rx="12" ry="7" fill="#6ee7b7" stroke="#10b981" stroke-width="1" opacity="0.7"/>
+            <!-- axon terminals -->
+            <line x1="205" y1="75" x2="230" y2="55" stroke="#10b981" stroke-width="1.5"/>
+            <line x1="205" y1="75" x2="235" y2="75" stroke="#10b981" stroke-width="1.5"/>
+            <line x1="205" y1="75" x2="230" y2="95" stroke="#10b981" stroke-width="1.5"/>
+            <circle cx="235" cy="55" r="4" fill="#10b981"/>
+            <circle cx="240" cy="75" r="4" fill="#10b981"/>
+            <circle cx="235" cy="95" r="4" fill="#10b981"/>
+            <!-- labels -->
+            <text x="15" y="135" font-size="9" fill="#92400e" font-weight="700">ডেনড্রাইট</text>
+            <text x="65" y="115" font-size="9" fill="#1e40af" font-weight="700">কোষদেহ</text>
+            <text x="140" y="100" font-size="9" fill="#065f46" font-weight="700">অ্যাক্সন</text>
+            <text x="218" y="115" font-size="9" fill="#065f46" font-weight="700">প্রান্ত</text>
+            <text x="115" y="93" font-size="8" fill="#047857">মায়েলিন আবরণ</text>
+            <!-- arrow for signal direction -->
+            <path d="M 30 140 L 250 140" stroke="#6b7280" stroke-width="1" stroke-dasharray="4,3"/>
+            <polygon points="250,137 258,140 250,143" fill="#6b7280"/>
+            <text x="120" y="150" font-size="8" fill="#6b7280">স্নায়ু তাড়নার প্রবাহ →</text>
+          </svg>
+        </div>
+
+        <div class="two-col" style="gap:8px;">
+          <div class="info-card ic-orange">
+            <div class="info-card-title" style="font-size:12px;">কোষদেহ</div>
+            <ul>
+              <li>প্লাজমামেমব্রেন, সাইটোপ্লাজম, নিউক্লিয়াস</li>
+              <li>গোলাকার/তারকাকার/ডিমাকার হতে পারে</li>
+              <li>মাইটোকন্ড্রিয়া, গলজিবস্তু, নিসল দানা থাকে</li>
+            </ul>
+          </div>
+          <div class="info-card ic-green">
+            <div class="info-card-title" style="font-size:12px;">প্রলম্বিত অংশ</div>
+            <ul>
+              <li><strong>ডেনড্রন:</strong> ক্ষুদ্র প্রলম্বিত অংশ; ডেনড্রাইট দিয়ে উদ্দীপনা গ্রহণ</li>
+              <li><strong>অ্যাক্সন:</strong> দীর্ঘ তন্তু; নিউরিলেমা আবরণ; মায়েলিন স্তর</li>
+              <li><strong>অ্যাক্সোলেমা:</strong> মূল অক্ষের আবরণী</li>
+              <li><strong>সিন্যাপস:</strong> দুই নিউরনের সন্ধিস্থল; নিউরোহিউমার থাকে</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="reflex-box" style="margin-top:8px;">
+          <div class="rb-title">নিউরনের কাজ + প্রতিবর্তী ক্রিয়া (Reflex Action)</div>
+          <p>নিউরনের প্রধান কাজ <strong>উদ্দীপনা বহন করা</strong>। যেসব উদ্দীপনার প্রতিক্রিয়া মস্তিষ্ক দিয়ে না হয়ে <strong>সুষুম্নাকাণ্ড দিয়ে</strong> নিয়ন্ত্রিত হয় তাকে প্রতিবর্তী ক্রিয়া বলে।</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <span class="footer-text">SSC Biology · Chapter 10 · Coordination</span>
+    <span class="footer-author">Raktim Dey | EEE, AUST</span>
+    <span class="slide-number">05</span>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 6: REFLEX ARC + AUTONOMIC + HUMAN HORMONES (PITUITARY) -->
+<!-- ============================================================ -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="header-title">
+      <span class="header-chapter">অধ্যায় ১০ · সমন্বয়</span>
+      <span class="header-main">প্রতিবর্তী চক্র · স্বয়ংক্রিয় স্নায়ুতন্ত্র · মানব হরমোন</span>
+      <span class="header-sub">Reflex Arc · Autonomic NS · Human Hormones</span>
+    </div>
+    <div class="author-badge">
+      <div class="author-name">Raktim Dey</div>
+      <div class="author-dept">EEE, AUST</div>
+    </div>
+  </div>
+
+  <div class="slide-content">
+    <div class="two-col">
+      <div>
+        <div class="section-title" style="font-size:13px; margin-bottom:10px;">🔄 প্রতিবর্তী চক্র (Reflex Arc)</div>
+
+        <!-- Reflex arc diagram -->
+        <div class="brain-diagram" style="margin-bottom:12px; padding:14px;">
+          <svg width="320" height="160" viewBox="0 0 320 160" style="display:block; margin:0 auto;">
+            <!-- receptor -->
+            <rect x="5" y="65" width="55" height="30" rx="8" fill="#bfdbfe" stroke="#3b82f6" stroke-width="1.5"/>
+            <text x="32" y="77" text-anchor="middle" font-size="9" fill="#1e3a5f" font-weight="700">সংবেদী</text>
+            <text x="32" y="88" text-anchor="middle" font-size="9" fill="#1e3a5f">নিউরন</text>
+            <!-- arrow -->
+            <path d="M 60 80 L 85 80" stroke="#22c55e" stroke-width="2" marker-end="url(#arr)"/>
+            <!-- spinal cord -->
+            <rect x="85" y="50" width="70" height="60" rx="10" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+            <text x="120" y="72" text-anchor="middle" font-size="9" fill="#92400e" font-weight="700">মেরুরজ্জুর</text>
+            <text x="120" y="84" text-anchor="middle" font-size="9" fill="#92400e">প্রস্থচ্ছেদ</text>
+            <text x="120" y="96" text-anchor="middle" font-size="8" fill="#78350f">(সংযোগকারী</text>
+            <text x="120" y="107" text-anchor="middle" font-size="8" fill="#78350f">নিউরন)</text>
+            <!-- arrow -->
+            <path d="M 155 80 L 180 80" stroke="#22c55e" stroke-width="2" marker-end="url(#arr)"/>
+            <!-- motor neuron -->
+            <rect x="180" y="65" width="55" height="30" rx="8" fill="#d8b4fe" stroke="#9333ea" stroke-width="1.5"/>
+            <text x="207" y="77" text-anchor="middle" font-size="9" fill="#4c1d95" font-weight="700">আজ্ঞাবাহী</text>
+            <text x="207" y="88" text-anchor="middle" font-size="9" fill="#4c1d95">নিউরন</text>
+            <!-- arrow -->
+            <path d="M 235 80 L 258 80" stroke="#22c55e" stroke-width="2" marker-end="url(#arr)"/>
+            <!-- effector -->
+            <rect x="258" y="65" width="55" height="30" rx="8" fill="#bbf7d0" stroke="#22c55e" stroke-width="1.5"/>
+            <text x="285" y="77" text-anchor="middle" font-size="9" fill="#166534" font-weight="700">পেশি</text>
+            <text x="285" y="88" text-anchor="middle" font-size="9" fill="#166534">(প্রতিক্রিয়া)</text>
+            <!-- stimulus source -->
+            <ellipse cx="32" cy="140" rx="20" ry="12" fill="#fca5a5" stroke="#ef4444" stroke-width="1.5"/>
+            <text x="32" y="138" text-anchor="middle" font-size="9" fill="#7f1d1d">উদ্দীপক</text>
+            <text x="32" y="149" text-anchor="middle" font-size="8" fill="#7f1d1d">(আঙুল)</text>
+            <line x1="32" y1="128" x2="32" y2="95" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="3,2"/>
+            <!-- legend -->
+            <rect x="85" y="140" width="12" height="6" rx="2" fill="#22c55e"/>
+            <text x="100" y="148" font-size="8" fill="#166534">সংবেদী নিউরন</text>
+            <rect x="170" y="140" width="12" height="6" rx="2" fill="#9333ea"/>
+            <text x="185" y="148" font-size="8" fill="#4c1d95">আজ্ঞাবাহী নিউরন</text>
+            <!-- arrow marker -->
+            <defs>
+              <marker id="arr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L6,3 z" fill="#22c55e"/>
+              </marker>
+            </defs>
+          </svg>
+        </div>
+
+        <div class="reflex-box">
+          <div class="rb-title">স্বয়ংক্রিয় স্নায়ুতন্ত্র</div>
+          <p>যেসব অঙ্গের উপর আমাদের কোনো নিয়ন্ত্রণ নেই, সেগুলো <strong>স্বয়ংক্রিয় স্নায়ুতন্ত্র</strong> দিয়ে পরিচালিত হয়। যেমন — হৃৎপিণ্ড, অন্ত্র, পাকস্থলী, অগ্ন্যাশয় ইত্যাদির কাজ।</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-title" style="font-size:13px; margin-bottom:10px;">💉 মানব হরমোন</div>
+
+        <div class="gland-card" style="margin-bottom:10px;">
+          <div class="gland-header" style="background: linear-gradient(135deg,#1e3a5f,#2980b9);">
+            <span>১) পিটুইটারি গ্রন্থি</span>
+            <span style="font-size:10px; opacity:0.8;">(হাইপোফাইসিস গ্রন্থি)</span>
+          </div>
+          <div class="gland-body">
+            <div class="gland-info">
+              <span class="gland-info-label">অবস্থান</span>
+              <span class="gland-info-text">মস্তিষ্কে</span>
+            </div>
+            <div class="gland-info" style="margin-bottom:6px;">
+              <span class="gland-info-label">হরমোন</span>
+              <span class="gland-info-text">গোনাডট্রপিন · এডরেনোকর্টিকোট্রপিন · থাইরোট্রপিন · সোমাটোট্রপিন · প্রোল্যাকটিন</span>
+            </div>
+            <div style="font-size:11px; color:#4a5568; font-weight:600; margin-bottom:4px; color:#1e3a5f;">কাজ:</div>
+            <ul>
+              <li>জনন গ্রন্থি বৃদ্ধি ঘটায়</li>
+              <li>মাতৃদেহে স্তন গ্রন্থির বৃদ্ধি ঘটায়</li>
+              <li>মাতৃদেহে দুগ্ধ ক্ষরণ নিয়ন্ত্রণ করে</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="gland-card">
+          <div class="gland-header" style="background: linear-gradient(135deg,#27ae60,#229954);">
+            ২) থাইরয়েড গ্রন্থি
+          </div>
+          <div class="gland-body">
+            <div class="gland-info">
+              <span class="gland-info-label">অবস্থান</span>
+              <span class="gland-info-text">শ্বাসনালী/ট্রাকিয়া</span>
+            </div>
+            <div class="gland-info" style="margin-bottom:6px;">
+              <span class="gland-info-label">হরমোন</span>
+              <span class="gland-info-text">থাইরক্সিন, ক্যালসিটোনিন</span>
+            </div>
+            <ul>
+              <li>দৈহিক ও মানসিক বৃদ্ধি</li>
+              <li>যৌন লক্ষণ প্রকাশ করে</li>
+              <li>বিপাকে সাহায্য করে</li>
+              <li>ক্যালসিয়াস বিপাকে জড়িত</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <span class="footer-text">SSC Biology · Chapter 10 · Coordination</span>
+    <span class="footer-author">Raktim Dey | EEE, AUST</span>
+    <span class="slide-number">06</span>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 7: REMAINING GLANDS -->
+<!-- ============================================================ -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="header-title">
+      <span class="header-chapter">অধ্যায় ১০ · সমন্বয়</span>
+      <span class="header-main">মানব হরমোন — গ্রন্থিসমূহ</span>
+      <span class="header-sub">Human Hormone Glands</span>
+    </div>
+    <div class="author-badge">
+      <div class="author-name">Raktim Dey</div>
+      <div class="author-dept">EEE, AUST</div>
+    </div>
+  </div>
+
+  <div class="slide-content">
+    <div class="gland-grid">
+
+      <div class="gland-card">
+        <div class="gland-header" style="background:linear-gradient(135deg,#8e44ad,#7d3c98);">৩) প্যারাথাইরয়েড গ্রন্থি</div>
+        <div class="gland-body">
+          <div class="gland-info">
+            <span class="gland-info-label">অবস্থান</span>
+            <span class="gland-info-text">থাইরয়েড গ্রন্থির পেছনে</span>
+          </div>
+          <div class="gland-info" style="margin-bottom:6px;">
+            <span class="gland-info-label">হরমোন</span>
+            <span class="gland-info-text">প্যারাথাইরক্সিন</span>
+          </div>
+          <div style="font-size:11px; font-weight:700; color:#1e3a5f; margin-bottom:4px;">কাজ:</div>
+          <ul>
+            <li>ক্যালসিয়াম ও ফসফরাস বিপাক নিয়ন্ত্রণ করে</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="gland-card">
+        <div class="gland-header" style="background:linear-gradient(135deg,#e67e22,#ca6f1e);">৪) এড্রেনাল গ্রন্থি</div>
+        <div class="gland-body">
+          <div class="gland-info">
+            <span class="gland-info-label">অবস্থান</span>
+            <span class="gland-info-text">বৃক্ক বা কিডনি</span>
+          </div>
+          <div class="gland-info" style="margin-bottom:6px;">
+            <span class="gland-info-label">হরমোন</span>
+            <span class="gland-info-text">এড্রেনালিন</span>
+          </div>
+          <div style="font-size:11px; font-weight:700; color:#1e3a5f; margin-bottom:4px;">কাজ:</div>
+          <ul>
+            <li>অত্যাবশ্যকীয় বিপাকীয় কাজ নিয়ন্ত্রণ করে</li>
+            <li>যৌনাঙ্গ বৃদ্ধি করে</li>
+            <li>যৌন লক্ষণ প্রকাশ করে</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="gland-card">
+        <div class="gland-header" style="background:linear-gradient(135deg,#e74c3c,#c0392b);">৫) আইলেটস অফ ল্যাঙ্গারহ্যানস</div>
+        <div class="gland-body">
+          <div class="gland-info">
+            <span class="gland-info-label">অবস্থান</span>
+            <span class="gland-info-text">অগ্ন্যাশয়</span>
+          </div>
+          <div class="gland-info" style="margin-bottom:6px;">
+            <span class="gland-info-label">হরমোন</span>
+            <span class="gland-info-text">ইনসুলিন ও গ্লুকাগন</span>
+          </div>
+          <div style="font-size:11px; font-weight:700; color:#1e3a5f; margin-bottom:4px;">কাজ:</div>
+          <ul>
+            <li>শর্করা বিপাক নিয়ন্ত্রণ করে</li>
+            <li>রক্তের গ্লুকোজের মাত্রা নিয়ন্ত্রণ করে</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="gland-card">
+        <div class="gland-header" style="background:linear-gradient(135deg,#16a085,#138d75);">৬) থাইমাস গ্রন্থি</div>
+        <div class="gland-body">
+          <div class="gland-info">
+            <span class="gland-info-label">অবস্থান</span>
+            <span class="gland-info-text">গ্রীবা অঞ্চলে</span>
+          </div>
+          <div class="gland-info" style="margin-bottom:6px;">
+            <span class="gland-info-label">হরমোন</span>
+            <span class="gland-info-text">থাইমোসিন</span>
+          </div>
+          <div style="font-size:11px; font-weight:700; color:#1e3a5f; margin-bottom:4px;">কাজ:</div>
+          <ul>
+            <li>দেহের রোগ প্রতিরোধ ক্ষমতা বিকাশ করে</li>
+          </ul>
+          <div class="note-box" style="margin-top:6px; padding:6px 10px;">
+            <p>★ শিশুকালে এই গ্রন্থি বিকশিত থাকলেও বয়স বাড়ার সাথে ছোট হয়ে যায়।</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gland-card" style="grid-column: span 2;">
+        <div class="gland-header" style="background:linear-gradient(135deg,#2980b9,#1a6fa8);">৭) জনন গ্রন্থি (গোনাড)</div>
+        <div class="gland-body">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+            <div>
+              <div class="gland-info">
+                <span class="gland-info-label">অবস্থান</span>
+                <span class="gland-info-text">গোনাড/জনন গ্রন্থি</span>
+              </div>
+              <div class="gland-info" style="margin-bottom:6px;">
+                <span class="gland-info-label">হরমোন</span>
+                <span class="gland-info-text">ছেলেদের — শুক্রাশয় | মেয়েদের — ডিম্বাশয়</span>
+              </div>
+            </div>
+            <div>
+              <div style="font-size:11px; font-weight:700; color:#1e3a5f; margin-bottom:4px;">কাজ:</div>
+              <ul>
+                <li>জনন অঙ্গের বৃদ্ধি</li>
+                <li>যৌন আচরণ নিয়ন্ত্রণ</li>
+                <li>জনন চক্র নিয়ন্ত্রণ</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <span class="footer-text">SSC Biology · Chapter 10 · Coordination</span>
+    <span class="footer-author">Raktim Dey | EEE, AUST</span>
+    <span class="slide-number">07</span>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 8: HORMONAL DISORDERS — THYROID + DIABETES -->
+<!-- ============================================================ -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="header-title">
+      <span class="header-chapter">অধ্যায় ১০ · সমন্বয়</span>
+      <span class="header-main">হরমোনজনিত অস্বাভাবিকতা</span>
+      <span class="header-sub">Hormonal Disorders</span>
+    </div>
+    <div class="author-badge">
+      <div class="author-name">Raktim Dey</div>
+      <div class="author-dept">EEE, AUST</div>
+    </div>
+  </div>
+
+  <div class="slide-content">
+    <div class="two-col">
+      <!-- LEFT: Thyroid -->
+      <div>
+        <div class="disease-card">
+          <div class="disease-header" style="background:linear-gradient(135deg,#e67e22,#ca6f1e);">
+            <span>⚠️</span> (ক) থাইরয়েড সমস্যা
+          </div>
+          <div class="disease-body">
+            <p style="font-size:12px; color:#2d3748; line-height:1.65; margin-bottom:10px;">সমুদ্রের পানিতে আয়োডিন থাকায় সামুদ্রিক মাছ আয়োডিনের অন্যতম মূল উৎস। আয়োডিনযুক্ত খাবার খেলে থাইরয়েড হরমোন তৈরি হয়। সমুদ্র থেকে দূরে যেমন হিমালয়ের পাদদেশে নেপাল বা বাংলাদেশের উত্তরবঙ্গে <strong>গলগণ্ড/গয়টার</strong> রোগীর সংখ্যা অনেক বেশি।</p>
+
+            <div class="symptom-grid">
+              <div class="symptom-item">শিশুদের মানসিক বিকাশ বাধা পায়</div>
+              <div class="symptom-item">গায়ের চামড়া খসখসে হয়</div>
+              <div class="symptom-item">মুখমণ্ডল গোলাকার হয়</div>
+              <div class="symptom-item">শিশুদের বৃদ্ধির বিকাশ কমে যায়</div>
+            </div>
+
+            <div class="highlight-box" style="margin-top:10px;">
+              <div class="hl-title">✅ প্রতিকার</div>
+              <ul style="list-style:none; margin-top:4px;">
+                <li style="font-size:11.5px; color:#742a2a; line-height:1.7;">▸ খাদ্যে আয়োডিনযুক্ত লবণ ব্যবহার</li>
+                <li style="font-size:11.5px; color:#742a2a; line-height:1.7;">▸ ফলমূল, কচু, সামুদ্রিক মাছ খেলে সমস্যা থেকে মুক্তি পাওয়া যায়</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Diabetes -->
+      <div>
+        <div class="disease-card">
+          <div class="disease-header" style="background:linear-gradient(135deg,#e74c3c,#c0392b);">
+            <span>🩺</span> (খ) বহুমূত্র বা ডায়াবেটিস (Diabetes)
+          </div>
+          <div class="disease-body">
+            <p style="font-size:12px; color:#2d3748; line-height:1.65; margin-bottom:8px;">অগ্ন্যাশয়ের আইলেটস অব ল্যাঙ্গারহ্যানস থেকে <strong>ইনসুলিন</strong> নিঃসৃত হয়। পর্যাপ্ত ইনসুলিন না থাকলে রক্তে শর্করার পরিমাণ স্থায়ীভাবে বেড়ে যায় এবং প্রস্রাবের সাথে গ্লুকোজ নির্গত হয়।</p>
+
+            <div class="two-col" style="gap:8px; margin-bottom:8px;">
+              <div style="background:#fff5f5; border:1.5px solid #fed7d7; border-radius:8px; padding:8px 12px;">
+                <div style="font-weight:700; color:#c53030; font-size:12px; margin-bottom:4px;">টাইপ-১</div>
+                <p style="font-size:11px; color:#742a2a; line-height:1.6;">দেহে একেবারেই ইনসুলিন তৈরি হয় না। নিয়মিত ইনজেকশনের মাধ্যমে ইনসুলিন নিতে হয়।</p>
+              </div>
+              <div style="background:#fff5f5; border:1.5px solid #fed7d7; border-radius:8px; padding:8px 12px;">
+                <div style="font-weight:700; color:#c53030; font-size:12px; margin-bottom:4px;">টাইপ-২</div>
+                <p style="font-size:11px; color:#742a2a; line-height:1.6;">আংশিকভাবে ইনসুলিন তৈরি হয়। ওষুধ ও খাদ্য নিয়ন্ত্রণে ব্যবস্থাপনা সম্ভব।</p>
+              </div>
+            </div>
+
+            <div style="font-size:12px; font-weight:700; color:#1e3a5f; margin-bottom:6px;">লক্ষণসমূহ:</div>
+            <div class="symptom-grid">
+              <div class="symptom-item">ঘন ঘন প্রস্রাব হওয়া</div>
+              <div class="symptom-item">অধিক পিপাসা ও ক্ষুধা বেড়ে যাওয়া</div>
+              <div class="symptom-item">দেহের ওজন কমতে থাকা</div>
+              <div class="symptom-item">দুর্বল বোধ করা</div>
+              <div class="symptom-item">চোখে কম দেখা</div>
+              <div class="symptom-item">চামড়া খসখসে ও রুক্ষ হওয়া</div>
+              <div class="symptom-item" style="grid-column:span 2;">ক্ষতস্থান সহজে না শুকানো</div>
+            </div>
+
+            <div class="note-box" style="margin-top:8px;">
+              <div class="note-title">★ রোগ নির্ণয় ও নিয়ন্ত্রণ: তিনটি D</div>
+              <p>রক্ত ও প্রস্রাব পরীক্ষায় গ্লুকোজের মাত্রা নির্ণয়ে নিশ্চিত হওয়া যায়। নিয়ন্ত্রণে <strong>Discipline · Diet · Dose</strong> মেনে চলা অত্যাবশ্যক।</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <span class="footer-text">SSC Biology · Chapter 10 · Coordination</span>
+    <span class="footer-author">Raktim Dey | EEE, AUST</span>
+    <span class="slide-number">08</span>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 9: STROKE -->
+<!-- ============================================================ -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="header-title">
+      <span class="header-chapter">অধ্যায় ১০ · সমন্বয়</span>
+      <span class="header-main">স্ট্রোক (Stroke)</span>
+      <span class="header-sub">Neurological Disorder</span>
+    </div>
+    <div class="author-badge">
+      <div class="author-name">Raktim Dey</div>
+      <div class="author-dept">EEE, AUST</div>
+    </div>
+  </div>
+
+  <div class="slide-content">
+
+    <div class="def-box" style="margin-bottom:16px; border-color:#e74c3c; background:linear-gradient(135deg,#fff5f5,#fed7d7);">
+      <div class="def-label" style="color:#c53030;"><span style="color:#e74c3c;">(গ) স্ট্রোক</span> — সংজ্ঞা</div>
+      <p style="color:#742a2a;">মস্তিষ্কে রক্ত সরবরাহে ব্যাঘাত ঘটার কারণে স্নায়ুতন্ত্রের কাজে ব্যাঘাত ঘটলে তাকে <strong>স্ট্রোক</strong> বলে। স্ট্রোক হয় <strong>মস্তিষ্কে</strong> — হৃৎপিণ্ডে নয়।</p>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <div class="section-title" style="font-size:13px; margin-bottom:10px;">কারণ</div>
+        <div class="two-col" style="gap:10px;">
+          <div class="info-card ic-red">
+            <div class="info-card-title" style="color:#c53030;">রক্তক্ষরণ</div>
+            <p style="font-size:11.5px; color:#742a2a; padding-left:8px; line-height:1.6;">মস্তিষ্কে রক্তনালী ফেটে যাওয়া এবং রক্তক্ষরণ ঘটা।</p>
+          </div>
+          <div class="info-card ic-red">
+            <div class="info-card-title" style="color:#c53030;">রক্ত জমাট</div>
+            <p style="font-size:11.5px; color:#742a2a; padding-left:8px; line-height:1.6;">রক্তনালীর ভেতরে রক্ত জমাট বেঁধে রক্ত চলাচল বাধাগ্রস্ত হওয়া।</p>
+          </div>
+        </div>
+
+        <div class="section-title" style="font-size:13px; margin-top:12px; margin-bottom:10px;">রোগের লক্ষণসমূহ</div>
+        <div class="symptom-grid">
+          <div class="symptom-item">বমি হয়, প্রচণ্ড মাথাব্যথা হয়</div>
+          <div class="symptom-item">কয়েক মিনিটে রোগী জ্ঞান হারায়</div>
+          <div class="symptom-item">ঘাড় শক্ত হয়ে যেতে পারে</div>
+          <div class="symptom-item">মাংসপেশি শিথিল হয়ে যায়</div>
+          <div class="symptom-item">শ্বসন ও নাড়ির স্পন্দন কমে যায়</div>
+          <div class="symptom-item">মুখমণ্ডল লাল বর্ণ ধারণ করে</div>
+          <div class="symptom-item" style="grid-column:span 2;">অনেক সময় শুধু মুখ বেঁকে যাওয়া বা অল্প সময়ের জন্য অজ্ঞান হয়ে আবার জ্ঞান ফেরা</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-title" style="font-size:13px; margin-bottom:10px;">সারাংশ — অধ্যায় ১০</div>
+
+        <div style="background:linear-gradient(135deg,#ebf8ff,#dbeafe); border:2px solid #90cdf4; border-radius:12px; padding:16px;">
+          <div style="font-weight:700; color:#1e3a5f; font-size:14px; margin-bottom:12px; text-align:center;">📚 মূল বিষয়সমূহ</div>
+
+          <div class="ns-flow" style="flex-direction:column; align-items:flex-start; gap:8px;">
+            <div style="display:flex; align-items:center; gap:10px; width:100%;">
+              <div style="background:#bfdbfe; border-radius:8px; padding:6px 12px; font-size:12px; font-weight:700; color:#1e3a5f; min-width:160px;">🌿 ফাইটোহরমোন</div>
+              <div style="font-size:11px; color:#2d3748;">অক্সিন · জিবেরেলিন · সাইটোকাইনিন · ইথিলিন</div>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px; width:100%;">
+              <div style="background:#bbf7d0; border-radius:8px; padding:6px 12px; font-size:12px; font-weight:700; color:#166534; min-width:160px;">🌱 উদ্ভিদ বৃদ্ধি</div>
+              <div style="font-size:11px; color:#2d3748;">ফটোট্রপিজম · জিওট্রপিজম · ভার্নালাইজেশন</div>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px; width:100%;">
+              <div style="background:#fde8d8; border-radius:8px; padding:6px 12px; font-size:12px; font-weight:700; color:#7c2d12; min-width:160px;">🧠 কেন্দ্রীয় স্নায়ু</div>
+              <div style="font-size:11px; color:#2d3748;">মস্তিষ্ক (অগ্র/মধ্য/পশ্চাৎ) · মেরুরজ্জু</div>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px; width:100%;">
+              <div style="background:#d8b4fe; border-radius:8px; padding:6px 12px; font-size:12px; font-weight:700; color:#4c1d95; min-width:160px;">⚡ নিউরন</div>
+              <div style="font-size:11px; color:#2d3748;">কোষদেহ · ডেনড্রন · অ্যাক্সন · সিন্যাপস</div>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px; width:100%;">
+              <div style="background:#fed7aa; border-radius:8px; padding:6px 12px; font-size:12px; font-weight:700; color:#7c2d12; min-width:160px;">💉 মানব হরমোন</div>
+              <div style="font-size:11px; color:#2d3748;">পিটুইটারি · থাইরয়েড · এড্রেনাল · অগ্ন্যাশয় · থাইমাস · গোনাড</div>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px; width:100%;">
+              <div style="background:#fca5a5; border-radius:8px; padding:6px 12px; font-size:12px; font-weight:700; color:#7f1d1d; min-width:160px;">🏥 রোগ</div>
+              <div style="font-size:11px; color:#2d3748;">গয়টার · ডায়াবেটিস (টাইপ-১, টাইপ-২) · স্ট্রোক</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="note-box" style="margin-top:12px;">
+          <div class="note-title">★ গুরুত্বপূর্ণ মনে রাখুন</div>
+          <p>ডায়াবেটিস নিয়ন্ত্রণ: <strong>Discipline · Diet · Dose</strong> | স্ট্রোক মস্তিষ্কে হয়, হৃৎপিণ্ডে নয়।</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <span class="footer-text">SSC Biology · Chapter 10 · Coordination</span>
+    <span class="footer-author">Raktim Dey | EEE, AUST</span>
+    <span class="slide-number">09</span>
+  </div>
+</div>
+
+</body>
+</html>
+
+```html
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>অধ্যায় ১০ - সমন্বয় (পার্ট ২) | Raktim Dey</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Raleway:wght@400;600;700;800;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Hind Siliguri', sans-serif;
+    background: #1a1a2e;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 40px 20px;
+  }
+
+  .slide {
+    width: 297mm;
+    min-height: 210mm;
+    background: #ffffff;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    border-radius: 8px;
+    page-break-after: always;
+  }
+
+  .slide::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 8px;
+    background: linear-gradient(90deg, #1e3a5f, #2980b9, #27ae60, #f39c12, #e74c3c);
+  }
+
+  .slide-header {
+    background: linear-gradient(135deg, #1e3a5f 0%, #2c5282 50%, #1a365d 100%);
+    padding: 18px 35px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+
+  .slide-header::after {
+    content: '';
+    position: absolute;
+    bottom: -12px; left: 0; right: 0;
+    height: 12px;
+    background: linear-gradient(135deg, #2980b9 25%, transparent 25%) -20px 0,
+                linear-gradient(225deg, #2980b9 25%, transparent 25%) -20px 0,
+                linear-gradient(315deg, #2980b9 25%, transparent 25%),
+                linear-gradient(45deg, #2980b9 25%, transparent 25%);
+    background-size: 40px 12px;
+    background-color: transparent;
+    z-index: 10;
+  }
+
+  .header-title {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .header-chapter {
+    font-family: 'Raleway', sans-serif;
+    font-size: 11px;
+    color: #90cdf4;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .header-main {
+    font-family: 'Raleway', sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    color: #ffffff;
+    letter-spacing: 1px;
+  }
+
+  .header-sub {
+    font-size: 13px;
+    color: #bee3f8;
+    margin-top: 2px;
+  }
+
+  .author-badge {
+    background: rgba(255,255,255,0.12);
+    border: 1.5px solid rgba(255,255,255,0.3);
+    border-radius: 25px;
+    padding: 8px 18px;
+    text-align: right;
+    backdrop-filter: blur(5px);
+  }
+
+  .author-name {
+    font-family: 'Raleway', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #ffd700;
+    letter-spacing: 0.5px;
+  }
+
+  .author-dept {
+    font-size: 10px;
+    color: #bee3f8;
+    margin-top: 2px;
+  }
+
+  .slide-content {
+    padding: 28px 35px 20px;
+    margin-top: 10px;
+  }
+
+  .section-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #1e3a5f, #2980b9);
+    color: white;
+    padding: 8px 22px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 15px rgba(41,128,185,0.4);
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .three-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+  }
+
+  .info-card {
+    background: #f7fafc;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 14px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .info-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    border-radius: 10px 0 0 10px;
+  }
+
+  .ic-green::before { background: #27ae60; }
+  .ic-blue::before { background: #2980b9; }
+  .ic-purple::before { background: #8e44ad; }
+  .ic-orange::before { background: #e67e22; }
+  .ic-red::before { background: #e74c3c; }
+  .ic-teal::before { background: #16a085; }
+
+  .info-card-title {
+    font-weight: 700;
+    font-size: 13px;
+    color: #1e3a5f;
+    margin-bottom: 8px;
+    padding-left: 8px;
+  }
+
+  .bullet-list li {
+    font-size: 12px;
+    color: #2d3748;
+    line-height: 1.7;
+    list-style: none;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 3px 0;
+  }
+
+  .bullet-list li::before {
+    content: '●';
+    color: #2980b9;
+    font-size: 8px;
+    flex-shrink: 0;
+    margin-top: 5px;
+  }
+
+  .disease-card {
+    background: white;
+    border-radius: 12px;
+    border: 1.5px solid #e2e8f0;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    margin-bottom: 14px;
+  }
+
+  .disease-header {
+    padding: 11px 18px;
+    color: white;
+    font-weight: 700;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .disease-body {
+    padding: 14px 18px;
+  }
+
+  .symptom-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    margin-top: 8px;
+  }
+
+  .symptom-item {
+    background: #fff5f5;
+    border: 1px solid #fed7d7;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 11px;
+    color: #742a2a;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .note-box {
+    background: linear-gradient(135deg, #fffbeb, #fef3c7);
+    border: 1.5px solid #fcd34d;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-top: 10px;
+  }
+
+  .note-box .note-title {
+    font-weight: 700;
+    color: #92400e;
+    font-size: 12px;
+    margin-bottom: 4px;
+  }
+
+  .slide-footer {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(135deg, #1e3a5f, #2c5282);
+    padding: 7px 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-text {
+    font-size: 10px;
+    color: #bee3f8;
+    font-family: 'Raleway', sans-serif;
+    letter-spacing: 0.5px;
+  }
+
+  .footer-author {
+    font-size: 10px;
+    color: #ffd700;
+    font-weight: 700;
+    font-family: 'Raleway', sans-serif;
+  }
+
+  .slide-number {
+    background: rgba(255,255,255,0.15);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 10px;
+    font-family: 'Raleway', sans-serif;
+  }
+
+  .tag {
+    display: inline-block;
+    background: linear-gradient(135deg, #2980b9, #1a6fa8);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+  }
+
+  .section-sep {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #2980b9, transparent);
+    margin: 14px 0;
+    opacity: 0.3;
+  }
+
+  .warning-box {
+    background: linear-gradient(135deg, #fff5f5, #fed7d7);
+    border: 2px solid #fc8181;
+    border-radius: 10px;
+    padding: 14px;
+  }
+</style>
+</head>
+<body>
+
+<!-- SLIDE 10: Stroke First Aid -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="header-title">
+      <span class="header-chapter">অধ্যায় ১০ · সমন্বয়</span>
+      <span class="header-main">স্ট্রোক · প্রাথমিক চিকিৎসা</span>
+      <span class="header-sub">Stroke First Aid &amp; Treatment</span>
+    </div>
+    <div class="author-badge">
+      <div class="author-name">Raktim Dey</div>
+      <div class="author-dept">EEE, AUST</div>
+    </div>
+  </div>
+
+  <div class="slide-content">
+    <div class="two-col">
+      <div>
+        <div class="section-title" style="font-size:14px;">🚨 স্ট্রোকের কারনীয় (প্রাথমিক চিকিৎসা)</div>
+        
+        <div class="info-card ic-red" style="margin-bottom:12px;">
+          <div class="info-card-title">যা অবশ্যই করবেন:</div>
+          <ul class="bullet-list">
+            <li>রোগীকে সম্পূর্ণ বিশ্রামে রাখুন</li>
+            <li>তাড়াতাড়ি হাসপাতালে নিয়ে যান</li>
+            <li>রোগীর মাথা সামান্য উঁচু করে রাখুন</li>
+            <li>শ্বাস-প্রশ্বাস পর্যবেক্ষণ করুন</li>
+            <li>রক্তচাপ নিয়ন্ত্রণে রাখুন</li>
+          </ul>
+        </div>
+
+        <div class="warning-box">
+          <div style="font-weight:700; color:#c53030; margin-bottom:6px;">যা করবেন না:</div>
+          <ul class="bullet-list">
+            <li>রোগীকে খাওয়াবেন না বা পানি খাওয়াবেন না</li>
+            <li>রোগীকে একা ফেলে রাখবেন না</li>
+            <li>কোনো ওষুধ নিজে খাওয়াবেন না</li>
+          </ul>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-title" style="font-size:14px;">🏥 রোগ নির্ণয় ও চিকিৎসা</div>
+        
+        <div class="info-card ic-blue">
+          <div class="info-card-title">নির্ণয়ের উপায়:</div>
+          <ul class="bullet-list">
+            <li>মস্তিষ্কের সিটি স্ক্যান / এমআরআই</li>
+            <li>রক্ত পরীক্ষা</li>
+            <li>রক্তচাপ ও হৃৎস্পন্দন পরীক্ষা</li>
+            <li>নিউরোলজিক্যাল পরীক্ষা</li>
+          </ul>
+        </div>
+
+        <div class="info-card ic-green" style="margin-top:12px;">
+          <div class="info-card-title">প্রতিরোধের উপায়:</div>
+          <ul class="bullet-list">
+            <li>ধূমপান ও মদ্যপান ত্যাগ করুন</li>
+            <li>উচ্চ রক্তচাপ নিয়ন্ত্রণ করুন</li>
+            <li>ডায়াবেটিস নিয়ন্ত্রণ করুন</li>
+            <li>নিয়মিত ব্যায়াম করুন</li>
+            <li>স্বাস্থ্যকর খাবার খান</li>
+            <li>মানসিক চাপ কমান</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <span class="footer-text">SSC Biology · Chapter 10 · Coordination</span>
+    <span class="footer-author">Raktim Dey | EEE, AUST</span>
+    <span class="slide-number">10</span>
+  </div>
+</div>
+
+<!-- SLIDE 11: Paralysis, Epilepsy, Parkinson -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="header-title">
+      <span class="header-chapter">অধ্যায় ১০ · সমন্বয়</span>
+      <span class="header-main">স্নায়বিক বৈকল্যজনিত রোগ</span>
+      <span class="header-sub">Paralysis · Epilepsy · Parkinson's Disease</span>
+    </div>
+    <div class="author-badge">
+      <div class="author-name">Raktim Dey</div>
+      <div class="author-dept">EEE, AUST</div>
+    </div>
+  </div>
+
+  <div class="slide-content">
+    <div class="three-col">
+      <!-- Paralysis -->
+      <div class="disease-card">
+        <div class="disease-header" style="background:linear-gradient(135deg,#8e44ad,#7d3c98);">
+          প্যারালাইসিস
+        </div>
+        <div class="disease-body">
+          <p style="font-size:11.5px; color:#4a5568; line-height:1.6;">শরীরের কোনো অংশের পেশি ইচ্ছামতো নাড়াতে না পারা।</p>
+          <div style="margin-top:8px; font-weight:700; color:#1e3a5f; font-size:12px;">কারণ:</div>
+          <ul class="bullet-list">
+            <li>স্ট্রোক</li>
+            <li>মেরুরজ্জুর আঘাত</li>
+            <li>মস্তিষ্কের টিউমার</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Epilepsy -->
+      <div class="disease-card">
+        <div class="disease-header" style="background:linear-gradient(135deg,#e67e22,#ca6f1e);">
+          এপিলেপসি
+        </div>
+        <div class="disease-body">
+          <p style="font-size:11.5px; color:#4a5568; line-height:1.6;">মস্তিষ্কে অস্বাভাবিক বৈদ্যুতিক কার্যকলাপের ফলে আকস্মিক খিঁচুনি।</p>
+          <div style="margin-top:8px; font-weight:700; color:#1e3a5f; font-size:12px;">লক্ষণ:</div>
+          <ul class="bullet-list">
+            <li>আকস্মিক খিঁচুনি</li>
+            <li>চেতনা হারানো</li>
+            <li>মুখ দিয়ে ফেনা</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Parkinson -->
+      <div class="disease-card">
+        <div class="disease-header" style="background:linear-gradient(135deg,#e74c3c,#c0392b);">
+          পারকিনসন রোগ
+        </div>
+        <div class="disease-body">
+          <p style="font-size:11.5px; color:#4a5568; line-height:1.6;">৫০ বছরের পর সাধারণত হয়। ডোপামিনের অভাবে হয়।</p>
+          <div style="margin-top:8px; font-weight:700; color:#1e3a5f; font-size:12px;">লক্ষণ:</div>
+          <ul class="bullet-list">
+            <li>কাঁপুনি</li>
+            <li>চলাফেরায় সমস্যা</li>
+            <li>মুখের অভিব্যক্তি কমে যাওয়া</li>
+            <li>লেখালেখিতে সমস্যা</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <span class="footer-text">SSC Biology · Chapter 10 · Coordination</span>
+    <span class="footer-author">Raktim Dey | EEE, AUST</span>
+    <span class="slide-number">11</span>
+  </div>
+</div>
+
+<!-- SLIDE 12: Tobacco & Drugs -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="header-title">
+      <span class="header-chapter">অধ্যায় ১০ · সমন্বয়</span>
+      <span class="header-main">তামাক ও মাদকদ্রব্যের প্রভাব</span>
+      <span class="header-sub">Effect of Tobacco &amp; Drugs</span>
+    </div>
+    <div class="author-badge">
+      <div class="author-name">Raktim Dey</div>
+      <div class="author-dept">EEE, AUST</div>
+    </div>
+  </div>
+
+  <div class="slide-content">
+    <div class="two-col">
+      <div>
+        <div class="section-title" style="font-size:14px;">🚬 তামাকের প্রভাব</div>
+        <div class="info-card ic-orange">
+          <ul class="bullet-list">
+            <li>নিকোটিন মস্তিষ্কে উদ্দীপক হিসেবে কাজ করে</li>
+            <li>হৃৎপিণ্ড ও রক্তনালীর ক্ষতি করে</li>
+            <li>ফুসফুস ক্যান্সারের ঝুঁকি বাড়ায়</li>
+            <li>দাঁত ও মাড়ির ক্ষতি করে</li>
+            <li>স্মৃতিশক্তি ও মনোযোগ কমায়</li>
+          </ul>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-title" style="font-size:14px;">💊 মাদকাসক্তির কুফল</div>
+        <div class="info-card ic-red">
+          <div style="font-weight:700; color:#c53030; margin-bottom:6px;">শারীরিক:</div>
+          <ul class="bullet-list">
+            <li>স্নায়ুতন্ত্রের ক্ষতি</li>
+            <li>যকৃত ও কিডনির ক্ষতি</li>
+            <li>রোগ প্রতিরোধ ক্ষমতা কমে যাওয়া</li>
+          </ul>
+          <div style="font-weight:700; color:#c53030; margin:8px 0 4px;">মানসিক:</div>
+          <ul class="bullet-list">
+            <li>উদ্বেগ ও বিষণ্ণতা</li>
+            <li>স্মৃতিভ্রংশ</li>
+            <li>আত্মহত্যার প্রবণতা</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="note-box" style="margin-top:12px;">
+      <div class="note-title">★ মাদকাসক্তি প্রতিরোধে করণীয়</div>
+      <p>নৈতিক শিক্ষা, সচেতনতা বৃদ্ধি, পারিবারিক ও সামাজিক সহায়তা, সরকারি আইন প্রয়োগ।</p>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <span class="footer-text">SSC Biology · Chapter 10 · Coordination</span>
+    <span class="footer-author">Raktim Dey | EEE, AUST</span>
+    <span class="slide-number">12</span>
+  </div>
+</div>
+
+<!-- SLIDE 16: Summary -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="header-title">
+      <span class="header-chapter">অধ্যায় ১০ · সমন্বয়</span>
+      <span class="header-main">অধ্যায়ের সারাংশ</span>
+      <span class="header-sub">Chapter Summary</span>
+    </div>
+    <div class="author-badge">
+      <div class="author-name">Raktim Dey</div>
+      <div class="author-dept">EEE, AUST</div>
+    </div>
+  </div>
+
+  <div class="slide-content">
+    <div class="three-col">
+      <div class="info-card ic-blue">
+        <div class="info-card-title">🌿 উদ্ভিদ হরমোন</div>
+        <ul class="bullet-list">
+          <li>অক্সিন, জিবেরেলিন</li>
+          <li>সাইটোকাইনিন, ইথিলিন</li>
+          <li>ফটোট্রপিজম, জিওট্রপিজম</li>
+        </ul>
+      </div>
+      <div class="info-card ic-purple">
+        <div class="info-card-title">🧠 স্নায়ুতন্ত্র</div>
+        <ul class="bullet-list">
+          <li>মস্তিষ্ক (৩ ভাগ)</li>
+          <li>মেরুরজ্জু</li>
+          <li>নিউরন ও সিন্যাপস</li>
+          <li>প্রতিবর্তী ক্রিয়া</li>
+        </ul>
+      </div>
+      <div class="info-card ic-green">
+        <div class="info-card-title">💉 মানব হরমোন</div>
+        <ul class="bullet-list">
+          <li>পিটুইটারি, থাইরয়েড</li>
+          <li>এড্রেনাল, অগ্ন্যাশয়</li>
+          <li>থাইমাস, গোনাড</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="note-box" style="margin-top:16px;">
+      <div class="note-title">★ গুরুত্বপূর্ণ বিষয়</div>
+      <p>স্ট্রোক, ডায়াবেটিস, প্যারালাইসিস, এপিলেপসি, পারকিনসন রোগ, মাদকাসক্তির কুফল — এগুলো অধ্যায়ের গুরুত্বপূর্ণ অংশ।</p>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <span class="footer-text">SSC Biology · Chapter 10 · Coordination</span>
+    <span class="footer-author">Raktim Dey | EEE, AUST</span>
+    <span class="slide-number">13</span>
+  </div>
+</div>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>অধ্যায় ১০ - সমন্বয় (Part 3) | Raktim Dey</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Raleway:wght@400;600;700;800;900&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Hind Siliguri',sans-serif;background:#1a1a2e;display:flex;flex-direction:column;align-items:center;gap:40px;padding:40px 20px;}
+  .slide{width:297mm;min-height:210mm;background:#fff;position:relative;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.4);border-radius:8px;page-break-after:always;}
+  .slide::before{content:'';position:absolute;top:0;left:0;right:0;height:8px;background:linear-gradient(90deg,#1e3a5f,#2980b9,#27ae60,#f39c12,#e74c3c);}
+  .slide-header{background:linear-gradient(135deg,#1e3a5f 0%,#2c5282 50%,#1a365d 100%);padding:18px 35px 15px;display:flex;justify-content:space-between;align-items:center;position:relative;}
+  .slide-header::after{content:'';position:absolute;bottom:-12px;left:0;right:0;height:12px;background:linear-gradient(135deg,#2980b9 25%,transparent 25%) -20px 0,linear-gradient(225deg,#2980b9 25%,transparent 25%) -20px 0,linear-gradient(315deg,#2980b9 25%,transparent 25%),linear-gradient(45deg,#2980b9 25%,transparent 25%);background-size:40px 12px;background-color:transparent;z-index:10;}
+  .header-title{display:flex;flex-direction:column;}.header-chapter{font-family:'Raleway',sans-serif;font-size:11px;color:#90cdf4;letter-spacing:3px;text-transform:uppercase;font-weight:600;}.header-main{font-family:'Raleway',sans-serif;font-size:24px;font-weight:900;color:#fff;letter-spacing:1px;}.header-sub{font-size:13px;color:#bee3f8;margin-top:2px;}
+  .author-badge{background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.3);border-radius:25px;padding:8px 18px;text-align:right;}.author-name{font-family:'Raleway',sans-serif;font-size:13px;font-weight:700;color:#ffd700;}.author-dept{font-size:10px;color:#bee3f8;margin-top:2px;}
+  .slide-content{padding:28px 35px 30px;margin-top:10px;}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;}.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}.four-col{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px;}
+  .section-title{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#1e3a5f,#2980b9);color:#fff;padding:8px 22px;border-radius:30px;font-size:14px;font-weight:700;margin-bottom:14px;box-shadow:0 4px 15px rgba(41,128,185,.4);}
+  .section-title::before{content:'◆';font-size:10px;color:#ffd700;}
+  .info-card{background:#f7fafc;border:1.5px solid #e2e8f0;border-radius:10px;padding:14px;position:relative;overflow:hidden;}
+  .info-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;border-radius:10px 0 0 10px;}
+  .ic-green::before{background:#27ae60;}.ic-blue::before{background:#2980b9;}.ic-purple::before{background:#8e44ad;}.ic-orange::before{background:#e67e22;}.ic-red::before{background:#e74c3c;}.ic-teal::before{background:#16a085;}
+  .info-card-title{font-weight:700;font-size:13px;color:#1e3a5f;margin-bottom:6px;padding-left:8px;}
+  .info-card ul li{font-size:11.5px;color:#4a5568;line-height:1.65;list-style:none;display:flex;align-items:flex-start;gap:6px;padding-left:8px;}
+  .info-card ul li::before{content:'▸';color:#2980b9;font-size:10px;flex-shrink:0;margin-top:3px;}
+  .bullet-list li{font-size:12px;color:#2d3748;line-height:1.7;list-style:none;display:flex;align-items:flex-start;gap:8px;padding:2px 0;}
+  .bullet-list li::before{content:'●';color:#2980b9;font-size:8px;flex-shrink:0;margin-top:5px;}
+  .note-box{background:linear-gradient(135deg,#fffbeb,#fef3c7);border:1.5px solid #fcd34d;border-radius:8px;padding:10px 14px;margin-top:10px;}
+  .note-box .note-title{font-weight:700;color:#92400e;font-size:12px;margin-bottom:4px;}
+  .note-box p{font-size:11px;color:#78350f;line-height:1.6;}
+  .cq-card{background:#fff;border-radius:12px;border:1.5px solid #e2e8f0;overflow:hidden;box-shadow:0 3px 12px rgba(0,0,0,.06);margin-bottom:12px;}
+  .cq-header{padding:10px 16px;color:#fff;font-weight:700;font-size:13px;display:flex;align-items:center;gap:8px;}
+  .cq-body{padding:12px 16px;}
+  .cq-question{background:#f7fafc;border:1px solid #e2e8f0;border-radius:8px;padding:8px 12px;margin-bottom:8px;font-size:12px;color:#2d3748;line-height:1.6;}
+  .cq-question strong{color:#1e3a5f;}
+  .cq-answer{font-size:11.5px;color:#4a5568;line-height:1.65;padding-left:4px;margin-bottom:6px;}
+  .cq-label{font-weight:700;color:#1e3a5f;font-size:12px;margin-bottom:4px;display:flex;align-items:center;gap:6px;}
+  .cq-label::before{content:'✎';color:#27ae60;}
+  .slide-footer{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(135deg,#1e3a5f,#2c5282);padding:7px 35px;display:flex;justify-content:space-between;align-items:center;}
+  .footer-text{font-size:10px;color:#bee3f8;font-family:'Raleway',sans-serif;letter-spacing:.5px;}
+  .footer-author{font-size:10px;color:#ffd700;font-weight:700;font-family:'Raleway',sans-serif;}
+  .slide-number{background:rgba(255,255,255,.15);color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:10px;font-family:'Raleway',sans-serif;}
+  .mcq-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .mcq-item{background:#f7fafc;border:1.5px solid #e2e8f0;border-radius:10px;padding:10px 12px;position:relative;overflow:hidden;}
+  .mcq-item::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;}
+  .mcq-num{font-weight:700;color:#1e3a5f;font-size:12px;margin-bottom:4px;}
+  .mcq-q{font-size:11.5px;color:#2d3748;line-height:1.5;margin-bottom:6px;font-weight:600;}
+  .mcq-opts{display:grid;grid-template-columns:1fr 1fr;gap:3px;}
+  .mcq-opt{font-size:10.5px;color:#4a5568;line-height:1.4;padding:2px 0;}
+  .mcq-opt.correct{color:#276749;font-weight:700;background:rgba(39,174,96,.08);border-radius:4px;padding:2px 6px;}
+  .highlight-box{background:linear-gradient(135deg,#fff5f5,#fed7d7);border:1.5px solid #fc8181;border-radius:10px;padding:10px 16px;margin-top:10px;}
+  .highlight-box .hl-title{font-weight:700;color:#c53030;font-size:13px;margin-bottom:4px;}
+  .reflex-box{background:linear-gradient(135deg,#f0fff4,#c6f6d5);border:1.5px solid #68d391;border-radius:10px;padding:12px 16px;margin-top:10px;}
+  .reflex-box .rb-title{font-weight:700;color:#276749;font-size:14px;margin-bottom:6px;}
+  .reflex-box p{font-size:12px;color:#22543d;line-height:1.65;}
+  .treatment-steps{display:flex;flex-direction:column;gap:8px;margin-top:8px;}
+  .treatment-step{display:flex;gap:10px;align-items:flex-start;background:#f7fafc;border:1px solid #e2e8f0;border-radius:8px;padding:8px 12px;}
+  .ts-number{width:26px;height:26px;border-radius:50%;color:#fff;font-weight:700;font-size:12px;text-align:center;line-height:26px;flex-shrink:0;}
+  .ts-content{font-size:11.5px;color:#2d3748;line-height:1.6;}
+  .ts-content strong{color:#1e3a5f;}
+  @media(max-width:1000px){.slide{width:98vw;}}
+</style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+
+<!-- ============================================================ -->
+<!-- SLIDE 23: MCQ Part 1 (Q1-22) -->
+<!-- ============================================================ -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="header-title">
+      <span class="header-chapter">অধ্যায় ১০ · সমন্বয়</span>
+      <span class="header-main">সমাধানকৃত বহুনির্বাচনী প্রশ্ন (MCQ) — ১ থেকে ২২</span>
+      <span class="header-sub">Solved MCQ — 1 to 22</span>
+    </div>
+    <div class="author-badge"><div class="author-name">Raktim Dey</div><div class="author-dept">EEE, AUST</div></div>
+  </div>
+  <div class="slide-content">
+    <div class="section-title" style="font-size:13px; margin-bottom:12px;">✅ MCQ উত্তরমালা</div>
+    <div class="mcq-grid">
+      <div class="mcq-item" style="border-left:4px solid #27ae60;"><div class="mcq-num">১. সাইটোকাইনিনের কাজ কোনটি?</div><div class="mcq-opts"><span class="mcq-opt">(ক) বীজহীন ফল</span><span class="mcq-opt">(খ) ফল গঠন</span><span class="mcq-opt">(গ) উদ্ভিদের বিকাশে</span><span class="mcq-opt correct">✓ (ঘ) বার্ধক্য বিলম্বিত করা</span></div></div>
+      <div class="mcq-item" style="border-left:4px solid #2980b9;"><div class="mcq-num">২. ডাবের পানিতে কোন হরমোন?</div><div class="mcq-opts"><span class="mcq-opt correct">✓ (ক) সাইটোকাইনিন</span><span class="mcq-opt">(খ) অ্যাবসিসিক</span><span class="mcq-opt">(গ) তাসিন</span><span class="mcq-opt">(ঘ) জিবেরেলিন</span></div></div>
+      <div class="mcq-item" style="border-left:4px solid #8e44ad;"><div class="mcq-num">৩. নিউরিলেমা ও অ্যাক্সনের মধ্যবর্তী অঞ্চল?</div><div class="mcq-opts"><span class="mcq-opt correct">✓ (ক) মায়োলিন</span><span class="mcq-opt">(খ) পনস</span><span class="mcq-opt">(গ) নিউরিলেমা</span><span class="mcq-opt">(ঘ) মেনিনজেন</span></div></div>
+      <div class="mcq-item" style="border-left:4px solid #e67e22;"><div class="mcq-num">৪. মেরুরজ্জুতে — সঠিক কোনটি?</div><div class="mcq-opts"><span class="mcq-opt">(ক) i ও ii</span><span class="mcq-opt correct">✓ (খ) i ও iii</span><span class="mcq-opt">(গ) ii ও iii</span><span class="mcq-opt">(ঘ) সবগুলো</span></div></div>
+      <div class="mcq-item" style="border-left:4px solid #e74c3c;"><div class="mcq-num">৫. সিন্যাপসে অবস্থিত তরল পদার্থ?</div><div class="mcq-opts"><span class="mcq-opt">(ক) অ্যাক্সোলেমা</span><span class="mcq-opt">(খ) পনস</span><span class="mcq-opt correct">✓ (গ) নিউরোহিউমার</span><span class="mcq-opt">(ঘ) মায়োলিন</span></div></div>
+      <div class="mcq-item" style="border-left:4px solid #16a085;"><div class="mcq-num">৬. কোনটি দেহের সমন্বয়ে অংশ নেয়?</div><div class="mcq-opts"><span class="mcq-opt correct">✓ (ক) হরমোন</span><span class="mcq-opt">(খ) রক্ত</span><span class="mcq-opt">(গ) লসিকা</span><span class="mcq-opt">(ঘ) এনজাইম</span></div></div>
+      <div class="mcq-item" style="border-left:4px solid #27ae60;"><div class="mcq-num">৭. উদ্ভিদের জৈব রাসায়নিক পদার্থ?</div><div class="mcq-opts"><span class="mcq-opt">(ক) হরমোন</span><span class="mcq-opt correct">✓ (খ) ফাইটো হরমোন</span><span class="mcq-opt">(গ) অক্সিন</span><span class="mcq-opt">(ঘ) জিবারেলিন</span></div></div>
+      <div class="mcq-item" style="border-left:4px solid #2980b9;"><div class="mcq-num">৮. কোনটি সেরিব্রামকে আবৃত করে?</div><div class="mcq-opts"><span class="mcq-opt">(ক) প্লুরা</span><span class="mcq-opt">(খ) টনোপ্লাস্ট</span><span class="mcq-opt correct">✓ (গ) মেনিনজেস</span><span class="mcq-opt">(ঘ) পেরিকার্ডিয়াম</span></div></div>
+      <div class="mcq-item" style="border-left:4px solid #8e44ad;"><div class="mcq-num">৯. মধ্য মস্তিষ্কের কাজ — সঠিক?</div><div class="mcq-opts"><span class="mcq-opt">(ক) i ও ii</span><span class="mcq-opt">(খ) i ও iii</span><span class="mcq-opt correct">✓ (গ) ii ও iii</span><span class="mcq-opt">(ঘ) সবগুলো</span></div></div>
+      <div class="mcq-item" style="border-left:4px solid #e67e22;"><div class="mcq-num">১০. চিত্রে 'A' কী? (নিউরন চিত্র)</div><div class="mcq-opts"><span class="mcq-opt correct">✓ (ক) কোষদেহ</span><span class="mcq-opt">(খ) প্রলম্বিত</span><span class="mcq-opt">(গ) ডেনড্রাইট</span><span class="mcq-opt">(ঘ) অ্যাক্সন</span></div></div>
+      <div class="mcq-item" style="border-left:4px solid #e74c3c;"><div class="mcq-num">১১. নিউরিলেমা ও B এর মধ্যবর্তী — সঠিক?</div><div class="mcq-opts"><span class="mcq-opt">(ক) i ও ii</span><span class="mcq-opt">(খ) i ও iii</span><span class="mcq-opt correct">✓ (গ) ii ও iii</span><span class="mcq-opt">(ঘ) সবগুলো</span></div></div>
+      <div class="mcq-item" style="border-left:4px solid #16a085;"><div class="mcq-num">১২. তাড়না কীভাবে প্রবাহিত হয়?</div><div class="mcq-opts"><span class="mcq-opt">(ক) কণা আকারে</span><span class="mcq-opt correct">✓ (খ) জৈব উপায়ে</span><span class="mcq-opt">(গ) তরঙ্গাকারে</span><span class="mcq-opt">(ঘ) রাসায়নিকভাবে</span></div></div>
+      <div class="mcq-item" style="border-left:4px solid #27ae60;"><div class="mcq-num">১৩. বাহ্যিক পরিবেশের উদ্দীপক — সঠিক?</div><div class="mcq-opts"><span class="mcq-opt">(ক) i ও ii</span><span class="mcq-opt">(খ) i ও iii</span><span class="mcq-opt">(গ) ii ও iii</span><span class="mcq-opt correct">✓ (ঘ) i, ii ও iii</span></div></div>
+      <div class="mcq-item" style="border-left:4px solid #2980b9;"><div class="mcq-num">১৪. উদ্ভিদের চলনকে কী বলে?</div><div class="mcq-opts"><span class="mcq-opt correct">✓ (ক) ট্রপিক চলন</span><span class="mcq-opt">(খ) হাইড্রোলিক</span><span class="mcq-opt">(গ) প্যারাট্রপিক</span><span class="mcq-opt">(ঘ) এন্ট্রপিক</span></div></div>
+      <div class="mcq-item" style="border-left:4px solid #8e44ad;"><div class="mcq-num">১৫. কাদের ডায়াবেটিস হয়?</div><div class="mcq-opts"><span class="mcq-opt">(ক) বয়স্কদের</span><span class="mcq-opt">(খ) শিশুদের</span><span class="mcq-opt">(গ) যুবক-যুবতীদের</span><span class="mcq-opt correct">✓ (ঘ) ছোট-বড় সবার</span></div></div>
+      <div class="mcq-item" style="border-left:4px solid #e67e22;"><div class="mcq-num">১৬. কোনটিকে মৃগী রোগ বলা হয়?</div><div class="mcq-opts"><span class="mcq-opt">(ক) প্যারালাইসিস</span><span class="mcq-opt">(খ) পারকিনসন</span><span class="mcq-opt">(গ) এনসেফলাইটিস</span><span class="mcq-opt correct">✓ (ঘ) এপিলেপসি</span></div></div>
+      <div class="mcq-item" style="border-left:4px solid #e74c3c;"><div class="mcq-num">১৭. ইথিলিনের প্রভাবে — সঠিক?</div><div class="mcq-opts"><span class="mcq-opt">(ক) i ও ii</span><span class="mcq-opt correct">✓ (খ) i ও iii</span><span class="mcq-opt">(গ) ii ও iii</span><span class="mcq-opt">(ঘ) সবগুলো</span></div></div>
+      <div class="mcq-item" style="border-left:4px solid #16a085;"><div class="mcq-num">১৮. আকারে সবচেয়ে ক্ষুদ্র গ্রন্থি?</div><div class="mcq-opts"><span class="mcq-opt">(ক) থাইরয়েড</span><span class="mcq-opt">(খ) গোনাড</span><span class="mcq-opt">(গ) এড্রেনাল</span><span class="mcq-opt correct">✓ (ঘ) পিটুইটারী</span></div></div>
+      <div class="mcq-item" style="border-left:4px solid #27ae60;"><div class="mcq-num">১৯. আইলেটস অফ ল্যাংগারহ্যানস কোথায়?</div><div class="mcq-opts"><span class="mcq-opt">(ক) যকৃতে</span><span class="mcq-opt correct">✓ (খ) অগ্ন্যাশয়ে</span><span class="mcq-opt">(গ) পিত্তে</span><span class="mcq-opt">(ঘ) জনন অঙ্গে</span></div></div>
+      <div class="mcq-item" style="border-left:4px solid #2980b9;"><div class="mcq-num">২০. করোটিক স্নায়ুর সংখ্যা?</div><div class="mcq-opts"><span class="mcq-opt">(ক) ১২টি</span><span class="mcq-opt correct">✓ (খ) ২৪টি</span><span class="mcq-opt">(গ) ৪৮টি</span><span class="mcq-opt">(ঘ) ৮৪টি</span></div></div>
+      <div class="mcq-item" style="border-left:4px solid #8e44ad;"><div class="mcq-num">২১. বড় দিনের উদ্ভিদ কোনগুলো?</div><div class="mcq-opts"><span class="mcq-opt">(ক) শসা, সূর্যমুখী</span><span class="mcq-opt">(খ) চন্দ্রমল্লিকা, ডালিয়া</span><span class="mcq-opt correct">✓ (গ) লেটুস, ঝিঙা</span><span class="mcq-opt">(ঘ) পেঁয়াজ, রসুন</span></div></div>
+      <div class="mcq-item" style="border-left:4px solid #e67e22;"><div class="mcq-num">২২. ১ম গাছের সমস্যা কোন হরমোনের অভাবে?</div><div class="mcq-opts"><span class="mcq-opt">(ক) অক্সিন</span><span class="mcq-opt">(খ) ইথিলিন</span><span class="mcq-opt correct">✓ (গ) জিবেরেলিন</span><span class="mcq-opt">(ঘ) ভার্নালিন</span></div></div>
+    </div>
+  </div>
+  <div class="slide-footer"><span class="footer-text">SSC Biology · Chapter 10 · MCQ</span><span class="footer-author">Raktim Dey | EEE, AUST</span><span class="slide-number">23</span></div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 24: MCQ Part 2 (Q23-43) -->
+<!-- ============================================================ -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="header-title">
+      <span class="header-chapter">অধ্যায় ১০ · সমন্বয়</span>
+      <span class="header-main">সমাধানকৃত MCQ — ২৩ থেকে ৪৩</span>
+      <span class="header-sub">Solved MCQ — 23 to 43</span>
+    </div>
+    <div class="author-badge"><div class="author-name">Raktim Dey</div><div class="author-dept">EEE, AUST</div></div>
+  </div>
+  <div class="slide-content">
+    <div class="mcq-grid">
+      <div class="mcq-item" style="border-left:4px solid #e74c3c;"><div class="mcq-num">২৩. মি. আলমের উভয় সমস্যার সমাধানে — সঠিক?</div><div class="mcq-opts"><span class="mcq-opt correct">✓ (ক) i ও ii</span><span class="mcq-opt">(খ) i ও iii</span><span class="mcq-opt">(গ) ii ও iii</span><span class="mcq-opt">(ঘ) সবগুলো</span></div></div>
+      <div class="mcq-item" style="border-left:4px solid #16a085;"><div class="mcq-num">২৪. ফলের মোচন বিলম্বিত করা — কোনটি?</div><div class="mcq-opts"><span class="mcq-opt">(ক) ইথিলিন</span><span class="mcq-opt correct">✓ (খ) অক্সিন</span><span class="mcq-opt">(গ) জিবেরেলিন</span><span class="mcq-opt">(ঘ) সাইটোকাইনিন</span></div></div>
+      <div class="mcq-item" style="border-left:4px solid #27ae60;"><div class="mcq-num">২৫. শীর্ষমুকুল কাটায় পার্শ্বমুকুল সৃষ্টিতে?</div><div class="mcq-opts"><span class="mcq-opt correct">✓ (ক) অক্সিন</span><span class="mcq-opt">(খ) জিবেরেলিন</span><span class="mcq-opt">(গ) সাইটোকাইনিন</span><span class="mcq-opt">(ঘ) ইথিলিন</span></div></div>
+      <div class="mcq-item" style="border-left:4px solid #2980b9;"><div class="mcq-num">২৬. পুস্টুলেটেড হরমোনের উদাহরণ — সঠিক?</div><div class="mcq-opts"><span class="mcq-opt">(ক) i ও ii</span><span class="mcq-opt correct">✓ (খ) i ও iii</span><span class="mcq-opt">(গ) ii ও iii</span><span class="mcq-opt">(ঘ) সবগুলো</span></div></div>
+      <div class="mcq-item" style="border-left:4px solid #8e44ad;"><div class="mcq-num">২৭. কর্টেক্স — সঠিক কোনটি?</div><div class="mcq-opts"><span class="mcq-opt">(ক) i ও ii</span><span class="mcq-opt correct">✓ (খ) i ও iii</span><span class="mcq-opt">(গ) ii ও iii</span><span class="mcq-opt">(ঘ) সবগুলো</span></div></div>
+      <div class="mcq-item" style="border-left:4px solid #e67e22;"><div class="mcq-num">২৮. সিন্যাপসে অবস্থিত তরল পদার্থ?</div><div class="mcq-opts"><span class="mcq-opt">(ক) মায়োলিন</span><span class="mcq-opt correct">✓ (খ) নিউরোহিউমার</span><span class="mcq-opt">(গ) পনস</span><span class="mcq-opt">(ঘ) অ্যাক্সোলেমা</span></div></div>
+      <div class="mcq-item" style="border-left:4px solid #e74c3c;"><div class="mcq-num">২৯. 'A' এর ক্ষেত্রে কোনটি প্রযোজ্য?</div><div class="mcq-opts"><span class="mcq-opt correct">✓ (ক) আলোক দিকমুখিতা</span><span class="mcq-opt">(খ) ভূ-দিকমুখিতা</span><span class="mcq-opt">(গ) পানি দিক</span><span class="mcq-opt">(ঘ) রাসায়নিক দিক</span></div></div>
+      <div class="mcq-item" style="border-left:4px solid #16a085;"><div class="mcq-num">৩০. 'A' অংশটি সৃষ্টিতে কোনটি কাজ করে?</div><div class="mcq-opts"><span class="mcq-opt correct">✓ (ক) অক্সিন</span><span class="mcq-opt">(খ) জিবেরেলিন</span><span class="mcq-opt">(গ) সাইটোকাইনিন</span><span class="mcq-opt">(ঘ) অ্যাবসিসিক</span></div></div>
+      <div class="mcq-item" style="border-left:4px solid #27ae60;"><div class="mcq-num">৩১. উদ্দীপকের চিত্রটি কিসের?</div><div class="mcq-opts"><span class="mcq-opt">(ক) নিউরন</span><span class="mcq-opt correct">✓ (খ) মেরুরজ্জু</span><span class="mcq-opt">(গ) সেরিব্রাম</span><span class="mcq-opt">(ঘ) অ্যাক্সন</span></div></div>
+      <div class="mcq-item" style="border-left:4px solid #2980b9;"><div class="mcq-num">৩২. উক্ত চিত্রের ক্ষেত্রে — সঠিক?</div><div class="mcq-opts"><span class="mcq-opt">(ক) i ও ii</span><span class="mcq-opt correct">✓ (খ) i ও iii</span><span class="mcq-opt">(গ) ii ও iii</span><span class="mcq-opt">(ঘ) সবগুলো</span></div></div>
+      <div class="mcq-item" style="border-left:4px solid #8e44ad;"><div class="mcq-num">৩৩. উদ্ভিদের ফুল ফোটাতে কোন হরমোন?</div><div class="mcq-opts"><span class="mcq-opt">(ক) অক্সিন</span><span class="mcq-opt">(খ) সাইটোকাইনিন</span><span class="mcq-opt">(গ) অ্যাবসিক এসিড</span><span class="mcq-opt correct">✓ (ঘ) ফ্লোরিজেন</span></div></div>
+      <div class="mcq-item" style="border-left:4px solid #e67e22;"><div class="mcq-num">৩৪. ইথিলিন ত্বরান্বিত করে — সঠিক?</div><div class="mcq-opts"><span class="mcq-opt">(ক) i ও ii</span><span class="mcq-opt">(খ) i ও iii</span><span class="mcq-opt">(গ) ii ও iii</span><span class="mcq-opt correct">✓ (ঘ) i, ii ও iii</span></div></div>
+      <div class="mcq-item" style="border-left:4px solid #e74c3c;"><div class="mcq-num">৩৫. অধিকাংশ জিবেরেলিন দেখা যায় — সঠিক?</div><div class="mcq-opts"><span class="mcq-opt">(ক) i ও ii</span><span class="mcq-opt">(খ) i ও iii</span><span class="mcq-opt correct">✓ (গ) ii ও iii</span><span class="mcq-opt">(ঘ) সবগুলো</span></div></div>
+      <div class="mcq-item" style="border-left:4px solid #16a085;"><div class="mcq-num">৩৬. নালিবিহীন গ্রন্থিকে কী বলা হয়?</div><div class="mcq-opts"><span class="mcq-opt correct">✓ (ক) হরমোন</span><span class="mcq-opt">(খ) স্নায়ুতন্ত্র</span><span class="mcq-opt">(গ) মেনেনজেস</span><span class="mcq-opt">(ঘ) পেকটিন</span></div></div>
+      <div class="mcq-item" style="border-left:4px solid #27ae60;"><div class="mcq-num">৩৭. মাদক দ্রব্য কোন তন্ত্রে প্রভাব ফেলে?</div><div class="mcq-opts"><span class="mcq-opt correct">✓ (ক) স্নায়ু</span><span class="mcq-opt">(খ) রেচন</span><span class="mcq-opt">(গ) শ্বসন</span><span class="mcq-opt">(ঘ) শোষণ</span></div></div>
+      <div class="mcq-item" style="border-left:4px solid #2980b9;"><div class="mcq-num">৩৮. চিত্রের ক্ষেত্রে — সঠিক?</div><div class="mcq-opts"><span class="mcq-opt">(ক) i ও ii</span><span class="mcq-opt correct">✓ (খ) i ও iii</span><span class="mcq-opt">(গ) ii ও iii</span><span class="mcq-opt">(ঘ) সবগুলো</span></div></div>
+      <div class="mcq-item" style="border-left:4px solid #8e44ad;"><div class="mcq-num">৩৯. সবচেয়ে ছোট অন্তঃক্ষরা গ্রন্থি?</div><div class="mcq-opts"><span class="mcq-opt">(ক) থাইমাস</span><span class="mcq-opt correct">✓ (খ) পিটুইটারি</span><span class="mcq-opt">(গ) এড্রেনাল</span><span class="mcq-opt">(ঘ) থাইরয়েড</span></div></div>
+      <div class="mcq-item" style="border-left:4px solid #e67e22;"><div class="mcq-num">৪০. মাদকদ্রব্য নিয়ন্ত্রণ অধিদপ্তর কখন?</div><div class="mcq-opts"><span class="mcq-opt">(ক) 1976</span><span class="mcq-opt">(খ) 1983</span><span class="mcq-opt">(গ) 1989</span><span class="mcq-opt correct">✓ (ঘ) 1990</span></div></div>
+      <div class="mcq-item" style="border-left:4px solid #e74c3c;"><div class="mcq-num">৪১. বীজহীন ফল সৃষ্টিতে কোন হরমোন?</div><div class="mcq-opts"><span class="mcq-opt">(ক) ইথিলিন</span><span class="mcq-opt correct">✓ (খ) জিবেরেলিন</span><span class="mcq-opt">(গ) অ্যাবসিসিক</span><span class="mcq-opt">(ঘ) ফাইটোকাইনিন</span></div></div>
+      <div class="mcq-item" style="border-left:4px solid #16a085;"><div class="mcq-num">৪২. ছোট দিনের উদ্ভিদ কোনটি?</div><div class="mcq-opts"><span class="mcq-opt">(ক) শসা</span><span class="mcq-opt">(খ) ঝিঙা</span><span class="mcq-opt">(গ) লেটুস</span><span class="mcq-opt correct">✓ (ঘ) ডালিয়া</span></div></div>
+      <div class="mcq-item" style="border-left:4px solid #27ae60;"><div class="mcq-num">৪৩. ডায়াবেটিসে প্রথম উপসর্গে কী হয়?</div><div class="mcq-opts"><span class="mcq-opt correct">✓ (ক) রক্তে গ্লুকোজ বৃদ্ধি পায়</span><span class="mcq-opt">(খ) গ্লুকোজ নির্গত</span><span class="mcq-opt">(গ) বার বার প্রস্রাব</span><span class="mcq-opt">(ঘ) ইনসুলিন নিঃসরণ</span></div></div>
+    </div>
+  </div>
+  <div class="slide-footer"><span class="footer-text">SSC Biology · Chapter 10 · MCQ</span><span class="footer-author">Raktim Dey | EEE, AUST</span><span class="slide-number">24</span></div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 25: END/THANK YOU -->
+<!-- ============================================================ -->
+<div class="slide">
+  <div style="background:linear-gradient(135deg,#1e3a5f 0%,#2c5282 40%,#1a365d 100%);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;min-height:210mm;position:relative;overflow:hidden;">
+    <div style="position:absolute;top:0;left:0;right:0;height:8px;background:linear-gradient(90deg,#e74c3c,#f39c12,#27ae60,#2980b9,#8e44ad);"></div>
+    <div style="position:absolute;bottom:0;left:0;right:0;height:8px;background:linear-gradient(90deg,#8e44ad,#2980b9,#27ae60,#f39c12,#e74c3c);"></div>
+    <div style="position:absolute;top:-80px;right:-80px;width:300px;height:300px;background:rgba(255,255,255,.03);border-radius:50%;"></div>
+    <div style="position:absolute;bottom:-100px;left:-60px;width:350px;height:350px;background:rgba(255,255,255,.03);border-radius:50%;"></div>
+
+    <div style="font-size:60px;margin-bottom:20px;">🎓</div>
+    <div style="font-family:'Raleway',sans-serif;font-size:42px;font-weight:900;color:#fff;letter-spacing:2px;margin-bottom:10px;">সমাপ্ত!</div>
+    <div style="font-family:'Raleway',sans-serif;font-size:20px;font-weight:600;color:#bee3f8;margin-bottom:5px;">The End · অধ্যায় ১০ সম্পূর্ণ</div>
+    <div style="width:80px;height:3px;background:linear-gradient(90deg,#ffd700,#f39c12);border-radius:3px;margin:20px auto;"></div>
+    <div style="font-size:15px;color:#90cdf4;margin-bottom:30px;max-width:600px;line-height:1.7;">
+      অধ্যায় ১০ — সমন্বয় (Coordination)<br>
+      মূল বিষয় + সৃজনশীল প্রশ্ন (CQ 1-11) + MCQ (1-43) সম্পূর্ণ
+    </div>
+    <div style="background:rgba(255,255,255,.08);border:1.5px solid rgba(255,215,0,.4);border-radius:15px;padding:20px 50px;text-align:center;">
+      <div style="font-family:'Raleway',sans-serif;font-size:24px;font-weight:800;color:#ffd700;letter-spacing:1px;">Raktim Dey</div>
+      <div style="font-size:14px;color:#bee3f8;margin-top:5px;">Department of Electrical & Electronic Engineering</div>
+      <div style="font-size:13px;color:#90cdf4;margin-top:3px;">Ahsanullah University of Science & Technology (AUST)</div>
+    </div>
+    <div style="margin-top:30px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center;">
+      <span style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;font-size:11px;padding:6px 14px;border-radius:20px;">Part 3 · Slide 20-25</span>
+      <span style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;font-size:11px;padding:6px 14px;border-radius:20px;">CQ: ৩টি (9-11)</span>
+      <span style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;font-size:11px;padding:6px 14px;border-radius:20px;">MCQ: ৪৩টি</span>
+      <span style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;font-size:11px;padding:6px 14px;border-radius:20px;">সম্পূর্ণ কন্টেন্ট ✓</span>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
