@@ -1,0 +1,1579 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>জীবকোষ ও টিস্যু - Raktim Dey</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Hind Siliguri', 'Poppins', sans-serif;
+  background: #0a0a1a;
+  color: #fff;
+}
+
+.slide {
+  width: 297mm;
+  min-height: 210mm;
+  margin: 10mm auto;
+  background: #fff;
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+.slide-cover {
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  color: white;
+  justify-content: center;
+  align-items: center;
+  min-height: 210mm;
+}
+
+.slide-cover .cover-content {
+  text-align: center;
+  padding: 20mm;
+  position: relative;
+  z-index: 2;
+}
+
+.slide-cover::before {
+  content: '';
+  position: absolute;
+  top: -50px; left: -50px;
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(108,99,255,0.3) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.slide-cover::after {
+  content: '';
+  position: absolute;
+  bottom: -50px; right: -50px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(0,212,255,0.2) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.cover-badge {
+  display: inline-block;
+  background: rgba(108,99,255,0.3);
+  border: 1px solid rgba(108,99,255,0.6);
+  color: #a78bfa;
+  padding: 6px 20px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+.cover-chapter {
+  font-size: 22px;
+  color: rgba(255,255,255,0.7);
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 10px;
+}
+
+.cover-title {
+  font-size: 52px;
+  font-weight: 800;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #667eea, #764ba2, #00d2ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.cover-subtitle {
+  font-size: 28px;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 30px;
+}
+
+.cover-divider {
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #667eea, #00d2ff);
+  margin: 20px auto;
+  border-radius: 2px;
+}
+
+.cover-topics {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.cover-topic-pill {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 7px 18px;
+  border-radius: 25px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.8);
+}
+
+.cover-author {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  color: rgba(255,255,255,0.6);
+}
+
+.cover-author span {
+  color: #00d2ff;
+  font-weight: 600;
+}
+
+.slide-header {
+  padding: 8mm 12mm 6mm;
+  background: linear-gradient(135deg, #0f0c29, #302b63);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.slide-header .header-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 1px;
+}
+
+.slide-header .header-chapter {
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);
+  font-family: 'Poppins', sans-serif;
+}
+
+.slide-header .header-author {
+  font-family: 'Poppins', sans-serif;
+  font-size: 10px;
+  color: #00d2ff;
+  text-align: right;
+  font-weight: 600;
+}
+
+.slide-body {
+  flex: 1;
+  padding: 8mm 12mm;
+  background: #fafbff;
+  overflow: hidden;
+}
+
+.slide-footer {
+  padding: 3mm 12mm;
+  background: linear-gradient(90deg, #0f0c29, #302b63);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.slide-footer .footer-left {
+  font-size: 9px;
+  color: rgba(255,255,255,0.5);
+  font-family: 'Poppins', sans-serif;
+}
+
+.slide-footer .footer-right {
+  font-size: 9px;
+  color: #00d2ff;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+
+.section-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #302b63;
+  margin-bottom: 8px;
+  padding-bottom: 6px;
+  border-bottom: 3px solid #667eea;
+  display: inline-block;
+}
+
+.section-subtitle {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #764ba2;
+  margin: 8px 0 5px;
+}
+
+.sub-subtitle {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #302b63;
+  margin: 6px 0 4px;
+}
+
+.content-text {
+  font-size: 11px;
+  color: #333;
+  line-height: 1.7;
+  margin-bottom: 6px;
+}
+
+.highlight-box {
+  background: linear-gradient(135deg, rgba(102,126,234,0.08), rgba(118,75,162,0.08));
+  border-left: 4px solid #667eea;
+  border-radius: 0 8px 8px 0;
+  padding: 8px 12px;
+  margin: 8px 0;
+}
+
+.highlight-box .content-text { margin: 0; }
+
+.info-card {
+  background: white;
+  border-radius: 10px;
+  padding: 10px 14px;
+  margin: 6px 0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  border-top: 3px solid #667eea;
+}
+
+.warning-card {
+  background: linear-gradient(135deg, #fff9f0, #fff5e6);
+  border-left: 4px solid #f59e0b;
+  border-radius: 0 8px 8px 0;
+  padding: 8px 12px;
+  margin: 6px 0;
+}
+
+.point-list {
+  list-style: none;
+  padding: 0;
+  margin: 4px 0;
+}
+
+.point-list li {
+  font-size: 11px;
+  color: #333;
+  line-height: 1.6;
+  padding: 3px 0 3px 18px;
+  position: relative;
+}
+
+.point-list li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: #667eea;
+  font-size: 11px;
+}
+
+.numbered-list {
+  list-style: none;
+  padding: 0;
+  margin: 4px 0;
+  counter-reset: item;
+}
+
+.numbered-list li {
+  font-size: 11px;
+  color: #333;
+  line-height: 1.6;
+  padding: 3px 0 3px 22px;
+  position: relative;
+  counter-increment: item;
+}
+
+.numbered-list li::before {
+  content: counter(item) '.';
+  position: absolute;
+  left: 0;
+  color: #764ba2;
+  font-weight: 700;
+  font-size: 11px;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.three-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+}
+
+.col-60-40 {
+  display: grid;
+  grid-template-columns: 60% 38%;
+  gap: 10px;
+}
+
+.col-40-60 {
+  display: grid;
+  grid-template-columns: 38% 60%;
+  gap: 10px;
+}
+
+.cell-type-card {
+  background: white;
+  border-radius: 10px;
+  padding: 10px 12px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+  border-top: 4px solid;
+  height: 100%;
+}
+
+.cell-type-card.prokaryote { border-top-color: #ef4444; }
+.cell-type-card.eukaryote { border-top-color: #3b82f6; }
+.cell-type-card.somatic { border-top-color: #10b981; }
+.cell-type-card.gametic { border-top-color: #f59e0b; }
+
+.card-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.card-title.red { color: #ef4444; }
+.card-title.blue { color: #3b82f6; }
+.card-title.green { color: #10b981; }
+.card-title.orange { color: #f59e0b; }
+
+.organelle-card {
+  background: white;
+  border-radius: 8px;
+  padding: 8px 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  border-left: 3px solid #667eea;
+  margin-bottom: 6px;
+}
+
+.organelle-card .org-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #302b63;
+  margin-bottom: 3px;
+}
+
+.organelle-card .org-text {
+  font-size: 10px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.tissue-card {
+  background: white;
+  border-radius: 8px;
+  padding: 8px 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  border-top: 3px solid;
+  margin-bottom: 5px;
+}
+
+.tissue-card.green-border { border-top-color: #10b981; }
+.tissue-card.blue-border { border-top-color: #3b82f6; }
+.tissue-card.purple-border { border-top-color: #8b5cf6; }
+.tissue-card.orange-border { border-top-color: #f59e0b; }
+.tissue-card.red-border { border-top-color: #ef4444; }
+.tissue-card.teal-border { border-top-color: #14b8a6; }
+
+.tissue-card .tc-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #302b63;
+  margin-bottom: 4px;
+}
+
+.tissue-card .tc-text {
+  font-size: 10px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.classif-box {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.classif-sub {
+  background: white;
+  color: #302b63;
+  border: 2px solid #667eea;
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  text-align: center;
+  margin: 3px 2px;
+  display: inline-block;
+}
+
+.classif-row {
+  display: flex;
+  gap: 6px;
+  margin: 4px 0;
+}
+
+.classif-row .classif-sub { flex: 1; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 10px;
+  margin: 6px 0;
+}
+
+th {
+  background: linear-gradient(135deg, #302b63, #667eea);
+  color: white;
+  padding: 6px 8px;
+  text-align: left;
+  font-family: 'Poppins', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+td {
+  padding: 5px 8px;
+  border-bottom: 1px solid #e8eaf6;
+  color: #333;
+  line-height: 1.4;
+}
+
+tr:nth-child(even) td { background: #f5f5ff; }
+tr:nth-child(odd) td { background: #fff; }
+
+.system-card {
+  background: white;
+  border-radius: 8px;
+  padding: 7px 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  border-left: 3px solid;
+  margin-bottom: 6px;
+}
+
+.system-card.digestive { border-left-color: #ef4444; }
+.system-card.respiratory { border-left-color: #3b82f6; }
+.system-card.nervous { border-left-color: #8b5cf6; }
+.system-card.excretory { border-left-color: #f59e0b; }
+.system-card.reproductive { border-left-color: #ec4899; }
+.system-card.integumentary { border-left-color: #10b981; }
+.system-card.endocrine { border-left-color: #06b6d4; }
+
+.system-card .sc-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #302b63;
+  margin-bottom: 3px;
+}
+
+.system-card .sc-text {
+  font-size: 10px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 9px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  margin: 0 2px;
+}
+
+.badge-purple { background: #ede9fe; color: #7c3aed; }
+.badge-blue { background: #dbeafe; color: #2563eb; }
+.badge-green { background: #d1fae5; color: #059669; }
+.badge-red { background: #fee2e2; color: #dc2626; }
+.badge-orange { background: #fff7ed; color: #c2410c; }
+
+.slide-num {
+  font-family: 'Poppins', sans-serif;
+  font-size: 10px;
+  color: rgba(255,255,255,0.4);
+}
+
+.accent-line {
+  height: 2px;
+  background: linear-gradient(90deg, #667eea, #764ba2, #00d2ff);
+  border-radius: 1px;
+  margin: 6px 0;
+}
+
+.def-box {
+  background: linear-gradient(135deg, #f0f4ff, #e8f0fe);
+  border: 1px solid #c7d2fe;
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin: 6px 0;
+  font-size: 11px;
+  color: #333;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.mini-tag {
+  display: inline-block;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 9px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+
+.mt-2 { margin-top: 4px; }
+.mt-4 { margin-top: 8px; }
+.mb-2 { margin-bottom: 4px; }
+.mb-4 { margin-bottom: 8px; }
+
+.small-text {
+  font-size: 10px;
+  color: #666;
+  line-height: 1.5;
+}
+
+.icon-circle {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.flex-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 5px;
+}
+</style>
+</head>
+<body>
+
+<!-- SLIDE 1 - COVER -->
+<div class="slide slide-cover">
+  <div class="cover-content">
+    <div class="cover-badge">জীববিজ্ঞান • অধ্যায় ২</div>
+    <div class="cover-chapter">Chapter 2</div>
+    <div class="cover-title">জীবকোষ ও টিস্যু</div>
+    <div class="cover-subtitle">Cell & Tissue</div>
+    <div class="cover-divider"></div>
+    <div class="cover-topics">
+      <span class="cover-topic-pill">🔬 কোষের প্রকারভেদ</span>
+      <span class="cover-topic-pill">⚙️ অঙ্গাণু ও তাদের কাজ</span>
+      <span class="cover-topic-pill">🌿 উদ্ভিদ টিস্যু</span>
+      <span class="cover-topic-pill">🧬 প্রাণী টিস্যু</span>
+      <span class="cover-topic-pill">🫀 অঙ্গ ও তন্ত্র</span>
+    </div>
+    <div class="cover-divider"></div>
+    <div class="cover-author">Prepared by: <span>Raktim Dey (EEE, AUST)</span></div>
+  </div>
+</div>
+
+<!-- SLIDE 2 - জীবকোষ সংজ্ঞা ও প্রকারভেদ -->
+<div class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="header-title">২.১ জীবকোষ</div>
+      <div class="header-chapter">অধ্যায় ২ — জীবকোষ ও টিস্যু</div>
+    </div>
+    <div class="header-author">Raktim Dey<br>(EEE, AUST)</div>
+  </div>
+  <div class="slide-body">
+    <div class="section-title">জীবকোষ কী?</div>
+
+    <div class="def-box">
+      <strong>লোয়ি (Loewy) ও সিকেভিজ (Sickevitz), ১৯৬৯:</strong> বৈষম্যভেদ্য (selectively permeable) পর্দা দিয়ে আবৃত এবং জীবজ ক্রিয়াকলাপের একক যা অন্য সজীব মাধ্যম ছাড়াই নিজের প্রতিরূপ তৈরি করতে পারে — এমন সত্তাকে <strong>কোষ</strong> বলে।
+    </div>
+
+    <div class="accent-line"></div>
+
+    <div class="section-title mt-4">কোষের প্রকারভেদ</div>
+    <p class="content-text">নিউক্লিয়াসের গঠনের ভিত্তিতে কোষ দুই ধরনের:</p>
+
+    <div class="two-col mt-4">
+      <div class="cell-type-card prokaryote">
+        <div class="card-title red">(i) আদিকোষ / প্রাককেন্দ্রিক কোষ</div>
+        <div class="small-text" style="color:#6b4c4c; font-weight:600; margin-bottom:4px;">Prokaryotic Cell</div>
+        <ul class="point-list">
+          <li>সুগঠিত নিউক্লিয়াস <strong>থাকে না</strong></li>
+          <li>আদি নিউক্লিয়াসযুক্ত কোষ বলা হয়</li>
+          <li>নিউক্লিয়াস কোনো পর্দা দ্বারা আবৃত নয়</li>
+          <li>নিউক্লিও-বস্তু সাইটোপ্লাজমে ছড়ানো থাকে</li>
+          <li>মাইটোকন্ড্রিয়া, প্লাস্টিড, এন্ডোপ্লাজমিক রেটিকুলাম <strong>থাকে না</strong></li>
+          <li>রাইবোজোম <strong>থাকে</strong></li>
+          <li>ক্রোমোজোমে কেবল DNA থাকে</li>
+          <li>উদা: নীলাভ সবুজ শৈবাল, ব্যাকটেরিয়া</li>
+        </ul>
+      </div>
+      <div class="cell-type-card eukaryote">
+        <div class="card-title blue">(ii) প্রকৃত কোষ / সুকেন্দ্রিক কোষ</div>
+        <div class="small-text" style="color:#1e3a8a; font-weight:600; margin-bottom:4px;">Eukaryotic Cell</div>
+        <ul class="point-list">
+          <li>নিউক্লিয়াস <strong>সুগঠিত</strong></li>
+          <li>নিউক্লিয়ার মেমব্রেন দিয়ে নিউক্লিও-বস্তু পরিবেষ্টিত ও সুসংগঠিত</li>
+          <li>রাইবোজোমসহ সকল অঙ্গাণু উপস্থিত থাকে</li>
+          <li>ক্রোমোজোমে DNA, প্রোটিন, হিস্টোন ও অন্যান্য উপাদান থাকে</li>
+          <li>অধিকাংশ জীবকোষ এ ধরনের</li>
+        </ul>
+        <div class="accent-line mt-4"></div>
+        <div class="small-text mt-2"><strong>কাজের ভিত্তিতে প্রকৃত কোষ ২ ধরনের:</strong></div>
+        <div class="classif-row mt-2">
+          <div class="cell-type-card somatic" style="flex:1; padding:6px 8px;">
+            <div class="card-title green" style="font-size:10px;">দেহকোষ (Somatic)</div>
+            <ul class="point-list" style="font-size:9px;">
+              <li>বহুকোষী জীবের দেহ গঠনে অংশ নেয়</li>
+              <li>মাইটোসিস পদ্ধতিতে বিভাজন হয়</li>
+              <li>দেহের বৃদ্ধি ঘটায়</li>
+              <li>বিভিন্ন তন্ত্র ও অঙ্গ-প্রত্যঙ্গ গঠন করে</li>
+            </ul>
+          </div>
+          <div class="cell-type-card gametic" style="flex:1; padding:6px 8px;">
+            <div class="card-title orange" style="font-size:10px;">জননকোষ (Gametic)</div>
+            <ul class="point-list" style="font-size:9px;">
+              <li>যৌন প্রজনন ও জননক্রম দেখা যায়</li>
+              <li>মিয়োসিস পদ্ধতিতে বিভাজন হয়</li>
+              <li>ক্রোমোজোম সংখ্যা অর্ধেক থাকে</li>
+              <li>পুং+স্ত্রী মিলে জাইগোট (Zygote) গঠন করে</li>
+              <li>জাইগোট থেকে জীবদেহ গঠিত হয়</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="footer-left">জীববিজ্ঞান | অধ্যায় ২</div>
+    <div class="slide-num">Slide 2</div>
+    <div class="footer-right">Raktim Dey (EEE, AUST)</div>
+  </div>
+</div>
+
+<!-- SLIDE 3 - উদ্ভিদ ও প্রাণীকোষের অঙ্গাণু -->
+<div class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="header-title">২.২ উদ্ভিদ ও প্রাণীকোষের প্রধান অঙ্গাণু</div>
+      <div class="header-chapter">অধ্যায় ২ — জীবকোষ ও টিস্যু</div>
+    </div>
+    <div class="header-author">Raktim Dey<br>(EEE, AUST)</div>
+  </div>
+  <div class="slide-body">
+    <div class="highlight-box mb-4">
+      <p class="content-text">উচ্চশ্রেণির উদ্ভিদ ও প্রাণীরা সকলেই <strong>প্রকৃত কোষী (Eukaryotic)</strong>। প্রতিটি কোষ কতগুলো অঙ্গাণু নিয়ে তৈরি হয়।</p>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <div class="section-subtitle" style="color:#10b981;">🌿 উদ্ভিদকোষের প্রধান অঙ্গাণু</div>
+        <div style="background:linear-gradient(135deg,#f0fdf4,#dcfce7); border:2px solid #86efac; border-radius:10px; padding:10px; font-size:10px; color:#333; line-height:1.8;">
+          <div class="two-col" style="gap:5px;">
+            <div>
+              ✦ প্লাজমা মেমব্রেন<br>
+              ✦ সাইটোপ্লাজমীয় ধাত্র<br>
+              ✦ মসৃণ এন্ডোপ্লাজমিক জালিকা<br>
+              ✦ অমসৃণ এন্ডোপ্লাজমিক জালিকা<br>
+              ✦ নিউক্লিয়ার রন্ধ্র<br>
+              ✦ নিউক্লিওলাস<br>
+              ✦ নিউক্লিয়ার আবরণী<br>
+              ✦ ক্রোমাটিন তন্তু
+            </div>
+            <div>
+              ✦ নিউক্লিওপ্লাজম<br>
+              ✦ আন্তঃকোষীয় ফাঁক<br>
+              ✦ গলজি বস্তু<br>
+              ✦ মাইটোকন্ড্রিয়া<br>
+              ✦ ক্লোরোপ্লাস্ট<br>
+              ✦ লাইসোসোম<br>
+              ✦ <strong>কোষপ্রাচীর</strong> (বিশেষ বৈশিষ্ট্য)<br>
+              ✦ কোষগহ্বর
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="section-subtitle" style="color:#3b82f6;">🐾 প্রাণীকোষের প্রধান অঙ্গাণু</div>
+        <div style="background:linear-gradient(135deg,#eff6ff,#dbeafe); border:2px solid #93c5fd; border-radius:10px; padding:10px; font-size:10px; color:#333; line-height:1.8;">
+          <div class="two-col" style="gap:5px;">
+            <div>
+              ✦ মাইক্রোভিলাস<br>
+              ✦ এন্ডোপ্লাজমিক রেটিকুলাম (মসৃণ)<br>
+              ✦ মাইটোকন্ড্রিয়া<br>
+              ✦ গলজি বস্তু<br>
+              ✦ সেন্ট্রোসোম<br>
+              ✦ নিউক্লিও পর্দা
+            </div>
+            <div>
+              ✦ নিউক্লিওলাস<br>
+              ✦ ক্রোমাটিন<br>
+              ✦ নিউক্লিওপ্লাজম<br>
+              ✦ এন্ডোপ্লাজমিক রেটিকুলাম (অমসৃণ)<br>
+              ✦ লাইসোসোম<br>
+              ✦ গহ্বর
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accent-line mt-4"></div>
+    <div class="highlight-box">
+      <p class="small-text"><strong>মূল পার্থক্য:</strong> উদ্ভিদকোষে <span class="badge badge-green">কোষপ্রাচীর</span> <span class="badge badge-green">ক্লোরোপ্লাস্ট</span> <span class="badge badge-green">বড় কোষগহ্বর</span> থাকে, কিন্তু প্রাণীকোষে থাকে না। প্রাণীকোষে <span class="badge badge-blue">সেন্ট্রোসোম</span> থাকে, উদ্ভিদকোষে সাধারণত থাকে না।</p>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="footer-left">জীববিজ্ঞান | অধ্যায় ২</div>
+    <div class="slide-num">Slide 3</div>
+    <div class="footer-right">Raktim Dey (EEE, AUST)</div>
+  </div>
+</div>
+
+<!-- SLIDE 4 - কোষপ্রাচীর ও প্রোটোপ্লাজম -->
+<div class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="header-title">কোষপ্রাচীর (Cell Wall) ও প্রোটোপ্লাজম</div>
+      <div class="header-chapter">অধ্যায় ২ — জীবকোষ ও টিস্যু</div>
+    </div>
+    <div class="header-author">Raktim Dey<br>(EEE, AUST)</div>
+  </div>
+  <div class="slide-body">
+    <div class="col-60-40">
+      <div>
+        <div class="section-title">কোষপ্রাচীর (Cell Wall)</div>
+        <div class="highlight-box">
+          <p class="small-text">উদ্ভিদ কোষের একটি অন্যতম গুরুত্বপূর্ণ বৈশিষ্ট্য। এটি <strong>মৃত বা জড়বস্তু</strong> দিয়ে তৈরি। <strong>প্রাণীকোষে কোষপ্রাচীর থাকে না।</strong></p>
+        </div>
+
+        <div class="section-subtitle mt-4">রাসায়নিক গঠন:</div>
+        <div class="three-col" style="gap:5px; margin-top:5px;">
+          <div style="background:#f0f9ff; border:1px solid #7dd3fc; border-radius:6px; padding:5px; text-align:center; font-size:9px; color:#0c4a6e; font-weight:600;">সেলুলোজ</div>
+          <div style="background:#f0f9ff; border:1px solid #7dd3fc; border-radius:6px; padding:5px; text-align:center; font-size:9px; color:#0c4a6e; font-weight:600;">হেমিসেলুলোজ</div>
+          <div style="background:#f0f9ff; border:1px solid #7dd3fc; border-radius:6px; padding:5px; text-align:center; font-size:9px; color:#0c4a6e; font-weight:600;">লিগনিন</div>
+          <div style="background:#f0f9ff; border:1px solid #7dd3fc; border-radius:6px; padding:5px; text-align:center; font-size:9px; color:#0c4a6e; font-weight:600;">পেকটিন</div>
+          <div style="background:#f0f9ff; border:1px solid #7dd3fc; border-radius:6px; padding:5px; text-align:center; font-size:9px; color:#0c4a6e; font-weight:600;">সুবেরিন</div>
+          <div style="background:#fff7ed; border:1px solid #fdba74; border-radius:6px; padding:5px; text-align:center; font-size:9px; color:#7c2d12; font-weight:600;">কাইটিন (ছত্রাক)</div>
+        </div>
+
+        <div class="section-subtitle mt-4">স্তরভেদ:</div>
+        <ul class="point-list">
+          <li><strong>প্রাথমিক কোষপ্রাচীর:</strong> এক স্তরবিশিষ্ট</li>
+          <li><strong>গৌণ প্রাচীর:</strong> প্রোটোপ্লাজম থেকে নিঃসৃত রাসায়নিক দ্রব্য জমে তৈরি হয়</li>
+          <li><strong>কূপ:</strong> প্রাচীরের মধ্যে মধ্যে ছিদ্র থাকে</li>
+          <li><strong>প্লাজমোডেজমাটা:</strong> আণুবীক্ষণিক নালি — পার্শ্ববর্তী কোষের সাথে যোগাযোগ রাখে</li>
+        </ul>
+
+        <div class="section-subtitle mt-4">কাজ:</div>
+        <ul class="point-list">
+          <li>কোষকে দৃঢ়তা প্রদান করে ও আকৃতি বজায় রাখে</li>
+          <li>পানি ও খনিজ লবণ চলাচল নিয়ন্ত্রণ করে</li>
+          <li>পাশের কোষের সাথে যোগাযোগ রক্ষা করে</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="section-title">প্রোটোপ্লাজম</div>
+        <div class="def-box" style="font-style:normal;">
+          কোষের ভেতরে যে অর্ধসচ্ছ, থকথকে জেলির মতো বস্তু থাকে তাকে <strong>প্রোটোপ্লাজম</strong> বলে। কোষঝিল্লি দিয়ে ঘেরা সবকিছুই প্রোটোপ্লাজম — এমনকি কোষঝিল্লি নিজেও প্রোটোপ্লাজমের অংশ।
+        </div>
+        <ul class="point-list mt-4">
+          <li>কোষঝিল্লি</li>
+          <li>সাইটোপ্লাজমীয় অঙ্গাণু</li>
+          <li>নিউক্লিয়াস</li>
+        </ul>
+
+        <div class="accent-line mt-4"></div>
+
+        <div class="section-title mt-4">২.২.১ কোষঝিল্লি (Plasmalemma)</div>
+        <div class="def-box" style="font-style:normal;">
+          প্রোটোপ্লাজমের বাইরে দুই স্তরের যে স্থিতিস্থাপক পর্দা থাকে, তাকে <strong>কোষঝিল্লি বা প্লাজমালেমা</strong> বলে।
+        </div>
+        <ul class="point-list mt-2">
+          <li>কোষঝিল্লির ভাঁজকে <strong>মাইক্রোভিলাই</strong> বলে</li>
+          <li>প্রধানত <strong>লিপিড ও প্রোটিন</strong> দিয়ে তৈরি</li>
+          <li>একটি <strong>বৈষম্যভেদ্য পর্দা</strong></li>
+          <li>অভিস্রবণের মাধ্যমে পানি ও খনিজ লবণ চলাচল নিয়ন্ত্রণ করে</li>
+          <li>কোষগুলোকে পরস্পর থেকে আলাদা করে রাখে</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="footer-left">জীববিজ্ঞান | অধ্যায় ২</div>
+    <div class="slide-num">Slide 4</div>
+    <div class="footer-right">Raktim Dey (EEE, AUST)</div>
+  </div>
+</div>
+
+<!-- SLIDE 5 - মাইটোকন্ড্রিয়া ও প্লাস্টিড -->
+<div class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="header-title">২.২.২ সাইটোপ্লাজমীয় অঙ্গাণু — মাইটোকন্ড্রিয়া ও প্লাস্টিড</div>
+      <div class="header-chapter">অধ্যায় ২ — জীবকোষ ও টিস্যু</div>
+    </div>
+    <div class="header-author">Raktim Dey<br>(EEE, AUST)</div>
+  </div>
+  <div class="slide-body">
+    <div class="highlight-box mb-4">
+      <p class="small-text">প্রোটোপ্লাজম থেকে নিউক্লিয়াস বাদ দিলে যা থাকে তাই <strong>সাইটোপ্লাজম</strong>। এর মধ্যে অঙ্গাণুগুলো থাকে — কিছু <span class="badge badge-blue">ঝিল্লিযুক্ত</span> আবার কিছু <span class="badge badge-orange">ঝিল্লিবিহীন</span>।</p>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <div class="section-subtitle">⚡ (a) মাইটোকন্ড্রিয়া (Mitochondria)</div>
+        <div class="badge badge-purple" style="font-size:9px; margin-bottom:5px;">ঝিল্লিযুক্ত | আবিষ্কার: Benda, ১৮৯৮</div>
+        <ul class="point-list" style="font-size:10px;">
+          <li>দুই স্তরবিশিষ্ট আবরণী ঝিল্লি দিয়ে ঘেরা</li>
+          <li>ভেতরের স্তর ভাঁজ হয়ে থাকে — এদের <strong>ক্রিস্টি (cristae)</strong> বলে</li>
+          <li>ক্রিস্টির গায়ে বৃন্তযুক্ত গোলাকার বস্তু — <strong>অক্সিজোম (oxliomes)</strong></li>
+          <li>অক্সিজোমে উৎসেচকগুলো (enzymes) সাজানো থাকে</li>
+          <li>ভেতরে থাকে <strong>ম্যাট্রিক্স (matrix)</strong></li>
+          <li>জীবের শ্বসনকার্যে সহায়তা করা প্রধান কাজ</li>
+          <li>ক্রেবস চক্রের বিক্রিয়া এই অঙ্গাণুতে সম্পন্ন হয়</li>
+          <li>সবচেয়ে বেশি শক্তি উৎপাদিত হয় ক্রেবস চক্রে</li>
+          <li>কোষের <strong>"পাওয়ার হাউস"</strong> বা <strong>"শক্তি উৎপাদন কেন্দ্র"</strong></li>
+          <li>প্রাককেন্দ্রিক কোষে মাইটোকন্ড্রিয়া থাকে না</li>
+          <li>এন্ডোসিমবায়োসিস: বিবর্তনে সুকেন্দ্রিক কোষে প্রবেশ করেছিল বলে ধারণা</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="section-subtitle">🌿 (b) প্লাস্টিড (Plastid)</div>
+        <div class="badge badge-green" style="font-size:9px; margin-bottom:5px;">উদ্ভিদকোষ বিশেষ | ঝিল্লিযুক্ত</div>
+        <p class="small-text" style="margin-bottom:5px;">প্লাস্টিডের প্রধান কাজ: খাদ্য প্রস্তুত করা, খাদ্য সঞ্চয় করা, উদ্ভিদদেহকে বর্ণময় ও আকর্ষণীয় করে পরাগায়নে সাহায্য করা।</p>
+
+        <div class="tissue-card green-border" style="padding:7px 10px; margin-bottom:5px;">
+          <div class="tc-title">🟢 (i) ক্লোরোপ্লাস্ট (Chloroplast)</div>
+          <ul class="point-list" style="font-size:10px;">
+            <li>সবুজ রঙের প্লাস্টিড</li>
+            <li>পাতা, কচি কাণ্ড ও সবুজ অংশে পাওয়া যায়</li>
+            <li><strong>গ্রানা (grana)</strong> — সূর্যালোক আবদ্ধ করে রাসায়নিক শক্তিতে রূপান্তরিত করে</li>
+            <li><strong>স্ট্রোমা (stroma)</strong> — উৎসেচক থাকে যা CO₂ ও পানি ব্যবহার করে শর্করা তৈরি করে</li>
+            <li>ক্লোরোফিল থাকে — তাই সবুজ দেখায়</li>
+            <li>ক্যারোটিনয়েড নামে রঞ্জকও থাকে</li>
+          </ul>
+        </div>
+
+        <div class="tissue-card orange-border" style="padding:7px 10px; margin-bottom:5px;">
+          <div class="tc-title">🟡 (ii) ক্রোমোপ্লাস্ট (Chromoplast)</div>
+          <ul class="point-list" style="font-size:10px;">
+            <li>রঙিন প্লাস্টিড (সবুজ নয়)</li>
+            <li>জ্যান্থোফিল, ক্যারোটিন, ফাইকোএরিথ্রিন, ফাইকোসায়ানিন ইত্যাদি রঞ্জক থাকে</li>
+            <li>রঙিন ফুল, পাতা এবং গাজরের মূলে পাওয়া যায়</li>
+            <li>ফুলকে আকর্ষণীয় করে পরাগায়নে সাহায্য করা প্রধান কাজ</li>
+          </ul>
+        </div>
+
+        <div class="tissue-card blue-border" style="padding:7px 10px;">
+          <div class="tc-title">⚪ (iii) লিউকোপ্লাস্ট (Leucoplast)</div>
+          <ul class="point-list" style="font-size:10px;">
+            <li>কোনো রঞ্জক পদার্থ থাকে না</li>
+            <li>মূল, রূপ, জননকোষে পাওয়া যায় (সূর্যালোক পৌঁছায় না এমন জায়গায়)</li>
+            <li>প্রধান কাজ <strong>খাদ্য সঞ্চয় করা</strong></li>
+            <li>আলোর সংস্পর্শে এলে ক্লোরোপ্লাস্টে রূপান্তরিত হতে পারে</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="footer-left">জীববিজ্ঞান | অধ্যায় ২</div>
+    <div class="slide-num">Slide 5</div>
+    <div class="footer-right">Raktim Dey (EEE, AUST)</div>
+  </div>
+</div>
+
+<!-- SLIDE 6 - গলজি বস্তু, ER, কোষগহ্বর, লাইসোসোম -->
+<div class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="header-title">ঝিল্লিযুক্ত অঙ্গাণু: গলজি বস্তু, ER, কোষগহ্বর, লাইসোসোম</div>
+      <div class="header-chapter">অধ্যায় ২ — জীবকোষ ও টিস্যু</div>
+    </div>
+    <div class="header-author">Raktim Dey<br>(EEE, AUST)</div>
+  </div>
+  <div class="slide-body">
+    <div class="two-col">
+      <div>
+        <div class="section-subtitle">📦 গলজি বস্তু (Golgi Body)</div>
+        <div class="badge badge-blue" style="font-size:9px; margin-bottom:5px;">ঝিল্লিযুক্ত | প্রধানত প্রাণীকোষে</div>
+        <ul class="point-list" style="font-size:10px;">
+          <li>প্রধানত প্রাণীকোষে পাওয়া যায়; অনেক উদ্ভিদকোষেও দেখা যায়</li>
+          <li>সিস্টার্নি ও কয়েক ধরনের ভেসিকল নিয়ে তৈরি</li>
+          <li>পর্দায় বিভিন্ন উৎসেচকের পানি বিয়োজন সম্পন্ন হয়</li>
+          <li>জীবকোষে বিভিন্ন পদার্থ <strong>নিঃসৃতকরণের</strong> সাথে নিবিড় সম্পর্ক</li>
+          <li>হরমোন নিঃসরণেও ভূমিকা লক্ষ করা যায়</li>
+          <li>কখনো কখনো <strong>প্রোটিন সঞ্চয়</strong> করে রাখে</li>
+        </ul>
+
+        <div class="accent-line mt-4"></div>
+
+        <div class="section-subtitle mt-4">🫧 (e) কোষগহ্বর (Vacuole)</div>
+        <div class="badge badge-green" style="font-size:9px; margin-bottom:5px;">ঝিল্লিযুক্ত | উদ্ভিদে বৃহৎ</div>
+        <ul class="point-list" style="font-size:10px;">
+          <li>সাইটোপ্লাজমে আপাত ফাঁকা স্থান যাকে কোষগহ্বর বলা হয়</li>
+          <li>বৃহৎ কোষগহ্বর উদ্ভিদকোষের বৈশিষ্ট্য</li>
+          <li>প্রধান কাজ <strong>কোষরস ধারণ</strong> করা</li>
+          <li>কোষরসে থাকে: অজৈব লবণ, আমিষ, শর্করা, চর্বিজাতীয় পদার্থ, জৈব এসিড, রঞ্জক, পানি</li>
+          <li>প্রাণীকোষে সাধারণত <strong>অনুপস্থিত</strong>; থাকলে আকারে ছোট</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="section-subtitle">🕸️ (d) এন্ডোপ্লাজমিক রেটিকুলাম (ER)</div>
+        <div class="badge badge-purple" style="font-size:9px; margin-bottom:5px;">ঝিল্লিযুক্ত | উদ্ভিদ ও প্রাণী উভয়ে</div>
+        <ul class="point-list" style="font-size:10px;">
+          <li>আবরণীর গায়ে রাইবোজোম লেগে থাকায় <strong>প্রোটিন সংশ্লেষণ</strong> ঘটে</li>
+          <li>কোষে উৎপাদিত পদার্থগুলোর <strong>প্রবাহ পথ</strong> হিসেবে ব্যবহৃত হয়</li>
+          <li>প্লাজমা মেমব্রেনের সাথে যুক্ত থাকে — এক কোষ থেকে অন্য কোষে উৎসেচক চলাচল করে</li>
+          <li>মাইটোকন্ড্রিয়া, কোষগহ্বর সৃষ্টিতে গুরুত্বপূর্ণ ভূমিকা</li>
+        </ul>
+
+        <div class="accent-line mt-4"></div>
+
+        <div class="section-subtitle mt-4">🔴 (f) লাইসোসোম (Lysosome)</div>
+        <div class="badge badge-red" style="font-size:9px; margin-bottom:5px;">ঝিল্লিযুক্ত | প্রধানত প্রাণীকোষে</div>
+        <ul class="point-list" style="font-size:10px;">
+          <li>জীবকোষকে <strong>জীবাণু থেকে রক্ষা</strong> করে</li>
+          <li>উৎসেচক আগত জীবাণুগুলোকে <strong>হজম</strong> করে ফেলে</li>
+          <li>পরিপাক করার উৎসেচকগুলো একটি পর্দা দিয়ে আলাদা করা থাকে — তাই অন্যান্য অঙ্গাণু হজম হয় না</li>
+          <li>অক্সিজেনের অভাবে বা বিভিন্ন কারণে পর্দা ক্ষতিগ্রস্ত হলে আশেপাশের অঙ্গ নষ্ট হয়</li>
+          <li>কখনো কোষটিই মারা যায়</li>
+        </ul>
+
+        <div class="section-subtitle mt-4">🦴 কোষ কঙ্কাল (Cytoskeleton)</div>
+        <div class="badge badge-orange" style="font-size:9px; margin-bottom:5px;">ঝিল্লিবিহীন অঙ্গাণু</div>
+        <ul class="point-list" style="font-size:10px;">
+          <li>কোষের ভেতরে জালের মতো ছড়িয়ে থাকা দড়ির মতো বস্তু</li>
+          <li>অ্যাকটিন, মায়োসিন, টিউবিউলিন প্রোটিন দিয়ে তৈরি বিভিন্ন তন্তু নির্মিত</li>
+          <li>মাইক্রোটিউবিউল, মাইক্রোফিলামেন্ট, ইন্টারমিডিয়েট ফিলামেন্ট — এ ধরনের তন্তুর উদাহরণ</li>
+          <li>ভেতর থেকে কোষটাকে ধরে রাখে</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="footer-left">জীববিজ্ঞান | অধ্যায় ২</div>
+    <div class="slide-num">Slide 6</div>
+    <div class="footer-right">Raktim Dey (EEE, AUST)</div>
+  </div>
+</div>
+
+<!-- SLIDE 7 - রাইবোজোম, সেন্ট্রোসোম, নিউক্লিয়াস -->
+<div class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="header-title">রাইবোজোম, সেন্ট্রোসোম ও নিউক্লিয়াস</div>
+      <div class="header-chapter">অধ্যায় ২ — জীবকোষ ও টিস্যু</div>
+    </div>
+    <div class="header-author">Raktim Dey<br>(EEE, AUST)</div>
+  </div>
+  <div class="slide-body">
+    <div class="two-col">
+      <div>
+        <div class="section-subtitle">🔵 (b) রাইবোজোম (Ribosome)</div>
+        <div class="badge badge-orange" style="font-size:9px; margin-bottom:5px;">ঝিল্লিবিহীন | উদ্ভিদ ও প্রাণী উভয়ে</div>
+        <ul class="point-list" style="font-size:10px;">
+          <li>প্রাণী ও উদ্ভিদ উভয় ধরনের কোষেই পাওয়া যায়</li>
+          <li>এই পর্দাবিহীন অঙ্গাণুটি প্রধানত <strong>প্রোটিন সংশ্লেষণে</strong> সাহায্য করে</li>
+          <li>প্রোটিনের পলিপেপটাইড চেইন সংযোজন রাইবোজোমে হয়</li>
+          <li>রাইবোজোম এ কাজে প্রয়োজনীয় উৎসেচক সরবরাহ করে</li>
+          <li>উৎসেচক বা এনজাইমের কাজ — প্রাণরাসায়নিক বিক্রিয়া বাড়িয়ে দেওয়া</li>
+        </ul>
+
+        <div class="accent-line mt-4"></div>
+
+        <div class="section-subtitle mt-4">⭕ (c) সেন্ট্রোসোম (Centrosome)</div>
+        <div class="badge badge-blue" style="font-size:9px; margin-bottom:5px;">ঝিল্লিবিহীন | প্রধানত প্রাণীকোষে</div>
+        <ul class="point-list" style="font-size:10px;">
+          <li>প্রধানত প্রাণীকোষের বৈশিষ্ট্য</li>
+          <li>নিম্নশ্রেণির উদ্ভিদকোষে কদাচিৎ দেখা যায়</li>
+          <li>প্রাণীকোষের নিউক্লিয়াসের কাছে দুটি ফাঁপা নলাকার/দণ্ডাকার অঙ্গাণু — <strong>সেন্ট্রিওল</strong></li>
+          <li>সেন্ট্রিওলের চারপাশের গাঢ় তরল — <strong>সেন্ট্রোস্ফিয়ার</strong></li>
+          <li>সেন্ট্রোস্ফিয়ারসহ সেন্ট্রিওল = <strong>সেন্ট্রোসোম</strong></li>
+          <li>কোষ বিভাজনের সময় <strong>অ্যাস্টার রে</strong> তৈরি করে</li>
+          <li>স্পিন্ডল যন্ত্র সৃষ্টিতেও অবদান রেখেছে</li>
+          <li>বিভিন্ন ধরনের ফ্লাজেলা সৃষ্টিতে অংশগ্রহণ করে</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="section-title">২.২.৩ নিউক্লিয়াস বা কেন্দ্রিকা (Nucleus)</div>
+        <div class="def-box" style="font-style:normal; font-size:10px;">
+          জীবকোষের প্রোটোপ্লাজমে নির্দিষ্ট পদার্থের ক্রোমোজোম বহনকারী সুস্পষ্ট যে বস্তুটি দেখা যায় সেটিই হচ্ছে <strong>নিউক্লিয়াস</strong>। সিভকোষ ও লোহিত রক্তকণিকায় নিউক্লিয়াস <strong>থাকে না</strong>।
+        </div>
+
+        <div class="section-subtitle mt-4">সুগঠিত নিউক্লিয়াসের অংশ:</div>
+
+        <div class="organelle-card mt-2">
+          <div class="org-title">(a) নিউক্লিয়ার ঝিল্লি (Nuclear Membrane)</div>
+          <div class="org-text">নিউক্লিয়াসকে ঘিরে থাকা দুই স্তরবিশিষ্ট ঝিল্লি। লিপিড ও প্রোটিনের সমন্বয়ে তৈরি। মধ্যে মধ্যে <strong>নিউক্লিয়ার রন্ধ্র</strong> থাকে — যার ভেতর দিয়ে নিউক্লিয়াস ও সাইটোপ্লাজমের মধ্যে বস্তু চলাচল করে।</div>
+        </div>
+
+        <div class="organelle-card">
+          <div class="org-title">(b) নিউক্লিওপ্লাজম (Nucleoplasm)</div>
+          <div class="org-text">নিউক্লিয়ার ঝিল্লির ভেতরে জেলির মতো বস্তু বা রস। নিউক্লিক এসিড, প্রোটিন, উৎসেচক ও কিছু খনিজ লবণ থাকে।</div>
+        </div>
+
+        <div class="organelle-card">
+          <div class="org-title">(c) নিউক্লিওলাস (Nucleolus)</div>
+          <div class="org-text">নিউক্লিওপ্লাজমে ক্রোমোজোমের সাথে সংলগ্ন গোলাকার বস্তু। RNA ও প্রোটিন দিয়ে তৈরি। <strong>রাইবোজোম সংশ্লেষণ</strong> করে।</div>
+        </div>
+
+        <div class="organelle-card">
+          <div class="org-title">(d) ক্রোমাটিন জালিকা (Chromatin Reticulum)</div>
+          <div class="org-text">কোষের বিশ্রামকালে কুণ্ডলী পাকানো সূক্ষ্ম সুতার মতো অংশ। কোষ বিভাজনের সময় মোটা ও খাটো হয়ে পৃথক <strong>ক্রোমোজোম</strong> হিসেবে দেখা যায়। ক্রোমোজোমে থাকা <strong>জিন (gene)</strong> বংশগতির গুণাবলি বহন করে। প্রতিটি জীবের ক্রোমোজোম সংখ্যা নির্দিষ্ট।</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="footer-left">জীববিজ্ঞান | অধ্যায় ২</div>
+    <div class="slide-num">Slide 7</div>
+    <div class="footer-right">Raktim Dey (EEE, AUST)</div>
+  </div>
+</div>
+
+<!-- SLIDE 8 - উদ্ভিদ টিস্যু -->
+<div class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="header-title">২.৩ বিভিন্ন প্রকার কোষের ভূমিকা | ২.৩.১ উদ্ভিদ টিস্যু</div>
+      <div class="header-chapter">অধ্যায় ২ — জীবকোষ ও টিস্যু</div>
+    </div>
+    <div class="header-author">Raktim Dey<br>(EEE, AUST)</div>
+  </div>
+  <div class="slide-body">
+    <div class="highlight-box mb-4">
+      <p class="small-text"><strong>২.৩ কাজ পরিচালনায় বিভিন্ন প্রকার কোষের ভূমিকা:</strong> এককোষী প্রাণী (প্রোটোজোয়া) একটি কোষের মাধ্যমেই খাদ্যগ্রহণ, দেহের বৃদ্ধি ও প্রজনন সম্পন্ন করে। বহুকোষী প্রাণীদের দেহকোষের মধ্যে ভিন্নতা ও বৈচিত্র্য আছে।</p>
+    </div>
+
+    <div class="def-box" style="font-style:normal; margin-bottom:8px;">
+      <strong>টিস্যু বা কলা:</strong> একই বা বিভিন্ন প্রকারের একগুচ্ছ কোষ একত্রিত হয়ে যদি একই কাজ করে এবং তাদের উৎপত্তিও যদি অভিন্ন হয়, তখন তাদের <strong>টিস্যু বা কলা</strong> বলে।
+    </div>
+
+    <div class="section-title">উদ্ভিদ টিস্যুর শ্রেণিবিন্যাস</div>
+
+    <div class="two-col mt-4" style="gap:12px;">
+      <div>
+        <div style="text-align:center; margin-bottom:8px;">
+          <div class="classif-box">উদ্ভিদ টিস্যু (Plant Tissue)</div>
+          <div class="classif-row">
+            <div class="classif-sub" style="background:linear-gradient(135deg,#fef3c7,#fde68a); border-color:#f59e0b; color:#92400e;">ভাজক টিস্যু<br><small>(বিভাজনে সক্ষম)</small></div>
+            <div class="classif-sub" style="background:linear-gradient(135deg,#dbeafe,#bfdbfe); border-color:#3b82f6; color:#1e3a8a;">স্থায়ী টিস্যু<br><small>(বিভাজনে অক্ষম)</small></div>
+          </div>
+          <div style="margin-top:5px;">
+            <div class="classif-row">
+              <div class="classif-sub" style="background:#f0fdf4; border-color:#10b981; color:#065f46;">সরল টিস্যু</div>
+              <div class="classif-sub" style="background:#eff6ff; border-color:#3b82f6; color:#1e3a8a;">জটিল টিস্যু</div>
+              <div class="classif-sub" style="background:#fdf4ff; border-color:#a855f7; color:#6b21a8;">নিঃস্রাবী টিস্যু</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accent-line"></div>
+
+        <div class="section-subtitle mt-4">(a) সরল টিস্যু (Simple Tissue)</div>
+        <p class="small-text" style="margin-bottom:5px;">প্রতিটি কোষ আকার, আকৃতি ও গঠনে অভিন্ন। তিন ভাগে বিভক্ত:</p>
+
+        <div class="tissue-card green-border">
+          <div class="tc-title">① প্যারেনকাইমা (Parenchyma)</div>
+          <div class="tc-text">উদ্ভিদদেহের সব অংশে পাওয়া যায়। জীবিত, সমব্যাসীয়, পাতলা প্রাচীরযুক্ত, প্রোটোপ্লাজমপূর্ণ কোষ। আন্তঃকোষীয় ফাঁক দেখা যায়। কোষপ্রাচীর সেলুলোজ দিয়ে তৈরি।
+          <br>• <strong>ক্লোরেনকাইমা:</strong> ক্লোরোপ্লাস্টযুক্ত প্যারেনকাইমা
+          <br>• <strong>অ্যারেনকাইমা:</strong> জলজ উদ্ভিদের বায়ুকুঠুরিযুক্ত প্যারেনকাইমা
+          <br>• <strong>কাজ:</strong> দেহ গঠন, খাদ্য প্রস্তুত, খাদ্য সঞ্চয়, খাদ্য পরিবহন</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="tissue-card orange-border">
+          <div class="tc-title">② কোলেনকাইমা (Collenchyma)</div>
+          <div class="tc-text">বিশেষ ধরনের প্যারেনকাইমা কোষ দিয়ে তৈরি। কোষপ্রাচীরে সেলুলোজ ও পেকটিন জমে পুরু হয়। কোণাগুলো অধিক পুরু। লম্বাটে ও সজীব কোষ।
+          <br>• পাতার শিরা ও পত্রবৃন্তে দেখা যায়
+          <br>• কচি ও নমনীয় কাণ্ডে (কুমড়া, দণ্ডকলস) দৃঢ়তা প্রদান করে
+          <br>• ক্লোরোপ্লাস্ট থাকলে খাদ্য প্রস্তুত করে
+          <br>• <strong>কাজ:</strong> খাদ্য প্রস্তুত ও উদ্ভিদদেহকে দৃঢ়তা প্রদান</div>
+        </div>
+
+        <div class="tissue-card red-border mt-4">
+          <div class="tc-title">③ স্ক্লেরেনকাইমা (Sclerenchyma)</div>
+          <div class="tc-text">শক্ত, অনেক লম্বা ও পুরু প্রাচীরবিশিষ্ট কোষ। প্রোটোপ্লাজমবিহীন, লিগনিনযুক্ত, যান্ত্রিক কাজের জন্য নির্দিষ্ট।
+          <br>• প্রাথমিক অবস্থায় প্রোটোপ্লাজম থাকে — পরে মৃত কোষে পরিণত হয়
+          <br>• দুই ধরনের: <strong>ফাইবার</strong> ও <strong>স্ক্লেরাইড</strong>
+          <br>• <strong>ফাইবার:</strong> দীর্ঘ, পুরু, দুই প্রান্ত সূক্ষ্ম; বাস্ট ফাইবার, সার্ফেস ফাইবার, কাঠতন্তু
+          <br>• <strong>স্ক্লেরাইড (স্টোন সেল):</strong> খাটো, সমব্যাসীয়; নগ্নবীজী, ফল ও বীজত্বকে থাকে
+          <br>• <strong>কাজ:</strong> দৃঢ়তা প্রদান, পানি ও খনিজ লবণ পরিবহন</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="footer-left">জীববিজ্ঞান | অধ্যায় ২</div>
+    <div class="slide-num">Slide 8</div>
+    <div class="footer-right">Raktim Dey (EEE, AUST)</div>
+  </div>
+</div>
+
+<!-- SLIDE 9 - জটিল টিস্যু: জাইলেম ও ফ্লোয়েম -->
+<div class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="header-title">(b) জটিল টিস্যু — জাইলেম (Xylem) ও ফ্লোয়েম (Phloem)</div>
+      <div class="header-chapter">অধ্যায় ২ — জীবকোষ ও টিস্যু</div>
+    </div>
+    <div class="header-author">Raktim Dey<br>(EEE, AUST)</div>
+  </div>
+  <div class="slide-body">
+    <div class="highlight-box mb-4">
+      <p class="small-text"><strong>জটিল টিস্যু:</strong> বিভিন্ন ধরনের কোষের সমন্বয়ে গঠিত স্থায়ী টিস্যু। উদ্ভিদে পরিবহনের কাজ করে। দুই ধরন: <span class="badge badge-green">জাইলেম</span> ও <span class="badge badge-purple">ফ্লোয়েম</span>। একত্রে <strong>পরিবহন টিস্যুগুচ্ছ (vascular bundle)</strong> গঠন করে।</p>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <div class="section-subtitle" style="color:#3b82f6;">🔵 জাইলেম (Xylem)</div>
+        <p class="small-text" style="margin-bottom:5px;">দুই ধরনের: প্রাথমিক জাইলেম (প্রোক্যাম্বিয়াম থেকে) ও গৌণ জাইলেম। প্রাথমিক জাইলেম দুই ধরনের: প্রোটোজাইলেম ও মেটাজাইলেম।</p>
+
+        <div class="organelle-card">
+          <div class="org-title" style="color:#1d4ed8;">(i) ট্র্যাকিড (Tracheids)</div>
+          <div class="org-text">লম্বা কোষ, দুই প্রান্ত সূক্ষ্ম ও সুচালো। লিগনিন জমে পুরু হয় → অভ্যন্তরীণ গহ্বর বন্ধ। পাশাপাশি জোড়া কূপ (paired pits) দিয়ে পানি চলাচল। প্রাচীরের পুরত্ব: বলয়াকার, সর্পিলাকার, সোপানাকার, জালিকাকার, কূপাঙ্কিত।
+          <br><strong>কাজ:</strong> কোষরস পরিবহন, অঙ্গকে দৃঢ়তা প্রদান, কখনো খাদ্য সঞ্চয়।</div>
+        </div>
+
+        <div class="organelle-card">
+          <div class="org-title" style="color:#1d4ed8;">(ii) ভেসেল (Vessels)</div>
+          <div class="org-text">খাটো চোঙের মতো কোষ, একটির মাথায় আরেকটি সজ্জিত হয় → দীর্ঘ নল তৈরি → কোষরস উপরে উঠার সরল পথ। পরিণত বয়সে মৃত ও প্রোটোপ্লাজমবিহীন। সাধারণত কয়েক সেন্টিমিটার লম্বা। প্রধানত আবৃতবীজী উদ্ভিদে।
+          <br><strong>কাজ:</strong> পানি ও খনিজ লবণ পরিবহন, অঙ্গকে দৃঢ়তা প্রদান।</div>
+        </div>
+
+        <div class="organelle-card">
+          <div class="org-title" style="color:#1d4ed8;">(iii) জাইলেম প্যারেনকাইমা (Xylem Parenchyma)</div>
+          <div class="org-text">উড প্যারেনকাইমাও বলে। প্রাথমিক জাইলেমে পাতলা প্রাচীর, গৌণে পুরু।
+          <br><strong>কাজ:</strong> খাদ্য সঞ্চয় ও পানি পরিবহন।</div>
+        </div>
+
+        <div class="organelle-card">
+          <div class="org-title" style="color:#1d4ed8;">(iv) জাইলেম ফাইবার (Xylem Fibre)</div>
+          <div class="org-text">স্ক্লেরেনকাইমা কোষ। উড ফাইবারও বলে। লম্বা, দুই প্রান্ত সূক্ষ্ম, পরিণতে মৃত।
+          <br><strong>কাজ:</strong> যান্ত্রিক শক্তি যোগানো, পানি ও খনিজ পরিবহন, খাদ্য সঞ্চয়, দৃঢ়তা প্রদান।</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-subtitle" style="color:#8b5cf6;">🟣 ফ্লোয়েম (Phloem)</div>
+        <p class="small-text" style="margin-bottom:5px;">উদ্ভিদ কাণ্ডে জাইলেমের সাথে একত্রে পরিবহন টিস্যুগুচ্ছ তৈরি করে। জাইলেম যেমন খাদ্যের কাঁচামাল পানি সরবরাহ করে, তেমনি ফ্লোয়েম পাতায় প্রস্তুত খাদ্য বিভিন্ন স্থানে পরিবহন করে।</p>
+
+        <div class="organelle-card" style="border-left-color:#8b5cf6;">
+          <div class="org-title" style="color:#6d28d9;">(i) সিভকোষ (Sieve Cell)</div>
+          <div class="org-text">বিশেষ ধরনের কোষ। দীর্ঘ পাতলা প্রাচীরযুক্ত ও জীবিত। লম্বালম্বিভাবে সজ্জিত হয়ে <strong>সিভনল (Sieve tube)</strong> গঠন করে। চালুনির মতো ছিদ্রযুক্ত সিভপ্লেট দিয়ে পরস্পর থেকে আলাদা। কেন্দ্রীয় ভাঁপা জায়গা — খাদ্য পরিবহনের নল। পরিণত সিভকোষে নিউক্লিয়াস থাকে না।
+          <br><strong>কাজ:</strong> পাতায় প্রস্তুত খাদ্য পরিবহন।</div>
+        </div>
+
+        <div class="organelle-card" style="border-left-color:#8b5cf6;">
+          <div class="org-title" style="color:#6d28d9;">(ii) সঙ্গীকোষ (Companion Cell)</div>
+          <div class="org-text">প্রতিটি সিভকোষের সাথে একটি প্যারেনকাইমা জাতীয় কোষ। বড় নিউক্লিয়াস — সিভকোষের কার্যাবলি নিয়ন্ত্রণ করে বলে ধারণা। প্রোটোপ্লাজমপূর্ণ ও পাতলা প্রাচীরযুক্ত। ফার্ন ও ব্যক্তবীজী উদ্ভিদে এদের উপস্থিতি নেই।</div>
+        </div>
+
+        <div class="organelle-card" style="border-left-color:#8b5cf6;">
+          <div class="org-title" style="color:#6d28d9;">(iii) ফ্লোয়েম প্যারেনকাইমা (Phloem Parenchyma)</div>
+          <div class="org-text">ফ্লোয়েমে উপস্থিত প্যারেনকাইমা কোষ। পাতলা প্রাচীর ও প্রোটোপ্লাজমযুক্ত। ফার্ন, নগ্নবীজী, দ্বিবীজপত্রী উদ্ভিদে থাকে। একবীজপত্রী উদ্ভিদে থাকে না।
+          <br><strong>কাজ:</strong> খাদ্য সঞ্চয় ও খাদ্য পরিবহনে সহায়তা।</div>
+        </div>
+
+        <div class="organelle-card" style="border-left-color:#8b5cf6;">
+          <div class="org-title" style="color:#6d28d9;">(iv) ফ্লোয়েম ফাইবার / তন্তু (Phloem Fibre)</div>
+          <div class="org-text">স্ক্লেরেনকাইমা কোষ সমন্বয়ে তৈরি। দীর্ঘ কোষ, প্রদেশ পরস্পরের সাথে যুক্ত। বাস্ট ফাইবারও বলে। পাটের আঁশ এক ধরনের বাস্ট ফাইবার। গৌণবৃদ্ধির সময় উৎপন্ন হয়।
+          <br>ফ্লোয়েমের মাধ্যমে শর্করা ও মূলে সঞ্চিত খাদ্য একসাথে উপরে-নিচে পরিবাহিত হয়।</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="footer-left">জীববিজ্ঞান | অধ্যায় ২</div>
+    <div class="slide-num">Slide 9</div>
+    <div class="footer-right">Raktim Dey (EEE, AUST)</div>
+  </div>
+</div>
+
+<!-- SLIDE 10 - আবরণী টিস্যু -->
+<div class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="header-title">২.৩.২ প্রাণী টিস্যু — আবরণী টিস্যু (Epithelial Tissue)</div>
+      <div class="header-chapter">অধ্যায় ২ — জীবকোষ ও টিস্যু</div>
+    </div>
+    <div class="header-author">Raktim Dey<br>(EEE, AUST)</div>
+  </div>
+  <div class="slide-body">
+    <div class="two-col" style="gap:12px;">
+      <div>
+        <div class="highlight-box mb-4">
+          <p class="small-text"><strong>প্রাণী টিস্যু:</strong> একই ভ্রূণীয় কোষ থেকে উৎপন্ন কিছুসংখ্যক কোষ জীবদেহের কোনো নির্দিষ্ট স্থানে অবস্থান করে সমষ্টিগতভাবে একটা কাজে নিয়োজিত থাকলে তাদেরকে <strong>টিস্যু (Tissue) বা তন্তু</strong> বলে। টিস্যু নিয়ে আলোচনাকে <strong>টিস্যুতত্ত্ব (Histology)</strong> বলে।</p>
+        </div>
+
+        <div style="background:linear-gradient(135deg,#f5f3ff,#ede9fe); border-radius:8px; padding:8px; margin-bottom:8px;">
+          <p class="small-text"><strong>প্রাণী টিস্যু চার ধরনের:</strong></p>
+          <div class="classif-row mt-2" style="flex-wrap:wrap; gap:4px;">
+            <div class="classif-sub" style="background:#fee2e2; border-color:#ef4444; color:#991b1b;">i. আবরণী টিস্যু</div>
+            <div class="classif-sub" style="background:#dbeafe; border-color:#3b82f6; color:#1e3a8a;">ii. যোজক টিস্যু</div>
+            <div class="classif-sub" style="background:#d1fae5; border-color:#10b981; color:#065f46;">iii. পেশি টিস্যু</div>
+            <div class="classif-sub" style="background:#fdf4ff; border-color:#a855f7; color:#6b21a8;">iv. স্নায়ু টিস্যু</div>
+          </div>
+        </div>
+
+        <div class="section-title">(a) আবরণী টিস্যু (Epithelial Tissue)</div>
+        <div class="def-box" style="font-style:normal; font-size:10px; margin-bottom:6px;">
+          বিভিন্ন অঙ্গের আবরণ (lining) হিসেবে কাজ করে। কোষগুলো ঘন সন্নিবেশিত ও ভিত্তিপর্দার উপর বিন্যস্ত।
+        </div>
+        <p class="small-text"><strong>কাজ:</strong></p>
+        <ul class="point-list" style="font-size:10px;">
+          <li>অঙ্গকে আবৃত রাখা</li>
+          <li>বাইরের আঘাত থেকে রক্ষা করা (protection)</li>
+          <li>প্রোটিনসহ বিভিন্ন পদার্থ ক্ষরণ বা নিঃসরণ করা (secretion)</li>
+          <li>বিভিন্ন পদার্থ শোষণ করা (absorption)</li>
+          <li>কোষীয় স্তর পেরিয়ে সুনির্দিষ্ট পদার্থের পরিবহন (transcellular transport)</li>
+        </ul>
+
+        <div class="accent-line mt-4"></div>
+        <div class="section-subtitle mt-4">ভিত্তিপর্দার উপর কোষ স্তরের সংখ্যার ভিত্তিতে ৩ ভাগ:</div>
+        <ul class="point-list" style="font-size:10px;">
+          <li><strong>সাধারণ আবরণী টিস্যু:</strong> কোষ একস্তরে সজ্জিত। উদা: বৃক্কের বোম্যান ক্যাপসুল, সংগ্রাহক নালিকা, অন্ত্র প্রাচীর</li>
+          <li><strong>স্ট্র্যাটিফাইড আবরণী টিস্যু:</strong> কোষ একাধিক স্তরে সজ্জিত। উদা: মেরুদণ্ডী প্রাণীদের ত্বক</li>
+          <li><strong>সিউডো-স্ট্র্যাটিফাইড আবরণী টিস্যু:</strong> একস্তরে বিন্যস্ত কিন্তু স্তরীভূত মনে হয়। উদা: ট্র্যাকিয়া</li>
+        </ul>
+
+        <div class="accent-line mt-4"></div>
+        <div class="section-subtitle mt-4">বিভিন্ন রূপান্তরিত আবরণী টিস্যু:</div>
+        <ul class="point-list" style="font-size:10px;">
+          <li><strong>সিলিয়াযুক্ত:</strong> মেরুদণ্ডী প্রাণীদের শ্বাসনালির প্রাচীরে</li>
+          <li><strong>ফ্লাজেলাযুক্ত:</strong> হাইড্রার এন্ডোডার্মে</li>
+          <li><strong>ক্ষণপদযুক্ত:</strong> হাইড্রার এন্ডোডার্মে ও মেরুদণ্ডী প্রাণীতে</li>
+          <li><strong>জনন অঙ্গের আবরণী:</strong> শুক্রাণু ও ডিম্বাণু কোষ উৎপন্ন করে, প্রজনন নিশ্চিত করে</li>
+          <li><strong>গ্রন্থি আবরণী:</strong> বিভিন্ন ধরনের রস নিঃসরণ করে</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="section-subtitle">কোষের আকৃতির ভিত্তিতে ৩ ধরন:</div>
+
+        <div class="tissue-card blue-border" style="margin-bottom:8px;">
+          <div class="tc-title">(i) স্কোয়ামাস আবরণী টিস্যু (Squamous Epithelial Tissue)</div>
+          <div class="tc-text">মাছের আঁশের মতো চ্যাপটা কোষ, বড় নিউক্লিয়াস।
+          <br><strong>উদাহরণ:</strong> বৃক্কের বোম্যান ক্যাপসুল প্রাচীর
+          <br><strong>কাজ:</strong> আবরণ ও ছাঁকনি</div>
+        </div>
+
+        <div class="tissue-card green-border" style="margin-bottom:8px;">
+          <div class="tc-title">(ii) কিউবয়ডাল আবরণী টিস্যু (Cuboidal Epithelial Tissue)</div>
+          <div class="tc-text">ঘনাকার বা কিউব আকৃতির কোষ — দৈর্ঘ্য, প্রস্থ ও উচ্চতা প্রায় সমান।
+          <br><strong>উদাহরণ:</strong> বৃক্কের সংগ্রাহক নালিকা
+          <br><strong>কাজ:</strong> পরিশোষণ ও আবরণ</div>
+        </div>
+
+        <div class="tissue-card purple-border" style="margin-bottom:8px;">
+          <div class="tc-title">(iii) কলামনার আবরণী টিস্যু (Columnar Epithelial Tissue)</div>
+          <div class="tc-text">স্তম্ভের মতো সরু ও লম্বা কোষ।
+          <br><strong>উদাহরণ:</strong> প্রাণীর অন্ত্রের অন্তঃপ্রাচীর
+          <br><strong>কাজ:</strong> ক্ষরণ, রক্ষণ ও শোষণ</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="footer-left">জীববিজ্ঞান | অধ্যায় ২</div>
+    <div class="slide-num">Slide 10</div>
+    <div class="footer-right">Raktim Dey (EEE, AUST)</div>
+  </div>
+</div>
+
+<!-- SLIDE 11 - যোজক টিস্যু -->
+<div class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="header-title">(b) যোজক টিস্যু (Connective Tissue)</div>
+      <div class="header-chapter">অধ্যায় ২ — জীবকোষ ও টিস্যু</div>
+    </div>
+    <div class="header-author">Raktim Dey<br>(EEE, AUST)</div>
+  </div>
+  <div class="slide-body">
+    <div class="def-box" style="font-style:normal; margin-bottom:8px;">
+      <strong>যোজক টিস্যু (Connective Tissue):</strong> যোজক বা কানেকটিভ টিস্যুতে মাতৃকার (Matrix) পরিমাণ তুলনামূলকভাবে বেশি এবং কোষের সংখ্যা কম। গঠন ও কাজের ভিত্তিতে প্রধানত <strong>৩ ধরনের</strong>।
+    </div>
+
+    <div class="three-col" style="gap:10px;">
+      <div>
+        <div class="tissue-card blue-border">
+          <div class="tc-title">(i) ফাইব্রাস যোজক টিস্যু (Fibrous Connective Tissue)</div>
+          <div class="tc-text">দেহত্বকের নিচে পেশির মধ্যে থাকে। মাতৃকায় বিভিন্ন ধরনের তন্তুর আধিক্য দেখা যায়। বিভিন্ন ধরনের তন্তু থাকে — কোলাজেন তন্তু, ইলাস্টিক তন্তু, ফাইব্রোব্লাস্ট ইত্যাদি।</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="tissue-card orange-border">
+          <div class="tc-title">(ii) স্কেলিটাল যোজক টিস্যু (Skeletal Connective Tissue)</div>
+          <div class="tc-text">দেহের অভ্যন্তরীণ কাঠামো গঠনকারী টিস্যু।
+          <br><strong>কাজ:</strong> দেহের অভ্যন্তরীণ কাঠামো গঠন, নির্দিষ্ট আকৃতি ও দৃঢ়তা দেওয়া, অঙ্গ সঞ্চালন ও চলনে সহায়তা, মস্তিষ্ক, মেরুরজ্জু, ফুসফুস, হৃদপিণ্ড রক্ষা করা, তন্তুকণিকা উৎপাদন, ঐচ্ছিক পেশি সংযুক্তির ব্যবস্থা করা।
+          <br><strong>দুই ধরনের:</strong></div>
+        </div>
+
+        <div class="tissue-card green-border mt-2">
+          <div class="tc-title">কোমলাস্থি (Cartilage)</div>
+          <div class="tc-text">নমনীয় স্কেলিটাল যোজক টিস্যু। মানুষের নাক ও কানের পিনা কোমলাস্থি দিয়ে তৈরি।</div>
+        </div>
+
+        <div class="tissue-card red-border mt-2">
+          <div class="tc-title">অস্থি (Bone)</div>
+          <div class="tc-text">বিশেষ ধরনের দৃঢ়, ভঙ্গুর ও অনমনীয় টিস্যু। মাতৃকায় ক্যালসিয়াম জাতীয় পদার্থ জমে অস্থির দৃঢ়তা প্রদান করে।</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="tissue-card purple-border">
+          <div class="tc-title">(iii) তরল যোজক টিস্যু (Fluid Connective Tissue)</div>
+          <div class="tc-text">তরল মাতৃকা। মাতৃকায় বিভিন্ন জৈব পদার্থ দ্রবীভূত।
+          <br><strong>কাজ:</strong> দেহের অভ্যন্তরে বিভিন্ন দ্রব্যাদি পরিবহন, রোগ প্রতিরোধ, রক্ত জমাট বাঁধায় ভূমিকা।
+          <br>দুই ধরনের: <span class="badge badge-red">রক্ত</span> ও <span class="badge badge-blue">লসিকা</span></div>
+        </div>
+
+        <div class="info-card mt-2" style="border-top-color:#ef4444;">
+          <div class="sub-subtitle" style="color:#dc2626;">রক্ত (Blood)</div>
+          <div class="small-text">ক্ষারীয়, ঈষৎ লবণাক্ত ও লালবর্ণের তরল। ধমনি, শিরা ও কৈশিকনালির মধ্য দিয়ে প্রবাহিত।
+          <br><strong>উপাদান:</strong> রক্তরস (Plasma) + রক্তকণিকা
+          <br>• রক্তরস: ৯১-৯২% পানি + ৮-৯% জৈব ও অজৈব পদার্থ
+          <br><strong>রক্তকণিকা ৩ ধরনের:</strong>
+          <br>• <strong>লোহিত রক্তকণিকা (RBC/Erythrocyte):</strong> হিমোগ্লোবিন থাকে → অক্সিহিমোগ্লোবিন গঠন করে → অক্সিজেন পরিবহন করে
+          <br>• <strong>শ্বেত রক্তকণিকা (WBC/Leukocyte):</strong> জীবাণু ধ্বংস করে, প্রাকৃতিক আত্মরক্ষায় অংশ নেয়
+          <br>• <strong>অনুচক্রিকা (Thrombocyte/Blood Platelet):</strong> রক্ত জমাট বাঁধায় অংশ নেয়</div>
+        </div>
+
+        <div class="info-card mt-2" style="border-top-color:#3b82f6;">
+          <div class="sub-subtitle" style="color:#2563eb;">লসিকা (Lymph)</div>
+          <div class="small-text">বিভিন্ন টিস্যুর মধ্যবর্তী ফাঁকা স্থানে (Intercellular space) জমে থাকা জলীয় পদার্থ। ঈষৎ হলুদবর্ণের তরল। রোগপ্রতিরোধী <strong>লসিকাকোষ (Lymphoid cell)</strong> থাকে।</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="footer-left">জীববিজ্ঞান | অধ্যায় ২</div>
+    <div class="slide-num">Slide 11</div>
+    <div class="footer-right">Raktim Dey (EEE, AUST)</div>
+  </div>
+</div>
+
+<!-- SLIDE 12 - পেশি টিস্যু ও স্নায়ু টিস্যু -->
+<div class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="header-title">(c) পেশি টিস্যু ও (d) স্নায়ু টিস্যু</div>
+      <div class="header-chapter">অধ্যায় ২ — জীবকোষ ও টিস্যু</div>
+    </div>
+    <div class="header-author">Raktim Dey<br>(EEE, AUST)</div>
+  </div>
+  <div class="slide-body">
+    <div class="two-col" style="gap:12px;">
+      <div>
+        <div class="section-title">(c) পেশি টিস্যু (Muscular Tissue)</div>
+        <div class="def-box" style="font-style:normal; font-size:10px; margin-bottom:6px;">
+          ভ্রূণের মেসোডার্ম থেকে তৈরি সংকোচন ও প্রসারণশীল বিশেষ ধরনের টিস্যু। মাতৃকা প্রায় অনুপস্থিত। পেশিকোষগুলো সরু, লম্বা ও তন্তুময়।
+        </div>
+        <p class="small-text"><strong>তিন ধরনের:</strong></p>
+
+        <div class="tissue-card green-border mt-2">
+          <div class="tc-title">(i) ঐচ্ছিক পেশি (Voluntary / Striated Muscle)</div>
+          <div class="tc-text">
+            • প্রাণীর ইচ্ছানুযায়ী সংকুচিত বা প্রসারিত হয়<br>
+            • কোষগুলো নলাকার, শাখাবিহীন ও আড়াআড়ি ডোরাযুক্ত<br>
+            • সাধারণত একাধিক নিউক্লিয়াস থাকে<br>
+            • দ্রুত সংকুচিত ও প্রসারিত হতে পারে<br>
+            • অস্থিতন্ত্রে সংলগ্ন থাকে<br>
+            <strong>উদাহরণ:</strong> মানুষের হাত ও পায়ের পেশি
+          </div>
+        </div>
+
+        <div class="tissue-card blue-border mt-2">
+          <div class="tc-title">(ii) অঐচ্ছিক পেশি (Involuntary / Smooth Muscle)</div>
+          <div class="tc-text">
+            • সংকোচন ও প্রসারণ প্রাণীর ইচ্ছাধীন নয়<br>
+            • মাকু আকৃতির কোষ, আড়াআড়ি দাগ থাকে না — তাই মসৃণ পেশি<br>
+            • মেরুদণ্ডী প্রাণীদের রক্তনালি, পৌষ্টিকনালির প্রাচীরে থাকে<br>
+            <strong>কাজ:</strong> দেহের অভ্যন্তরীণ অঙ্গাদির সঞ্চালনে অংশ নেয়<br>
+            <strong>উদাহরণ:</strong> অন্ত্রের ক্রমসংকোচন (খাদ্য হজম প্রক্রিয়া)
+          </div>
+        </div>
+
+        <div class="tissue-card red-border mt-2">
+          <div class="tc-title">(iii) কার্ডিয়াক পেশি বা হৃৎপেশি (Cardiac Muscle)</div>
+          <div class="tc-text">
+            • মেরুদণ্ডী প্রাণীদের হৃৎপিণ্ডের বিশেষ ধরনের অঐচ্ছিক পেশি<br>
+            • নলাকৃতির কোষ (ঐচ্ছিক পেশির মতো), শাখান্বিত ও আড়াআড়ি দাগযুক্ত<br>
+            • কোষে <strong>ইন্টারক্যালেটেড ডিস্ক (Intercalated disc)</strong> থাকে<br>
+            • গঠন ঐচ্ছিক পেশির মতো কিন্তু কাজ অঐচ্ছিক পেশির মত<br>
+            • কোষগুলো শাখার মাধ্যমে পরস্পর যুক্ত<br>
+            • সকল কার্ডিয়াক পেশি একসাথে সমন্বিতভাবে সংকুচিত ও প্রসারিত হয়<br>
+            • ভ্রূণ সৃষ্টির এক বিশেষ পর্যায় থেকে মৃত্যুর পূর্বমুহূর্ত পর্যন্ত হৃদপিণ্ড রক্ত চলাচল সচল রাখে
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-title">(d) স্নায়ু টিস্যু (Nerve Tissue)</div>
+        <div class="def-box" style="font-style:normal; font-size:10px; margin-bottom:6px;">
+          দেহের বিশেষ সংবেদী কোষ — <strong>নিউরন বা স্নায়ুকোষ</strong> একত্রে স্নায়ু টিস্যু গঠন করে। পরিবেশ থেকে উদ্দীপনা গ্রহণ করে মস্তিষ্কে বহন করে, বিশ্লেষণের পর উপযুক্ত কাজ করে।
+        </div>
+
+        <div class="info-card" style="border-top-color:#8b5cf6;">
+          <div class="sub-subtitle" style="color:#7c3aed;">একটি আদর্শ নিউরনের তিনটি অংশ:</div>
+          <div class="small-text">
+            ① <strong>কোষদেহ (Cell Body):</strong> বহুভুজাকৃতি ও নিউক্লিয়াসযুক্ত। সাইটোপ্লাজমে মাইটোকন্ড্রিয়া, গলজিবডি, রাইবোজোম, এন্ডোপ্লাজমিক রেটিকুলাম থাকে। নিউরনের সাইটোপ্লাজমে সক্রিয় সেন্ট্রিওল <strong>থাকে না</strong> → তাই নিউরন বিভাজিত হয় না।
+            <br><br>② <strong>ডেনড্রাইট (Dendrite):</strong> কোষদেহের চারদিকের শাখাযুক্ত ক্ষুদ্র প্রলম্বিত অংশ = <strong>ডেনড্রন</strong>। ডেনড্রন থেকে বের হওয়া শাখাই ডেনড্রাইট। সংখ্যা এক বা একাধিক হতে পারে।
+            <br><br>③ <strong>অ্যাক্সন (Axon):</strong> কোষদেহ থেকে একটি লম্বা স্নায়ুতন্তু পরবর্তী নিউরনের ডেনড্রাইটের সাথে যুক্ত থাকে। প্রতি নিউরনে <strong>একটিমাত্র</strong> অ্যাক্সন থাকে।
+          </div>
+        </div>
+
+        <div class="info-card mt-4" style="border-top-color:#06b6d4;">
+          <div class="sub-subtitle" style="color:#0891b2;">সিন্যাপস (Synapse)</div>
+          <div class="small-text">পর পর দুটি নিউরনে প্রথমটির অ্যাক্সন ও পরেরটির ডেনড্রাইটের মধ্যে গঠিত <strong>স্নায়ুসন্ধি</strong>কে সিন্যাপস বলে। সিন্যাপসের মধ্য দিয়েই একটি নিউরন থেকে উদ্দীপনা পরবর্তী নিউরনে পরিবাহিত হয়।</div>
+        </div>
+
+        <div class="info-card mt-4" style="border-top-color:#8b5cf6;">
+          <div class="sub-subtitle" style="color:#7c3aed;">স্নায়ু টিস্যুর কাজ:</div>
+          <ul class="point-list" style="font-size:10px;">
+            <li>পরিবেশ থেকে তাপ, স্পর্শ, চাপ ইত্যাদি উদ্দীপনা গ্রহণ করে মস্তিষ্কে পাঠানো</li>
+            <li>মস্তিষ্কের বিশ্লেষণের পর সিদ্ধান্ত অনুযায়ী উপযুক্ত কাজ করানো</li>
+            <li>উচ্চতর প্রাণীতে <strong>স্মৃতি সংরক্ষণ (Memorise)</strong> করা</li>
+            <li>দেহের বিভিন্ন অংশের কাজ নিয়ন্ত্রণ ও সমন্বয় সাধন করা</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="footer-left">জীববিজ্ঞান | অধ্যায় ২</div>
+    <div class="slide-num">Slide 12</div>
+    <div class="footer-right">Raktim Dey (EEE, AUST)</div>
+  </div>
+</div>
+
+<!-- SLIDE 13 - অঙ্গ ও তন্ত্র -->
+<div class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="header-title">২.৪ অঙ্গ ও তন্ত্র (Organ & System)</div>
+      <div class="header-chapter">অধ্যায় ২ — জীবকোষ ও টিস্যু</div>
+    </div>
+    <div class="header-author">Raktim Dey<br>(EEE, AUST)</div>
+  </div>
+  <div class="slide-body">
+    <div class="def-box" style="font-style:normal; margin-bottom:8px;">
+      <strong>অঙ্গ (Organ):</strong> এক বা একাধিক টিস্যু দিয়ে তৈরি এবং একটা নির্দিষ্ট কাজ করতে সক্ষম প্রাণীদেহের অংশবিশেষকে অঙ্গ বলে। দেহের অঙ্গসমূহ নিয়ে যে শাখায় আলোচনা হয় তাকে <strong>অঙ্গসংস্থানবিদ্যা (Morphology)</strong> বলে।
+    </div>
+
+    <div class="two-col" style="gap:10px; margin-bottom:8px;">
+      <div>
+        <div class="info-card" style="border-top-color:#667eea;">
+          <div class="sub-subtitle">বাহ্যিক অঙ্গ</div>
+          <div class="small-text">চোখ, কান, নাক, হাত, পা, মাথা। <strong>বহিঃঅঙ্গসংস্থান (External Morphology)</strong> — এসব নিয়ে বিশদ আলোচনা করে।</div>
+        </div>
+      </div>
+      <div>
+        <div class="info-card" style="border-top-color:#764ba2;">
+          <div class="sub-subtitle">অভ্যন্তরীণ অঙ্গ</div>
+          <div class="small-text">পাকস্থলী, ডিওডেনাম, ইলিয়াম, মলাশয়, হৃৎপিণ্ড, অগ্ন্যাশয়, প্লীহা, ফুসফুস, বৃক্ক, শুক্রাশয়, ডিম্বাশয়। <strong>অন্তঃঅঙ্গসংস্থান (Anatomy)</strong> — এসব নিয়ে বিশদ আলোচনা করে।</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title">মানবদেহের প্রধান তন্ত্রসমূহ</div>
+    <div class="accent-line" style="margin-bottom:8px;"></div>
+
+    <div class="two-col" style="gap:8px;">
+      <div>
+        <div class="system-card digestive">
+          <div class="sc-title">🍽️ (a) পরিপাক তন্ত্র (Digestive System)</div>
+          <div class="sc-text"><strong>কাজ:</strong> খাদ্যগ্রহণ, পরিপাক, শোষণ ও অপাচ্য খাদ্যাংশ নিষ্কাশন।
+          <br><strong>পৌষ্টিক নালি:</strong> মুখছিদ্র → মুখগহ্বর → গলবিল → অন্ননালি → পাকস্থলী → ডিওডেনাম → ইলিয়াম → রেকটাম/মলাশয় → পায়ুছিদ্র
+          <br><strong>পৌষ্টিক গ্রন্থি:</strong> লালাগ্রন্থি, যকৃত, অগ্ন্যাশয়</div>
+        </div>
+
+        <div class="system-card respiratory mt-2">
+          <div class="sc-title">💨 (b) শ্বসনতন্ত্র (Respiratory System)</div>
+          <div class="sc-text"><strong>কাজ:</strong> দেহের সঞ্চিত খাদ্যকে অক্সিজেনের সাহায্যে জারণ প্রক্রিয়ায় শক্তি উৎপাদন; এ শক্তি দৈনন্দিন কাজে সহায়তা করে।
+          <br><strong>অঙ্গসমূহ:</strong> নাসারন্ধ্র, গলবিল, ল্যারিংস, ট্র্যাকিয়া, ব্রঙ্কাস, ব্রঙ্কিওল, অ্যালভিওলাই, একজোড়া ফুসফুস</div>
+        </div>
+
+        <div class="system-card nervous mt-2">
+          <div class="sc-title">🧠 (c) স্নায়ুতন্ত্র (Nervous System)</div>
+          <div class="sc-text"><strong>কাজ:</strong> দেহের বাইরের ও ভেতরের উদ্দীপনা গ্রহণ করা ও উপযুক্ত প্রতিক্রিয়া সৃষ্টি করা।
+          <br><strong>গঠন:</strong> মস্তিষ্ক, সুষুম্নাকাণ্ড, করোটিক স্নায়ু + স্বয়ংক্রিয় স্নায়ুতন্ত্র (দেহের অঐচ্ছিক পেশির কাজ নিয়ন্ত্রণ করে)</div>
+        </div>
+
+        <div class="system-card excretory mt-2">
+          <div class="sc-title">♻️ (d) রেচনতন্ত্র (Excretory System)</div>
+          <div class="sc-text"><strong>কাজ:</strong> বিপাক ক্রিয়ায় সৃষ্ট নাইট্রোজেনঘটিত বর্জ্য পদার্থ দেহ থেকে নিষ্কাশন করা।
+          <br><strong>গঠন:</strong> একজোড়া বৃক্ক + একজোড়া ইউরেটার + একটি মূত্রথলি + একটি মূত্রনালি (ইউরেথ্রা)</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="system-card reproductive">
+          <div class="sc-title">🧬 (e) জননতন্ত্র (Reproductive System)</div>
+          <div class="sc-text"><strong>কাজ:</strong> প্রজাতির ধারাকে বিলুপ্ত হওয়া থেকে রক্ষা করার জন্য নতুন প্রজন্ম সৃষ্টির লক্ষ্যে গ্যামেট (শুক্রাণু ও ডিম্বাণু) তৈরি করে। ভ্রূণ ও শিশু ধারক অঙ্গ নিয়ে গঠিত।
+          <br>মানুষ একলিঙ্গ প্রাণী — পুরুষের দেহে পুরুষ প্রজননতন্ত্র, নারীর দেহে স্ত্রী প্রজননতন্ত্র।
+          <br>প্রজননের মাধ্যমে প্রজাতির ধারা অব্যাহত থাকে।</div>
+        </div>
+
+        <div class="system-card integumentary mt-2">
+          <div class="sc-title">🫁 (f) ত্বকতন্ত্র (Integumentary System)</div>
+          <div class="sc-text"><strong>কাজ:</strong> দেহের বাইরের দিকে আচ্ছাদনকারী আবরণ = <strong>ত্বক (skin)</strong>। কিছু ক্ষুদ্র গ্রন্থিযুক্ত এই ত্বক —
+          <br>• দেহকে আচ্ছাদন করে
+          <br>• বাইরের আঘাত ও জীবাণুর আক্রমণ থেকে রক্ষা করে
+          <br>• দেহের জলীয় অংশ দেহের ভেতরে সংরক্ষণ করে</div>
+        </div>
+
+        <div class="system-card endocrine mt-2">
+          <div class="sc-title">⚗️ (g) অন্তঃক্ষরা গ্রন্থিতন্ত্র (Endocrine System)</div>
+          <div class="sc-text"><strong>কাজ:</strong> নালিহীন বা অন্তঃক্ষরা গ্রন্থি থেকে নিঃসৃত রসকে <strong>হরমোন</strong> বলে। পরিবহনের জন্য কোনো নির্দিষ্ট নালি নেই — শুধু রক্তের মাধ্যমে পরিবাহিত হয়।
+          <br><strong>গ্রন্থিসমূহ:</strong> পিটুইটারি, থাইরয়েড, প্যারাথাইরয়েড, অগ্ন্যাশয়ের আইলেটস ল্যাঙারহ্যান্স, সুপ্রারেনাল ইত্যাদি</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="footer-left">জীববিজ্ঞান | অধ্যায় ২</div>
+    <div class="slide-num">Slide 13</div>
+    <div class="footer-right">Raktim Dey (EEE, AUST)</div>
+  </div>
+</div>
+
+
+
+</body>
+</html>

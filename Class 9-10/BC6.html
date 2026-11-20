@@ -1,0 +1,3069 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>জীবে পরিবহন - Raktim Dey</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Hind Siliguri', sans-serif;
+    background: #1a1a2e;
+    color: #333;
+  }
+
+  .slide {
+    width: 297mm;
+    min-height: 210mm;
+    background: white;
+    margin: 10px auto;
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+    page-break-inside: avoid;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Header */
+  .slide-header {
+    background: linear-gradient(135deg, #1a237e 0%, #283593 50%, #3949ab 100%);
+    padding: 8px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .slide-header .chapter-title {
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .slide-header .author-name {
+    color: #90caf9;
+    font-size: 11px;
+    font-weight: 600;
+    text-align: right;
+  }
+
+  /* Footer */
+  .slide-footer {
+    background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+    padding: 5px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+    margin-top: auto;
+  }
+
+  .slide-footer span {
+    color: #90caf9;
+    font-size: 9px;
+  }
+
+  .slide-footer .page-num {
+    color: white;
+    font-weight: 700;
+    font-size: 10px;
+  }
+
+  /* Content area */
+  .slide-content {
+    flex: 1;
+    padding: 12px 22px;
+    position: relative;
+  }
+
+  /* Decorative side bar */
+  .slide::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(180deg, #1a237e, #42a5f5, #1a237e);
+    z-index: 10;
+  }
+
+  /* Title slide */
+  .title-slide {
+    background: linear-gradient(135deg, #0d1b4b 0%, #1a237e 40%, #1565c0 70%, #0288d1 100%);
+    justify-content: center;
+    align-items: center;
+    min-height: 210mm;
+  }
+
+  .title-slide::before { display: none; }
+
+  .title-content {
+    text-align: center;
+    padding: 30px;
+    z-index: 2;
+  }
+
+  .title-content .main-badge {
+    background: rgba(255,255,255,0.15);
+    border: 2px solid rgba(255,255,255,0.4);
+    color: #fff;
+    padding: 8px 30px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: inline-block;
+  }
+
+  .title-content h1 {
+    color: #ffffff;
+    font-size: 52px;
+    font-weight: 700;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    margin-bottom: 15px;
+    line-height: 1.2;
+  }
+
+  .title-content .subtitle {
+    color: #90caf9;
+    font-size: 20px;
+    margin-bottom: 30px;
+  }
+
+  .title-content .divider {
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #42a5f5, transparent);
+    margin: 20px auto;
+  }
+
+  .title-content .author-box {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 15px 40px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-top: 10px;
+  }
+
+  .title-content .author-box p {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .title-content .author-box span {
+    color: #90caf9;
+    font-size: 13px;
+  }
+
+  /* Section heading */
+  .section-heading {
+    background: linear-gradient(135deg, #1a237e, #1565c0);
+    color: white;
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .section-heading::before {
+    content: '◆';
+    color: #90caf9;
+    font-size: 10px;
+  }
+
+  /* Sub heading */
+  .sub-heading {
+    color: #1a237e;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-left: 4px solid #1565c0;
+    background: #e8eaf6;
+    margin: 10px 0 8px 0;
+    border-radius: 0 5px 5px 0;
+  }
+
+  /* Body text */
+  .body-text {
+    font-size: 11px;
+    line-height: 1.7;
+    color: #333;
+    text-align: justify;
+    margin-bottom: 8px;
+  }
+
+  .body-text .highlight {
+    color: #1565c0;
+    font-weight: 600;
+  }
+
+  .body-text .highlight-red {
+    color: #c62828;
+    font-weight: 600;
+  }
+
+  /* Info box */
+  .info-box {
+    background: linear-gradient(135deg, #e8eaf6, #e3f2fd);
+    border: 1px solid #90caf9;
+    border-left: 4px solid #1565c0;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin: 8px 0;
+    font-size: 11px;
+    line-height: 1.65;
+    color: #333;
+  }
+
+  /* Definition box */
+  .def-box {
+    background: linear-gradient(135deg, #fff3e0, #fff8e1);
+    border: 1px solid #ffcc80;
+    border-left: 4px solid #f57c00;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin: 8px 0;
+    font-size: 11px;
+    line-height: 1.65;
+  }
+
+  .def-box .def-title {
+    color: #e65100;
+    font-weight: 700;
+    font-size: 12px;
+    margin-bottom: 4px;
+  }
+
+  /* Key point box */
+  .key-box {
+    background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
+    border: 1px solid #a5d6a7;
+    border-left: 4px solid #388e3c;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin: 8px 0;
+    font-size: 11px;
+    line-height: 1.65;
+    color: #1b5e20;
+  }
+
+  /* Warning box */
+  .warn-box {
+    background: linear-gradient(135deg, #fce4ec, #ffeeff);
+    border: 1px solid #f48fb1;
+    border-left: 4px solid #c62828;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin: 8px 0;
+    font-size: 11px;
+    line-height: 1.65;
+    color: #880e4f;
+  }
+
+  /* Two column layout */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 8px 0;
+  }
+
+  .three-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin: 8px 0;
+  }
+
+  /* List styles */
+  .styled-list {
+    list-style: none;
+    padding: 0;
+    margin: 6px 0;
+  }
+
+  .styled-list li {
+    font-size: 11px;
+    line-height: 1.6;
+    padding: 4px 0 4px 18px;
+    position: relative;
+    color: #333;
+    border-bottom: 1px dashed #e0e0e0;
+  }
+
+  .styled-list li:last-child { border-bottom: none; }
+
+  .styled-list li::before {
+    content: '▸';
+    color: #1565c0;
+    position: absolute;
+    left: 0;
+    font-size: 10px;
+    top: 5px;
+  }
+
+  /* Numbered list */
+  .num-list {
+    list-style: none;
+    padding: 0;
+    margin: 6px 0;
+    counter-reset: num-counter;
+  }
+
+  .num-list li {
+    font-size: 11px;
+    line-height: 1.6;
+    padding: 4px 0 4px 24px;
+    position: relative;
+    color: #333;
+    counter-increment: num-counter;
+    border-bottom: 1px dashed #e0e0e0;
+  }
+
+  .num-list li:last-child { border-bottom: none; }
+
+  .num-list li::before {
+    content: counter(num-counter);
+    background: #1a237e;
+    color: white;
+    font-size: 9px;
+    font-weight: 700;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    top: 5px;
+  }
+
+  /* Table styles */
+  .styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+    font-size: 11px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  .styled-table thead tr {
+    background: linear-gradient(135deg, #1a237e, #1565c0);
+    color: white;
+  }
+
+  .styled-table th {
+    padding: 8px 12px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 11px;
+  }
+
+  .styled-table td {
+    padding: 7px 12px;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+    color: #333;
+  }
+
+  .styled-table tbody tr:nth-child(even) {
+    background: #e8eaf6;
+  }
+
+  .styled-table tbody tr:hover {
+    background: #c5cae9;
+  }
+
+  .styled-table tbody tr:last-child td { border-bottom: none; }
+
+  /* Diagram box */
+  .diagram-box {
+    background: linear-gradient(135deg, #f5f5f5, #fafafa);
+    border: 2px solid #90caf9;
+    border-radius: 10px;
+    padding: 14px;
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  .diagram-box .diagram-caption {
+    font-size: 10px;
+    color: #555;
+    font-style: italic;
+    margin-top: 8px;
+    font-weight: 600;
+    color: #1a237e;
+  }
+
+  /* Flow diagram */
+  .flow-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    flex-wrap: wrap;
+    margin: 10px 0;
+  }
+
+  .flow-box {
+    background: linear-gradient(135deg, #1a237e, #1565c0);
+    color: white;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 10px;
+    font-weight: 600;
+    text-align: center;
+    min-width: 70px;
+  }
+
+  .flow-arrow {
+    color: #1565c0;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  /* Heart diagram SVG style */
+  .heart-diagram {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 8px 0;
+    align-items: flex-start;
+  }
+
+  .chamber-box {
+    text-align: center;
+  }
+
+  .chamber-label {
+    font-size: 9px;
+    color: #1a237e;
+    font-weight: 700;
+    margin-top: 3px;
+  }
+
+  /* Blood group chart */
+  .blood-type-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 10px 0;
+  }
+
+  .blood-card {
+    border-radius: 8px;
+    padding: 10px 6px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 700;
+    border: 2px solid;
+  }
+
+  .blood-card.A { background: #ffebee; border-color: #ef9a9a; color: #b71c1c; }
+  .blood-card.B { background: #e3f2fd; border-color: #90caf9; color: #0d47a1; }
+  .blood-card.AB { background: #f3e5f5; border-color: #ce93d8; color: #4a148c; }
+  .blood-card.O { background: #e8f5e9; border-color: #a5d6a7; color: #1b5e20; }
+
+  .blood-card .blood-label {
+    font-size: 22px;
+    font-weight: 900;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .blood-card .blood-info {
+    font-size: 9px;
+    font-weight: 400;
+    line-height: 1.4;
+  }
+
+  /* MCQ styles */
+  .mcq-container {
+    margin: 8px 0;
+  }
+
+  .mcq-question {
+    background: linear-gradient(135deg, #1a237e, #1565c0);
+    color: white;
+    padding: 8px 14px;
+    border-radius: 6px 6px 0 0;
+    font-size: 11px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .mcq-source {
+    background: rgba(255,255,255,0.2);
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 9px;
+  }
+
+  .mcq-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid #c5cae9;
+    border-top: none;
+    border-radius: 0 0 6px 6px;
+    overflow: hidden;
+  }
+
+  .mcq-option {
+    padding: 6px 12px;
+    font-size: 10.5px;
+    color: #333;
+    border: 1px solid #e8eaf6;
+    background: white;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .mcq-option.correct {
+    background: #e8f5e9;
+    color: #1b5e20;
+    font-weight: 700;
+  }
+
+  .mcq-option .opt-label {
+    background: #e8eaf6;
+    color: #1a237e;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 10px;
+    flex-shrink: 0;
+  }
+
+  .mcq-option.correct .opt-label {
+    background: #388e3c;
+    color: white;
+  }
+
+  .tick { color: #388e3c; font-weight: 900; margin-right: 2px; }
+
+  /* Diagram for water absorption */
+  .water-abs-diagram {
+    font-size: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+  }
+
+  .diag-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .diag-node {
+    background: linear-gradient(135deg, #1565c0, #1976d2);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .diag-arrow-down {
+    color: #1565c0;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .diag-arrow-right {
+    color: #1565c0;
+    font-size: 12px;
+  }
+
+  /* Cholesterol diagram */
+  .chol-type {
+    border-radius: 8px;
+    padding: 8px;
+    text-align: center;
+    font-size: 10px;
+  }
+
+  .chol-ldl { background: #ffebee; border: 2px solid #ef9a9a; }
+  .chol-hdl { background: #e8f5e9; border: 2px solid #a5d6a7; }
+  .chol-tg { background: #fff3e0; border: 2px solid #ffcc80; }
+
+  .chol-type .chol-name {
+    font-weight: 700;
+    font-size: 12px;
+    margin-bottom: 4px;
+  }
+
+  .chol-ldl .chol-name { color: #c62828; }
+  .chol-hdl .chol-name { color: #2e7d32; }
+  .chol-tg .chol-name { color: #e65100; }
+
+  /* Heart chambers SVG */
+  .heart-svg-container {
+    display: flex;
+    justify-content: center;
+    margin: 6px 0;
+  }
+
+  /* Transpiration types */
+  .transp-type {
+    border-radius: 8px;
+    padding: 8px 10px;
+    font-size: 10px;
+    border: 2px solid;
+  }
+
+  .transp-stomatal { background: #e8f5e9; border-color: #66bb6a; }
+  .transp-cuticular { background: #fff3e0; border-color: #ffa726; }
+  .transp-lenticular { background: #e3f2fd; border-color: #42a5f5; }
+
+  .transp-type .t-name {
+    font-weight: 700;
+    font-size: 11px;
+    margin-bottom: 4px;
+  }
+
+  .transp-stomatal .t-name { color: #2e7d32; }
+  .transp-cuticular .t-name { color: #e65100; }
+  .transp-lenticular .t-name { color: #0d47a1; }
+
+  /* Blood vessel comparison */
+  .vessel-compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+    margin: 8px 0;
+  }
+
+  .vessel-card {
+    border-radius: 8px;
+    padding: 8px;
+    text-align: center;
+    font-size: 10px;
+    border: 2px solid;
+  }
+
+  .vessel-card.artery { background: #ffebee; border-color: #ef9a9a; }
+  .vessel-card.vein { background: #e3f2fd; border-color: #90caf9; }
+  .vessel-card.capillary { background: #f3e5f5; border-color: #ce93d8; }
+
+  .vessel-card .v-name {
+    font-weight: 700;
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+
+  .vessel-card.artery .v-name { color: #c62828; }
+  .vessel-card.vein .v-name { color: #0d47a1; }
+  .vessel-card.capillary .v-name { color: #6a1b9a; }
+
+  /* WBC types */
+  .wbc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin: 8px 0;
+  }
+
+  .wbc-card {
+    border-radius: 8px;
+    padding: 8px 10px;
+    font-size: 10px;
+    border: 1px solid #c5cae9;
+    background: #f5f5ff;
+  }
+
+  .wbc-card .wbc-name {
+    font-weight: 700;
+    color: #1a237e;
+    font-size: 11px;
+    margin-bottom: 3px;
+  }
+
+  /* Lenticel diagram */
+  .lenticel-diagram {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(135deg, #f5f5f5, #fafafa);
+    border: 2px solid #90caf9;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 9px;
+  }
+
+  /* Stoma diagram */
+  .stoma-diagram {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
+    border: 2px solid #66bb6a;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 9px;
+  }
+
+  /* Print styles */
+  @media print {
+    body { background: white; }
+    .slide {
+      margin: 0;
+      width: 297mm;
+      min-height: 210mm;
+      page-break-after: always;
+      box-shadow: none;
+    }
+    @page {
+      size: A4 landscape;
+      margin: 0;
+    }
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 10px;
+    font-weight: 700;
+    margin: 2px;
+  }
+
+  .badge-blue { background: #e3f2fd; color: #0d47a1; border: 1px solid #90caf9; }
+  .badge-green { background: #e8f5e9; color: #1b5e20; border: 1px solid #a5d6a7; }
+  .badge-red { background: #ffebee; color: #b71c1c; border: 1px solid #ef9a9a; }
+  .badge-orange { background: #fff3e0; color: #e65100; border: 1px solid #ffcc80; }
+
+  .inline-bold { font-weight: 700; color: #1a237e; }
+  .inline-red { font-weight: 700; color: #c62828; }
+  .inline-green { font-weight: 700; color: #2e7d32; }
+
+  /* Osmosis diagram */
+  .osmosis-diag {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin: 8px 0;
+    font-size: 10px;
+  }
+
+  .osm-container {
+    border: 2px solid #1565c0;
+    border-radius: 8px;
+    padding: 8px 12px;
+    text-align: center;
+    min-width: 90px;
+  }
+
+  .osm-high { background: #e3f2fd; color: #0d47a1; }
+  .osm-low { background: #e8f5e9; color: #1b5e20; }
+
+  .osm-membrane {
+    background: linear-gradient(180deg, #ffd54f, #ff8f00);
+    width: 12px;
+    height: 60px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .osm-arrow-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+  }
+
+  /* Sap ascent diagram */
+  .sap-flow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    margin: 6px auto;
+  }
+
+  .sap-level {
+    background: linear-gradient(135deg, #1565c0, #42a5f5);
+    color: white;
+    padding: 5px 30px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 600;
+    text-align: center;
+    width: 200px;
+  }
+
+  .sap-arrow {
+    color: #1565c0;
+    font-size: 16px;
+  }
+
+  /* Heart layers */
+  .heart-layers {
+    display: flex;
+    gap: 8px;
+    margin: 8px 0;
+  }
+
+  .layer-card {
+    flex: 1;
+    border-radius: 8px;
+    padding: 8px;
+    text-align: center;
+    font-size: 10px;
+    border: 2px solid;
+  }
+
+  .layer-outer { background: #fff3e0; border-color: #ffa726; }
+  .layer-mid { background: #fce4ec; border-color: #f48fb1; }
+  .layer-inner { background: #e8eaf6; border-color: #7986cb; }
+
+  .layer-card .l-name {
+    font-weight: 700;
+    font-size: 11px;
+    margin-bottom: 4px;
+  }
+
+  .layer-outer .l-name { color: #e65100; }
+  .layer-mid .l-name { color: #c62828; }
+  .layer-inner .l-name { color: #283593; }
+
+  /* Blood function cards */
+  .func-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    margin: 6px 0;
+  }
+
+  .func-card {
+    border-radius: 7px;
+    padding: 7px 10px;
+    font-size: 10px;
+    border-left: 4px solid;
+    background: #f5f7ff;
+  }
+
+  .func-card .f-title {
+    font-weight: 700;
+    font-size: 11px;
+    color: #1a237e;
+    margin-bottom: 2px;
+  }
+
+  /* Highlight banner */
+  .highlight-banner {
+    background: linear-gradient(135deg, #1565c0, #0288d1);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  .note-tag {
+    background: #fff9c4;
+    border: 1px solid #f9a825;
+    border-radius: 5px;
+    padding: 3px 8px;
+    font-size: 10px;
+    color: #333;
+    display: inline-block;
+    margin: 2px;
+  }
+
+  /* MCQ group */
+  .mcq-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 8px 0;
+  }
+
+  /* stimulant table for MCQ */
+  .stimulant-table {
+    width: 60%;
+    margin: 8px auto;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    font-size: 11px;
+  }
+  .stimulant-table th {
+    background: linear-gradient(135deg, #1a237e, #1565c0);
+    color: white;
+    padding: 7px 12px;
+    text-align: center;
+    font-weight: 700;
+  }
+  .stimulant-table td {
+    padding: 6px 12px;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+    background: #fafafa;
+  }
+  .stimulant-table tbody tr:nth-child(even) td { background: #e8eaf6; }
+</style>
+</head>
+<body>
+
+<!-- ==================== SLIDE 1: TITLE ==================== -->
+<div class="slide title-slide">
+  <div class="title-content">
+    <div class="main-badge">SSC · জীববিজ্ঞান · অধ্যায় ০৬</div>
+    <h1>জীবে পরিবহন</h1>
+    <div class="subtitle">Transport in Living Organisms</div>
+    <div class="divider"></div>
+    <div style="margin-top:15px; color:#bbdefb; font-size:13px; line-height:1.8;">
+      উদ্ভিদ ও পানির সম্পর্ক &nbsp;|&nbsp; রক্ত সংবহন &nbsp;|&nbsp; হৃৎপিণ্ড &nbsp;|&nbsp; রক্তবাহিকা &nbsp;|&nbsp; রক্তচাপ
+    </div>
+    <div class="author-box" style="margin-top:25px;">
+      <p>Raktim Dey</p>
+      <span>EEE, AUST</span>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 2: উদ্ভিদ ও পানির সম্পর্ক ==================== -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="chapter-title">জীবে পরিবহন &nbsp;|&nbsp; উদ্ভিদ ও পানির সম্পর্ক</span>
+    <span class="author-name">Raktim Dey (EEE, AUST)</span>
+  </div>
+  <div class="slide-content">
+    <div class="section-heading">উদ্ভিদ ও পানির সম্পর্ক</div>
+    <div class="two-col">
+      <div>
+        <p class="body-text">পানির অপর নাম জীবন। পানি ছাড়া জীব বাঁচতে পারে না। প্রোটোপ্লাজম জীবদেহের ভৌত ভিত্তি — এই প্রোটোপ্লাজমের <span class="highlight">শতকরা ৯০ ভাগই পানি।</span> এ কারণেই পানিকে <span class="highlight">"Fluid of Life"</span> বলা হয়।</p>
+        <p class="body-text">পানির পরিমাণ কমে গেলে প্রোটোপ্লাজম সংকুচিত হয়ে মারা পর্যন্ত যেতে পারে।</p>
+        <div class="sub-heading">উদ্ভিদদেহে পানির প্রয়োজনীয়তা</div>
+        <ul class="styled-list">
+          <li><span class="inline-bold">(a)</span> প্রোটোপ্লাজম সজীব রাখতে পানির বিকল্প নেই।</li>
+          <li><span class="inline-bold">(b)</span> প্রস্বেদন ও সালোকসংশ্লেষণ প্রক্রিয়া চালু রাখতে পরিমাণমতো পানি সরবরাহ দরকার।</li>
+          <li><span class="inline-bold">(c)</span> পানি একটি গুরুত্বপূর্ণ দ্রাবক; বিপাকীয় অনেক বিক্রিয়ায় পানির গুরুত্ব অপরিসীম।</li>
+          <li><span class="inline-bold">(d)</span> উদ্ভিদের কোষ বৃদ্ধি ও চলনে পানির ভূমিকা রয়েছে।</li>
+        </ul>
+      </div>
+      <div>
+        <div class="info-box" style="margin-bottom:10px;">
+          <div style="font-weight:700; color:#1a237e; margin-bottom:6px;">উদ্ভিদে পানি শোষণের ৩টি প্রক্রিয়া</div>
+          <div class="flow-container" style="flex-direction:column; gap:5px;">
+            <div class="flow-box">ইমবাইবিশন (Imbibition)</div>
+            <div class="diag-arrow-down" style="text-align:center;">↕</div>
+            <div class="flow-box">ব্যাপন (Diffusion)</div>
+            <div class="diag-arrow-down" style="text-align:center;">↕</div>
+            <div class="flow-box">অভিস্রবণ (Osmosis)</div>
+          </div>
+          <p style="font-size:10px; margin-top:6px; color:#333;">উদ্ভিদ প্রধানত মূলের মাধ্যমে মাটি থেকে পানি শোষণ করে। এই ৩টি প্রক্রিয়া সম্মিলিতভাবে শোষণ কাজ সম্পাদন করে।</p>
+        </div>
+        <div class="key-box">
+          <span style="font-weight:700;">মনে রাখো:</span> শুষ্ক মৌসুমে বড় উদ্ভিদেও পানি সেচ দিতে হয়, কারণ প্রস্বেদন ও সালোকসংশ্লেষণের জন্য নিরবচ্ছিন্ন পানি সরবরাহ প্রয়োজন।
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>SSC Biology — Chapter 06</span>
+    <span class="page-num">Slide 2</span>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 3: ইমবাইবিশন ও ব্যাপন ==================== -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="chapter-title">জীবে পরিবহন &nbsp;|&nbsp; ইমবাইবিশন ও ব্যাপন</span>
+    <span class="author-name">Raktim Dey (EEE, AUST)</span>
+  </div>
+  <div class="slide-content">
+    <div class="two-col">
+      <div>
+        <div class="section-heading" style="font-size:13px;">ইমবাইবিশন (Imbibition)</div>
+        <div class="def-box">
+          <div class="def-title">সংজ্ঞা</div>
+          কলয়েড জাতীয় শুকনো বা আধা শুকনো পদার্থ তরল পদার্থ শুষে নেয় — এই প্রক্রিয়াকে <strong>ইমবাইবিশন</strong> বলে।
+        </div>
+        <p class="body-text">এক খণ্ড শুকনো কাঠের এক প্রান্ত পানিতে ডুবালে ঐ কাঠ কিছু পানি টেনে নেবে।</p>
+        <ul class="styled-list">
+          <li><span class="inline-bold">হাইড্রোফিলিক পদার্থ:</span> সেলুলোজ, স্টার্চ, জিলাটিন — এরা তরল শুষে নেয়।</li>
+          <li>তরলের অভাবে সংকুচিত হয়ে যায়।</li>
+          <li>কোষপ্রাচীর ও প্রোটোপ্লাজম কলয়েডধর্মী হওয়ায় ইমবাইবিশন প্রক্রিয়ায় পানি শোষণ করে স্ফীত হয়।</li>
+        </ul>
+      </div>
+      <div>
+        <div class="section-heading" style="font-size:13px;">ব্যাপন (Diffusion)</div>
+        <div class="def-box">
+          <div class="def-title">সংজ্ঞা</div>
+          যে প্রক্রিয়ার মাধ্যমে কোনো দ্রব্যের অণু <strong>বেশি ঘনত্বের এলাকা থেকে কম ঘনত্বের এলাকায়</strong> ছড়িয়ে পড়ে তাকে <strong>ব্যাপন</strong> বলে।
+        </div>
+        <div class="info-box">
+          <p><span class="inline-bold">ব্যাপন চাপ:</span> একই তাপমাত্রা ও বায়ুমণ্ডলীয় চাপে কোনো পদার্থের বেশি ঘনত্বের দ্রবণ থেকে কম ঘনত্বের দ্রবণের দিকে দ্রাবকের ব্যাপিত হওয়ার প্রচ্ছন্ন ক্ষমতা।</p>
+        </div>
+        <div class="warn-box">
+          <span class="inline-bold">ব্যাপন চাপ ঘাটতি (DPD):</span> একই বায়ুচাপে কোনো একটি দ্রবণ ও দ্রাবকের ব্যাপন চাপের পার্থক্যকে ব্যাপন চাপ ঘাটতি বলে। পাতার মেসোফিল টিস্যুতে এই ঘাটতির ফলে পানি পাশের কোষ থেকে টেনে নেওয়া হয়।
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>SSC Biology — Chapter 06</span>
+    <span class="page-num">Slide 3</span>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 4: অভিস্রবণ ==================== -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="chapter-title">জীবে পরিবহন &nbsp;|&nbsp; অভিস্রবণ (Osmosis)</span>
+    <span class="author-name">Raktim Dey (EEE, AUST)</span>
+  </div>
+  <div class="slide-content">
+    <div class="section-heading">অভিস্রবণ (Osmosis)</div>
+    <div class="def-box">
+      <div class="def-title">সংজ্ঞা</div>
+      দ্রাবকের বৈষম্যভেদ্য পর্দা ভেদ করে তার <strong>নিম্ন ঘনত্বের দ্রবণ থেকে উচ্চ ঘনত্বের দ্রবণের দিকে প্রবাহিত হওয়াকে অভিস্রবণ</strong> বলা হয়।
+    </div>
+    <div class="two-col" style="margin-top:10px;">
+      <div>
+        <div class="osmosis-diag">
+          <div class="osm-container osm-high">
+            <div style="font-weight:700;">উচ্চ ঘনত্বের দ্রবণ</div>
+            <div style="font-size:9px; margin-top:3px;">(বেশি দ্রাব্য)</div>
+            <div style="font-size:18px; margin:5px 0;">🧪</div>
+          </div>
+          <div class="osm-arrow-block">
+            <div style="color:#1565c0; font-size:20px;">←</div>
+            <div class="osm-membrane"></div>
+            <div style="font-size:9px; color:#666; text-align:center; margin-top:2px;">বৈষম্যভেদ্য পর্দা</div>
+          </div>
+          <div class="osm-container osm-low">
+            <div style="font-weight:700;">নিম্ন ঘনত্বের দ্রবণ</div>
+            <div style="font-size:9px; margin-top:3px;">(কম দ্রাব্য)</div>
+            <div style="font-size:18px; margin:5px 0;">🧪</div>
+          </div>
+        </div>
+        <p style="font-size:9px; text-align:center; color:#1a237e; font-style:italic;">দ্রাবক নিম্ন থেকে উচ্চ ঘনত্বের দিকে প্রবাহিত হয়</p>
+      </div>
+      <div>
+        <div class="sub-heading">কোষ থেকে কোষান্তরে অভিস্রবণ</div>
+        <p class="body-text">প্রস্বেদনের ফলে পাতার কোষে ব্যাপন চাপ ঘাটতির সৃষ্টি হয়। পাশের কোষ থেকে পানি এই কোষের দিকে ধাবিত হয়।</p>
+        <div class="sap-flow">
+          <div class="sap-level">পাতার মেসোফিল কোষ</div>
+          <div class="sap-arrow">↑</div>
+          <div class="sap-level">অন্তঃত্বক ও পরিচক্র</div>
+          <div class="sap-arrow">↑</div>
+          <div class="sap-level">মূলের কর্টেক্স</div>
+          <div class="sap-arrow">↑</div>
+          <div class="sap-level">মূলরোম</div>
+          <div class="sap-arrow">↑</div>
+          <div class="sap-level">মাটির কৈশিক পানি</div>
+        </div>
+        <p style="font-size:10px; color:#1a237e; font-style:italic; text-align:center;">Cell to Cell Osmosis পদ্ধতি</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>SSC Biology — Chapter 06</span>
+    <span class="page-num">Slide 4</span>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 5: পানি ও খনিজ লবণ শোষণ ==================== -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="chapter-title">জীবে পরিবহন &nbsp;|&nbsp; পানি ও খনিজ লবণ শোষণ</span>
+    <span class="author-name">Raktim Dey (EEE, AUST)</span>
+  </div>
+  <div class="slide-content">
+    <div class="two-col">
+      <div>
+        <div class="section-heading" style="font-size:13px;">পানি শোষণ</div>
+        <p class="body-text">সাধারণভাবে উদ্ভিদ তার <span class="highlight">মূলরোমের মাধ্যমে মাটির কৈশিক পানি (capillary water)</span> শোষণ করে।</p>
+        <ul class="styled-list">
+          <li>প্রস্বেদনের ফলে পাতার কোষে ব্যাপন চাপ ঘাটতি সৃষ্টি হয়।</li>
+          <li>এই চোষক শক্তির টানে মাটির কৈশিক পানি মূলরোমে ঢুকে পড়ে।</li>
+          <li>মাটি থেকে পানি মূলের কর্টেক্সে (Cortex) প্রবেশ করে।</li>
+          <li>এরপর অন্তঃত্বক ও পরিচক্র হয়ে পরিবহন কলা গুচ্ছে (Vascular bundles) পৌঁছায়।</li>
+          <li>পানি পরিবহন কলায় পৌঁছে জাইলেম কলার মাধ্যমে উপরের দিকে ও পাশে প্রবাহিত হয়।</li>
+        </ul>
+        <div class="key-box" style="margin-top:8px;">
+          এ কাজে দুটি গুরুত্বপূর্ণ প্রক্রিয়া কাজ করে: <strong>অভিস্রবণ ও প্রস্বেদন।</strong>
+        </div>
+      </div>
+      <div>
+        <!-- Diagram representation -->
+        <div class="diagram-box">
+          <div style="font-size:10px; font-weight:700; color:#1a237e; margin-bottom:8px;">চিত্র ৬.০১: পানি শোষণ ও পরিবহন</div>
+          <div style="display:flex; flex-direction:column; align-items:center; gap:3px; font-size:10px;">
+            <div style="background:#e8f5e9; border:1px solid #66bb6a; border-radius:6px; padding:5px 20px; color:#1b5e20; font-weight:700;">ভেসেল (জাইলেম)</div>
+            <div style="color:#1565c0;">↑</div>
+            <div style="background:#e3f2fd; border:1px solid #90caf9; border-radius:6px; padding:5px 20px; color:#0d47a1; font-weight:700;">এন্ডোডার্মিস</div>
+            <div style="color:#1565c0;">↑</div>
+            <div style="background:#fff3e0; border:1px solid #ffa726; border-radius:6px; padding:5px 20px; color:#e65100; font-weight:700;">কর্টেক্স</div>
+            <div style="color:#1565c0;">↑</div>
+            <div style="background:#f3e5f5; border:1px solid #ce93d8; border-radius:6px; padding:5px 20px; color:#6a1b9a; font-weight:700;">মূলরোম</div>
+            <div style="color:#1565c0;">↑</div>
+            <div style="background:#ffebee; border:1px solid #ef9a9a; border-radius:6px; padding:5px 20px; color:#b71c1c; font-weight:700;">মূলত্বক (এপিডার্মিস)</div>
+            <div style="color:#1565c0;">↑</div>
+            <div style="background:#e8eaf6; border:1px solid #7986cb; border-radius:6px; padding:5px 20px; color:#283593; font-weight:700;">মাটি (কৈশিক পানি)</div>
+          </div>
+          <div class="diagram-caption">মূলরোম → কর্টেক্স → ভাস্কুলার বান্ডেল → পাতা</div>
+        </div>
+
+        <div class="section-heading" style="font-size:13px; margin-top:10px;">খনিজ লবণ শোষণ</div>
+        <div class="two-col" style="gap:8px;">
+          <div class="info-box">
+            <div style="font-weight:700; color:#1a237e; margin-bottom:4px;">নিষ্ক্রিয় শোষণ<br>(Passive absorption)</div>
+            <span style="font-size:10px;">মূলরোম ইমবাইবিশন ও অভিস্রবণ প্রক্রিয়ায় লবণ শোষণ করে। কোনো বিপাকীয় শক্তির প্রয়োজন হয় না।</span>
+          </div>
+          <div class="info-box">
+            <div style="font-weight:700; color:#c62828; margin-bottom:4px;">সক্রিয় শোষণ<br>(Active absorption)</div>
+            <span style="font-size:10px;">খনিজ লবণ পরিবহনের জন্য কোষে উৎপন্ন <strong>বিপাকীয় শক্তির প্রয়োজন হয়।</strong></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>SSC Biology — Chapter 06</span>
+    <span class="page-num">Slide 5</span>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 6: উদ্ভিদে পরিবহন ==================== -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="chapter-title">জীবে পরিবহন &nbsp;|&nbsp; উদ্ভিদে পরিবহন ও কোষরসের আরোহণ</span>
+    <span class="author-name">Raktim Dey (EEE, AUST)</span>
+  </div>
+  <div class="slide-content">
+    <div class="two-col">
+      <div>
+        <div class="section-heading" style="font-size:13px;">উদ্ভিদে পরিবহন</div>
+        <p class="body-text">উদ্ভিদে পরিবহন বলতে মাটি থেকে শোষিত <span class="highlight">পানি ও খনিজ লবণ</span> এবং পাতায় প্রস্তুতকৃত <span class="highlight">খাদ্যের চলাচল</span>কে বোঝায়।</p>
+        <ul class="styled-list">
+          <li><span class="inline-bold">জাইলেম ভেসেল:</span> পানি ও খনিজ লবণ উদ্ভিদের পাতায় পৌঁছায়।</li>
+          <li>প্রস্বেদন টান, কৈশিক শক্তি এবং মূলজ চাপের ফলে কোষরস পাতায় পৌঁছায়।</li>
+          <li><span class="inline-bold">ফ্লোয়েম টিস্যু:</span> পাতায় প্রস্তুত খাদ্য উদ্ভিদের বিভিন্ন এলাকায় পরিবহনের দায়িত্ব নেয়।</li>
+          <li>ফ্লোয়েমের সিভনলের মাধ্যমে খাদ্য প্রবাহিত হয়।</li>
+          <li>উদ্ভিদের নিচের দিকের যৌগ নিচে, উপরে সংশ্লেষিত যৌগ উপরে এবং মাঝামাঝি এলাকার যৌগ উপর বা নিচে যেকোনো দিকে প্রবাহিত হয়।</li>
+        </ul>
+        <div class="warn-box" style="margin-top:8px;">
+          <span class="inline-bold">পরিবহনের প্রয়োজনীয়তা:</span> কখনো জাইলেম ভেসেল বা ফ্লোয়েমের সিভনল কোনো কারণে বন্ধ হলে উদ্ভিদের <strong>মৃত্যু অবধারিত।</strong>
+        </div>
+      </div>
+      <div>
+        <div class="section-heading" style="font-size:13px;">কোষরসের আরোহণ (Ascent of Sap)</div>
+        <div class="def-box">
+          <div class="def-title">কোষরস (Cell Sap)</div>
+          কোষের ভেতরকার পানি এবং পানিতে দ্রবীভূত খনিজ লবণকে একত্রে <strong>কোষরস</strong> বলে।
+        </div>
+        <p class="body-text">মূল পানি ও খনিজ লবণ শোষণ করে। এই কোষরস বিভিন্ন প্রক্রিয়ার প্রভাবে ধীরে ধীরে উপরের দিকে উঠতে থাকে।</p>
+        <div class="info-box">
+          <div style="font-weight:700; color:#1a237e; margin-bottom:5px;">কোষরস পরিবহনের ধাপ:</div>
+          <div class="flow-container" style="flex-direction:column; gap:4px; font-size:10px;">
+            <div class="flow-box">মাটি → মূলরোম (অভিস্রবণ, ব্যাপন, প্রস্বেদন টান)</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-box">মূলরোম → কোষান্তর অভিস্রবণ</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-box">মূলের পরিবহন টিস্যু → কাণ্ডের পরিবহন কলা</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-box">পাতার মেসোফিল কলায় পৌঁছায়</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>SSC Biology — Chapter 06</span>
+    <span class="page-num">Slide 6</span>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 7: ফ্লোয়েম পরিবহন ও প্রস্বেদন ==================== -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="chapter-title">জীবে পরিবহন &nbsp;|&nbsp; ফ্লোয়েম পরিবহন ও প্রস্বেদন</span>
+    <span class="author-name">Raktim Dey (EEE, AUST)</span>
+  </div>
+  <div class="slide-content">
+    <div class="two-col">
+      <div>
+        <div class="section-heading" style="font-size:13px;">ফ্লোয়েমের মাধ্যমে পরিবহন (Phloem Translocation)</div>
+        <p class="body-text">ফ্লোয়েম গুচ্ছে <span class="highlight">সিভনল, সঙ্গীকোষ, ফ্লোয়েম প্যারেনকাইমা ও বাস্টফাইবার</span> থাকে।</p>
+        <div class="info-box">
+          <div style="font-weight:700; color:#1a237e; margin-bottom:5px;">সিভনলের বৈশিষ্ট্য:</div>
+          <ul class="styled-list">
+            <li>কেন্দ্রিকাবিহীন ও পাতলা প্রাচীরযুক্ত সজীব কোষ।</li>
+            <li>লম্বালম্বিভাবে একটির সাথে অন্যটি যুক্ত হয়ে জালের মতো গঠন সৃষ্টি করে।</li>
+            <li>মধ্যবর্তী অনুপ্রস্থ প্রাচীর চালুনির মতো আকার ধারণ করে → সহজে খাদ্য চলাচল।</li>
+            <li><span class="inline-bold">শীতকালে:</span> ক্যালোজ নামক রাসায়নিক পদার্থ জমা হয়ে রন্ধ্র ছোট হয় → খাদ্য চলাচলে বিঘ্ন।</li>
+            <li><span class="inline-bold">গ্রীষ্মে:</span> ক্যালোজ গলে যায় → খাদ্য চলাচল বেড়ে যায়।</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="section-heading" style="font-size:13px;">প্রস্বেদন (Transpiration)</div>
+        <div class="def-box">
+          <div class="def-title">সংজ্ঞা</div>
+          স্থলজ উদ্ভিদ যে শারীরতাত্ত্বিক প্রক্রিয়ায় তার বায়বীয় অঙ্গের মাধ্যমে বাষ্পাকারে পানি বের করে দেয়, সেটাই <strong>প্রস্বেদন বা বাষ্পমোচন প্রক্রিয়া।</strong>
+        </div>
+        <div class="info-box" style="margin-top:8px;">
+          <div style="font-weight:700; color:#1a237e; margin-bottom:6px;">প্রস্বেদনের প্রকারভেদ:</div>
+          <div class="three-col" style="gap:6px;">
+            <div class="transp-type transp-stomatal">
+              <div class="t-name">পত্ররন্ধ্রীয়</div>
+              <div>Stomatal Transpiration</div>
+              <div style="margin-top:4px; font-weight:700; color:#c62828;">৯০–৯৫%</div>
+            </div>
+            <div class="transp-type transp-cuticular">
+              <div class="t-name">কিউটিকুলার</div>
+              <div>Cuticular Transpiration</div>
+            </div>
+            <div class="transp-type transp-lenticular">
+              <div class="t-name">লেন্টিকুলার</div>
+              <div>Lenticular Transpiration</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>SSC Biology — Chapter 06</span>
+    <span class="page-num">Slide 7</span>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 8: প্রস্বেদনের প্রকারভেদ বিস্তারিত ==================== -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="chapter-title">জীবে পরিবহন &nbsp;|&nbsp; প্রস্বেদনের প্রকারভেদ বিস্তারিত</span>
+    <span class="author-name">Raktim Dey (EEE, AUST)</span>
+  </div>
+  <div class="slide-content">
+    <div class="three-col" style="gap:10px; margin-bottom:12px;">
+      <div class="transp-type transp-stomatal" style="padding:12px;">
+        <div class="t-name" style="font-size:13px;">পত্ররন্ধ্রীয় প্রস্বেদন</div>
+        <div style="font-size:10px; font-style:italic; margin-bottom:6px;">Stomatal Transpiration</div>
+        <p style="font-size:10px; line-height:1.6;">পাতায়, কচিকাণ্ডে, ফুলের বৃতি ও পাপড়িতে দুটি রক্ষীকোষ (Guard cell) বেষ্টিত এক ধরনের রন্ধ্র থাকে। এদেরকে পত্ররন্ধ্র (stoma/stomata) বলে। মোট প্রস্বেদনের <strong>৯০–৯৫%</strong> হয় পত্ররন্ধ্রের মাধ্যমে।</p>
+      </div>
+      <div class="transp-type transp-cuticular" style="padding:12px;">
+        <div class="t-name" style="font-size:13px;">কিউটিকুলার প্রস্বেদন</div>
+        <div style="font-size:10px; font-style:italic; margin-bottom:6px;">Cuticular Transpiration</div>
+        <p style="font-size:10px; line-height:1.6;">উদ্ভিদের বহিঃত্বকে বিশেষ করে পাতার উপরে ও নিচে কিউটিনের আবরণ থাকে। এই আবরণকে কিউটিকল বলে। কিউটিকল ভেদ করে কিছু পানি বাষ্পাকারে বাইরে বের হয়। এই প্রক্রিয়াকে কিউটিকুলার প্রস্বেদন বলে।</p>
+      </div>
+      <div class="transp-type transp-lenticular" style="padding:12px;">
+        <div class="t-name" style="font-size:13px;">লেন্টিকুলার প্রস্বেদন</div>
+        <div style="font-size:10px; font-style:italic; margin-bottom:6px;">Lenticular Transpiration</div>
+        <p style="font-size:10px; line-height:1.6;">উদ্ভিদে গৌণ বৃদ্ধি হলে কাণ্ডের বাকল ফেটে <strong>লেন্টিসেল</strong> নামক ছিদ্র সৃষ্টি হয়। লেন্টিসেলের ভেতরের কোষগুলো আলাদাভাবে সজ্জিত থাকে এবং এর মাধ্যমে কিছু পানি বাইরে বেরিয়ে যায়। একে লেন্টিকুলার প্রস্বেদন বলে।</p>
+      </div>
+    </div>
+    <!-- Lenticel diagram -->
+    <div class="diagram-box">
+      <div style="font-size:10px; font-weight:700; color:#1a237e; margin-bottom:6px;">চিত্র ৬.০৪: একটি লেন্টিসেল — গঠন</div>
+      <div style="display:flex; justify-content:center; gap:15px; align-items:center; font-size:10px;">
+        <div style="display:flex; flex-direction:column; gap:3px; align-items:flex-end;">
+          <span style="background:#e3f2fd; padding:2px 8px; border-radius:4px; border:1px solid #90caf9;">লেন্টিসেল (ছিদ্র)</span>
+          <span style="background:#e8f5e9; padding:2px 8px; border-radius:4px; border:1px solid #66bb6a;">কমপ্লিমেন্টারি কোষ</span>
+          <span style="background:#fff3e0; padding:2px 8px; border-radius:4px; border:1px solid #ffa726;">এপিডার্মিস</span>
+          <span style="background:#f3e5f5; padding:2px 8px; border-radius:4px; border:1px solid #ce93d8;">কর্ক</span>
+          <span style="background:#fce4ec; padding:2px 8px; border-radius:4px; border:1px solid #f48fb1;">কর্ক ক্যাম্বিয়াম</span>
+          <span style="background:#e8eaf6; padding:2px 8px; border-radius:4px; border:1px solid #7986cb;">সেকেন্ডারি কর্টেক্স</span>
+        </div>
+        <div style="width:80px; height:120px; background: linear-gradient(180deg,#ffcc80,#ff8f00,#bf360c); border-radius:40% 40% 50% 50%; position:relative; display:flex; align-items:center; justify-content:center;">
+          <div style="width:20px; height:20px; background:#fff; border-radius:50%; position:absolute; top:10px;"></div>
+        </div>
+      </div>
+      <div class="diagram-caption">কাণ্ডের বাকল ফেটে লেন্টিসেল সৃষ্টি হয় — গৌণ বৃদ্ধির পরিণতি</div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>SSC Biology — Chapter 06</span>
+    <span class="page-num">Slide 8</span>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 9: প্রস্বেদনের প্রভাবক ==================== -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="chapter-title">জীবে পরিবহন &nbsp;|&nbsp; প্রস্বেদনের প্রভাবক</span>
+    <span class="author-name">Raktim Dey (EEE, AUST)</span>
+  </div>
+  <div class="slide-content">
+    <div class="two-col">
+      <div>
+        <div class="section-heading" style="font-size:13px;">বাহ্যিক প্রভাবক</div>
+        <ul class="styled-list">
+          <li><span class="inline-bold">(i) তাপমাত্রা:</span> অধিক তাপে পানি সহজেই বাষ্পে পরিণত হয় → প্রস্বেদন ত্বরান্বিত। তাপ কমলে প্রস্বেদন কমে।</li>
+          <li><span class="inline-bold">(ii) আপেক্ষিক আর্দ্রতা:</span> আর্দ্রতা কম হলে বায়ু অসম্পৃক্ত থাকে → প্রস্বেদন বাড়ে। আর্দ্রতা বেশি হলে প্রস্বেদন কমে।</li>
+          <li><span class="inline-bold">(iii) আলো:</span> আলোর উপস্থিতিতে পত্ররন্ধ্র খুলে যায় → প্রস্বেদন বাড়ে। অন্ধকারে পত্ররন্ধ্র বন্ধ → প্রস্বেদন বন্ধ।</li>
+          <li><span class="inline-bold">(iv) বায়ুপ্রবাহ:</span> সম্পৃক্ত বায়ু দূরে সরিয়ে দেয় → প্রস্বেদন বাড়ে। বায়ুচাপ বৃদ্ধিতে বাষ্পীভবন হ্রাস পায় → প্রস্বেদন কমে।</li>
+        </ul>
+      </div>
+      <div>
+        <div class="section-heading" style="font-size:13px;">অভ্যন্তরীণ প্রভাবক</div>
+        <ul class="styled-list">
+          <li><span class="inline-bold">(i) পত্ররন্ধ্র:</span> পত্ররন্ধ্রের সংখ্যা, আয়তন, গঠন ও অবস্থানের উপর প্রস্বেদন হারের তারতম্য হয়।</li>
+          <li><span class="inline-bold">(ii) পাতার সংখ্যা:</span> পাতার সংখ্যা, আয়তন, গঠন ও অবস্থানের উপর প্রস্বেদন হার নির্ভর করে।</li>
+          <li><span class="inline-bold">(iii) পত্রফলকের আয়তন:</span> পত্রফলক বড় হলে প্রস্বেদনের হার বেড়ে যায়।</li>
+          <li><span class="inline-bold">(iv) উদ্ভিদের বায়বীয় অঙ্গের আয়তন:</span> পাতা ও কাণ্ডসহ বায়বীয় অঙ্গ বড় হলে প্রস্বেদন বেড়ে যায়।</li>
+        </ul>
+        <div class="note-tag">এছাড়া কিউটিকলের উপস্থিতি ও স্পঞ্জি প্যারেনকাইমার পরিমাণও প্রভাবিত করে।</div>
+
+        <div class="warn-box" style="margin-top:10px;">
+          <span class="inline-bold">প্রস্বেদন একটি অতি প্রয়োজনীয় অমঙ্গল!</span><br/>
+          বিজ্ঞানী কার্টিস প্রস্বেদনকে <strong>"Necessary Evil" (প্রয়োজনীয় ক্ষতি)</strong> নামে অভিহিত করেছেন। উপকারী হলেও পানি বেশি হারালে উদ্ভিদের মৃত্যু হতে পারে।
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>SSC Biology — Chapter 06</span>
+    <span class="page-num">Slide 9</span>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 10: মানবদেহে রক্ত সংবহন ==================== -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="chapter-title">জীবে পরিবহন &nbsp;|&nbsp; মানবদেহে রক্ত সংবহন</span>
+    <span class="author-name">Raktim Dey (EEE, AUST)</span>
+  </div>
+  <div class="slide-content">
+    <div class="section-heading">মানবদেহে রক্ত সংবহন (Blood Circulation in Human Body)</div>
+    <div class="two-col">
+      <div>
+        <p class="body-text">যে তন্ত্রের মাধ্যমে রক্ত প্রতিনিয়ত দেহের বিভিন্ন অঙ্গ ও অংশে চলাচল করে, তাকে <span class="highlight">রক্ত সংবহনতন্ত্র</span> বলে। এ তন্ত্রে প্রবাহিত রক্তের মাধ্যমে খাদ্য, অক্সিজেন এবং রক্তের বর্জ্য পদার্থ এক স্থান থেকে অন্য স্থানে পরিবাহিত হয়।</p>
+        <div class="info-box">
+          <div style="font-weight:700; color:#1a237e; margin-bottom:5px;">বদ্ধ সংবহনতন্ত্র (Close Circulatory System)</div>
+          মানবদেহে রক্তপ্রবাহ কেবল হৃৎপিণ্ড ও রক্তনালিগুলোর মধ্যে সীমাবদ্ধ থাকে, কখনো বাইরে আসে না।
+        </div>
+        <div class="sub-heading">পরিবহনতন্ত্রের দুটি অংশ</div>
+        <div class="two-col" style="gap:8px;">
+          <div class="info-box">
+            <div style="font-weight:700; color:#1a237e; margin-bottom:4px;">রক্ত সংবহনতন্ত্র</div>
+            <span style="font-size:10px;">হৃৎপিণ্ড, ধমনি, শিরা ও কৈশিকনালি নিয়ে গঠিত।</span>
+          </div>
+          <div class="info-box">
+            <div style="font-weight:700; color:#1a237e; margin-bottom:4px;">লসিকাতন্ত্র</div>
+            <span style="font-size:10px;">লসিকা, লসিকানালি ও ল্যাকটিয়েলনালি নিয়ে গঠিত।</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="section-heading" style="font-size:13px;">রক্ত (Blood)</div>
+        <div class="def-box">
+          <div class="def-title">রক্তের বৈশিষ্ট্য</div>
+          রক্ত একটি <strong>অস্বচ্ছ, মৃদুক্ষারীয় এবং লবণাক্ত তরল পদার্থ।</strong> লোহিত রক্তকণিকায় হিমোগ্লোবিন থাকার কারণে রক্তের রং লাল দেখায়।
+        </div>
+        <div class="sub-heading">রক্তের উপাদান</div>
+        <div class="two-col" style="gap:8px;">
+          <div class="info-box">
+            <div style="font-weight:700; color:#c62828; margin-bottom:4px;">রক্তরস (Plasma)</div>
+            <span style="font-size:10px;">রক্তের বর্ণহীন তরল অংশ। রক্তের শতকরা প্রায় <strong>৫৫ ভাগ রক্তরস।</strong> প্রধান উপাদান পানি।</span>
+          </div>
+          <div class="info-box">
+            <div style="font-weight:700; color:#1a237e; margin-bottom:4px;">রক্তকণিকা</div>
+            <span style="font-size:10px;">লোহিত রক্তকণিকা (RBC), শ্বেত রক্তকণিকা (WBC) ও অণুচক্রিকা (Platelet)।</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>SSC Biology — Chapter 06</span>
+    <span class="page-num">Slide 10</span>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 11: রক্তরসের উপাদান ==================== -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="chapter-title">জীবে পরিবহন &nbsp;|&nbsp; রক্তরসের উপাদান</span>
+    <span class="author-name">Raktim Dey (EEE, AUST)</span>
+  </div>
+  <div class="slide-content">
+    <div class="section-heading">রক্তরস (Plasma) এর উপাদানসমূহ</div>
+    <div class="two-col">
+      <div>
+        <p class="body-text">রক্তরস (Plasma) এ যে পদার্থগুলো থাকে:</p>
+        <ul class="num-list">
+          <li><span class="inline-bold">প্রোটিন:</span> যথা অ্যালবুমিন, গ্লোবিউলিন ও ফাইব্রিনোজেন</li>
+          <li><span class="inline-bold">গ্লুকোজ</span></li>
+          <li><span class="inline-bold">ক্ষুদ্র ক্ষুদ্র চর্বিকণা</span></li>
+          <li><span class="inline-bold">খনিজ লবণ</span></li>
+          <li><span class="inline-bold">ভিটামিন</span></li>
+          <li><span class="inline-bold">হরমোন</span></li>
+          <li><span class="inline-bold">অ্যান্টিবডি</span></li>
+          <li><span class="inline-bold">বর্জ্য পদার্থ:</span> কার্বন ডাই-অক্সাইড, ইউরিয়া, ইউরিক এসিড ইত্যাদি।</li>
+        </ul>
+        <div class="info-box" style="margin-top:8px;">
+          এছাড়া সামান্য পরিমাণে সোডিয়াম ক্লোরাইড, সোডিয়াম বাইকার্বোনেট ও অ্যামাইনো এসিড থাকে।
+        </div>
+        <div class="key-box" style="margin-top:8px;">
+          আমরা খাদ্য হিসেবে যা গ্রহণ করি তা পরিপাক হয়ে অন্ত্রের গাত্রে শোষিত হয় এবং রক্তরসে মিশে দেহের সর্বত্র সঞ্চালিত হয়। এভাবে দেহকোষগুলো পুষ্টিকর দ্রব্যাদি গ্রহণ করে।
+        </div>
+      </div>
+      <div>
+        <!-- Diagram representation of blood components -->
+        <div class="diagram-box">
+          <div style="font-size:10px; font-weight:700; color:#1a237e; margin-bottom:8px;">চিত্র ৬.০৭: বিভিন্ন ধরনের রক্তকণিকা</div>
+          <div style="display:flex; flex-direction:column; gap:6px; align-items:center;">
+            <div style="display:flex; gap:8px; align-items:center; font-size:10px;">
+              <!-- RBC representation -->
+              <div style="display:flex; flex-direction:column; align-items:center;">
+                <div style="width:40px; height:26px; background:radial-gradient(ellipse,#ef9a9a,#c62828); border-radius:50%; box-shadow:inset 0 0 8px rgba(0,0,0,0.3);"></div>
+                <div style="font-size:9px; color:#c62828; font-weight:700; margin-top:3px;">লোহিত RBC</div>
+              </div>
+              <!-- WBC representation -->
+              <div style="display:flex; flex-direction:column; align-items:center;">
+                <div style="width:44px; height:44px; background:radial-gradient(ellipse,#e3f2fd,#90caf9); border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:inset 0 0 8px rgba(0,0,0,0.2);">
+                  <div style="width:22px; height:22px; background:#42a5f5; border-radius:50%;"></div>
+                </div>
+                <div style="font-size:9px; color:#0d47a1; font-weight:700; margin-top:3px;">শ্বেত WBC</div>
+              </div>
+              <!-- Platelet representation -->
+              <div style="display:flex; flex-direction:column; align-items:center;">
+                <div style="width:22px; height:18px; background:radial-gradient(#ffe082,#f9a825); border-radius:30%; box-shadow:inset 0 0 4px rgba(0,0,0,0.2);"></div>
+                <div style="font-size:9px; color:#f57c00; font-weight:700; margin-top:3px;">অণুচক্রিকা</div>
+              </div>
+            </div>
+            <div style="width:80%; height:2px; background:linear-gradient(90deg,transparent,#90caf9,transparent);"></div>
+            <div style="font-size:9px; color:#555; text-align:center; line-height:1.5;">
+              <span style="color:#c62828;">●</span> লোহিত রক্তকণিকা &nbsp;
+              <span style="color:#0d47a1;">●</span> শ্বেত রক্তকণিকা &nbsp;
+              <span style="color:#f57c00;">●</span> অণুচক্রিকা
+            </div>
+          </div>
+          <div class="diagram-caption">অণুবীক্ষণ যন্ত্রে দেখা রক্তের উপাদান</div>
+        </div>
+        <div class="info-box" style="margin-top:8px;">
+          <div style="font-weight:700; color:#1a237e; margin-bottom:4px;">হাড়ের লাল অস্থিমজ্জা:</div>
+          <span style="font-size:10px;">রক্তকণিকার জন্ম হাড়ের লাল অস্থিমজ্জায়। লোহিত রক্তকণিকা, শ্বেত রক্তকণিকা উভয়ই এখানে জন্ম নেয়।</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>SSC Biology — Chapter 06</span>
+    <span class="page-num">Slide 11</span>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 12: রক্তকণিকা - লোহিত ==================== -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="chapter-title">জীবে পরিবহন &nbsp;|&nbsp; রক্তকণিকা (Blood Corpuscles)</span>
+    <span class="author-name">Raktim Dey (EEE, AUST)</span>
+  </div>
+  <div class="slide-content">
+    <div class="section-heading">রক্তকণিকা (Blood Corpuscles)</div>
+    <p class="body-text" style="margin-bottom:8px;">মানবদেহে তিন ধরনের রক্তকণিকা দেখা যায়: <span class="highlight">লোহিত রক্তকণিকা (RBC), শ্বেত রক্তকণিকা (WBC)</span> এবং <span class="highlight">অণুচক্রিকা (Blood Platelets)।</span></p>
+    <div class="two-col">
+      <div>
+        <div class="sub-heading">(i) লোহিত রক্তকণিকা (RBC)</div>
+        <div class="info-box">
+          <ul class="styled-list">
+            <li>মানবদেহে তিন ধরনের রক্তকণিকার মধ্যে <strong>সংখ্যায় সবচেয়ে বেশি।</strong></li>
+            <li>শ্বাসকার্যে অক্সিজেন পরিবহনে গুরুত্বপূর্ণ ভূমিকা পালন করে।</li>
+            <li>লাল অস্থিমজ্জায় তৈরি হয়। গড় আয়ু <strong>১২০ দিন।</strong></li>
+            <li>মানুষের লোহিত রক্তকণিকায় <strong>নিউক্লিয়াস থাকে না।</strong></li>
+            <li>দেখতে অনেকটা <strong>দ্বি-অবতল বৃত্তের মতো।</strong></li>
+            <li>পূর্ণবয়স্ক ব্যক্তির রক্তে প্রতি কিউবিক মিলিমিটারে প্রায় <strong>৫০ লক্ষ</strong> লোহিত রক্তকণিকা।</li>
+            <li>পুরুষের তুলনায় নারীদের রক্তে লোহিত রক্তকণিকা কম।</li>
+            <li><strong>শিশুদের দেহে</strong> লোহিত রক্তকণিকার পরিমাণ বেশি।</li>
+            <li>শ্বেত রক্তকণিকার চেয়ে প্রায় <strong>৫০০ গুণ বেশি।</strong></li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="diagram-box" style="margin-bottom:10px;">
+          <div style="font-size:10px; font-weight:700; color:#1a237e; margin-bottom:8px;">চিত্র ৬.০৮: লোহিত রক্তকণিকা</div>
+          <div style="display:flex; justify-content:center; gap:12px; margin:8px 0;">
+            <!-- Top view RBC -->
+            <div style="display:flex; flex-direction:column; align-items:center;">
+              <div style="width:50px; height:50px; border-radius:50%; background:radial-gradient(circle at 30% 30%,#ef9a9a,#c62828,#8b0000); box-shadow: 0 4px 12px rgba(0,0,0,0.3);"></div>
+              <div style="font-size:9px; color:#666; margin-top:4px;">উপর থেকে দৃশ্য</div>
+            </div>
+            <!-- Side view RBC -->
+            <div style="display:flex; flex-direction:column; align-items:center;">
+              <div style="width:55px; height:22px; border-radius:50%; background:linear-gradient(135deg,#ef9a9a,#c62828); position:relative; box-shadow:0 4px 8px rgba(0,0,0,0.3);">
+                <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:20px; height:8px; border-radius:50%; background:#8b0000;"></div>
+              </div>
+              <div style="font-size:9px; color:#666; margin-top:4px;">পার্শ্ব দৃশ্য (দ্বি-অবতল)</div>
+            </div>
+          </div>
+          <div class="diagram-caption">দ্বি-অবতল চাকতির মতো, নিউক্লিয়াসবিহীন</div>
+        </div>
+        <div class="key-box">
+          <span class="inline-bold">হিমোগ্লোবিন:</span> লোহিত রক্তকণিকায় এক ধরনের রঞ্জক পদার্থ। এর উপস্থিতির কারণে রক্ত লাল দেখায়। রক্তে প্রয়োজনীয় পরিমাণ হিমোগ্লোবিন না থাকলে <strong>রক্তস্বল্পতা বা রক্তশূন্যতা (Anemia)</strong> দেখা দেয়। হিমোগ্লোবিন অক্সিহিমোগ্লোবিন হিসেবে O₂ ও CO₂ পরিবহন করে।
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>SSC Biology — Chapter 06</span>
+    <span class="page-num">Slide 12</span>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 13: শ্বেত রক্তকণিকা ==================== -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="chapter-title">জীবে পরিবহন &nbsp;|&nbsp; শ্বেত রক্তকণিকা (WBC)</span>
+    <span class="author-name">Raktim Dey (EEE, AUST)</span>
+  </div>
+  <div class="slide-content">
+    <div class="section-heading">(ii) শ্বেত রক্তকণিকা বা লিউকোসাইট (WBC)</div>
+    <div class="two-col">
+      <div>
+        <div class="info-box">
+          <ul class="styled-list">
+            <li>শ্বেতকণিকার নির্দিষ্ট কোনো আকার নেই।</li>
+            <li>হিমোগ্লোবিনবিহীন এবং নিউক্লিয়াসযুক্ত বড় আকারের কোষ।</li>
+            <li>গড় আয়ু <strong>১–১৫ দিন।</strong></li>
+            <li>অ্যামিবার মতো দেহের আকারের পরিবর্তন করে।</li>
+            <li>ফ্যাগোসাইটোসিস প্রক্রিয়ায় জীবাণু ধ্বংস করে।</li>
+            <li>মানবদেহে প্রতি ঘন মিলিমিটার রক্তে <strong>৪–১০ হাজার</strong> শ্বেত রক্তকণিকা।</li>
+            <li>অসুস্থ মানবদেহে এর সংখ্যা বেড়ে যায়।</li>
+            <li>স্তন্যপায়ীদের রক্তকোষগুলোর মধ্যে শুধু শ্বেত রক্তকণিকায় <strong>DNA থাকে।</strong></li>
+          </ul>
+        </div>
+        <div class="sub-heading">প্রকারভেদ</div>
+        <div class="wbc-grid">
+          <div class="wbc-card">
+            <div class="wbc-name">(ক) অ্যাগ্রানুলোসাইট</div>
+            <div>দানাবিহীন শ্বেতকণিকা। দুরকম: <strong>লিম্ফোসাইট ও মনোসাইট।</strong></div>
+          </div>
+          <div class="wbc-card">
+            <div class="wbc-name">(খ) গ্রানুলোসাইট</div>
+            <div>সাইটোপ্লাজম সূক্ষ্ম দানাযুক্ত। তিন প্রকার: <strong>নিউট্রোফিল, ইওসিনোফিল ও বেসোফিল।</strong></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <!-- WBC types diagram -->
+        <div class="diagram-box">
+          <div style="font-size:10px; font-weight:700; color:#1a237e; margin-bottom:8px;">চিত্র ৬.১০: বিভিন্ন প্রকার শ্বেত কণিকা</div>
+          <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin:5px 0;">
+            <!-- Lymphocyte -->
+            <div style="text-align:center;">
+              <div style="width:40px; height:40px; border-radius:50%; background:radial-gradient(circle,#e3f2fd,#90caf9); display:flex; align-items:center; justify-content:center; margin:auto; border:2px solid #42a5f5;">
+                <div style="width:22px; height:22px; background:#1565c0; border-radius:50%;"></div>
+              </div>
+              <div style="font-size:9px; color:#0d47a1; font-weight:700; margin-top:3px;">লিম্ফোসাইট</div>
+            </div>
+            <!-- Monocyte -->
+            <div style="text-align:center;">
+              <div style="width:48px; height:40px; border-radius:50%; background:radial-gradient(circle,#e8f5e9,#a5d6a7); display:flex; align-items:center; justify-content:center; margin:auto; border:2px solid #66bb6a;">
+                <div style="width:26px; height:18px; background:#388e3c; border-radius:40% 60% 60% 40%;"></div>
+              </div>
+              <div style="font-size:9px; color:#2e7d32; font-weight:700; margin-top:3px;">মনোসাইট</div>
+            </div>
+            <!-- Neutrophil -->
+            <div style="text-align:center;">
+              <div style="width:42px; height:42px; border-radius:50%; background:radial-gradient(circle,#fff9c4,#f9a825); display:flex; align-items:center; justify-content:center; margin:auto; border:2px solid #fbc02d; position:relative;">
+                <div style="width:14px; height:10px; background:#f57f17; border-radius:30%; position:absolute; top:8px; left:8px;"></div>
+                <div style="width:10px; height:8px; background:#f57f17; border-radius:30%; position:absolute; bottom:8px; right:8px;"></div>
+                <div style="font-size:8px; color:#333; position:relative; z-index:1;">N</div>
+              </div>
+              <div style="font-size:9px; color:#f57f17; font-weight:700; margin-top:3px;">নিউট্রোফিল</div>
+            </div>
+            <!-- Eosinophil -->
+            <div style="text-align:center;">
+              <div style="width:42px; height:42px; border-radius:50%; background:radial-gradient(circle,#fce4ec,#f48fb1); display:flex; align-items:center; justify-content:center; margin:auto; border:2px solid #e91e63;">
+                <div style="font-size:8px; color:#880e4f; font-weight:700;">Eo</div>
+              </div>
+              <div style="font-size:9px; color:#880e4f; font-weight:700; margin-top:3px;">ইওসিনোফিল</div>
+            </div>
+            <!-- Basophil -->
+            <div style="text-align:center;">
+              <div style="width:42px; height:42px; border-radius:50%; background:radial-gradient(circle,#ede7f6,#b39ddb); display:flex; align-items:center; justify-content:center; margin:auto; border:2px solid #7e57c2;">
+                <div style="font-size:8px; color:#311b92; font-weight:700;">Ba</div>
+              </div>
+              <div style="font-size:9px; color:#4527a0; font-weight:700; margin-top:3px;">বেসোফিল</div>
+            </div>
+          </div>
+          <div class="diagram-caption">ফ্যাগোসাইটোসিস প্রক্রিয়ায় জীবাণু ধ্বংস করে থাকে</div>
+        </div>
+        <div class="three-col" style="gap:6px; margin-top:8px; font-size:10px;">
+          <div class="key-box">
+            <div style="font-weight:700; margin-bottom:3px;">লিম্ফোসাইট</div>
+            অ্যান্টিবডি গঠন করে দেহে রোগ প্রতিরোধ ক্ষমতা বৃদ্ধি করে।
+          </div>
+          <div class="info-box">
+            <div style="font-weight:700; color:#e65100; margin-bottom:3px;">ইওসিনোফিল ও বেসোফিল</div>
+            হিস্টামিন নিঃসৃত করে দেহে অ্যালার্জি প্রতিরোধ করে।
+          </div>
+          <div class="warn-box">
+            <div style="font-weight:700; margin-bottom:3px;">বেসোফিল</div>
+            হেপারিন নিঃসৃত করে রক্তকে রক্তবাহিকার ভেতরে জমাট বাঁধতে বাধা দেয়।
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>SSC Biology — Chapter 06</span>
+    <span class="page-num">Slide 13</span>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 14: অণুচক্রিকা ও রক্ত তঞ্চন ==================== -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="chapter-title">জীবে পরিবহন &nbsp;|&nbsp; অণুচক্রিকা ও রক্ত তঞ্চন</span>
+    <span class="author-name">Raktim Dey (EEE, AUST)</span>
+  </div>
+  <div class="slide-content">
+    <div class="two-col">
+      <div>
+        <div class="section-heading" style="font-size:13px;">(iii) অণুচক্রিকা বা থ্রম্বোসাইট (Platelet)</div>
+        <div class="info-box">
+          <ul class="styled-list">
+            <li>গোলাকার, ডিম্বাকার অথবা রড আকারের হতে পারে।</li>
+            <li>সাইটোপ্লাজম দানাদার; মাইটোকন্ড্রিয়া, গলগি বস্তু থাকে কিন্তু <strong>নিউক্লিয়াস থাকে না।</strong></li>
+            <li>অস্থি মজ্জার বৃহদাকার কোষের ছিন্ন অংশ।</li>
+            <li>গড় আয়ু <strong>৫–১০ দিন।</strong></li>
+            <li>পরিণত মানবদেহে প্রতি ঘন মিলিমিটার রক্তে <strong>প্রায় আড়াই লাখ</strong> অণুচক্রিকা।</li>
+          </ul>
+        </div>
+        <div class="section-heading" style="font-size:13px; margin-top:10px;">রক্ত তঞ্চন প্রক্রিয়া (Blood Clotting)</div>
+        <p class="body-text">অণুচক্রিকার প্রধান কাজ হলো রক্ত তঞ্চন করা বা জমাট বাঁধানোতে সাহায্য করা।</p>
+        <div class="flow-container" style="flex-direction:column; gap:5px;">
+          <div class="flow-box" style="font-size:10px;">রক্তবাহিকা/টিস্যু আঘাতপ্রাপ্ত → অণুচক্রিকা সক্রিয়</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-box" style="font-size:10px;">থ্রম্বোপ্লাস্টিন (Thromboplastin) তৈরি</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-box" style="font-size:10px;">প্রোথ্রম্বিন → থ্রম্বিন</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-box" style="font-size:10px;">ফাইব্রিনোজেন → ফাইব্রিন জালক</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-box" style="background:#2e7d32; font-size:10px;">রক্ত জমাট বাঁধে → রক্তক্ষরণ বন্ধ</div>
+        </div>
+        <div class="note-tag" style="margin-top:6px;">রক্ত তঞ্চনে ভিটামিন K ও ক্যালসিয়াম আয়নও জড়িত।</div>
+      </div>
+      <div>
+        <div class="diagram-box">
+          <div style="font-size:10px; font-weight:700; color:#1a237e; margin-bottom:8px;">চিত্র ৬.১১: অণুচক্রিকা এবং তার আকার পরিবর্তন</div>
+          <!-- Before -->
+          <div style="display:flex; align-items:center; justify-content:center; gap:15px; margin:10px 0;">
+            <div style="display:flex; flex-direction:column; gap:6px; align-items:center;">
+              <div style="font-size:9px; font-weight:700; color:#555; margin-bottom:4px;">সাধারণ অণুচক্রিকা</div>
+              <div style="display:flex; gap:6px; flex-wrap:wrap; justify-content:center;">
+                <div style="width:32px; height:22px; background:linear-gradient(135deg,#ffe082,#ffa726); border-radius:40%; border:1px solid #f57c00;"></div>
+                <div style="width:28px; height:20px; background:linear-gradient(135deg,#ffe082,#ffa726); border-radius:30%; border:1px solid #f57c00;"></div>
+                <div style="width:30px; height:24px; background:linear-gradient(135deg,#ffe082,#ffa726); border-radius:50%; border:1px solid #f57c00;"></div>
+              </div>
+            </div>
+            <div style="font-size:24px; color:#c62828;">→</div>
+            <div style="display:flex; flex-direction:column; gap:6px; align-items:center;">
+              <div style="font-size:9px; font-weight:700; color:#555; margin-bottom:4px;">সক্রিয় অণুচক্রিকা</div>
+              <div style="display:flex; gap:6px; flex-wrap:wrap; justify-content:center;">
+                <div style="width:36px; height:36px; background:radial-gradient(circle,#ffe082,#e65100); border-radius:50%; border:2px solid #bf360c; position:relative;">
+                  <div style="position:absolute; top:-5px; left:12px; width:3px; height:10px; background:#bf360c; border-radius:2px; transform:rotate(-20deg);"></div>
+                  <div style="position:absolute; bottom:-5px; left:5px; width:3px; height:10px; background:#bf360c; border-radius:2px; transform:rotate(30deg);"></div>
+                  <div style="position:absolute; right:-5px; top:10px; width:10px; height:3px; background:#bf360c; border-radius:2px;"></div>
+                </div>
+                <div style="width:34px; height:34px; background:radial-gradient(circle,#ffe082,#e65100); border-radius:50%; border:2px solid #bf360c; position:relative;">
+                  <div style="position:absolute; top:-6px; right:8px; width:3px; height:11px; background:#bf360c; border-radius:2px; transform:rotate(15deg);"></div>
+                  <div style="position:absolute; bottom:-4px; right:5px; width:3px; height:9px; background:#bf360c; border-radius:2px; transform:rotate(-25deg);"></div>
+                  <div style="position:absolute; left:-5px; top:12px; width:10px; height:3px; background:#bf360c; border-radius:2px;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="diagram-caption">আঘাতের পরে অণুচক্রিকা অনিয়মিত আকার ধারণ করে থ্রম্বোপ্লাস্টিন তৈরি করে</div>
+        </div>
+        <div class="key-box" style="margin-top:8px;">
+          <span class="inline-bold">ফাইব্রিন:</span> এক ধরনের অদ্রবণীয় প্রোটিন, যা দ্রুত সুতার মতো জালিকা প্রস্তুত করে। এটি ক্ষত স্থানে জমাট বাঁধে এবং রক্তক্ষরণ বন্ধ করে।
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>SSC Biology — Chapter 06</span>
+    <span class="page-num">Slide 14</span>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 15: রক্তের কাজ ==================== -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="chapter-title">জীবে পরিবহন &nbsp;|&nbsp; রক্তের কাজ</span>
+    <span class="author-name">Raktim Dey (EEE, AUST)</span>
+  </div>
+  <div class="slide-content">
+    <div class="section-heading">রক্তের কাজ</div>
+    <p class="body-text" style="margin-bottom:8px;">রক্ত দেহের গুরুত্বপূর্ণ উপাদান। এটি দেহের নানাবিধ কাজ করে:</p>
+    <div class="func-grid">
+      <div class="func-card" style="border-color:#c62828;">
+        <div class="f-title">(a) অক্সিজেন পরিবহন</div>
+        লোহিত রক্তকণিকা অক্সিহিমোগ্লোবিনরূপে কোষে অক্সিজেন পরিবহন করে।
+      </div>
+      <div class="func-card" style="border-color:#1565c0;">
+        <div class="f-title">(b) কার্বন ডাই-অক্সাইড অপসারণ</div>
+        রক্তরস সোডিয়াম বাই কার্বোনেটরূপে CO₂ সংগ্রহ করে ফুসফুসের সাহায্যে বাইরে বের করে।
+      </div>
+      <div class="func-card" style="border-color:#388e3c;">
+        <div class="f-title">(c) খাদ্যসার পরিবহন</div>
+        রক্তরস গ্লুকোজ, অ্যামাইনো এসিড, চর্বিকণা ইত্যাদি কোষে সরবরাহ করে।
+      </div>
+      <div class="func-card" style="border-color:#f57c00;">
+        <div class="f-title">(d) তাপের সমতা রক্ষা</div>
+        দেহের বিভিন্ন অঙ্গে উৎপন্ন তাপ রক্তের মাধ্যমে সর্বত্র ছড়িয়ে পড়ে। দেহের তাপের সমতা রক্ষা হয়।
+      </div>
+      <div class="func-card" style="border-color:#7b1fa2;">
+        <div class="f-title">(e) বর্জ্য পদার্থ নিষ্কাশন</div>
+        রক্ত ক্ষতিকর বর্জ্য পদার্থ বহন করে বিভিন্ন অঙ্গের মাধ্যমে ইউরিয়া, ইউরিক এসিড ও CO₂ হিসেবে নিষ্কাশন করে।
+      </div>
+      <div class="func-card" style="border-color:#0288d1;">
+        <div class="f-title">(f) হরমোন পরিবহন</div>
+        নালিবিহীন গ্রন্থিতে তৈরি হরমোন সরাসরি রক্তে মিশে প্রয়োজন অনুযায়ী বিভিন্ন অঙ্গে সঞ্চালিত হয়।
+      </div>
+      <div class="func-card" style="border-color:#2e7d32;">
+        <div class="f-title">(g) রোগ প্রতিরোধ</div>
+        শ্বেত রক্তকণিকা ফ্যাগোসাইটোসিস প্রক্রিয়ায় জীবাণু থেকে দেহ রক্ষা করে। অ্যান্টিবডি ও অ্যান্টিজেন উৎপাদনে ভূমিকা রাখে।
+      </div>
+      <div class="func-card" style="border-color:#c62828;">
+        <div class="f-title">(h) রক্ত জমাট বাঁধা</div>
+        দেহের কোনো অংশ কেটে গেলে অণুচক্রিকা রক্ত জমাট বাঁধতে সাহায্য করে এবং দেহের রক্তক্ষরণ বন্ধ করে।
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>SSC Biology — Chapter 06</span>
+    <span class="page-num">Slide 15</span>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 16: ব্লাড গ্রুপ ==================== -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="chapter-title">জীবে পরিবহন &nbsp;|&nbsp; ব্লাড গ্রুপ বা রক্তের গ্রুপ</span>
+    <span class="author-name">Raktim Dey (EEE, AUST)</span>
+  </div>
+  <div class="slide-content">
+    <div class="section-heading">ব্লাড গ্রুপ বা রক্তের গ্রুপ</div>
+    <div class="two-col">
+      <div>
+        <p class="body-text">লোহিত রক্তকণিকায় <span class="inline-bold">A ও B</span> নামক দুই ধরনের অ্যান্টিজেন (antigens) থাকে এবং রক্তরসে <span class="inline-bold">a ও b</span> দুধরনের অ্যান্টিবডি (antibody) থাকে।</p>
+        <p class="body-text">বিজ্ঞানী <span class="inline-red">কার্ল ল্যান্ডস্টেইনার</span> ১৯০১ সালে মানুষের রক্তের শ্রেণিবিন্যাস করে তা <span class="inline-bold">A, B, AB এবং O</span> — এই চারটি গ্রুপের নামকরণ করেন।</p>
+
+        <div style="margin-top:10px;">
+          <table class="styled-table">
+            <thead>
+              <tr>
+                <th>রক্তের গ্রুপ</th>
+                <th>অ্যান্টিজেন (RBC তে)</th>
+                <th>অ্যান্টিবডি (রক্তরসে)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>A</strong></td>
+                <td>A</td>
+                <td>b</td>
+              </tr>
+              <tr>
+                <td><strong>B</strong></td>
+                <td>B</td>
+                <td>a</td>
+              </tr>
+              <tr>
+                <td><strong>AB</strong></td>
+                <td>A, B</td>
+                <td>নেই</td>
+              </tr>
+              <tr>
+                <td><strong>O</strong></td>
+                <td>নেই</td>
+                <td>a, b</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="two-col" style="gap:8px; margin-top:10px; font-size:10px;">
+          <div class="key-box">
+            <span class="inline-bold">সর্বজনীন রক্তদাতা:</span> <span class="badge badge-green">O গ্রুপ</span> — সব গ্রুপের ব্যক্তিকে রক্ত দিতে পারে। <strong>(Universal Donor)</strong>
+          </div>
+          <div class="info-box">
+            <span class="inline-bold">সর্বজনীন রক্তগ্রহীতা:</span> <span class="badge badge-blue">AB গ্রুপ</span> — যেকোনো ব্যক্তির রক্ত গ্রহণ করতে পারে। <strong>(Universal Recipient)</strong>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="blood-type-grid">
+          <div class="blood-card A">
+            <span class="blood-label">A</span>
+            <div class="blood-info">অ্যান্টিজেন: A<br>অ্যান্টিবডি: b</div>
+          </div>
+          <div class="blood-card B">
+            <span class="blood-label">B</span>
+            <div class="blood-info">অ্যান্টিজেন: B<br>অ্যান্টিবডি: a</div>
+          </div>
+          <div class="blood-card AB">
+            <span class="blood-label">AB</span>
+            <div class="blood-info">অ্যান্টিজেন: A,B<br>অ্যান্টিবডি: নেই</div>
+          </div>
+          <div class="blood-card O">
+            <span class="blood-label">O</span>
+            <div class="blood-info">অ্যান্টিজেন: নেই<br>অ্যান্টিবডি: a,b</div>
+          </div>
+        </div>
+
+        <div class="sub-heading" style="margin-top:12px;">দাতা ও গ্রহীতার তালিকা (ABO পদ্ধতি)</div>
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th>রক্তের গ্রুপ</th>
+              <th>যে গ্রুপকে দিতে পারে</th>
+              <th>যে গ্রুপ থেকে নিতে পারে</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>A</strong></td><td>A, AB</td><td>A, O</td></tr>
+            <tr><td><strong>B</strong></td><td>B, AB</td><td>B, O</td></tr>
+            <tr><td><strong>AB</strong></td><td>AB</td><td>A, B, AB, O</td></tr>
+            <tr><td><strong>O</strong></td><td>A, B, AB, O</td><td>O</td></tr>
+          </tbody>
+        </table>
+
+        <div class="warn-box" style="margin-top:8px; font-size:10px;">
+          <span class="inline-bold">রেসাস (Rh) ফ্যাক্টর:</span> Rh উপস্থিত থাকলে পজিটিভ (+), না থাকলে নেগেটিভ (−)। নেগেটিভ গ্রুপের রক্তে Rh অ্যান্টিজেন নেই, তাই এটি পজিটিভ গ্রুপকে দেওয়া যায়। কিন্তু পজিটিভ গ্রুপের রক্ত নেগেটিভ গ্রুপকে দেওয়া যায় না।
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>SSC Biology — Chapter 06</span>
+    <span class="page-num">Slide 16</span>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 17: হৃৎপিণ্ডের গঠন ==================== -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="chapter-title">জীবে পরিবহন &nbsp;|&nbsp; হৃৎপিণ্ডের গঠন ও কাজ</span>
+    <span class="author-name">Raktim Dey (EEE, AUST)</span>
+  </div>
+  <div class="slide-content">
+    <div class="section-heading">হৃৎপিণ্ডের গঠন ও কাজ</div>
+    <div class="two-col">
+      <div>
+        <p class="body-text">হৃৎপিণ্ড বক্ষ গহ্বরের বাম দিকে দুই ফুসফুসের মাঝখানে অবস্থিত একটি <span class="highlight">ত্রিকোণাকার ফাঁপা অঙ্গ।</span> এটি হৃৎপেশি নামক এক বিশেষ ধরনের অনৈচ্ছিক পেশি দিয়ে গঠিত।</p>
+        <div class="def-box">
+          <div class="def-title">পেরিকার্ডিয়াম</div>
+          হৃৎপিণ্ড পেরিকার্ডিয়াম নামক পাতলা পর্দা দিয়ে আবৃত থাকে।
+        </div>
+        <div class="sub-heading">হৃৎপিণ্ড প্রাচীরের তিনটি স্তর</div>
+        <div class="heart-layers">
+          <div class="layer-card layer-outer">
+            <div class="l-name">বহিঃস্তর</div>
+            <div style="font-size:9px;">Epicardium</div>
+            <div style="font-size:10px; margin-top:4px;">যোজক কলা নিয়ে গঠিত। বিক্ষিপ্তভাবে চর্বি থাকে। আবরণী কলা দিয়ে আবৃত।</div>
+          </div>
+          <div class="layer-card layer-mid">
+            <div class="l-name">মধ্যস্তর</div>
+            <div style="font-size:9px;">Myocardium</div>
+            <div style="font-size:10px; margin-top:4px;">বহিঃস্তর ও অন্তঃস্তরের মাঝে। দৃঢ় অনৈচ্ছিক পেশি দিয়ে গঠিত।</div>
+          </div>
+          <div class="layer-card layer-inner">
+            <div class="l-name">অন্তঃস্তর</div>
+            <div style="font-size:9px;">Endocardium</div>
+            <div style="font-size:10px; margin-top:4px;">সবচেয়ে ভেতরের স্তর। প্রকোষ্ঠগুলো ও কপাটিকা আবৃত করে রাখে।</div>
+          </div>
+        </div>
+        <div class="info-box" style="margin-top:8px; font-size:10px;">
+          <div style="font-weight:700; color:#1a237e; margin-bottom:5px;">হৃৎপিণ্ডের ৪টি প্রকোষ্ঠ:</div>
+          <div class="two-col" style="gap:6px;">
+            <div style="background:#ffebee; padding:6px; border-radius:5px; border:1px solid #ef9a9a;">
+              <div style="font-weight:700; color:#c62828; font-size:11px;">উপরের প্রকোষ্ঠ (অলিন্দ)</div>
+              <div>ডান অলিন্দ + বাম অলিন্দ<br><em>right & left atrium</em><br>প্রাচীর তুলনামূলক পাতলা।</div>
+            </div>
+            <div style="background:#e3f2fd; padding:6px; border-radius:5px; border:1px solid #90caf9;">
+              <div style="font-weight:700; color:#0d47a1; font-size:11px;">নিচের প্রকোষ্ঠ (নিলয়)</div>
+              <div>ডান নিলয় + বাম নিলয়<br><em>right & left ventricle</em><br>প্রাচীর পুরু।</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <!-- Heart diagram -->
+        <div class="diagram-box">
+          <div style="font-size:10px; font-weight:700; color:#1a237e; margin-bottom:8px;">চিত্র ৬.১৩: মানব হৃৎপিণ্ড</div>
+          <div style="position:relative; width:220px; margin:0 auto; font-size:9px;">
+            <!-- Heart SVG representation -->
+            <svg viewBox="0 0 220 200" width="220" height="200">
+              <!-- Aorta -->
+              <rect x="90" y="5" width="18" height="35" rx="5" fill="#c62828"/>
+              <text x="112" y="20" font-size="8" fill="#333">মহাধমনি</text>
+              <!-- Pulmonary artery left -->
+              <path d="M 100 30 Q 60 20 45 50" stroke="#1565c0" stroke-width="10" fill="none" stroke-linecap="round"/>
+              <text x="15" y="55" font-size="7" fill="#333">ফুসফুসীয়</text>
+              <text x="15" y="65" font-size="7" fill="#333">ধমনি (বাম)</text>
+              <!-- Pulmonary artery right -->
+              <path d="M 108 30 Q 150 20 165 50" stroke="#1565c0" stroke-width="10" fill="none" stroke-linecap="round"/>
+              <text x="163" y="55" font-size="7" fill="#333">ফুস. ধমনি</text>
+              <!-- SVC -->
+              <rect x="55" y="5" width="14" height="35" rx="5" fill="#42a5f5"/>
+              <text x="5" y="20" font-size="7" fill="#333">উর্ধ্ব মহাশিরা</text>
+              <!-- Right atrium -->
+              <ellipse cx="78" cy="90" rx="30" ry="28" fill="#90caf9" stroke="#1565c0" stroke-width="1.5"/>
+              <text x="60" y="88" font-size="8" fill="#0d47a1" font-weight="bold">ডান</text>
+              <text x="60" y="98" font-size="8" fill="#0d47a1" font-weight="bold">অলিন্দ</text>
+              <!-- Left atrium -->
+              <ellipse cx="142" cy="90" rx="30" ry="28" fill="#ef9a9a" stroke="#c62828" stroke-width="1.5"/>
+              <text x="124" y="88" font-size="8" fill="#c62828" font-weight="bold">বাম</text>
+              <text x="124" y="98" font-size="8" fill="#c62828" font-weight="bold">অলিন্দ</text>
+              <!-- Right ventricle -->
+              <path d="M 50 115 Q 78 185 110 188 Q 90 130 50 115" fill="#42a5f5" stroke="#1565c0" stroke-width="1.5"/>
+              <text x="58" y="158" font-size="8" fill="#0d47a1" font-weight="bold">ডান</text>
+              <text x="55" y="168" font-size="8" fill="#0d47a1" font-weight="bold">নিলয়</text>
+              <!-- Left ventricle -->
+              <path d="M 170 115 Q 142 185 110 188 Q 130 130 170 115" fill="#ef9a9a" stroke="#c62828" stroke-width="1.5"/>
+              <text x="130" y="158" font-size="8" fill="#c62828" font-weight="bold">বাম</text>
+              <text x="128" y="168" font-size="8" fill="#c62828" font-weight="bold">নিলয়</text>
+              <!-- IVC -->
+              <rect x="55" y="165" width="14" height="30" rx="5" fill="#42a5f5"/>
+              <text x="3" y="185" font-size="7" fill="#333">নিম্ন মহাশিরা</text>
+              <!-- Tricuspid valve indication -->
+              <line x1="108" y1="108" x2="108" y2="130" stroke="#333" stroke-width="1.5" stroke-dasharray="3"/>
+              <text x="80" y="120" font-size="7" fill="#333">ট্রাই-</text>
+              <text x="77" y="129" font-size="7" fill="#333">কাসপিড</text>
+            </svg>
+          </div>
+          <div class="diagram-caption">হৃৎপিণ্ড — ৪টি প্রকোষ্ঠ, নীল=কার্বন ডাই-অক্সাইডযুক্ত রক্ত, লাল=অক্সিজেনযুক্ত রক্ত</div>
+        </div>
+
+        <div class="info-box" style="font-size:10px;">
+          <div style="font-weight:700; color:#1a237e; margin-bottom:4px;">কপাটিকা (Valve):</div>
+          <ul class="styled-list" style="font-size:10px;">
+            <li><span class="inline-bold">ট্রাইকাসপিড ভালভ:</span> ডান অলিন্দ ও ডান নিলয়ের মাঝে (৩ পাল্লা)।</li>
+            <li><span class="inline-bold">বাইকাসপিড (মাইট্রাল) ভালভ:</span> বাম অলিন্দ ও বাম নিলয়ের মাঝে (২ পাল্লা)।</li>
+            <li><span class="inline-bold">অর্ধচন্দ্রাকার কপাটিকা:</span> মহাধমনি ও ফুসফুসীয় ধমনির মুখে।</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>SSC Biology — Chapter 06</span>
+    <span class="page-num">Slide 17</span>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 18: হৃৎপিণ্ডে রক্ত সঞ্চালন পদ্ধতি ==================== -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="chapter-title">জীবে পরিবহন &nbsp;|&nbsp; হৃৎপিণ্ডে রক্ত সঞ্চালন পদ্ধতি</span>
+    <span class="author-name">Raktim Dey (EEE, AUST)</span>
+  </div>
+  <div class="slide-content">
+    <div class="section-heading">হৃৎপিণ্ডে রক্ত সঞ্চালন পদ্ধতি</div>
+    <div class="two-col">
+      <div>
+        <div class="info-box" style="margin-bottom:10px;">
+          <div style="font-weight:700; color:#1a237e; margin-bottom:4px;">মূল ধারণাসমূহ:</div>
+          <ul class="styled-list" style="font-size:10px;">
+            <li><span class="inline-bold">সিস্টোল:</span> হৃৎপিণ্ডের সংকোচন।</li>
+            <li><span class="inline-bold">ডায়াস্টোল:</span> হৃৎপিণ্ডের প্রসারণ।</li>
+            <li><span class="inline-bold">হৃৎস্পন্দন (Heart Beat):</span> একবার সিস্টোল-ডায়াস্টোলকে একত্রে হৃৎস্পন্দন বলে।</li>
+          </ul>
+        </div>
+        <div class="sub-heading">রক্ত সঞ্চালনের ধাপ:</div>
+        <div class="num-list" style="font-size:10px;">
+          <li><span class="inline-bold">অলিন্দ প্রসারণ (ডায়াস্টোল):</span> ঊর্ধ্ব ও নিম্ন মহাশিরা দিয়ে CO₂যুক্ত রক্ত ডান অলিন্দে; ফুসফুসীয় শিরা দিয়ে O₂যুক্ত রক্ত বাম অলিন্দে প্রবেশ করে।</li>
+          <li><span class="inline-bold">অলিন্দ সংকোচন (সিস্টোল):</span> ট্রাইকাসপিড ভালভ খুলে CO₂যুক্ত রক্ত ডান নিলয়ে; বাইকাসপিড ভালভ খুলে O₂যুক্ত রক্ত বাম নিলয়ে প্রবেশ করে।</li>
+          <li><span class="inline-bold">নিলয় সংকোচন (সিস্টোল):</span> ডান নিলয় থেকে CO₂যুক্ত রক্ত ফুসফুসীয় ধমনিতে → ফুসফুসে পরিশোধিত হয়। বাম নিলয় থেকে O₂যুক্ত রক্ত মহাধমনির মাধ্যমে সারা দেহে।</li>
+        </div>
+      </div>
+      <div>
+        <!-- Heart beat cycle diagram -->
+        <div class="diagram-box">
+          <div style="font-size:10px; font-weight:700; color:#1a237e; margin-bottom:6px;">চিত্র ৬.১৪: হৃৎপিণ্ডের অন্তর্গঠন ও রক্ত সঞ্চালন পদ্ধতি</div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; font-size:9px;">
+            <!-- Stage A -->
+            <div style="background:#e3f2fd; border:1px solid #90caf9; border-radius:8px; padding:8px; text-align:center;">
+              <div style="font-weight:700; color:#0d47a1; margin-bottom:5px;">(ক) অলিন্দের ডায়াস্টোল</div>
+              <div style="display:flex; justify-content:center; gap:6px; margin:5px 0;">
+                <div style="width:30px; height:20px; background:#90caf9; border-radius:40%; border:1px solid #1565c0;"></div>
+                <div style="width:30px; height:20px; background:#ef9a9a; border-radius:40%; border:1px solid #c62828;"></div>
+              </div>
+              <div>অলিন্দ প্রসারণ → রক্ত প্রবেশ</div>
+              <div style="color:#c62828; margin-top:3px;">↑ রক্ত আসে</div>
+            </div>
+            <!-- Stage B -->
+            <div style="background:#ffebee; border:1px solid #ef9a9a; border-radius:8px; padding:8px; text-align:center;">
+              <div style="font-weight:700; color:#c62828; margin-bottom:5px;">(খ) অলিন্দের সিস্টোল</div>
+              <div style="display:flex; justify-content:center; gap:6px; margin:5px 0;">
+                <div style="width:24px; height:16px; background:#90caf9; border-radius:40%; border:1px solid #1565c0;"></div>
+                <div style="width:24px; height:16px; background:#ef9a9a; border-radius:40%; border:1px solid #c62828;"></div>
+              </div>
+              <div>অলিন্দ সংকোচন → নিলয়ে রক্ত</div>
+              <div style="color:#1565c0; margin-top:3px;">↓ নিলয় প্রসারণ</div>
+            </div>
+            <!-- Stage C -->
+            <div style="background:#e8f5e9; border:1px solid #a5d6a7; border-radius:8px; padding:8px; text-align:center;">
+              <div style="font-weight:700; color:#2e7d32; margin-bottom:5px;">(গ) নিলয়ের সিস্টোল</div>
+              <div style="display:flex; justify-content:center; gap:6px; margin:5px 0;">
+                <div style="width:24px; height:30px; background:#90caf9; border-radius:30%; border:1px solid #1565c0;"></div>
+                <div style="width:24px; height:30px; background:#ef9a9a; border-radius:30%; border:1px solid #c62828;"></div>
+              </div>
+              <div>নিলয় সংকোচন → রক্ত বের</div>
+              <div style="color:#c62828; margin-top:3px;">→ ফুসফুস ও দেহে</div>
+            </div>
+            <!-- Stage D -->
+            <div style="background:#f3e5f5; border:1px solid #ce93d8; border-radius:8px; padding:8px; text-align:center;">
+              <div style="font-weight:700; color:#6a1b9a; margin-bottom:5px;">(ঘ) নিলয়ের ডায়াস্টোল</div>
+              <div style="display:flex; justify-content:center; gap:6px; margin:5px 0;">
+                <div style="width:30px; height:36px; background:#90caf9; border-radius:30%; border:1px solid #1565c0;"></div>
+                <div style="width:30px; height:36px; background:#ef9a9a; border-radius:30%; border:1px solid #c62828;"></div>
+              </div>
+              <div>নিলয় প্রসারণ → পরবর্তী চক্র</div>
+              <div style="color:#6a1b9a; margin-top:3px;">↑ রক্ত প্রবেশের অপেক্ষা</div>
+            </div>
+          </div>
+          <div class="diagram-caption">পর্যায়ক্রমিক সংকোচন ও প্রসারণে রক্ত সঞ্চালন চলতে থাকে</div>
+        </div>
+        <div class="key-box" style="font-size:10px;">
+          কপাটিকাগুলোর অবস্থানের ফলে পাম্প করা রক্ত একই দিকে চলে এবং এক ফোঁটা রক্তও উল্টো দিকে ফিরে আসতে পারে না।
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>SSC Biology — Chapter 06</span>
+    <span class="page-num">Slide 18</span>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 19: রক্তবাহিকা ==================== -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="chapter-title">জীবে পরিবহন &nbsp;|&nbsp; রক্তবাহিকা (Blood Vessel)</span>
+    <span class="author-name">Raktim Dey (EEE, AUST)</span>
+  </div>
+  <div class="slide-content">
+    <div class="section-heading">রক্তবাহিকা (Blood Vessel)</div>
+    <p class="body-text" style="margin-bottom:8px;">যেসব নালির ভেতর দিয়ে রক্ত প্রবাহিত বা সঞ্চালিত হয়, তাকে রক্তনালি বা রক্তবাহিকা বলে। গঠন, আকৃতি এবং কাজের ভিত্তিতে রক্তবাহিকা তিন ধরনের।</p>
+    <div class="vessel-compare">
+      <div class="vessel-card artery">
+        <div class="v-name">ধমনি (Artery)</div>
+        <ul class="styled-list" style="font-size:10px; text-align:left;">
+          <li>সাধারণত O₂সমৃদ্ধ রক্ত হৃৎপিণ্ড থেকে সারাদেহে বহন করে।</li>
+          <li>ফুসফুসীয় ধমনি ব্যতিক্রম (CO₂যুক্ত)।</li>
+          <li>প্রাচীর পুরু ও স্থিতিস্থাপক।</li>
+          <li>কপাটিকা থাকে না।</li>
+          <li>নালিপথ সরু।</li>
+        </ul>
+        <div style="margin-top:5px; font-size:10px; font-weight:700; color:#c62828;">তিন স্তর বিশিষ্ট প্রাচীর:</div>
+        <div style="font-size:9px; line-height:1.6;">
+          • Tunica externa (বাইরে — যোজক কলা)<br/>
+          • Tunica media (মাঝে — গোলাকার পেশি)<br/>
+          • Tunica interna (ভেতরে — আবরণী কলা)
+        </div>
+        <div class="warn-box" style="margin-top:5px; font-size:9px; color:#333;">
+          <span style="font-weight:700; color:#c62828;">নাড়িস্পন্দন:</span> ধমনির স্ফীতি ও সংকোচনকে নাড়িস্পন্দন বলে। হাতের কব্জির ধমনিতে অনুভব করা যায়।
+        </div>
+      </div>
+      <div class="vessel-card vein">
+        <div class="v-name">শিরা (Vein)</div>
+        <ul class="styled-list" style="font-size:10px; text-align:left;">
+          <li>দেহের বিভিন্ন অংশ থেকে রক্ত হৃৎপিণ্ডে ফিরে আসে।</li>
+          <li>ফুসফুসীয় শিরা ব্যতিক্রম (O₂যুক্ত)।</li>
+          <li>প্রাচীর কম পুরু, কম স্থিতিস্থাপক।</li>
+          <li><span class="inline-bold">কপাটিকা থাকে।</span></li>
+          <li>নালিপথ একটু চওড়া।</li>
+          <li>সাধারণত CO₂সমৃদ্ধ রক্ত পরিবহন করে।</li>
+        </ul>
+      </div>
+      <div class="vessel-card capillary">
+        <div class="v-name">কৈশিক জালিকা (Capillaries)</div>
+        <ul class="styled-list" style="font-size:10px; text-align:left;">
+          <li>পেশিতন্তুতে চুলের মতো অতি সূক্ষ্ম রক্তনালি।</li>
+          <li>একদিকে ক্ষুদ্রতম ধমনি ও অন্যদিকে ক্ষুদ্রতম শিরার মধ্যে সংযোগ সাধন করে।</li>
+          <li>প্রতিটি কোষকে পরিবেষ্টন করে রাখে।</li>
+          <li>প্রাচীর অত্যন্ত পাতলা।</li>
+          <li>এই পাতলা প্রাচীর ভেদ করে রক্তে দ্রবীভূত সব বস্তু ব্যাপন প্রক্রিয়ায় কোষে প্রবেশ করে।</li>
+        </ul>
+      </div>
+    </div>
+    <!-- Simplified blood vessel diagram -->
+    <div class="diagram-box" style="margin-top:6px;">
+      <div style="font-size:10px; font-weight:700; color:#1a237e; margin-bottom:6px;">চিত্র ৬.১৫: বিভিন্ন ধরনের রক্তবাহিকা — তুলনামূলক গঠন</div>
+      <div style="display:flex; align-items:center; justify-content:center; gap:25px; font-size:9px;">
+        <!-- Artery cross section -->
+        <div style="text-align:center;">
+          <div style="width:50px; height:50px; border-radius:50%; border:6px solid #c62828; background:#ffebee; display:flex; align-items:center; justify-content:center; margin:auto;">
+            <div style="width:16px; height:16px; border-radius:50%; background:#c62828;"></div>
+          </div>
+          <div style="color:#c62828; font-weight:700; margin-top:4px;">ধমনি</div>
+          <div>পুরু প্রাচীর, সরু লুমেন</div>
+        </div>
+        <div style="font-size:18px; color:#333;">→</div>
+        <!-- Capillary cross section -->
+        <div style="text-align:center;">
+          <div style="width:32px; height:32px; border-radius:50%; border:2px solid #9c27b0; background:#f3e5f5; display:flex; align-items:center; justify-content:center; margin:auto;">
+            <div style="width:16px; height:16px; border-radius:50%; background:#ce93d8;"></div>
+          </div>
+          <div style="color:#6a1b9a; font-weight:700; margin-top:4px;">কৈশিক জালিকা</div>
+          <div>অতি পাতলা প্রাচীর</div>
+        </div>
+        <div style="font-size:18px; color:#333;">→</div>
+        <!-- Vein cross section -->
+        <div style="text-align:center;">
+          <div style="width:60px; height:60px; border-radius:50%; border:4px solid #1565c0; background:#e3f2fd; display:flex; align-items:center; justify-content:center; margin:auto;">
+            <div style="width:30px; height:30px; border-radius:50%; background:#42a5f5;"></div>
+          </div>
+          <div style="color:#0d47a1; font-weight:700; margin-top:4px;">শিরা</div>
+          <div>চওড়া লুমেন, কপাটিকা আছে</div>
+        </div>
+      </div>
+      <div class="diagram-caption">ধমনি → কৈশিক জালিকা → শিরা — রক্তপ্রবাহের ক্রম</div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>SSC Biology — Chapter 06</span>
+    <span class="page-num">Slide 19</span>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 20: মানবদেহে রক্ত সংবহন চিত্র ==================== -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="chapter-title">জীবে পরিবহন &nbsp;|&nbsp; মানবদেহে রক্ত সংবহন — চিত্র</span>
+    <span class="author-name">Raktim Dey (EEE, AUST)</span>
+  </div>
+  <div class="slide-content">
+    <div class="section-heading">মানবদেহে রক্ত সংবহন (চিত্র ৬.১৬)</div>
+    <div style="display:flex; gap:15px; align-items:flex-start;">
+      <div style="flex:1;">
+        <!-- Blood circulation diagram -->
+        <div class="diagram-box" style="padding:10px;">
+          <div style="font-size:10px; font-weight:700; color:#1a237e; margin-bottom:8px;">মানবদেহে রক্ত সংবহন পথ</div>
+          <div style="font-size:10px;">
+            <!-- Pulmonary circuit -->
+            <div style="background:#e3f2fd; border:2px solid #90caf9; border-radius:8px; padding:8px; margin-bottom:10px;">
+              <div style="font-weight:700; color:#0d47a1; margin-bottom:5px;">ফুসফুসীয় সংবহন (Pulmonary Circulation)</div>
+              <div class="flow-container" style="font-size:9px; gap:4px;">
+                <div style="background:#1565c0; color:white; padding:4px 8px; border-radius:4px; font-size:9px;">ডান নিলয় (CO₂যুক্ত)</div>
+                <div class="flow-arrow" style="font-size:12px;">→</div>
+                <div style="background:#1565c0; color:white; padding:4px 8px; border-radius:4px; font-size:9px;">ফুসফুসীয় ধমনি</div>
+                <div class="flow-arrow" style="font-size:12px;">→</div>
+                <div style="background:#1565c0; color:white; padding:4px 8px; border-radius:4px; font-size:9px;">ফুসফুস (পরিশোধিত)</div>
+                <div class="flow-arrow" style="font-size:12px;">→</div>
+                <div style="background:#1565c0; color:white; padding:4px 8px; border-radius:4px; font-size:9px;">ফুসফুসীয় শিরা</div>
+                <div class="flow-arrow" style="font-size:12px;">→</div>
+                <div style="background:#1565c0; color:white; padding:4px 8px; border-radius:4px; font-size:9px;">বাম অলিন্দ (O₂যুক্ত)</div>
+              </div>
+            </div>
+            <!-- Systemic circuit -->
+            <div style="background:#ffebee; border:2px solid #ef9a9a; border-radius:8px; padding:8px;">
+              <div style="font-weight:700; color:#c62828; margin-bottom:5px;">দৈহিক সংবহন (Systemic Circulation)</div>
+              <div class="flow-container" style="font-size:9px; gap:4px;">
+                <div style="background:#c62828; color:white; padding:4px 8px; border-radius:4px; font-size:9px;">বাম নিলয় (O₂যুক্ত)</div>
+                <div class="flow-arrow" style="font-size:12px; color:#c62828;">→</div>
+                <div style="background:#c62828; color:white; padding:4px 8px; border-radius:4px; font-size:9px;">মহাধমনি</div>
+                <div class="flow-arrow" style="font-size:12px; color:#c62828;">→</div>
+                <div style="background:#c62828; color:white; padding:4px 8px; border-radius:4px; font-size:9px;">সারা দেহ (কৈশিক জালিকা)</div>
+                <div class="flow-arrow" style="font-size:12px; color:#c62828;">→</div>
+                <div style="background:#c62828; color:white; padding:4px 8px; border-radius:4px; font-size:9px;">উর্ধ্ব ও নিম্ন মহাশিরা</div>
+                <div class="flow-arrow" style="font-size:12px; color:#c62828;">→</div>
+                <div style="background:#c62828; color:white; padding:4px 8px; border-radius:4px; font-size:9px;">ডান অলিন্দ (CO₂যুক্ত)</div>
+              </div>
+            </div>
+          </div>
+          <div class="diagram-caption">চিত্র ৬.১৬: মানবদেহে রক্ত সংবহন — লাল=O₂যুক্ত, নীল=CO₂যুক্ত</div>
+        </div>
+      </div>
+      <div style="width:220px;">
+        <!-- Legend and summary -->
+        <div style="background:#f5f5f5; border-radius:10px; padding:10px; font-size:10px; margin-bottom:8px;">
+          <div style="font-weight:700; color:#1a237e; margin-bottom:6px; text-align:center;">কিংবদন্তি</div>
+          <div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;">
+            <div style="width:25px; height:12px; background:#c62828; border-radius:3px;"></div>
+            <span>অক্সিজেনযুক্ত রক্ত</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:6px;">
+            <div style="width:25px; height:12px; background:#1565c0; border-radius:3px;"></div>
+            <span>কার্বন ডাই-অক্সাইডযুক্ত রক্ত</span>
+          </div>
+        </div>
+        <div style="background:#e8f5e9; border:1px solid #a5d6a7; border-radius:10px; padding:10px; font-size:10px;">
+          <div style="font-weight:700; color:#2e7d32; margin-bottom:5px; text-align:center;">মূল তথ্যাবলি</div>
+          <ul style="list-style:none; padding:0;">
+            <li style="padding:3px 0; border-bottom:1px dashed #c8e6c9;">🔴 মাথা ও হাতের রক্ত জালিকা → উর্ধ্ব মহাশিরা → ডান অলিন্দ</li>
+            <li style="padding:3px 0; border-bottom:1px dashed #c8e6c9;">🔵 ডান নিলয় → ফুসফুস (O₂ নেয়, CO₂ দেয়)</li>
+            <li style="padding:3px 0; border-bottom:1px dashed #c8e6c9;">🔴 বাম নিলয় → মহাধমনি → সারা দেহ</li>
+            <li style="padding:3px 0;">🔵 পায়ের রক্ত জালিকা → নিম্ন মহাশিরা → ডান অলিন্দ</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>SSC Biology — Chapter 06</span>
+    <span class="page-num">Slide 20</span>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 21: রক্তচাপ ==================== -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="chapter-title">জীবে পরিবহন &nbsp;|&nbsp; রক্তচাপ (Blood Pressure)</span>
+    <span class="author-name">Raktim Dey (EEE, AUST)</span>
+  </div>
+  <div class="slide-content">
+    <div class="section-heading">রক্তচাপ (Blood Pressure)</div>
+    <div class="two-col">
+      <div>
+        <div class="def-box">
+          <div class="def-title">সংজ্ঞা</div>
+          রক্তপ্রবাহের সময় ধমনির গায়ে যে চাপ সৃষ্টি হয়, তাকে <strong>রক্তচাপ</strong> বলে।
+        </div>
+        <div class="two-col" style="gap:8px; margin-top:8px;">
+          <div style="background:#ffebee; border:2px solid #ef9a9a; border-radius:8px; padding:8px; text-align:center;">
+            <div style="font-weight:700; color:#c62828; font-size:12px;">সিস্টোলিক চাপ</div>
+            <div style="font-size:11px; margin-top:4px; color:#c62828;">(Systolic Pressure)</div>
+            <div style="font-size:24px; font-weight:900; color:#c62828; margin:5px 0;">120</div>
+            <div style="font-size:10px; color:#555;">মিলিমিটার পারদ</div>
+            <div style="font-size:10px; margin-top:4px; color:#333;">হৃৎপিণ্ডের সংকোচন অবস্থায় সর্বোচ্চ চাপ</div>
+          </div>
+          <div style="background:#e3f2fd; border:2px solid #90caf9; border-radius:8px; padding:8px; text-align:center;">
+            <div style="font-weight:700; color:#0d47a1; font-size:12px;">ডায়াস্টোলিক চাপ</div>
+            <div style="font-size:11px; margin-top:4px; color:#0d47a1;">(Diastolic Pressure)</div>
+            <div style="font-size:24px; font-weight:900; color:#0d47a1; margin:5px 0;">80</div>
+            <div style="font-size:10px; color:#555;">মিলিমিটার পারদ</div>
+            <div style="font-size:10px; margin-top:4px; color:#333;">হৃৎপিণ্ডের প্রসারণ অবস্থায় সর্বনিম্ন চাপ</div>
+          </div>
+        </div>
+        <div class="highlight-banner" style="margin-top:10px;">আদর্শ রক্তচাপ: 120/80 mmHg | পালস রেট: ৬০-১০০/মিনিট</div>
+        <div class="info-box" style="margin-top:8px;">
+          <span class="inline-bold">ধমনিঘাত বা নাড়িঘাত চাপ (Pulse Pressure):</span> সিস্টোলিক ও ডায়াস্টোলিক চাপের পার্থক্য।<br/>
+          <span class="inline-bold">পরিমাপক যন্ত্র:</span> স্ফিগমোম্যানোমিটার (Sphygmomanometer) বা BP মেশিন।
+        </div>
+      </div>
+      <div>
+        <div class="section-heading" style="font-size:13px;">উচ্চ রক্তচাপ (Hypertension)</div>
+        <div class="warn-box">
+          স্বাভাবিকের চেয়ে বেশি রক্তচাপকে উচ্চ রক্তচাপ বলা হয়। সিস্টোলিক > ১২০ বা ডায়াস্টোলিক > ৮০।
+        </div>
+        <div class="sub-heading">ঝুঁকির কারণ:</div>
+        <ul class="styled-list" style="font-size:10px;">
+          <li>বাবা বা মায়ের উচ্চ রক্তচাপ থাকলে।</li>
+          <li>মানসিক চাপে (Tension) বেশি ভোগা।</li>
+          <li>ধূমপানের অভ্যাস।</li>
+          <li>দেহের ওজন বেশি বেড়ে গেলে।</li>
+          <li>লবণ ও চর্বিযুক্ত খাদ্য বেশি খেলে।</li>
+          <li>ডায়াবেটিস বা কোলেস্টেরলের পূর্ব ইতিহাস।</li>
+        </ul>
+        <div class="sub-heading">লক্ষণ:</div>
+        <ul class="styled-list" style="font-size:10px;">
+          <li>মাথাব্যথা (বিশেষত মাথার পেছনে)।</li>
+          <li>মাথা ঘোরা, ঘাড় ব্যথা, বুক ধড়ফড়।</li>
+          <li>নাক দিয়ে রক্ত পড়া।</li>
+          <li>ভালো ঘুম না হওয়া।</li>
+        </ul>
+        <div class="sub-heading">প্রতিকার:</div>
+        <ul class="styled-list" style="font-size:10px;">
+          <li>টাটকা ফল ও শাক-সবজি খাওয়া।</li>
+          <li>নিয়মিত ব্যায়াম করা।</li>
+          <li>চর্বিজাতীয় খাদ্য ও কাঁচা লবণ পরিহার।</li>
+          <li>ধূমপান ত্যাগ করা।</li>
+          <li>উচ্চ রক্তচাপ নিয়ন্ত্রণে না থাকলে মস্তিষ্কে রক্তক্ষরণ ঘটতে পারে → <strong>স্ট্রোক।</strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>SSC Biology — Chapter 06</span>
+    <span class="page-num">Slide 21</span>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 22: কোলেস্টেরল ==================== -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="chapter-title">জীবে পরিবহন &nbsp;|&nbsp; কোলেস্টেরল (Cholesterol)</span>
+    <span class="author-name">Raktim Dey (EEE, AUST)</span>
+  </div>
+  <div class="slide-content">
+    <div class="section-heading">কোলেস্টেরল (Cholesterol)</div>
+    <div class="two-col">
+      <div>
+        <p class="body-text">কোলেস্টেরল হাইড্রোকার্বন কোলেস্টেইন (Cholestane) থেকে উৎপন্ন একটি যৌগ। উচ্চশ্রেণির প্রাণিজ কোষের এটি একটি গুরুত্বপূর্ণ উপাদান। কোলেস্টেরল <span class="highlight">লিপোপ্রোটিন</span> নামক যৌগ সৃষ্টির মাধ্যমে রক্তে প্রবাহিত হয়।</p>
+
+        <div class="sub-heading">রক্তে তিন ধরনের লিপোপ্রোটিন:</div>
+        <div class="three-col" style="gap:8px; margin:10px 0;">
+          <div class="chol-type chol-ldl">
+            <div class="chol-name">LDL</div>
+            <div>Low Density Lipoprotein</div>
+            <div style="margin-top:5px; font-weight:700; font-size:11px;">খারাপ কোলেস্টেরল</div>
+            <div style="margin-top:3px; font-size:10px;">হৃদরোগের ঝুঁকি বাড়ায়। রক্তে ৭০% LDL থাকে।</div>
+            <div style="margin-top:5px; font-size:11px; font-weight:700; color:#c62828;">আদর্শ মান: &lt;1.8 mmol/L</div>
+          </div>
+          <div class="chol-type chol-hdl">
+            <div class="chol-name">HDL</div>
+            <div>High Density Lipoprotein</div>
+            <div style="margin-top:5px; font-weight:700; font-size:11px;">ভালো কোলেস্টেরল</div>
+            <div style="margin-top:3px; font-size:10px;">হৃদরোগের ঝুঁকি কমায়।</div>
+            <div style="margin-top:5px; font-size:11px; font-weight:700; color:#2e7d32;">আদর্শ মান: &gt;1.5 mmol/L</div>
+          </div>
+          <div class="chol-type chol-tg">
+            <div class="chol-name">ট্রাই-গ্লিসারাইড</div>
+            <div>Triglyceride</div>
+            <div style="margin-top:5px; font-weight:700; font-size:11px;">চর্বি হিসেবে থাকে</div>
+            <div style="margin-top:3px; font-size:10px;">রক্তের প্লাজমায় অবস্থান করে। প্রাণিজ চর্বি বা কার্বোহাইড্রেট থেকে তৈরি।</div>
+            <div style="margin-top:5px; font-size:11px; font-weight:700; color:#e65100;">আদর্শ মান: &lt;1.7 mmol/L</div>
+          </div>
+        </div>
+
+        <div class="warn-box">
+          <span class="inline-bold">রক্তে উচ্চ কোলেস্টেরলের সমস্যা:</span> হৃৎপিণ্ডের করোনারি ধমনিগাত্রে চর্বি জমা হলে রক্তপ্রবাহে বিঘ্ন ঘটে → বুকে ব্যথা → <strong>অ্যানজিনা (Angina)।</strong> ধমনিতে বেশি চর্বি জমলে করোনারি হৃদরোগের আশঙ্কা বেড়ে যায়।
+        </div>
+      </div>
+      <div>
+        <div class="section-heading" style="font-size:13px;">কোলেস্টেরলের কাজ: উপকারিতা ও স্বাস্থ্যঝুঁকি</div>
+        <div class="info-box" style="margin-bottom:8px;">
+          <div style="font-weight:700; color:#1a237e; margin-bottom:5px;">উপকারিতা:</div>
+          <ul class="styled-list" style="font-size:10px;">
+            <li>কোষপ্রাচীর তৈরি ও রক্ষার কাজ করে।</li>
+            <li>প্রতিটি কোষের ভেদ্যতা (Permeability) নির্ণয় করে।</li>
+            <li>মানবদেহের জনন হরমোন এন্ড্রোজেন ও ইস্ট্রোজেন তৈরিতে সাহায্য করে।</li>
+            <li>অ্যাড্রেনাল গ্রন্থির হরমোন ও পিত্তরস তৈরিতে ভূমিকা।</li>
+            <li>সূর্যালোকে ত্বকে ভিটামিন 'ডি' তৈরি করে।</li>
+            <li>চর্বিতে দ্রবণীয় ভিটামিন (A, D, E, K) বিপাকে সহায়তা করে।</li>
+            <li>স্নায়ুকোষের কার্যকারিতার জন্য প্রয়োজন।</li>
+          </ul>
+        </div>
+        <div class="warn-box">
+          <div style="font-weight:700; margin-bottom:5px;">পিত্তথলির পাথর (Gallbladder Stone):</div>
+          পিত্তরসে কোলেস্টেরলের মাত্রা বেড়ে গেলে তলানির মতো পিত্তথলিতে জমা হয়। এই তলানিই শক্ত হয়ে পিত্তথলির পাথর নামে পরিচিত। কোলেস্টেরল ছাড়াও পিত্ত, ফসফেট, ক্যালসিয়াম প্রভৃতি জমেও পাথর হতে পারে।
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>SSC Biology — Chapter 06</span>
+    <span class="page-num">Slide 22</span>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 23: লিউকেমিয়া ও হার্ট অ্যাটাক ==================== -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="chapter-title">জীবে পরিবহন &nbsp;|&nbsp; রক্ত সংবহনতন্ত্রের রোগ</span>
+    <span class="author-name">Raktim Dey (EEE, AUST)</span>
+  </div>
+  <div class="slide-content">
+    <div class="section-heading">রক্ত সংবহনতন্ত্রের কয়েকটি রোগ ও প্রতিকার</div>
+    <div class="two-col">
+      <div>
+        <div class="sub-heading">অস্থিমজ্জা ও রক্তের অস্বাভাবিক অবস্থা: লিউকেমিয়া (Leukemia)</div>
+        <p class="body-text">ভ্রূণ অবস্থায় যকৃৎ এবং প্লীহায় লোহিত রক্তকণিকা উৎপন্ন হয়। শিশুদের জন্মের পর থেকে <span class="highlight">লাল অস্থিমজ্জা</span> হতে এই কণিকা উৎপন্ন হয়। এগুলো প্রধানত দেহে O₂ সরবরাহের কাজ করে।</p>
+        <div class="warn-box">
+          <div style="font-weight:700; margin-bottom:5px;">লিউকেমিয়া (Leukemia) — রক্তের ক্যান্সার</div>
+          <ul class="styled-list" style="font-size:10px; color:#880e4f;">
+            <li>অস্বাভাবিক শ্বেত কণিকার বৃদ্ধি ঘটলে রোগের লক্ষণগুলো প্রকাশ পায়।</li>
+            <li>অস্থিমজ্জা অত্যধিক হারে শ্বেত রক্তকোষ উৎপাদন করে → লোহিত রক্তকোষ ও অণুচক্রিকার উৎপাদন কমে যায়।</li>
+            <li>লোহিত রক্তকোষের অভাবে অক্সিজেনের ঘাটতি → দুর্বলতা, ফ্যাকাশে, শ্বাসকষ্ট।</li>
+            <li>অণুচক্রিকার অভাবে রক্ত জমাট বাঁধতে না পারা → অস্বাভাবিক রক্তক্ষরণ।</li>
+            <li>দীর্ঘমেয়াদি জ্বর, লসিকা গ্রন্থি ফুলে যাওয়া।</li>
+          </ul>
+        </div>
+        <div class="key-box" style="margin-top:8px;">
+          <span class="inline-bold">চিকিৎসা:</span> ক্যান্সার কেমোথেরাপি এবং অস্থিমজ্জা প্রতিস্থাপনের মাধ্যমে এ রোগের চিকিৎসা করা হয়। প্রকারভেদ অনুসারে চিকিৎসার ভিন্নতা রয়েছে।
+        </div>
+      </div>
+      <div>
+        <div class="sub-heading">হার্ট অ্যাটাক (Heart Attack)</div>
+        <p class="body-text">যখন কারো হৃদযন্ত্রের কোনো অংশে রক্ত জমাট বাঁধার কারণে রক্তপ্রবাহ বন্ধ হয়ে যায় বা বাধাগ্রস্ত হয়, তখন হৃৎপিণ্ডের কোষ বা হৃৎপেশি ক্ষতিগ্রস্ত হয়। এ অবস্থাকে <span class="highlight">মায়োকার্ডিয়াল ইনফার্কশন</span> বা সংক্ষেপে হার্ট অ্যাটাক বলা হয়।</p>
+        <div class="info-box">
+          <div style="font-weight:700; color:#c62828; margin-bottom:5px;">ঝুঁকির কারণ:</div>
+          <ul class="styled-list" style="font-size:10px;">
+            <li>রক্তে গ্লুকোজের মাত্রা অনিয়ন্ত্রিত থাকলে।</li>
+            <li>অধিক তেলযুক্ত খাবার, ফাস্টফুড খাওয়া।</li>
+            <li>অলস জীবনযাপন ও শারীরিক পরিশ্রম না করা।</li>
+            <li>সব সময় হতাশা, দুশ্চিন্তাগ্রস্ত থাকা।</li>
+          </ul>
+        </div>
+        <div class="warn-box" style="margin-top:6px;">
+          <div style="font-weight:700; margin-bottom:4px;">রোগের লক্ষণসমূহ:</div>
+          <ul class="styled-list" style="font-size:10px; color:#880e4f;">
+            <li>বুকে অসহনীয় ব্যথা — বিশেষত বুকের মাঝখানে।</li>
+            <li>ব্যথা বাম দিকে বা সারা বুকে ছড়িয়ে যায়।</li>
+            <li>ব্যথা গলা ও বাম হাতে ছড়িয়ে যায়।</li>
+            <li>প্রচণ্ডভাবে ঘামতে থাকে ও বুকে ভারি চাপ অনুভব করে।</li>
+          </ul>
+        </div>
+        <div class="key-box" style="margin-top:6px;">
+          <div style="font-weight:700; margin-bottom:4px;">প্রতিকার:</div>
+          ধূমপান না করা, নিয়মিত ব্যায়াম, কাঁচা ফল ও শাকসবজি বেশি খাওয়া, চর্বিযুক্ত ও ভাজা খাবার না খাওয়া, ফাস্টফুড পরিহার।
+        </div>
+
+        <div class="sub-heading" style="margin-top:8px;">বাতজ্বর (Rheumatic Fever)</div>
+        <p style="font-size:10px; line-height:1.6; color:#333;"><span class="inline-bold">স্ট্রেপটোকক্কাস (Streptococcus)</span> অণুজীবের সংক্রমণে সৃষ্ট শ্বাসনালির প্রদাহ, ফুসকুড়িযুক্ত সংক্রামক জ্বর, টনসিলের প্রদাহ বা মধ্যকর্ণের সংক্রামক রোগ বাতজ্বরের উল্লেখযোগ্য লক্ষণ। হৃৎপেশি ও হৃৎপিণ্ডের কপাটিকা ক্ষতিগ্রস্ত হলে হৃৎপিণ্ড যথাযথভাবে রক্ত পাম্প করতে সক্ষম হয় না। প্রাথমিক পর্যায়ে <strong>পেনিসিলিন</strong> জাতীয় ঔষধ প্রয়োগে রোগ সারানো যায়।</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>SSC Biology — Chapter 06</span>
+    <span class="page-num">Slide 23</span>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 24: Solved MCQ Part 1 ==================== -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="chapter-title">জীবে পরিবহন &nbsp;|&nbsp; Solved MCQ — পর্ব ১</span>
+    <span class="author-name">Raktim Dey (EEE, AUST)</span>
+  </div>
+  <div class="slide-content">
+    <div class="section-heading">Solved MCQ</div>
+    <div class="mcq-group">
+
+      <!-- Q1 -->
+      <div class="mcq-container">
+        <div class="mcq-question">
+          <span>০১। হৃৎপিণ্ডকে আবৃতকারী পর্দার নাম কী?</span>
+          <span class="mcq-source">ব. বো. ২০১৫</span>
+        </div>
+        <div class="mcq-options">
+          <div class="mcq-option"><span class="opt-label">ক</span> এপিকার্ডিয়াম</div>
+          <div class="mcq-option"><span class="opt-label">খ</span> মায়োকার্ডিয়াম</div>
+          <div class="mcq-option correct"><span class="opt-label" style="background:#388e3c;color:white;">গ</span> <span class="tick">✓</span> পেরিকার্ডিয়াম</div>
+          <div class="mcq-option"><span class="opt-label">ঘ</span> এন্ডোকার্ডিয়াম</div>
+        </div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="mcq-container">
+        <div class="mcq-question">
+          <span>০২। আরাফাত পায়েস খাওয়ার সময় টসটসে কিশমিশ দেখতে পেল। কিশমিশ টসটসে হওয়ার কারণ কী?</span>
+          <span class="mcq-source">—</span>
+        </div>
+        <div class="mcq-options">
+          <div class="mcq-option"><span class="opt-label">ক</span> ব্যাপন</div>
+          <div class="mcq-option"><span class="opt-label">খ</span> শোষণ</div>
+          <div class="mcq-option correct"><span class="opt-label" style="background:#388e3c;color:white;">গ</span> <span class="tick">✓</span> অভিস্রবণ</div>
+          <div class="mcq-option"><span class="opt-label">ঘ</span> ইমবাইবিশন</div>
+        </div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="mcq-container">
+        <div class="mcq-question">
+          <span>০৩। তাত্ত্বিক বিবেচনায় রক্তের প্রয়োজন হলে কার নিকট থেকে রক্ত নিতে পারবে? (রাফিন=A, তামিম=B, তাসমিয়া=AB, রাতুল=O)</span>
+          <span class="mcq-source">—</span>
+        </div>
+        <div class="mcq-options">
+          <div class="mcq-option"><span class="opt-label">ক</span> তামিম</div>
+          <div class="mcq-option"><span class="opt-label">খ</span> তাসমিয়া</div>
+          <div class="mcq-option correct"><span class="opt-label" style="background:#388e3c;color:white;">গ</span> <span class="tick">✓</span> রাতুল</div>
+          <div class="mcq-option"><span class="opt-label">ঘ</span> তামিম ও রাতুল</div>
+        </div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="mcq-container">
+        <div class="mcq-question">
+          <span>০৪। উদ্ভিদের গৌণ বৃদ্ধি হলে কাণ্ডের বাকল ফেটে কী সৃষ্টি হয়?</span>
+          <span class="mcq-source">চ. বো. ২০১৬</span>
+        </div>
+        <div class="mcq-options">
+          <div class="mcq-option"><span class="opt-label">ক</span> কিউটিকল</div>
+          <div class="mcq-option"><span class="opt-label">খ</span> বর্ষবলয়</div>
+          <div class="mcq-option correct"><span class="opt-label" style="background:#388e3c;color:white;">গ</span> <span class="tick">✓</span> লেন্টিসেল</div>
+          <div class="mcq-option"><span class="opt-label">ঘ</span> কাইটিন</div>
+        </div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="mcq-container">
+        <div class="mcq-question">
+          <span>০৫। প্রস্বেদনকে 'প্রয়োজনীয় ক্ষতি' নামে অভিহিত করেছেন কোন বিজ্ঞানী?</span>
+          <span class="mcq-source">রা. বো. ২০১৬ য. বো. ২০১৫</span>
+        </div>
+        <div class="mcq-options">
+          <div class="mcq-option"><span class="opt-label">ক</span> লিনিয়াস</div>
+          <div class="mcq-option"><span class="opt-label">খ</span> লোয়ী</div>
+          <div class="mcq-option correct"><span class="opt-label" style="background:#388e3c;color:white;">গ</span> <span class="tick">✓</span> কার্টিস</div>
+          <div class="mcq-option"><span class="opt-label">ঘ</span> গ্রেগর জোহান মেন্ডেল</div>
+        </div>
+      </div>
+
+      <!-- Q6 -->
+      <div class="mcq-container">
+        <div class="mcq-question">
+          <span>০৬। রক্তরসে শতকরা কত অংশ পানি থাকে?</span>
+          <span class="mcq-source">রা. বো. ২০১৯</span>
+        </div>
+        <div class="mcq-options">
+          <div class="mcq-option"><span class="opt-label">ক</span> ৮৫–৮৬%</div>
+          <div class="mcq-option correct"><span class="opt-label" style="background:#388e3c;color:white;">খ</span> <span class="tick">✓</span> ৯১–৯২%</div>
+          <div class="mcq-option"><span class="opt-label">গ</span> ৮৮–৮৯%</div>
+          <div class="mcq-option"><span class="opt-label">ঘ</span> ৯৪–৯৫%</div>
+        </div>
+      </div>
+
+      <!-- Q7 -->
+      <div class="mcq-container">
+        <div class="mcq-question">
+          <span>০৭। অস্থিমজ্জা থেকে কোনটি তৈরি হয়?</span>
+          <span class="mcq-source">দি. বো. ২০১৭</span>
+        </div>
+        <div class="mcq-options">
+          <div class="mcq-option"><span class="opt-label">ক</span> শ্বেত রক্তকণিকা ও লসিকা</div>
+          <div class="mcq-option"><span class="opt-label">খ</span> অণুচক্রিকা ও রক্তরস</div>
+          <div class="mcq-option"><span class="opt-label">গ</span> রক্তরস ও লসিকা</div>
+          <div class="mcq-option correct"><span class="opt-label" style="background:#388e3c;color:white;">ঘ</span> <span class="tick">✓</span> লোহিত ও শ্বেত রক্তকণিকা</div>
+        </div>
+      </div>
+
+      <!-- Q8 -->
+      <div class="mcq-container">
+        <div class="mcq-question">
+          <span>০৮। চিত্রটির কাজের সাথে রক্তের কোন কাজটির সাদৃশ্য আছে? (চিত্র: মনোসাইট — WBC)</span>
+          <span class="mcq-source">সকল বোর্ড ১৮</span>
+        </div>
+        <div class="mcq-options">
+          <div class="mcq-option"><span class="opt-label">ক</span> তাপের সমতা রক্ষা</div>
+          <div class="mcq-option"><span class="opt-label">খ</span> বর্জ্য পদার্থ নিষ্কাশন</div>
+          <div class="mcq-option correct"><span class="opt-label" style="background:#388e3c;color:white;">গ</span> <span class="tick">✓</span> রোগ প্রতিরোধ করা</div>
+          <div class="mcq-option"><span class="opt-label">ঘ</span> কার্বন ডাই-অক্সাইড অপসারণ</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>SSC Biology — Chapter 06</span>
+    <span class="page-num">Slide 24</span>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 25: Solved MCQ Part 2 ==================== -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="chapter-title">জীবে পরিবহন &nbsp;|&nbsp; Solved MCQ — পর্ব ২</span>
+    <span class="author-name">Raktim Dey (EEE, AUST)</span>
+  </div>
+  <div class="slide-content">
+    <div class="section-heading">Solved MCQ (পর্ব ২)</div>
+    <div class="mcq-group">
+
+      <!-- Q9 -->
+      <div class="mcq-container">
+        <div class="mcq-question">
+          <span>০৯। শিশুদের দেহে লোহিত রক্তকণিকার পরিমাণ কেমন থাকে?</span>
+          <span class="mcq-source">রাজশাহী সরকারি বালিকা উচ্চ বিদ্যালয়</span>
+        </div>
+        <div class="mcq-options">
+          <div class="mcq-option"><span class="opt-label">ক</span> স্বাভাবিক</div>
+          <div class="mcq-option correct"><span class="opt-label" style="background:#388e3c;color:white;">খ</span> <span class="tick">✓</span> বেশি</div>
+          <div class="mcq-option"><span class="opt-label">গ</span> অস্বাভাবিক</div>
+          <div class="mcq-option"><span class="opt-label">ঘ</span> কম</div>
+        </div>
+      </div>
+
+      <!-- Q10 -->
+      <div class="mcq-container">
+        <div class="mcq-question">
+          <span>১০। মানবদেহে প্রতি কিউবিক মিলিমিটার রক্তে অণুচক্রিকার সংখ্যা কত?</span>
+          <span class="mcq-source">ঢাকা রেসিডেন্সিয়াল মডেল কলেজ</span>
+        </div>
+        <div class="mcq-options">
+          <div class="mcq-option"><span class="opt-label">ক</span> ১ লক্ষ</div>
+          <div class="mcq-option"><span class="opt-label">খ</span> ২ লক্ষ</div>
+          <div class="mcq-option"><span class="opt-label">গ</span> ৫০ হাজার</div>
+          <div class="mcq-option correct"><span class="opt-label" style="background:#388e3c;color:white;">ঘ</span> <span class="tick">✓</span> ২ লক্ষ ৫০ হাজার</div>
+        </div>
+      </div>
+
+      <!-- Q11 -->
+      <div class="mcq-container">
+        <div class="mcq-question">
+          <span>১১। নিচের কোনটি দানাবিহীন WBC?</span>
+          <span class="mcq-source">সাভার ক্যান্টনমেন্ট পাবলিক স্কুল কলেজ, ঢাকা</span>
+        </div>
+        <div class="mcq-options">
+          <div class="mcq-option correct"><span class="opt-label" style="background:#388e3c;color:white;">ক</span> <span class="tick">✓</span> মনোসাইট</div>
+          <div class="mcq-option"><span class="opt-label">খ</span> নিউট্রোফিল</div>
+          <div class="mcq-option"><span class="opt-label">গ</span> বেসোফিল</div>
+          <div class="mcq-option"><span class="opt-label">ঘ</span> ইওসিনোফিল</div>
+        </div>
+      </div>
+
+      <!-- Q12 -->
+      <div class="mcq-container">
+        <div class="mcq-question">
+          <span>১২। কোন বিজ্ঞানী মানুষের রক্তের শ্রেণিবিভাগ করেন?</span>
+          <span class="mcq-source">কু. বো. ২০১৬</span>
+        </div>
+        <div class="mcq-options">
+          <div class="mcq-option"><span class="opt-label">ক</span> বেনজ</div>
+          <div class="mcq-option"><span class="opt-label">খ</span> স্টাস বার্জার</div>
+          <div class="mcq-option"><span class="opt-label">গ</span> কার্ল এরেকি</div>
+          <div class="mcq-option correct"><span class="opt-label" style="background:#388e3c;color:white;">ঘ</span> <span class="tick">✓</span> কার্ল ল্যান্ডস্টেইনার</div>
+        </div>
+      </div>
+
+      <!-- Q13 -->
+      <div class="mcq-container">
+        <div class="mcq-question">
+          <span>১৩। সোহানের রক্তের গ্রুপ O। সে নিচের কোন গ্রুপের রক্ত নিতে পারবে?</span>
+          <span class="mcq-source">কু. বো. ২০১৭</span>
+        </div>
+        <div class="mcq-options">
+          <div class="mcq-option"><span class="opt-label">ক</span> A</div>
+          <div class="mcq-option"><span class="opt-label">খ</span> B</div>
+          <div class="mcq-option"><span class="opt-label">গ</span> AB</div>
+          <div class="mcq-option correct"><span class="opt-label" style="background:#388e3c;color:white;">ঘ</span> <span class="tick">✓</span> O</div>
+        </div>
+      </div>
+
+      <!-- Q14 -->
+      <div class="mcq-container">
+        <div class="mcq-question">
+          <span>১৪। রক্তের 'A' গ্রুপ শুধুমাত্র নিচের কোন গ্রুপের রক্ত গ্রহণ করতে পারবে?</span>
+          <span class="mcq-source">ঢা. বো. ২০১৬</span>
+        </div>
+        <div class="mcq-options">
+          <div class="mcq-option"><span class="opt-label">ক</span> B এবং O</div>
+          <div class="mcq-option correct"><span class="opt-label" style="background:#388e3c;color:white;">খ</span> <span class="tick">✓</span> A এবং O</div>
+          <div class="mcq-option"><span class="opt-label">গ</span> শুধু A</div>
+          <div class="mcq-option"><span class="opt-label">ঘ</span> A এবং B</div>
+        </div>
+      </div>
+
+      <!-- Q15 -->
+      <div class="mcq-container">
+        <div class="mcq-question">
+          <span>১৫। হৃৎপিণ্ডের সবচেয়ে বাইরের স্তর কোনটি?</span>
+          <span class="mcq-source">ঝিনাইদহ ক্যাডেট কলেজ</span>
+        </div>
+        <div class="mcq-options">
+          <div class="mcq-option"><span class="opt-label">ক</span> এন্ডোকার্ডিয়াম</div>
+          <div class="mcq-option correct"><span class="opt-label" style="background:#388e3c;color:white;">খ</span> <span class="tick">✓</span> এপিকার্ডিয়াম</div>
+          <div class="mcq-option"><span class="opt-label">গ</span> পেরিকার্ডিয়াম</div>
+          <div class="mcq-option"><span class="opt-label">ঘ</span> মায়োকার্ডিয়াম</div>
+        </div>
+      </div>
+
+      <!-- Q16 -->
+      <div class="mcq-container">
+        <div class="mcq-question">
+          <span>১৬। মানুষের হৃৎপিণ্ডে কতটি স্তর আছে?</span>
+          <span class="mcq-source">ঝিনাইদহ ক্যাডেট কলেজ</span>
+        </div>
+        <div class="mcq-options">
+          <div class="mcq-option"><span class="opt-label">ক</span> 2</div>
+          <div class="mcq-option correct"><span class="opt-label" style="background:#388e3c;color:white;">খ</span> <span class="tick">✓</span> 3</div>
+          <div class="mcq-option"><span class="opt-label">গ</span> 4</div>
+          <div class="mcq-option"><span class="opt-label">ঘ</span> 5</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>SSC Biology — Chapter 06</span>
+    <span class="page-num">Slide 25</span>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 26: Solved MCQ Part 3 ==================== -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="chapter-title">জীবে পরিবহন &nbsp;|&nbsp; Solved MCQ — পর্ব ৩</span>
+    <span class="author-name">Raktim Dey (EEE, AUST)</span>
+  </div>
+  <div class="slide-content">
+    <div class="section-heading">Solved MCQ (পর্ব ৩)</div>
+    <div class="mcq-group">
+
+      <!-- Q17 -->
+      <div class="mcq-container">
+        <div class="mcq-question">
+          <span>১৭। ডান নিলয় থেকে ফুসফুসে রক্ত প্রবেশ করে কোনটির মাধ্যমে?</span>
+          <span class="mcq-source">কু. বো. ২০১৯</span>
+        </div>
+        <div class="mcq-options">
+          <div class="mcq-option"><span class="opt-label">ক</span> করোনারি ধমনি</div>
+          <div class="mcq-option correct"><span class="opt-label" style="background:#388e3c;color:white;">খ</span> <span class="tick">✓</span> পালমোনারি ধমনি</div>
+          <div class="mcq-option"><span class="opt-label">গ</span> পালমোনারি শিরা</div>
+          <div class="mcq-option"><span class="opt-label">ঘ</span> নিম্ন মহাশিরা</div>
+        </div>
+      </div>
+
+      <!-- Q18 -->
+      <div class="mcq-container">
+        <div class="mcq-question">
+          <span>১৮। ডান অলিন্দ ও ডান নিলয়ের মাঝের কপাটিকার নাম কী?</span>
+          <span class="mcq-source">কু. বো. ২০১৭</span>
+        </div>
+        <div class="mcq-options">
+          <div class="mcq-option"><span class="opt-label">ক</span> অর্ধচন্দ্রাকার</div>
+          <div class="mcq-option correct"><span class="opt-label" style="background:#388e3c;color:white;">খ</span> <span class="tick">✓</span> ট্রাইকাসপিড</div>
+          <div class="mcq-option"><span class="opt-label">গ</span> বাইকাসপিড</div>
+          <div class="mcq-option"><span class="opt-label">ঘ</span> অলিন্দ-নিলয়</div>
+        </div>
+      </div>
+
+      <!-- Q19 -->
+      <div class="mcq-container">
+        <div class="mcq-question">
+          <span>১৯। করোনারি শিরার সাথে সম্পর্কিত অঙ্গ কোনটি?</span>
+          <span class="mcq-source">আইডিয়াল স্কুল এন্ড কলেজ</span>
+        </div>
+        <div class="mcq-options">
+          <div class="mcq-option correct"><span class="opt-label" style="background:#388e3c;color:white;">ক</span> <span class="tick">✓</span> Heart</div>
+          <div class="mcq-option"><span class="opt-label">খ</span> Stomach</div>
+          <div class="mcq-option"><span class="opt-label">গ</span> Lung</div>
+          <div class="mcq-option"><span class="opt-label">ঘ</span> Kidney</div>
+        </div>
+      </div>
+
+      <!-- Q20 -->
+      <div class="mcq-container">
+        <div class="mcq-question">
+          <span>২০। তিন প্রকার লিপোপ্রোটিনের মধ্যে কোনটিকে খারাপ কোলেস্টেরল বলা হয়?</span>
+          <span class="mcq-source">রাজশাহী সরকারি বালিকা উচ্চ বিদ্যালয়</span>
+        </div>
+        <div class="mcq-options">
+          <div class="mcq-option"><span class="opt-label">ক</span> ট্রাইগ্লিসারিড</div>
+          <div class="mcq-option"><span class="opt-label">খ</span> HDL</div>
+          <div class="mcq-option correct"><span class="opt-label" style="background:#388e3c;color:white;">গ</span> <span class="tick">✓</span> LDL</div>
+          <div class="mcq-option"><span class="opt-label">ঘ</span> ফ্যাটি এসিড</div>
+        </div>
+      </div>
+
+      <!-- Q21 -->
+      <div class="mcq-container">
+        <div class="mcq-question">
+          <span>২১। উচ্চ রক্তচাপ সৃষ্টিতে ভূমিকা রাখে কোনটি?</span>
+          <span class="mcq-source">দি. বো. ২০১৯</span>
+        </div>
+        <div class="mcq-options">
+          <div class="mcq-option"><span class="opt-label">ক</span> Amino Acid</div>
+          <div class="mcq-option"><span class="opt-label">খ</span> Phospholipid</div>
+          <div class="mcq-option"><span class="opt-label">গ</span> High Density Lipoprotein</div>
+          <div class="mcq-option correct"><span class="opt-label" style="background:#388e3c;color:white;">ঘ</span> <span class="tick">✓</span> Low Density Lipoprotein</div>
+        </div>
+      </div>
+
+      <!-- Q22 -->
+      <div class="mcq-container">
+        <div class="mcq-question">
+          <span>২২। রক্তে HDL-এর আদর্শ মান কত?</span>
+          <span class="mcq-source">মাধ্যমিক ও উচ্চ মাধ্যমিক শিক্ষা বোর্ড, যশোর</span>
+        </div>
+        <div class="mcq-options">
+          <div class="mcq-option"><span class="opt-label">ক</span> &gt; 1.3</div>
+          <div class="mcq-option correct"><span class="opt-label" style="background:#388e3c;color:white;">খ</span> <span class="tick">✓</span> &gt; 1.5</div>
+          <div class="mcq-option"><span class="opt-label">গ</span> &gt; 1.7</div>
+          <div class="mcq-option"><span class="opt-label">ঘ</span> &gt; 1.9</div>
+        </div>
+      </div>
+
+      <!-- Q23 -->
+      <div class="mcq-container">
+        <div class="mcq-question">
+          <span>২৩। অধিক মাত্রার কোলেস্টেরলের উৎস কোনটি?</span>
+          <span class="mcq-source">দি. বো. ২০১৬</span>
+        </div>
+        <div class="mcq-options">
+          <div class="mcq-option correct"><span class="opt-label" style="background:#388e3c;color:white;">ক</span> <span class="tick">✓</span> চিংড়ি, যকৃৎ</div>
+          <div class="mcq-option"><span class="opt-label">খ</span> ডিম, মাছ</div>
+          <div class="mcq-option"><span class="opt-label">গ</span> ঝিনুক, দুধ</div>
+          <div class="mcq-option"><span class="opt-label">ঘ</span> কচ্ছপ, পনির</div>
+        </div>
+      </div>
+
+      <!-- Q24 -->
+      <div class="mcq-container">
+        <div class="mcq-question">
+          <span>২৪। কোনটির সংক্রমণে বাতজ্বর হয়?</span>
+          <span class="mcq-source">দি. বো. ২০১৬</span>
+        </div>
+        <div class="mcq-options">
+          <div class="mcq-option correct"><span class="opt-label" style="background:#388e3c;color:white;">ক</span> <span class="tick">✓</span> স্ট্রেপটোকক্কাস</div>
+          <div class="mcq-option"><span class="opt-label">খ</span> ফানজাই</div>
+          <div class="mcq-option"><span class="opt-label">গ</span> ভাইরাস</div>
+          <div class="mcq-option"><span class="opt-label">ঘ</span> প্রোটোজোয়া</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>SSC Biology — Chapter 06</span>
+    <span class="page-num">Slide 26</span>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 27: Solved MCQ Part 4 (Assertion type) ==================== -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="chapter-title">জীবে পরিবহন &nbsp;|&nbsp; Solved MCQ — পর্ব ৪ (বহু-পদী)</span>
+    <span class="author-name">Raktim Dey (EEE, AUST)</span>
+  </div>
+  <div class="slide-content">
+    <div class="section-heading">Solved MCQ — বহু-পদী সমাপ্তিমূলক</div>
+    <div class="mcq-group">
+
+      <!-- Q25 -->
+      <div class="mcq-container">
+        <div class="mcq-question">
+          <span>২৫। কোন অণুজীবের সংক্রমণে বাতজ্বর হয়?</span>
+          <span class="mcq-source">চ. বো. ২০১৬</span>
+        </div>
+        <div class="mcq-options">
+          <div class="mcq-option"><span class="opt-label">ক</span> Bacillus</div>
+          <div class="mcq-option"><span class="opt-label">খ</span> Pseudomonas</div>
+          <div class="mcq-option"><span class="opt-label">গ</span> Staphylococcus</div>
+          <div class="mcq-option correct"><span class="opt-label" style="background:#388e3c;color:white;">ঘ</span> <span class="tick">✓</span> Streptococcus</div>
+        </div>
+      </div>
+
+      <!-- Q26 -->
+      <div class="mcq-container">
+        <div class="mcq-question">
+          <span>২৬। উদ্ভিদ দেহে পানির প্রয়োজনীয়তা — i. প্রোটোপ্লাজম সজীব রাখতে ii. সালোকসংশ্লেষণ চালু রাখতে iii. উদ্ভিদের চলনে</span>
+          <span class="mcq-source">দি. বো. ২০১৭</span>
+        </div>
+        <div class="mcq-options">
+          <div class="mcq-option"><span class="opt-label">ক</span> i ও ii</div>
+          <div class="mcq-option"><span class="opt-label">খ</span> i ও iii</div>
+          <div class="mcq-option"><span class="opt-label">গ</span> ii ও iii</div>
+          <div class="mcq-option correct"><span class="opt-label" style="background:#388e3c;color:white;">ঘ</span> <span class="tick">✓</span> i, ii ও iii</div>
+        </div>
+      </div>
+
+      <!-- Q27 -->
+      <div class="mcq-container">
+        <div class="mcq-question">
+          <span>২৭। উদ্দীপকের প্রক্রিয়াটি (আলু পানিতে ডুবানো পরীক্ষা) — i. অভিস্রবণ ii. ব্যাপন iii. শোষণ</span>
+          <span class="mcq-source">কুমিল্লা ক্যাডেট কলেজ</span>
+        </div>
+        <div class="mcq-options">
+          <div class="mcq-option correct"><span class="opt-label" style="background:#388e3c;color:white;">ক</span> <span class="tick">✓</span> i</div>
+          <div class="mcq-option"><span class="opt-label">খ</span> ii</div>
+          <div class="mcq-option"><span class="opt-label">গ</span> ii ও iii</div>
+          <div class="mcq-option"><span class="opt-label">ঘ</span> i, ii ও iii</div>
+        </div>
+      </div>
+
+      <!-- Q28 -->
+      <div class="mcq-container">
+        <div class="mcq-question">
+          <span>২৮। পত্ররন্ধ্র ও লেন্টিসেল উভয়ে নিচের কোন কাজ করে — i. গ্যাসীয় পদার্থ বিনিময় ii. সালোকসংশ্লেষণ নিয়ন্ত্রণ iii. প্রস্বেদন নিয়ন্ত্রণ</span>
+          <span class="mcq-source">ভিকারুননিসা নূন স্কুল এন্ড কলেজ</span>
+        </div>
+        <div class="mcq-options">
+          <div class="mcq-option"><span class="opt-label">ক</span> i ও ii</div>
+          <div class="mcq-option correct"><span class="opt-label" style="background:#388e3c;color:white;">খ</span> <span class="tick">✓</span> i ও iii</div>
+          <div class="mcq-option"><span class="opt-label">গ</span> ii ও iii</div>
+          <div class="mcq-option"><span class="opt-label">ঘ</span> i, ii ও iii</div>
+        </div>
+      </div>
+
+      <!-- Q29 -->
+      <div class="mcq-container">
+        <div class="mcq-question">
+          <span>২৯। প্রস্বেদনের ক্ষেত্রে প্রযোজ্য হলো — i. উদ্ভিদের গৌণ বৃদ্ধিতে লেন্টিসেল ছিদ্র সৃষ্টি হয় ii. পাতার উভয় পৃষ্ঠে কিউটিকলের আবরণ থাকে iii. দুটি রক্ষীকোষ বেষ্টিত পত্ররন্ধ্র থাকে</span>
+          <span class="mcq-source">সাভার ক্যান্টনমেন্ট পাবলিক স্কুল ও কলেজ</span>
+        </div>
+        <div class="mcq-options">
+          <div class="mcq-option"><span class="opt-label">ক</span> i ও ii</div>
+          <div class="mcq-option"><span class="opt-label">খ</span> i ও iii</div>
+          <div class="mcq-option"><span class="opt-label">গ</span> ii ও iii</div>
+          <div class="mcq-option correct"><span class="opt-label" style="background:#388e3c;color:white;">ঘ</span> <span class="tick">✓</span> i, ii ও iii</div>
+        </div>
+      </div>
+
+      <!-- Q30 -->
+      <div class="mcq-container">
+        <div class="mcq-question">
+          <span>৩০। বায়ুপ্রবাহ প্রস্বেদন হার বাড়ায় — i. সম্পৃক্ত বায়ু দূরে সরিয়ে দিয়ে ii. পত্রগুলো আন্দোলিত করার মাধ্যমে iii. শুষ্ক বাতাস বৃদ্ধি করে</span>
+          <span class="mcq-source">পাবনা ক্যাডেট কলেজ</span>
+        </div>
+        <div class="mcq-options">
+          <div class="mcq-option"><span class="opt-label">ক</span> i ও ii</div>
+          <div class="mcq-option"><span class="opt-label">খ</span> i ও iii</div>
+          <div class="mcq-option"><span class="opt-label">গ</span> ii ও iii</div>
+          <div class="mcq-option correct"><span class="opt-label" style="background:#388e3c;color:white;">ঘ</span> <span class="tick">✓</span> i, ii ও iii</div>
+        </div>
+      </div>
+
+      <!-- Q31 -->
+      <div class="mcq-container">
+        <div class="mcq-question">
+          <span>৩১। RBC এর জন্য প্রযোজ্য কোনটি — i. ১২০ দিনের আয়ুষ্কাল ii. নিউক্লিয়াসবিহীন iii. দ্বি-অবতল</span>
+          <span class="mcq-source">সি. বো. ২০১৬</span>
+        </div>
+        <div class="mcq-options">
+          <div class="mcq-option"><span class="opt-label">ক</span> i ও ii</div>
+          <div class="mcq-option"><span class="opt-label">খ</span> i ও iii</div>
+          <div class="mcq-option"><span class="opt-label">গ</span> ii ও iii</div>
+          <div class="mcq-option correct"><span class="opt-label" style="background:#388e3c;color:white;">ঘ</span> <span class="tick">✓</span> i, ii ও iii</div>
+        </div>
+      </div>
+
+      <!-- Q32 -->
+      <div class="mcq-container">
+        <div class="mcq-question">
+          <span>৩২। অক্সিহিমোগ্লোবিনের উপাদানগুলো হলো — i. হিমোগ্লোবিন ii. অক্সিজেন iii. গ্লোবিউলিন</span>
+          <span class="mcq-source">—</span>
+        </div>
+        <div class="mcq-options">
+          <div class="mcq-option correct"><span class="opt-label" style="background:#388e3c;color:white;">ক</span> <span class="tick">✓</span> i ও ii</div>
+          <div class="mcq-option"><span class="opt-label">খ</span> i ও iii</div>
+          <div class="mcq-option"><span class="opt-label">গ</span> ii ও iii</div>
+          <div class="mcq-option"><span class="opt-label">ঘ</span> i, ii ও iii</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>SSC Biology — Chapter 06</span>
+    <span class="page-num">Slide 27</span>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 28: Solved MCQ Part 5 ==================== -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="chapter-title">জীবে পরিবহন &nbsp;|&nbsp; Solved MCQ — পর্ব ৫</span>
+    <span class="author-name">Raktim Dey (EEE, AUST)</span>
+  </div>
+  <div class="slide-content">
+    <div class="section-heading">Solved MCQ (পর্ব ৫)</div>
+
+    <!-- Stimulant table for Q33 -->
+    <div style="margin-bottom:10px;">
+      <p style="font-size:11px; font-weight:600; color:#1a237e; margin-bottom:5px;">নিচের উদ্দীপকটি লক্ষ কর এবং ৩৩ নম্বর প্রশ্নের উত্তর দাও:</p>
+      <table class="stimulant-table">
+        <thead><tr><th>নাম</th><th>রক্তের গ্রুপ</th></tr></thead>
+        <tbody>
+          <tr><td>রাফিন</td><td>A</td></tr>
+          <tr><td>তামিম</td><td>B</td></tr>
+          <tr><td>তাসমিয়া</td><td>AB</td></tr>
+          <tr><td>রাতুল</td><td>O</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="mcq-group">
+
+      <!-- Q33 -->
+      <div class="mcq-container">
+        <div class="mcq-question">
+          <span>৩৩। নেহারের রক্তে A, B অ্যান্টিজেন আছে কিন্তু কোনো অ্যান্টিবডি নেই। সে — i. সবগ্রুপ হতে রক্ত নিতে পারবে ii. শুধু AB গ্রুপকে রক্ত দিতে পারবে iii. A ও B গ্রুপকে রক্ত দিতে পারবে</span>
+          <span class="mcq-source">ব. বো. ২০১৭</span>
+        </div>
+        <div class="mcq-options">
+          <div class="mcq-option correct"><span class="opt-label" style="background:#388e3c;color:white;">ক</span> <span class="tick">✓</span> i ও ii</div>
+          <div class="mcq-option"><span class="opt-label">খ</span> i ও iii</div>
+          <div class="mcq-option"><span class="opt-label">গ</span> ii ও iii</div>
+          <div class="mcq-option"><span class="opt-label">ঘ</span> i, ii ও iii</div>
+        </div>
+      </div>
+
+      <!-- Q34 -->
+      <div class="mcq-container">
+        <div class="mcq-question">
+          <span>৩৪। 'O' রক্তগ্রুপের ক্ষেত্রে — i. কোনো অ্যান্টিজেন নেই ii. উভয় অ্যান্টিবডিই উপস্থিত iii. Rh ফ্যাক্টর অনুপস্থিত</span>
+          <span class="mcq-source">রাজশাহী ক্যাডেট কলেজ</span>
+        </div>
+        <div class="mcq-options">
+          <div class="mcq-option correct"><span class="opt-label" style="background:#388e3c;color:white;">ক</span> <span class="tick">✓</span> i ও ii</div>
+          <div class="mcq-option"><span class="opt-label">খ</span> i ও iii</div>
+          <div class="mcq-option"><span class="opt-label">গ</span> ii ও iii</div>
+          <div class="mcq-option"><span class="opt-label">ঘ</span> i, ii ও iii</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Summary revision box -->
+    <div style="margin-top:14px;">
+      <div class="section-heading" style="font-size:13px;">দ্রুত পুনরাবৃত্তি — মূল তথ্যাবলি</div>
+      <div class="three-col" style="gap:8px; margin-top:8px;">
+        <div class="info-box">
+          <div style="font-weight:700; color:#1a237e; margin-bottom:5px; font-size:11px;">উদ্ভিদে পানি শোষণ</div>
+          <ul style="list-style:none; padding:0; font-size:10px; line-height:1.7;">
+            <li>🔹 ইমবাইবিশন → ব্যাপন → অভিস্রবণ</li>
+            <li>🔹 মূলরোম → কর্টেক্স → জাইলেম → পাতা</li>
+            <li>🔹 প্রস্বেদন টানে জাইলেম দিয়ে পানি উঠে</li>
+            <li>🔹 কার্টিস: প্রস্বেদন = "Necessary Evil"</li>
+            <li>🔹 সর্বোচ্চ ৯০–৯৫% প্রস্বেদন পত্ররন্ধ্রে</li>
+          </ul>
+        </div>
+        <div class="warn-box">
+          <div style="font-weight:700; margin-bottom:5px; font-size:11px;">রক্ত ও রক্তকণিকা</div>
+          <ul style="list-style:none; padding:0; font-size:10px; line-height:1.7;">
+            <li>🔴 RBC আয়ু: ১২০ দিন, নিউক্লিয়াসবিহীন</li>
+            <li>🔴 WBC আয়ু: ১–১৫ দিন, রোগ প্রতিরোধ</li>
+            <li>🔴 Platelet আয়ু: ৫–১০ দিন, রক্ত জমাট</li>
+            <li>🔴 রক্তে ৫৫% রক্তরস (Plasma)</li>
+            <li>🔴 ল্যান্ডস্টেইনার (১৯০১) রক্তের গ্রুপ আবিষ্কার</li>
+          </ul>
+        </div>
+        <div class="key-box">
+          <div style="font-weight:700; margin-bottom:5px; font-size:11px;">হৃৎপিণ্ড ও রক্তচাপ</div>
+          <ul style="list-style:none; padding:0; font-size:10px; line-height:1.7;">
+            <li>🟢 হৃৎপিণ্ডে ৩ স্তর: Epi, Myo, Endo</li>
+            <li>🟢 ৪টি প্রকোষ্ঠ: ২ অলিন্দ + ২ নিলয়</li>
+            <li>🟢 ট্রাইকাসপিড: ডান অলিন্দ–নিলয়</li>
+            <li>🟢 বাইকাসপিড: বাম অলিন্দ–নিলয়</li>
+            <li>🟢 আদর্শ BP: 120/80 mmHg</li>
+            <li>🟢 O = Universal Donor, AB = Universal Recipient</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>SSC Biology — Chapter 06</span>
+    <span class="page-num">Slide 28</span>
+  </div>
+</div>
+
+</body>
+</html>

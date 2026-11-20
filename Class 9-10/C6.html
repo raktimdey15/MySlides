@@ -1,0 +1,2254 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>বস্তুর উপর তাপের প্রভাব - Raktim Dey</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Rajdhani:wght@400;500;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Hind Siliguri', sans-serif;
+    background: #1a1a2e;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 30px;
+  }
+
+  .slide {
+    width: 297mm;
+    min-height: 210mm;
+    background: white;
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    border-radius: 8px;
+  }
+
+  /* ========== SLIDE 1 - COVER ========== */
+  .slide-1 {
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  }
+
+  .slide-1 .bg-circles {
+    position: absolute;
+    width: 100%; height: 100%;
+    overflow: hidden;
+  }
+
+  .slide-1 .circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.1;
+  }
+
+  .slide-1 .c1 { width: 300px; height: 300px; background: #ff6b6b; top: -100px; right: -80px; }
+  .slide-1 .c2 { width: 200px; height: 200px; background: #4ecdc4; bottom: -60px; left: -60px; }
+  .slide-1 .c3 { width: 150px; height: 150px; background: #ffe66d; bottom: 40px; right: 200px; }
+
+  .slide-1 .content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 210mm;
+    padding: 40px;
+    text-align: center;
+    color: white;
+  }
+
+  .slide-1 .chapter-badge {
+    background: rgba(255,107,107,0.3);
+    border: 2px solid #ff6b6b;
+    color: #ff6b6b;
+    padding: 8px 25px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .slide-1 h1 {
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 15px;
+    background: linear-gradient(45deg, #fff, #4ecdc4, #ffe66d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .slide-1 .subtitle {
+    font-size: 18px;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 35px;
+    font-weight: 300;
+  }
+
+  .slide-1 .divider {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+    margin: 0 auto 35px;
+    border-radius: 3px;
+  }
+
+  .slide-1 .topics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 35px;
+    width: 100%;
+    max-width: 750px;
+  }
+
+  .slide-1 .topic-item {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 10px;
+    padding: 12px 15px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.85);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-align: left;
+  }
+
+  .slide-1 .topic-item .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #4ecdc4;
+    flex-shrink: 0;
+  }
+
+  .slide-1 .author-badge {
+    position: absolute;
+    bottom: 25px;
+    right: 30px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 25px;
+    padding: 10px 20px;
+    color: rgba(255,255,255,0.9);
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .slide-1 .physics-icon {
+    font-size: 70px;
+    margin-bottom: 15px;
+  }
+
+  /* ========== COMMON STYLES ========== */
+  .slide-header {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    padding: 18px 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .slide-header .title {
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .slide-header .title .icon {
+    width: 35px;
+    height: 35px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+  }
+
+  .slide-header .slide-num {
+    color: rgba(255,255,255,0.7);
+    font-size: 12px;
+    font-family: 'Rajdhani', sans-serif;
+    letter-spacing: 2px;
+  }
+
+  .slide-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    padding: 8px 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .slide-footer .author {
+    color: rgba(255,255,255,0.9);
+    font-size: 11px;
+    font-weight: 500;
+  }
+
+  .slide-footer .chapter {
+    color: rgba(255,255,255,0.6);
+    font-size: 10px;
+  }
+
+  .slide-content {
+    padding: 25px 35px;
+    padding-bottom: 45px;
+  }
+
+  /* Cards */
+  .def-card {
+    background: linear-gradient(135deg, #f8f9ff, #e8f4ff);
+    border-left: 5px solid #2a5298;
+    border-radius: 0 12px 12px 0;
+    padding: 15px 20px;
+    margin-bottom: 18px;
+    box-shadow: 0 3px 15px rgba(42,82,152,0.1);
+  }
+
+  .def-card.red { border-left-color: #e74c3c; background: linear-gradient(135deg, #fff8f8, #ffe8e8); }
+  .def-card.green { border-left-color: #27ae60; background: linear-gradient(135deg, #f8fff8, #e8ffe8); }
+  .def-card.orange { border-left-color: #e67e22; background: linear-gradient(135deg, #fffaf8, #fff0e0); }
+  .def-card.purple { border-left-color: #8e44ad; background: linear-gradient(135deg, #fdf8ff, #f0e8ff); }
+
+  .def-card .card-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #2a5298;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .def-card.red .card-title { color: #e74c3c; }
+  .def-card.green .card-title { color: #27ae60; }
+  .def-card.orange .card-title { color: #e67e22; }
+  .def-card.purple .card-title { color: #8e44ad; }
+
+  .def-card p {
+    font-size: 12.5px;
+    color: #444;
+    line-height: 1.7;
+  }
+
+  .formula-box {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white;
+    border-radius: 12px;
+    padding: 14px 20px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 12px 0;
+    box-shadow: 0 5px 20px rgba(42,82,152,0.3);
+    letter-spacing: 1px;
+  }
+
+  .formula-box.yellow {
+    background: linear-gradient(135deg, #f39c12, #e67e22);
+  }
+
+  .formula-box.green {
+    background: linear-gradient(135deg, #27ae60, #2ecc71);
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .three-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px;
+  }
+
+  .info-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+  }
+
+  .info-table th {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white;
+    padding: 12px 15px;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .info-table td {
+    padding: 11px 15px;
+    font-size: 12.5px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+  }
+
+  .info-table tr:nth-child(even) td { background: #f8faff; }
+  .info-table tr:hover td { background: #e8f4ff; }
+
+  .section-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #1e3c72;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 3px solid #2a5298;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-title::before {
+    content: '';
+    width: 6px;
+    height: 22px;
+    background: linear-gradient(180deg, #ff6b6b, #2a5298);
+    border-radius: 3px;
+    display: inline-block;
+  }
+
+  .highlight-box {
+    background: linear-gradient(135deg, #fff9e6, #fff3cc);
+    border: 2px solid #f39c12;
+    border-radius: 12px;
+    padding: 15px 20px;
+    margin: 12px 0;
+  }
+
+  .highlight-box .hl-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #e67e22;
+    margin-bottom: 8px;
+  }
+
+  .numbered-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .numbered-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 8px 0;
+    font-size: 12.5px;
+    color: #444;
+    border-bottom: 1px dashed #e0e0e0;
+  }
+
+  .numbered-list li:last-child { border-bottom: none; }
+
+  .numbered-list li .num {
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    margin: 3px;
+  }
+
+  .badge-blue { background: #e8f4ff; color: #2a5298; border: 1px solid #2a5298; }
+  .badge-red { background: #ffe8e8; color: #e74c3c; border: 1px solid #e74c3c; }
+  .badge-green { background: #e8ffe8; color: #27ae60; border: 1px solid #27ae60; }
+
+  .diagram-box {
+    background: linear-gradient(135deg, #f0f4ff, #e8f0ff);
+    border: 2px solid #2a5298;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    margin: 15px 0;
+  }
+
+  /* Expansion Diagram */
+  .bar-diagram {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin: 15px 0;
+    flex-direction: column;
+  }
+
+  .bar-before {
+    width: 200px;
+    height: 35px;
+    background: linear-gradient(135deg, #2a5298, #1e3c72);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    position: relative;
+  }
+
+  .bar-after {
+    width: 260px;
+    height: 35px;
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .arrow-down {
+    font-size: 20px;
+    color: #e67e22;
+    margin: 5px 0;
+  }
+
+  .label-text {
+    font-size: 11px;
+    color: #666;
+    margin-top: 3px;
+  }
+
+  /* MCQ Styles */
+  .mcq-item {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 12px 15px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+
+  .mcq-item .question {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #1e3c72;
+    margin-bottom: 8px;
+  }
+
+  .mcq-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+  }
+
+  .mcq-option {
+    font-size: 11.5px;
+    color: #555;
+    padding: 4px 8px;
+    border-radius: 5px;
+    background: #f5f5f5;
+  }
+
+  .mcq-option.correct {
+    background: #e8ffe8;
+    color: #27ae60;
+    font-weight: 700;
+    border: 1px solid #27ae60;
+  }
+
+  /* CQ Styles */
+  .cq-box {
+    background: linear-gradient(135deg, #f8f9ff, #eef2ff);
+    border: 2px solid #2a5298;
+    border-radius: 12px;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+  }
+
+  .cq-box .cq-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1e3c72;
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #2a5298;
+  }
+
+  .cq-qa {
+    margin-bottom: 10px;
+  }
+
+  .cq-qa .q-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #e74c3c;
+    margin-bottom: 4px;
+  }
+
+  .cq-qa .a-text {
+    font-size: 12px;
+    color: #444;
+    line-height: 1.6;
+    padding-left: 15px;
+  }
+
+  .math-step {
+    background: white;
+    border-left: 3px solid #2a5298;
+    padding: 8px 15px;
+    margin: 5px 0;
+    font-size: 12px;
+    border-radius: 0 8px 8px 0;
+  }
+
+  .given-box {
+    background: linear-gradient(135deg, #fff9e6, #fff3cc);
+    border: 1px solid #f39c12;
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-size: 12px;
+    color: #555;
+    margin-bottom: 10px;
+  }
+
+  .answer-box {
+    background: linear-gradient(135deg, #e8ffe8, #d4f7d4);
+    border: 2px solid #27ae60;
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #1a7a1a;
+    margin-top: 8px;
+  }
+
+  .type-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white;
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .mini-formula {
+    display: inline-block;
+    background: linear-gradient(135deg, #f39c12, #e67e22);
+    color: white;
+    padding: 6px 15px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    margin: 5px 0;
+  }
+
+  .kelvin-scale {
+    display: flex;
+    align-items: stretch;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 15px 0;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  }
+
+  .scale-col {
+    flex: 1;
+    text-align: center;
+  }
+
+  .scale-col .scale-header {
+    padding: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    color: white;
+  }
+
+  .scale-col .scale-val {
+    padding: 8px;
+    font-size: 12px;
+    color: #333;
+    background: #f5f5f5;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .scale-col .scale-label {
+    padding: 8px;
+    font-size: 12px;
+    color: #333;
+    background: #fff;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .s1 .scale-header { background: #2a5298; }
+  .s2 .scale-header { background: #e74c3c; }
+  .s3 .scale-header { background: #27ae60; }
+
+  /* State diagram */
+  .state-flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+  }
+
+  .state-box {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    min-width: 100px;
+  }
+
+  .state-arrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+  }
+
+  .state-arrow .arrow-line {
+    font-size: 20px;
+    color: #e74c3c;
+  }
+
+  .state-arrow .arrow-label {
+    font-size: 9px;
+    color: #666;
+    text-align: center;
+    max-width: 80px;
+  }
+
+  /* Section header within slide */
+  .inner-section {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  .tip-box {
+    background: linear-gradient(135deg, #e8f4ff, #d0e8ff);
+    border: 1px solid #2a5298;
+    border-radius: 10px;
+    padding: 12px 15px;
+    margin: 10px 0;
+    font-size: 12px;
+  }
+
+  .tip-box .tip-title {
+    font-weight: 700;
+    color: #1e3c72;
+    margin-bottom: 5px;
+  }
+
+  .var-table {
+    background: linear-gradient(135deg, #f8f9ff, #eef2ff);
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 11.5px;
+  }
+
+  .var-table .var-row {
+    display: flex;
+    gap: 10px;
+    padding: 4px 0;
+    border-bottom: 1px solid rgba(42,82,152,0.1);
+  }
+
+  .var-table .var-row:last-child { border-bottom: none; }
+
+  .var-table .var-sym {
+    font-weight: 700;
+    color: #2a5298;
+    min-width: 30px;
+  }
+
+  .var-table .var-eq {
+    color: #666;
+    min-width: 15px;
+  }
+
+  .var-table .var-desc {
+    color: #444;
+    flex: 1;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- SLIDE 1: COVER -->
+<!-- ============================================================ -->
+<div class="slide slide-1">
+  <div class="bg-circles">
+    <div class="circle c1"></div>
+    <div class="circle c2"></div>
+    <div class="circle c3"></div>
+  </div>
+  <div class="content">
+    <div class="physics-icon">🔬</div>
+    <div class="chapter-badge">পদার্থবিজ্ঞান • অধ্যায় ৬</div>
+    <h1>বস্তুর উপর তাপের প্রভাব</h1>
+    <p class="subtitle">Effect of Heat on Matter</p>
+    <div class="divider"></div>
+    <div class="topics-grid">
+      <div class="topic-item"><span class="dot"></span>তাপ ও তাপমাত্রা</div>
+      <div class="topic-item"><span class="dot"></span>তাপমাত্রিক ধর্ম</div>
+      <div class="topic-item"><span class="dot"></span>কঠিন পদার্থের প্রসারণ</div>
+      <div class="topic-item"><span class="dot"></span>তরল পদার্থের প্রসারণ</div>
+      <div class="topic-item"><span class="dot"></span>গ্যাসীয় পদার্থের প্রসারণ</div>
+      <div class="topic-item"><span class="dot"></span>অবস্থার পরিবর্তন</div>
+      <div class="topic-item"><span class="dot"></span>তাপধারণ ক্ষমতা</div>
+      <div class="topic-item"><span class="dot"></span>আপেক্ষিক তাপ</div>
+      <div class="topic-item"><span class="dot"></span>গলনাংক ও স্ফুটনাংক</div>
+    </div>
+  </div>
+  <div class="author-badge">✍️ Raktim Dey | EEE, AUST</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 2: তাপ ও তাপমাত্রা -->
+<!-- ============================================================ -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="title"><div class="icon">🌡️</div>তাপ ও তাপমাত্রা</div>
+    <div class="slide-num">SLIDE 02</div>
+  </div>
+  <div class="slide-content">
+    <div class="two-col">
+      <div>
+        <div class="section-title">তাপ (Heat)</div>
+        <div class="def-card">
+          <div class="card-title">📌 সংজ্ঞা</div>
+          <p>তাপ এক প্রকার শক্তি। এটি শক্তির এমন একটা রূপ যা আমাদের ঠান্ডা বা গরমের অনুভূতি জাগায়। তাপ উষ্ণতর বস্তু থেকে শীতলতর বস্তুর দিকে প্রবাহিত হয়।</p>
+        </div>
+        <div class="def-card red">
+          <div class="card-title">📖 বিস্তারিত সংজ্ঞা</div>
+          <p>উষ্ণতার পার্থক্যের জন্য যে শক্তি এক বস্তু থেকে অন্য বস্তুতে প্রবাহিত হয়, তাকে তাপ বলে।</p>
+        </div>
+        <div class="highlight-box">
+          <div class="hl-title">⚡ তাপের একক</div>
+          <div class="formula-box" style="font-size:13px; padding:10px;">SI পদ্ধতিতে → জুল (J)</div>
+          <div style="display:flex; gap:10px; margin-top:10px;">
+            <div class="formula-box yellow" style="flex:1; font-size:12px; padding:8px;">1 J ⇌ 0.24 Cal</div>
+            <div class="formula-box green" style="flex:1; font-size:12px; padding:8px;">1 Cal ⇌ 4.18 J ≈ 4.2 J</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="section-title">তাপমাত্রা (Temperature)</div>
+        <div class="def-card green">
+          <div class="card-title">📌 সংজ্ঞা</div>
+          <p>তাপমাত্রা হচ্ছে কোনো বস্তুর এমন এক তাপীয় অবস্থা, যা নির্ধারণ করে ঐ বস্তুটি অন্য বস্তুর তাপীয় সংস্পর্শে এলে বস্তুটি তাপ হারাবে, না গ্রহণ করবে।</p>
+        </div>
+        <div class="highlight-box" style="border-color:#27ae60; background: linear-gradient(135deg,#f8fff8,#e8ffe8);">
+          <div class="hl-title" style="color:#27ae60;">⚡ তাপমাত্রার একক</div>
+          <div class="formula-box green" style="font-size:13px; padding:10px;">SI পদ্ধতিতে → কেলভিন (K)</div>
+        </div>
+        <div class="def-card orange">
+          <div class="card-title">🔹 ত্রৈধ বিন্দু (Triple Point)</div>
+          <p>যে নির্দিষ্ট তাপমাত্রা ও চাপে বরফ, পানি ও জলীয় বাষ্প তিন অবস্থাতেই একসাথে থাকে, তাকে পানির ত্রৈধ বিন্দু বলে।</p>
+          <div class="formula-box" style="margin-top:8px; font-size:12px; padding:8px;">তাপমাত্রা = 273.16 K</div>
+        </div>
+        <div class="def-card purple">
+          <div class="card-title">🔹 কেলভিন সংজ্ঞা</div>
+          <p>পানির ত্রৈধ বিন্দুর তাপমাত্রার 1/273.16 ভাগকে 1 K বলে।</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="author">✍️ Raktim Dey | EEE, AUST</div>
+    <div class="chapter">পদার্থবিজ্ঞান - অধ্যায় ৬ - বস্তুর উপর তাপের প্রভাব</div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 3: তাপমাত্রিক ধর্ম ও তাপমাত্রার স্কেল -->
+<!-- ============================================================ -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="title"><div class="icon">📏</div>তাপমাত্রিক ধর্ম ও তাপমাত্রার স্কেল</div>
+    <div class="slide-num">SLIDE 03</div>
+  </div>
+  <div class="slide-content">
+    <div class="two-col">
+      <div>
+        <div class="section-title">তাপমাত্রিক ধর্ম</div>
+        <div class="def-card">
+          <div class="card-title">📌 তাপমাত্রিক ধর্ম</div>
+          <p>পদার্থের যে ধর্ম ব্যবহার করে তাপমাত্রা পরিমাপ করা যায়।</p>
+        </div>
+        <div class="def-card red">
+          <div class="card-title">📌 তাপমাত্রিক পদার্থ</div>
+          <p>যে সকল পদার্থের তাপমাত্রিক ধর্ম ব্যবহার করে তাপমাত্রা পরিমাপ করা হয়। থার্মোমিটারে তাপমাত্রিক পদার্থ ব্যবহার করা হয়।</p>
+        </div>
+        <div class="highlight-box">
+          <div class="hl-title">তাপমাত্রিক পদার্থগুলো হচ্ছে:</div>
+          <ul class="numbered-list">
+            <li><span class="num">i</span> পদার্থের আয়তন</li>
+            <li><span class="num">ii</span> তাপ</li>
+            <li><span class="num">iii</span> চাপ ইত্যাদি</li>
+          </ul>
+        </div>
+        <div class="def-card green">
+          <div class="card-title">📌 নিম্নস্থিরাংক</div>
+          <p>প্রমাণ চাপের যে তাপমাত্রায় বিশুদ্ধ বরফ পানিতে পরিণত হয় তাকে নিম্নস্থিরাংক বলে। একে বরফ বিন্দুও বলে।</p>
+        </div>
+      </div>
+      <div>
+        <div class="section-title">তাপমাত্রার স্কেল</div>
+        <p style="font-size:12px; color:#555; margin-bottom:12px;">তাপমাত্রা মাপার জন্য তিনটা স্কেল প্রচলিত:</p>
+        <div class="kelvin-scale">
+          <div class="scale-col s1">
+            <div class="scale-header">সেলসিয়াস (°C)</div>
+            <div class="scale-val">0 °C</div>
+            <div class="scale-label">নিম্নস্থিরাংক</div>
+            <div class="scale-val">100 °C</div>
+            <div class="scale-label">ঊর্ধ্বস্থিরাংক</div>
+          </div>
+          <div class="scale-col s2">
+            <div class="scale-header">ফারেনহাইট (°F)</div>
+            <div class="scale-val">32 °F</div>
+            <div class="scale-label">নিম্নস্থিরাংক</div>
+            <div class="scale-val">212 °F</div>
+            <div class="scale-label">ঊর্ধ্বস্থিরাংক</div>
+          </div>
+          <div class="scale-col s3">
+            <div class="scale-header">কেলভিন (K)</div>
+            <div class="scale-val">273 K</div>
+            <div class="scale-label">নিম্নস্থিরাংক</div>
+            <div class="scale-val">373 K</div>
+            <div class="scale-label">ঊর্ধ্বস্থিরাংক</div>
+          </div>
+        </div>
+        <div class="section-title" style="margin-top:18px;">সম্পর্ক ও সূচক সূত্র</div>
+        <div class="formula-box" style="font-size:13px; line-height:2;">
+          C/5 = (F−32)/9 = (K−273)/5
+        </div>
+        <div style="display:flex; gap:10px; margin-top:10px; flex-wrap:wrap;">
+          <div class="formula-box yellow" style="flex:1; font-size:11px; padding:8px;">C = (F−32)/9 × 5<br><span style="font-size:10px; opacity:0.8;">F → C</span></div>
+          <div class="formula-box green" style="flex:1; font-size:11px; padding:8px;">F = 9C/5 + 32<br><span style="font-size:10px; opacity:0.8;">C → F</span></div>
+          <div class="formula-box" style="flex:1; font-size:11px; padding:8px;">K = C + 273<br><span style="font-size:10px; opacity:0.8;">C → K</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="author">✍️ Raktim Dey | EEE, AUST</div>
+    <div class="chapter">পদার্থবিজ্ঞান - অধ্যায় ৬ - বস্তুর উপর তাপের প্রভাব</div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 4: রূপান্তর সূত্র (Shortcut) -->
+<!-- ============================================================ -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="title"><div class="icon">🔄</div>তাপমাত্রা রূপান্তর — Shortcut সূত্র</div>
+    <div class="slide-num">SLIDE 04</div>
+  </div>
+  <div class="slide-content">
+    <div class="three-col">
+      <div>
+        <div class="inner-section">i. C ↔ F</div>
+        <div class="formula-box yellow" style="font-size:12px; margin-bottom:8px;">C/5 = (F−32)/9</div>
+        <div class="def-card red">
+          <div class="card-title">F → C (ফারেনহাইট থেকে সেলসিয়াস)</div>
+          <div class="mini-formula">C = (F−32)/9 × 5</div>
+        </div>
+        <div class="def-card green">
+          <div class="card-title">C → F (সেলসিয়াস থেকে ফারেনহাইট)</div>
+          <div class="mini-formula">F = 9C/5 + 32</div>
+        </div>
+      </div>
+      <div>
+        <div class="inner-section">ii. C ↔ K</div>
+        <div class="formula-box green" style="font-size:12px; margin-bottom:8px;">C/5 = (K−273)/5</div>
+        <div class="def-card">
+          <div class="card-title">K → C (কেলভিন থেকে সেলসিয়াস)</div>
+          <div class="mini-formula">C = K − 273</div>
+        </div>
+        <div class="def-card orange">
+          <div class="card-title">C → K (সেলসিয়াস থেকে কেলভিন)</div>
+          <div class="mini-formula">K = C + 273</div>
+        </div>
+      </div>
+      <div>
+        <div class="inner-section">iii. F ↔ K</div>
+        <div class="formula-box" style="font-size:12px; margin-bottom:8px;">(F−32)/9 = (K−273)/5</div>
+        <div class="def-card purple">
+          <div class="card-title">K → F (কেলভিন থেকে ফারেনহাইট)</div>
+          <div class="mini-formula">F = 9(K−273)/5 + 32</div>
+        </div>
+        <div class="def-card red">
+          <div class="card-title">F → K (ফারেনহাইট থেকে কেলভিন)</div>
+          <div class="mini-formula">K = 5(F−32)/9 + 273</div>
+        </div>
+      </div>
+    </div>
+    <div class="highlight-box" style="margin-top:15px;">
+      <div class="hl-title">💡 গুরুত্বপূর্ণ তথ্য</div>
+      <div style="display:flex; gap:20px; font-size:12px; flex-wrap:wrap;">
+        <span>• যে তাপমাত্রায় C = F → <strong>−40°</strong></span>
+        <span>• যে তাপমাত্রায় K = F → <strong>−80°</strong></span>
+        <span>• সুস্থ মানুষের দেহ → <strong>37°C = 98.4°F = 310 K</strong></span>
+        <span>• পানির স্বাভাবিক স্ফুটনাংক → <strong>100°C = 212°F = 373 K</strong></span>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="author">✍️ Raktim Dey | EEE, AUST</div>
+    <div class="chapter">পদার্থবিজ্ঞান - অধ্যায় ৬ - বস্তুর উপর তাপের প্রভাব</div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 5: পদার্থের তাপীয় প্রসারণ - কঠিন পদার্থ -->
+<!-- ============================================================ -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="title"><div class="icon">📐</div>পদার্থের তাপীয় প্রসারণ — কঠিন পদার্থ</div>
+    <div class="slide-num">SLIDE 05</div>
+  </div>
+  <div class="slide-content">
+    <div class="def-card" style="margin-bottom:12px;">
+      <div class="card-title">📌 সংজ্ঞা</div>
+      <p>কোনো বস্তুকে তাপ দিলে তা প্রসারিত হয়। কঠিন, তরল, বায়বীয় তিন প্রকার পদার্থের প্রসারণ ঘটে। কঠিন পদার্থের প্রসারণ ৩ প্রকার:</p>
+    </div>
+    <div class="three-col" style="margin-bottom:15px;">
+      <div class="def-card"><div class="card-title">i. দৈর্ঘ্য প্রসারণ</div><p>নির্দিষ্ট দিকে দৈর্ঘ্য বরাবর প্রসারণ। সহগ: α (আলফা)</p></div>
+      <div class="def-card red"><div class="card-title">ii. ক্ষেত্র প্রসারণ</div><p>ক্ষেত্রফলের বৃদ্ধি। সহগ: β (বিটা)</p></div>
+      <div class="def-card green"><div class="card-title">iii. আয়তন প্রসারণ</div><p>আয়তনের বৃদ্ধি। সহগ: γ (গামা)</p></div>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <div class="section-title">দৈর্ঘ্য প্রসারণ</div>
+        <div class="diagram-box">
+          <div class="bar-diagram">
+            <div style="display:flex; align-items:center; gap:5px;">
+              <div class="bar-before">← l₁ →</div>
+            </div>
+            <div class="arrow-down">↓ তাপ প্রয়োগ</div>
+            <div style="display:flex; align-items:center; gap:5px;">
+              <div class="bar-after">← l₂ →</div>
+            </div>
+          </div>
+          <p class="label-text">দৈর্ঘ্য বৃদ্ধি = l₂ − l₁, তাপমাত্রা বৃদ্ধি = θ₂ − θ₁</p>
+        </div>
+        <div class="formula-box">α = (l₂ − l₁) / [l₁(θ₂ − θ₁)] ····(i)</div>
+        <div class="formula-box yellow" style="font-size:12px; padding:10px; margin-top:5px;">Δl = αl₁Δθ &nbsp;|&nbsp; l₂ = αl₁(θ₂−θ₁) + l₁</div>
+        <div class="def-card orange" style="margin-top:10px;">
+          <div class="card-title">সংজ্ঞা (α)</div>
+          <p>1 m দৈর্ঘ্যের কোনো কঠিন পদার্থের দণ্ডের তাপমাত্রা 1 K বৃদ্ধির ফলে যতটুকু দৈর্ঘ্য বৃদ্ধি পায় তাকে দৈর্ঘ্য প্রসারণ সহগ বলে। একক: K⁻¹</p>
+        </div>
+      </div>
+      <div>
+        <div class="section-title">ক্ষেত্র ও আয়তন প্রসারণ</div>
+        <div class="formula-box" style="font-size:12px; padding:10px; margin-bottom:8px;">β = (A₂ − A₁) / [A₁(θ₂ − θ₁)] ····(i)</div>
+        <div class="def-card green" style="margin-bottom:10px;">
+          <div class="card-title">সংজ্ঞা (β)</div>
+          <p>1 m² ক্ষেত্রফলের কোনো কঠিন পদার্থের তাপমাত্রা 1 K বৃদ্ধিতে যতটুকু ক্ষেত্রফল বৃদ্ধি পায় তাকে ক্ষেত্র প্রসারণ সহগ বলে। একক: K⁻¹</p>
+        </div>
+        <div class="formula-box" style="font-size:12px; padding:10px; margin-bottom:8px;">γ = (V₂ − V₁) / [V₁(θ₂ − θ₁)] ····(i)</div>
+        <div class="def-card purple">
+          <div class="card-title">সংজ্ঞা (γ)</div>
+          <p>1 m³ আয়তনের কোনো কঠিন পদার্থের তাপমাত্রা 1 K বৃদ্ধিতে যতটুকু আয়তন বৃদ্ধি পায় তাকে আয়তন প্রসারণ সহগ বলে। একক: K⁻¹</p>
+        </div>
+        <div class="formula-box green" style="margin-top:10px; font-size:14px; padding:12px;">γ = 3α = 2β &nbsp;|&nbsp; α = β/2 = γ/3</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="author">✍️ Raktim Dey | EEE, AUST</div>
+    <div class="chapter">পদার্থবিজ্ঞান - অধ্যায় ৬ - বস্তুর উপর তাপের প্রভাব</div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 6: তরল পদার্থের প্রসারণ -->
+<!-- ============================================================ -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="title"><div class="icon">💧</div>তরল ও গ্যাসীয় পদার্থের প্রসারণ</div>
+    <div class="slide-num">SLIDE 06</div>
+  </div>
+  <div class="slide-content">
+    <div class="two-col">
+      <div>
+        <div class="section-title">তরল পদার্থের প্রসারণ</div>
+        <div class="def-card" style="margin-bottom:10px;">
+          <div class="card-title">📌 বৈশিষ্ট্য</div>
+          <p>তরল পদার্থের নির্দিষ্ট দৈর্ঘ্য ও ক্ষেত্রফল না থাকলেও আয়তন আছে। তাপমাত্রা বৃদ্ধি করলে তরল পদার্থের আয়তন বৃদ্ধি পায়।</p>
+        </div>
+        <div style="display:flex; gap:10px;">
+          <div class="def-card red" style="flex:1;">
+            <div class="card-title">প্রকৃত প্রসারণ (Vᵣ)</div>
+            <p style="font-size:11.5px;">তরলকে কোনো পাত্রে না রেখে (সম্ভব হলে) তাপ দিলে তার যে আয়তন প্রসারণ হত।</p>
+          </div>
+          <div class="def-card green" style="flex:1;">
+            <div class="card-title">আপাত প্রসারণ (Vₐ)</div>
+            <p style="font-size:11.5px;">তরলকে পাত্রে রেখে তাপ দিলে যে আয়তন পাওয়া যায় (পাত্রের বৃদ্ধি বিবেচনায় না এনে)।</p>
+          </div>
+        </div>
+        <div class="formula-box green" style="margin-top:10px; font-size:14px; padding:12px;">প্রকৃত প্রসারণ = আপাত প্রসারণ + পাত্রের প্রসারণ<br><span style="font-size:16px; font-weight:700;">Vᵣ = Vₐ + Vg</span></div>
+        <div class="tip-box" style="margin-top:10px;">
+          <div class="tip-title">💡 মনে রাখুন: α, β, γ সম্পর্ক</div>
+          <div style="display:flex; gap:5px; flex-wrap:wrap; margin-top:5px;">
+            <span class="badge badge-blue">γ = 3α = 2β</span>
+            <span class="badge badge-red">α = β/2 = γ/3</span>
+            <span class="badge badge-green">β = 3α/2 = γ/2</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="section-title">গ্যাসের প্রসারণ</div>
+        <div class="def-card orange">
+          <div class="card-title">📌 বৈশিষ্ট্য</div>
+          <p>নির্দিষ্ট আকার বা আয়তন নেই। গ্যাসকে চাপ দিলে সংকুচিত করা যায়। গ্যাস ও তাপমাত্রার মধ্যকার সম্পর্ককে আদর্শ গ্যাস সূত্র বলে।</p>
+        </div>
+        <div class="formula-box" style="font-size:18px; padding:15px; margin:10px 0;">PV = nRT</div>
+        <div class="var-table" style="margin-bottom:10px;">
+          <div class="var-row"><span class="var-sym">P</span><span class="var-eq">=</span><span class="var-desc">গ্যাসের চাপ (Nm⁻²)</span></div>
+          <div class="var-row"><span class="var-sym">V</span><span class="var-eq">=</span><span class="var-desc">আয়তন (m³)</span></div>
+          <div class="var-row"><span class="var-sym">T</span><span class="var-eq">=</span><span class="var-desc">পরম তাপমাত্রা (K)</span></div>
+          <div class="var-row"><span class="var-sym">R</span><span class="var-eq">=</span><span class="var-desc">মোলার গ্যাস ধ্রুবক (Jmol⁻¹K⁻¹)</span></div>
+          <div class="var-row"><span class="var-sym">n</span><span class="var-eq">=</span><span class="var-desc">মোল সংখ্যা (mol)</span></div>
+        </div>
+        <div class="formula-box yellow" style="font-size:12px; padding:10px;">গ্যাসের প্রসারণ সহগ: βₚ = (V₂−V₁) / [V₁(θ₂−θ₁)]</div>
+        <div class="formula-box green" style="font-size:13px; padding:12px; margin-top:8px;">βₚ = 1/T₁ (পরম তাপমাত্রার বিপরীত)</div>
+        <div class="tip-box" style="margin-top:10px;">
+          <div class="tip-title">💡 গ্যাসের প্রসারণ সবচেয়ে বেশি!</div>
+          <p style="font-size:11.5px;">কঠিন বা তরল পদার্থকে চাপ দিলে একে বেশি সংকুচিত করা যায় না। গ্যাসকে চাপ দিলে সংকুচিত করা যায়।</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="author">✍️ Raktim Dey | EEE, AUST</div>
+    <div class="chapter">পদার্থবিজ্ঞান - অধ্যায় ৬ - বস্তুর উপর তাপের প্রভাব</div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 7: পদার্থের অবস্থার পরিবর্তন -->
+<!-- ============================================================ -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="title"><div class="icon">🧊</div>পদার্থের অবস্থার পরিবর্তনের উপর তাপের প্রভাব</div>
+    <div class="slide-num">SLIDE 07</div>
+  </div>
+  <div class="slide-content">
+    <div class="state-flow">
+      <div class="state-box" style="background: linear-gradient(135deg,#2c3e50,#3498db);">কঠিন</div>
+      <div class="state-arrow">
+        <div class="arrow-line">→</div>
+        <div class="arrow-label">গলন (তাপ গ্রহণ)</div>
+      </div>
+      <div class="state-box" style="background: linear-gradient(135deg,#1e8449,#2ecc71);">তরল</div>
+      <div class="state-arrow">
+        <div class="arrow-line">→</div>
+        <div class="arrow-label">বাষ্পীভবন (তাপ গ্রহণ)</div>
+      </div>
+      <div class="state-box" style="background: linear-gradient(135deg,#922b21,#e74c3c);">গ্যাসীয়</div>
+      <div class="state-arrow">
+        <div class="arrow-line">←</div>
+        <div class="arrow-label">ঘনীভবন (তাপ বর্জন)</div>
+      </div>
+      <div style="display:none;"></div>
+    </div>
+    <div class="two-col" style="margin-top:10px;">
+      <div>
+        <ul class="numbered-list">
+          <li><span class="num">১</span><div><strong>গলন:</strong> কোনো পদার্থকে তাপ দিলে তাপমাত্রা একটি নির্দিষ্ট মানে পৌঁছলে কঠিন পদার্থটি গলতে শুরু করে।</div></li>
+          <li><span class="num">২</span><div><strong>গলনাংক:</strong> যে তাপমাত্রায় কঠিন পদার্থের গলন শুরু হয়।</div></li>
+          <li><span class="num">৩</span><div><strong>গলনের সুপ্ততাপ:</strong> গলন চলাকালীন নির্দিষ্ট গলনাংকে যে পরিমাণ তাপ দিয়ে কঠিন পদার্থকে পুরো তরলে রূপান্তরিত করতে হয়। যতক্ষণ গলন চলে ততক্ষণ তাপমাত্রা একই থাকে।</div></li>
+          <li><span class="num">৪</span><div><strong>বাষ্পীভবন:</strong> তাপ প্রয়োগে পদার্থের তরল অবস্থা থেকে বাষ্পীয় অবস্থায় পরিণত হওয়া।</div></li>
+          <li><span class="num">৫</span><div><strong>স্ফুটনাংক:</strong> যে তাপমাত্রায় বাষ্পীভবন ঘটে। এর মান চাপের উপর নির্ভরশীল।</div></li>
+        </ul>
+      </div>
+      <div>
+        <ul class="numbered-list">
+          <li><span class="num">৬</span><div><strong>বাষ্পীভবনের সুপ্ততাপ:</strong> বাষ্পীভূত করার সময় যে পরিমাণ তাপ দিয়ে পুরো তরল পদার্থকে গ্যাসে পরিণত করা হয়। যতক্ষণ বাষ্পীভবন চলে তাপমাত্রার পরিবর্তন হয় না।</div></li>
+          <li><span class="num">৭</span><div><strong>ঘনীভবন:</strong> উষ্ণতা হ্রাস ঘটিয়ে কোনো পদার্থের বায়বীয় অবস্থা থেকে তরল অবস্থায় রূপান্তরিত হওয়া।</div></li>
+          <li><span class="num">৮</span><div><strong>কঠিনীভবন:</strong> তরল অবস্থা থেকে কঠিন অবস্থায় রূপান্তরিত হওয়া।</div></li>
+          <li><span class="num">৯</span><div><strong>বাষ্পায়ন:</strong> যে কোনো তাপমাত্রায় তরলের শুধুমাত্র উপরিতল থেকে ধীরে ধীরে বাষ্পে পরিণত হওয়া।</div></li>
+        </ul>
+        <div class="highlight-box" style="margin-top:10px;">
+          <div class="hl-title">বাষ্পায়নের নির্ভরশীলতা (৬টি নিয়ামক):</div>
+          <div style="display:flex; flex-wrap:wrap; gap:5px; margin-top:5px;">
+            <span class="badge badge-blue">বাতাসের প্রবাহ</span>
+            <span class="badge badge-red">উপরিভাগের ক্ষেত্রফল</span>
+            <span class="badge badge-green">বাতাসের চাপ</span>
+            <span class="badge badge-blue">বায়ুর শুষ্কতা</span>
+            <span class="badge badge-red">তরলের প্রকৃতি</span>
+            <span class="badge badge-green">তাপমাত্রা</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="author">✍️ Raktim Dey | EEE, AUST</div>
+    <div class="chapter">পদার্থবিজ্ঞান - অধ্যায় ৬ - বস্তুর উপর তাপের প্রভাব</div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 8: তাপধারণ ক্ষমতা ও আপেক্ষিক তাপ -->
+<!-- ============================================================ -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="title"><div class="icon">🔥</div>তাপধারণ ক্ষমতা ও আপেক্ষিক তাপ</div>
+    <div class="slide-num">SLIDE 08</div>
+  </div>
+  <div class="slide-content">
+    <div class="two-col">
+      <div>
+        <div class="section-title">তাপ ধারণ ক্ষমতা (Heat Capacity)</div>
+        <div class="def-card">
+          <div class="card-title">📌 সংজ্ঞা</div>
+          <p>কোনো বস্তুর তাপমাত্রা একক বাড়ালে যে পরিমাণ তাপের প্রয়োজন, তাকে ঐ বস্তুর তাপ ধারণ ক্ষমতা বলে। নির্ভর করে — বস্তুর উপাদান ও ভরের উপর।</p>
+        </div>
+        <div class="formula-box" style="font-size:16px; padding:15px; margin:10px 0;">C = Q / Δθ</div>
+        <div class="var-table">
+          <div class="var-row"><span class="var-sym">C</span><span class="var-eq">=</span><span class="var-desc">তাপধারণ ক্ষমতা</span></div>
+          <div class="var-row"><span class="var-sym">Q</span><span class="var-eq">=</span><span class="var-desc">প্রয়োজনীয় তাপ (J)</span></div>
+          <div class="var-row"><span class="var-sym">Δθ</span><span class="var-eq">=</span><span class="var-desc">তাপমাত্রা পরিবর্তন (K)</span></div>
+        </div>
+        <div class="formula-box yellow" style="margin-top:10px; font-size:14px; padding:12px;">একক: JK⁻¹</div>
+        <div class="def-card orange" style="margin-top:10px;">
+          <div class="card-title">গলনাংক ও স্ফুটনাংকের উপর চাপের প্রভাব</div>
+          <p style="font-size:11.5px;"><strong>গলনাংক:</strong> আয়তন বৃদ্ধি পায় → চাপ বাড়লে গলনাংক বাড়ে (মোম, তামা)। আয়তন হ্রাস পায় → চাপ বাড়লে গলনাংক কমে (বরফ, ঢালাই লোহা)।<br><br><strong>পুনঃশিলীভবন:</strong> চাপ দিয়ে কঠিন বস্তুকে তরলে পরিণত করে ও চাপ হ্রাস করে আবার কঠিন অবস্থায় আনাকে পুনঃশিলীভবন বলে।<br><br><strong>স্ফুটনাংক:</strong> চাপ কম হলে স্ফুটনাংকও কমে। পর্বতে পানি কম তাপমাত্রায় ফোটে।</p>
+        </div>
+      </div>
+      <div>
+        <div class="section-title">আপেক্ষিক তাপ (Specific Heat)</div>
+        <div class="def-card green">
+          <div class="card-title">📌 সংজ্ঞা</div>
+          <p>1 kg পদার্থের তাপমাত্রা 1 K বাড়াতে যে পরিমাণ তাপের প্রয়োজন হয় সেটাই আপেক্ষিক তাপ।</p>
+        </div>
+        <div class="formula-box" style="font-size:15px; padding:14px; margin:10px 0;">S = Q / (mΔθ) &nbsp;|&nbsp; Q = mSΔθ</div>
+        <div class="formula-box green" style="font-size:13px; padding:10px; margin-bottom:10px;">S = C/m &nbsp;→&nbsp; আপেক্ষিক তাপ = তাপধারণ ক্ষমতা / ভর</div>
+        <div class="formula-box yellow" style="font-size:13px; padding:10px; margin-bottom:12px;">একক: Jkg⁻¹K⁻¹</div>
+        <table class="info-table">
+          <thead><tr><th>পদার্থ</th><th>আপেক্ষিক তাপ (Jkg⁻¹K⁻¹)</th></tr></thead>
+          <tbody>
+            <tr><td>পানি</td><td><strong>4200</strong></td></tr>
+            <tr><td>বরফ</td><td>2100</td></tr>
+            <tr><td>জলীয় বাষ্প</td><td>2000</td></tr>
+            <tr><td>সীসা</td><td>130</td></tr>
+            <tr><td>তামা</td><td>400</td></tr>
+            <tr><td>রূপা</td><td>230</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="author">✍️ Raktim Dey | EEE, AUST</div>
+    <div class="chapter">পদার্থবিজ্ঞান - অধ্যায় ৬ - বস্তুর উপর তাপের প্রভাব</div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 9: ফর্মুলা টেবিল -->
+<!-- ============================================================ -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="title"><div class="icon">📋</div>Formula Table — সূত্র সারণি</div>
+    <div class="slide-num">SLIDE 09</div>
+  </div>
+  <div class="slide-content" style="padding-top:15px;">
+    <table class="info-table">
+      <thead>
+        <tr><th style="width:30%;">সূত্র</th><th style="width:45%;">প্রতীক পরিচয়</th><th>একক</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>C/5 = (F−32)/9 = (K−273)/5</strong></td>
+          <td style="text-align:left; font-size:11px;">T꜀ = সেলসিয়াস, T_F = ফারেনহাইট, T_K = কেলভিন</td>
+          <td>°C, °F, K</td>
+        </tr>
+        <tr>
+          <td><strong>α = (l₂−l₁) / [l₁(T₂−T₁)]</strong></td>
+          <td style="text-align:left; font-size:11px;">α = দৈর্ঘ্য প্রসারণ সহগ, l₁ = আদি দৈর্ঘ্য, l₂ = শেষ দৈর্ঘ্য</td>
+          <td>°C⁻¹, m, °C/K</td>
+        </tr>
+        <tr>
+          <td><strong>β = (A₂−A₁) / [A₁(T₂−T₁)]</strong></td>
+          <td style="text-align:left; font-size:11px;">β = ক্ষেত্র প্রসারণ সহগ, A₁ = আদি ক্ষেত্রফল, A₂ = শেষ ক্ষেত্রফল</td>
+          <td>°C⁻¹, m², °C/K</td>
+        </tr>
+        <tr>
+          <td><strong>γ = (V₂−V₁) / [V₁(T₂−T₁)]</strong></td>
+          <td style="text-align:left; font-size:11px;">γ = আয়তন প্রসারণ সহগ, V₁ = আদি আয়তন, V₂ = শেষ আয়তন</td>
+          <td>°C⁻¹, m³, °C/K</td>
+        </tr>
+        <tr>
+          <td><strong>α = β/2 = γ/3</strong></td>
+          <td style="text-align:left; font-size:11px;">α = দৈর্ঘ্য, β = ক্ষেত্র, γ = আয়তন প্রসারণ সহগ</td>
+          <td>°C⁻¹</td>
+        </tr>
+        <tr>
+          <td><strong>Vᵣ = Vₐ + Vg</strong></td>
+          <td style="text-align:left; font-size:11px;">Vᵣ = প্রকৃত, Vₐ = আপাত, Vg = পাত্রের প্রসারণ</td>
+          <td>m³</td>
+        </tr>
+        <tr>
+          <td><strong>PV = nRT</strong></td>
+          <td style="text-align:left; font-size:11px;">P = চাপ, V = আয়তন, T = পরম তাপমাত্রা, R = মোলার গ্যাস ধ্রুবক, n = মোল</td>
+          <td>Nm⁻², m³, K, Jmol⁻¹K⁻¹</td>
+        </tr>
+        <tr>
+          <td><strong>C = Q/Δθ</strong></td>
+          <td style="text-align:left; font-size:11px;">C = তাপধারণ ক্ষমতা, Q = তাপ, Δθ = তাপমাত্রা পার্থক্য</td>
+          <td>JK⁻¹</td>
+        </tr>
+        <tr>
+          <td><strong>S = Q/(mΔθ) = C/m</strong></td>
+          <td style="text-align:left; font-size:11px;">S = আপেক্ষিক তাপ, m = ভর, C = তাপধারণ ক্ষমতা</td>
+          <td>Jkg⁻¹K⁻¹</td>
+        </tr>
+        <tr>
+          <td><strong>βₚ = 1/T₁</strong></td>
+          <td style="text-align:left; font-size:11px;">βₚ = গ্যাসের প্রসারণ সহগ, T₁ = আদি পরম তাপমাত্রা</td>
+          <td>K⁻¹</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="highlight-box" style="margin-top:10px;">
+      <div class="hl-title">📌 বিশেষ তামার মান (MCQ-এর জন্য)</div>
+      <div style="display:flex; gap:15px; font-size:12px; flex-wrap:wrap; margin-top:5px;">
+        <span>তামার α = 16.7×10⁻⁶ K⁻¹</span>
+        <span>তামার β = 33.4×10⁻⁶ K⁻¹</span>
+        <span>তামার γ = 50.1×10⁻⁶ K⁻¹</span>
+        <span>ইস্পাতের α = 11.5×10⁻⁶ K⁻¹</span>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="author">✍️ Raktim Dey | EEE, AUST</div>
+    <div class="chapter">পদার্থবিজ্ঞান - অধ্যায় ৬ - বস্তুর উপর তাপের প্রভাব</div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 10: Topicwise Math - Type 1 & 2 -->
+<!-- ============================================================ -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="title"><div class="icon">🧮</div>Topicwise Math — Type 1 & 2</div>
+    <div class="slide-num">SLIDE 10</div>
+  </div>
+  <div class="slide-content">
+    <div class="two-col">
+      <div>
+        <div class="type-badge">Type-1: তাপমাত্রা রূপান্তর</div>
+        <div class="mini-formula" style="display:block; text-align:center; margin-bottom:10px;">C/5 = (F−32)/9 = (K−273)/5</div>
+        <div class="cq-box">
+          <div class="cq-title">❓ কোন তাপমাত্রায় সেলসিয়াস ও ফারেনহাইট স্কেলের পাঠের পার্থক্য 50° হয়?</div>
+          <div class="given-box">মনে করি, C স্কেলে পাঠ x হলে, F স্কেলে পাঠ = x ± 50</div>
+          <div class="math-step">x/5 = (x+50−32)/9 = (x+18)/9</div>
+          <div class="math-step">9x = 5x + 90 → 4x = 90 → x = 22.5</div>
+          <div class="answer-box">✅ সেলসিয়াস: 22.5°C | ফারেনহাইট: 72.5°F</div>
+          <div style="margin-top:8px; font-size:11.5px; color:#666;">x−50 ধরে: x = −102.5°F | F = −152.5°F</div>
+        </div>
+      </div>
+      <div>
+        <div class="type-badge">Type-2: দৈর্ঘ্য প্রসারণ</div>
+        <div class="mini-formula" style="display:block; text-align:center; margin-bottom:10px;">α = (l₂−l₁) / [l₁(T₂−T₁)]</div>
+        <div class="cq-box">
+          <div class="cq-title">❓ 15°C তাপমাত্রায় রেল লাইনের 30 m ইস্পাতের মধ্যে 1.5 cm ফাঁদ বিদ্যমান। কত তাপমাত্রায় ফাঁদ পূর্ণ হবে? [α = 11×10⁻⁶ °C⁻¹]</div>
+          <div class="given-box">
+            θ₁ = 15°C | l₁ = 30m | Δl = 1.5cm = 1.5×10⁻² m | α = 11×10⁻⁶ K⁻¹
+          </div>
+          <div class="math-step">α = Δl / (l₁·Δθ)</div>
+          <div class="math-step">T₂ = (l₂−l₁)/(l₁·α) + T₁</div>
+          <div class="math-step">= (1.5×10⁻²)/(30×11×10⁻⁶) + 15</div>
+          <div class="answer-box">✅ T₂ = 60.45°C</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="author">✍️ Raktim Dey | EEE, AUST</div>
+    <div class="chapter">পদার্থবিজ্ঞান - অধ্যায় ৬ - বস্তুর উপর তাপের প্রভাব</div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 11: Topicwise Math - Type 3,4,5 -->
+<!-- ============================================================ -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="title"><div class="icon">🧮</div>Topicwise Math — Type 3, 4 & 5</div>
+    <div class="slide-num">SLIDE 11</div>
+  </div>
+  <div class="slide-content">
+    <div class="three-col">
+      <div>
+        <div class="type-badge">Type-3: ক্ষেত্র প্রসারণ</div>
+        <div class="mini-formula" style="display:block; text-align:center; margin-bottom:8px;">β = (A₂−A₁)/[A₁(T₂−T₁)]</div>
+        <div class="cq-box">
+          <div class="cq-title">❓ 25°C তে তামার পাতের দৈর্ঘ্য ও প্রস্থ 1m ও 0.5m। β = 33.4×10⁻⁶ °C⁻¹। ক্ষেত্রফল 1% বৃদ্ধিতে চূড়ান্ত তাপমাত্রা?</div>
+          <div class="math-step">A₁ = 0.5 m²</div>
+          <div class="math-step">ΔA = 0.5×0.01 = 0.005 m²</div>
+          <div class="math-step">T₂ = ΔA/(A₁β) + T₁</div>
+          <div class="math-step">= 0.005/(0.5×33.4×10⁻⁶) + 25</div>
+          <div class="answer-box">✅ T₂ = 324.04°C</div>
+        </div>
+      </div>
+      <div>
+        <div class="type-badge">Type-4: আয়তন প্রসারণ</div>
+        <div class="mini-formula" style="display:block; text-align:center; margin-bottom:8px;">γ = (V₂−V₁)/[V₁(T₂−T₁)]</div>
+        <div class="cq-box">
+          <div class="cq-title">❓ 0°C তে 1000 cm³ বস্তু 100°C তে 1003.3 cm³ হয়। γ = ?</div>
+          <div class="math-step">V₁ = 1000×10⁻³ m³</div>
+          <div class="math-step">ΔV = 3.3×10⁻³ m³</div>
+          <div class="math-step">γ = 3.3×10⁻³ / (1000×10⁻³×100)</div>
+          <div class="answer-box">✅ γ = 33×10⁻⁶ °C⁻¹</div>
+        </div>
+      </div>
+      <div>
+        <div class="type-badge">Type-5: γ = 3α = 2β</div>
+        <div class="mini-formula" style="display:block; text-align:center; margin-bottom:8px;">γ = 3α = 2β</div>
+        <div class="cq-box">
+          <div class="cq-title">❓ 2m বাহুর লোহার ঘনকের তাপমাত্রা 25°C → 100°C করায় আয়তন 8.043 cm³ বাড়ে। ক্ষেত্র প্রসারণ?</div>
+          <div class="math-step">V₁ = (2)³ = 8 m³</div>
+          <div class="math-step">ΔV = 0.043 m³, Δθ = 75°C</div>
+          <div class="math-step">γ = 0.043/(8×75) = 71.67×10⁻⁶</div>
+          <div class="math-step">β = 2γ/3 = 2×71.67×10⁻⁶/3</div>
+          <div class="answer-box">✅ β = 47.8×10⁻⁶ °C⁻¹</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="author">✍️ Raktim Dey | EEE, AUST</div>
+    <div class="chapter">পদার্থবিজ্ঞান - অধ্যায় ৬ - বস্তুর উপর তাপের প্রভাব</div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 12: Topicwise Math - Type 6, 7, 8 -->
+<!-- ============================================================ -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="title"><div class="icon">🧮</div>Topicwise Math — Type 6, 7 & 8</div>
+    <div class="slide-num">SLIDE 12</div>
+  </div>
+  <div class="slide-content">
+    <div class="three-col">
+      <div>
+        <div class="type-badge">Type-6: তরল প্রসারণ</div>
+        <div class="mini-formula" style="display:block; text-align:center; margin-bottom:8px;">Vᵣ = Vₐ + Vg</div>
+        <div class="cq-box">
+          <div class="cq-title">❓ কাচনলে রাখা পারদের আপাত প্রসারণ সহগ γₐ = 146.6×10⁻⁶ °C⁻¹, কাঁচের α = 0.00001 °C⁻¹। পারদের প্রকৃত প্রসারণ সহগ?</div>
+          <div class="math-step">Vg = 3αg = 3×10⁻⁵ °C⁻¹</div>
+          <div class="math-step">Vᵣ = Vₐ + Vg</div>
+          <div class="math-step">= 146.6×10⁻⁶ + 3×10⁻⁵</div>
+          <div class="math-step">= 17.66×10⁻⁵ + 3×10⁻⁵</div>
+          <div class="answer-box">✅ Vᵣ = 20.66×10⁻⁵ °C⁻¹</div>
+        </div>
+      </div>
+      <div>
+        <div class="type-badge">Type-7: আদর্শ গ্যাস</div>
+        <div class="mini-formula" style="display:block; text-align:center; margin-bottom:8px;">PV = nRT</div>
+        <div class="cq-box">
+          <div class="cq-title">❓ 250 cm³ বৈদ্যুতিক বাল্ব 10⁻³ mm চাপে 27°C তে তৈরি। অণুর সংখ্যা?</div>
+          <div class="math-step">V = 250×10⁻⁶ m³</div>
+          <div class="math-step">T = 300 K</div>
+          <div class="math-step">P = 133.32×10⁻³ Nm⁻²</div>
+          <div class="math-step">n = PV/RT</div>
+          <div class="math-step">= (133.32×10⁻³×250×10⁻⁶)/(8.314×300)</div>
+          <div class="answer-box">✅ n = 8.05×10⁻¹⁵ মোল</div>
+        </div>
+      </div>
+      <div>
+        <div class="type-badge">Type-8: আপেক্ষিক তাপ</div>
+        <div class="mini-formula" style="display:block; text-align:center; margin-bottom:8px;">S = Q/(mΔθ) = C/m</div>
+        <div class="cq-box">
+          <div class="cq-title">❓ −5°C তাপমাত্রায় 1 kg বরফকে 4×10⁵ J তাপ দিলে সম্পূর্ণ তরলে পরিণত সম্ভব?</div>
+          <div class="math-step">Q₁ = 1×2100×5 = 10500 J (−5→0°C)</div>
+          <div class="math-step">Q₂ = 1×334×10³ = 334000 J (বরফ গলন)</div>
+          <div class="math-step">মোট Q = 10500 + 334000 = 3.445×10⁵ J</div>
+          <div class="answer-box">✅ হ্যাঁ, 4×10⁵ J &gt; 3.445×10⁵ J, সম্ভব!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="author">✍️ Raktim Dey | EEE, AUST</div>
+    <div class="chapter">পদার্থবিজ্ঞান - অধ্যায় ৬ - বস্তুর উপর তাপের প্রভাব</div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 13: Solved CQ #1 -->
+<!-- ============================================================ -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="title"><div class="icon">📝</div>Solved CQ — প্রশ্ন ১ (বগুড়া জিলা স্কুল)</div>
+    <div class="slide-num">SLIDE 13</div>
+  </div>
+  <div class="slide-content">
+    <div class="cq-box" style="margin-bottom:12px;">
+      <div class="cq-title">উদ্দীপক</div>
+      <p style="font-size:12px; color:#555;">একজন তৃষ্ণার্ত পথিক 17°C তাপমাত্রার পানি পান করার উদ্দেশ্যে 30°C তাপমাত্রার 300 g পানিতে 12°C তাপমাত্রার 250 g বরফ মেশালেন। বরফের আপেক্ষিক তাপ 2100 Jkg⁻¹K⁻¹, গলনের আপেক্ষিক সুপ্ততাপ 336000 Jkg⁻¹।</p>
+    </div>
+    <div class="two-col">
+      <div>
+        <div class="cq-qa">
+          <div class="q-label">ক. তাপমাত্রিক ধর্ম কী?</div>
+          <div class="a-text">পদার্থের যে ধর্ম ব্যবহার করে তাপমাত্রা পরিমাপ করা যায়।</div>
+        </div>
+        <div class="cq-qa">
+          <div class="q-label">খ. তাপ প্রয়োগে কঠিন বস্তুর প্রসারণ লাভের কারণ ব্যাখ্যা কর।</div>
+          <div class="a-text">তাপমাত্রা বৃদ্ধির ফলে কোনো বস্তুর অণুগুলোর যখন কম্পন বৃদ্ধি পায়, তখন অণুগুলো একই শক্তি নিয়ে ভিতর দিকে যতটা সরে আসতে পারে বাইরের দিকে তার চেয়ে বেশি সরে যেতে পারে। ফলে প্রতিটি অণু গড় সাম্যাবস্থান থেকে কিছুটা বাইরের দিকে সরে যায়। এ কারণেই তাপমাত্রা বৃদ্ধির ফলে পদার্থের প্রসারণ ঘটে।</div>
+        </div>
+        <div class="cq-qa">
+          <div class="q-label">গ. উক্ত পরিমাণ বরফ গলতে কী পরিমাণ তাপের প্রয়োজন?</div>
+          <div class="given-box">m = 0.25 kg | θ₁ = −12°C | S_ice = 2100 | L_f = 336000</div>
+          <div class="math-step">Q₁ = 0.25×2100×12 = 6300 J (−12→0°C)</div>
+          <div class="math-step">Q₂ = 0.25×336000 = 84000 J (গলন)</div>
+          <div class="answer-box">✅ মোট Q = 6300 + 84000 = 90300 J</div>
+        </div>
+      </div>
+      <div>
+        <div class="cq-qa">
+          <div class="q-label">ঘ. পথিকের পক্ষে কতটুকু পানি পান করা সম্ভব?</div>
+          <div class="given-box">30°C পানির ভর = 0.3 kg | S_w = 4200 | Δθ'' = 13K</div>
+          <div class="math-step">Q' (বরফকে 17°C পানিতে পরিণত)</div>
+          <div class="math-step">= 90300 + 0.25×4200×17 = 108150 J</div>
+          <div class="math-step">Q'' = 0.3×4200×13 = 16380 J</div>
+          <div class="math-step" style="color:#c0392b;">Q'' &lt; Q' → সম্পূর্ণ বরফ গলবে না</div>
+          <div class="math-step">m×1200×12 + m×336000 + m×4200×17 = 16380</div>
+          <div class="math-step">m×432600 = 16380 → m = 0.04 kg = 40 g</div>
+          <div class="answer-box">✅ পথিকের পক্ষে (300+40) = 340 g পানি পান সম্ভব</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="author">✍️ Raktim Dey | EEE, AUST</div>
+    <div class="chapter">পদার্থবিজ্ঞান - অধ্যায় ৬ - বস্তুর উপর তাপের প্রভাব</div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 14: Solved CQ #2 -->
+<!-- ============================================================ -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="title"><div class="icon">📝</div>Solved CQ — প্রশ্ন ২ (ঢাকা কলেজিয়েট স্কুল)</div>
+    <div class="slide-num">SLIDE 14</div>
+  </div>
+  <div class="slide-content">
+    <div class="cq-box" style="margin-bottom:12px;">
+      <div class="cq-title">উদ্দীপক</div>
+      <p style="font-size:12px;">30°C তাপমাত্রায় বর্গাকার লোহা ও প্লাটিনাম পাতের প্রতিটির ক্ষেত্রফল 5 m²। তাপ দিয়ে লোহার পাতের তাপমাত্রা 100°C করায় এর ক্ষেত্রফল 5.00812 m² হলো। প্লাটিনামের দৈর্ঘ্য প্রসারণ সহগ 8.9×10⁻⁶ K⁻¹।</p>
+    </div>
+    <div class="two-col">
+      <div>
+        <div class="cq-qa">
+          <div class="q-label">ক. প্লাবতা কাকে বলে?</div>
+          <div class="a-text">তরল বা বায়বীয় পদার্থে আংশিক বা সম্পূর্ণভাবে নিমজ্জিত কোনো বস্তুর উপর তরল বা বায়বীয় পদার্থ লম্বভাবে যে উর্ধ্বমুখী বল প্রয়োগ করে তাকে প্লাবতা বলে।</div>
+        </div>
+        <div class="cq-qa">
+          <div class="q-label">খ. গলনাংকের উপর চাপের প্রভাব ব্যাখ্যা কর।</div>
+          <div class="a-text"><strong>(১)</strong> কঠিন → তরল রূপান্তরে আয়তন বৃদ্ধি পায় (মোম, তামা) → চাপ বাড়লে গলনাংক বেড়ে যায়।<br><strong>(২)</strong> আয়তন গলনে হ্রাস পায় (ঢালাই লোহা, বরফ, অ্যান্টিমনি) → চাপ বাড়লে গলনাংক কমে।</div>
+        </div>
+        <div class="cq-qa">
+          <div class="q-label">গ. লোহার আয়তন প্রসারণ সহগ নির্ণয় কর।</div>
+          <div class="given-box">A₀ = 5 m² | ΔA = 0.00812 m² | Δθ = 70K</div>
+          <div class="math-step">β = ΔA/(A₀·Δθ) = 0.00812/(5×70) = 2.32×10⁻⁵ K⁻¹</div>
+          <div class="math-step">γ = 3β/2 = 3/2 × 2.32×10⁻⁵</div>
+          <div class="answer-box">✅ γ = 3.48×10⁻⁵ K⁻¹</div>
+        </div>
+      </div>
+      <div>
+        <div class="cq-qa">
+          <div class="q-label">ঘ. তাপমাত্রা বৃদ্ধি করে প্লাটিনামের পাতটিকে লোহার পাতের উপর সমাপতিত করা সম্ভব — প্রমাণ কর।</div>
+          <div class="given-box">
+            A₁ (প্লাটিনাম) = 5 m² | A₂ (লক্ষ্য) = 5.00812 m²<br>
+            α (Pt) = 8.9×10⁻⁶ K⁻¹ | β (Pt) = 2α = 1.78×10⁻⁵ K⁻¹<br>
+            θ₁ = 30°C = 303K
+          </div>
+          <div class="math-step">β = (A₂−A₁) / [A₁(θ₂−θ₁)]</div>
+          <div class="math-step">θ₂−θ₁ = (A₂−A₁) / (A₁β)</div>
+          <div class="math-step">θ₂−303 = (5.00812−5)/(5×1.78×10⁻⁵)</div>
+          <div class="math-step">θ₂ = 91.24 + 303 = 392.24 K</div>
+          <div class="math-step">θ₂ = (392.24−273)°C = 121.24°C</div>
+          <div class="answer-box">✅ 121.24°C তাপমাত্রায় প্লাটিনাম পাত লোহার পাতের সমান হবে — সমাপতিত সম্ভব।</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="author">✍️ Raktim Dey | EEE, AUST</div>
+    <div class="chapter">পদার্থবিজ্ঞান - অধ্যায় ৬ - বস্তুর উপর তাপের প্রভাব</div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 15: Solved CQ #3 -->
+<!-- ============================================================ -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="title"><div class="icon">📝</div>Solved CQ — প্রশ্ন ৩ (সিলেট বোর্ড ২০১৭) ও প্রশ্ন ৪</div>
+    <div class="slide-num">SLIDE 15</div>
+  </div>
+  <div class="slide-content">
+    <div class="two-col">
+      <div>
+        <div class="cq-box" style="margin-bottom:8px;">
+          <div class="cq-title">প্রশ্ন ৩ উদ্দীপক (সিলেট বোর্ড ২০১৭)</div>
+          <p style="font-size:11px;">A পাত: ব্যাসার্ধ 5 cm, উচ্চতা 20 cm, তরলে পূর্ণ (আপেক্ষিক তাপ 4200), B বস্তু: ভর 5g, তাপমাত্রা 4°C, আপেক্ষিক তাপ 1700 Jkg⁻¹K⁻¹</p>
+        </div>
+        <div class="cq-qa">
+          <div class="q-label">ক. এক কেলভিন কাকে বলে?</div>
+          <div class="a-text">পানির ত্রৈধ বিন্দুর তাপমাত্রার 1/273.15 ভাগকে এক কেলভিন বলে।</div>
+        </div>
+        <div class="cq-qa">
+          <div class="q-label">খ. ঘর্মাক্ত দেহে পাখার বাতাস ঠান্ডা অনুভূত হয় কেন?</div>
+          <div class="a-text">ফ্যানের বাতাসে শরীরের ঘাম বাষ্পে পরিণত হওয়া শুরু করে। এজন্য প্রয়োজনীয় সুপ্ততাপ শরীরের মধ্য থেকে সরবরাহ হয় বলে শরীরের তাপমাত্রা কমে যায় এবং ঠান্ডা লাগে।</div>
+        </div>
+        <div class="cq-qa">
+          <div class="q-label">গ. B বস্তুর তাপমাত্রা (4°C) ফারেনহাইট স্কেলে:</div>
+          <div class="math-step">C/5 = (F−32)/9 → 4/5 = (F−32)/9</div>
+          <div class="math-step">5F−160 = 36 → F = 196/5 = 39.2</div>
+          <div class="answer-box">✅ B বস্তুর তাপমাত্রা = 39.2°F</div>
+        </div>
+        <div class="cq-qa">
+          <div class="q-label">ঘ. তাপমাত্রা 30°C বৃদ্ধিতে কোনটিতে বেশি তাপ?</div>
+          <div class="math-step">A পাত (তরল): V = π×(5cm)²×20cm = 1570.8 cm³ → m₁ = 1.5708 kg</div>
+          <div class="math-step">Q₁ = 1.5708×4200×30 = 197920.8 J</div>
+          <div class="math-step">Q₂ (B বস্তু) = 0.005×1700×30 = 255 J</div>
+          <div class="answer-box">✅ A পাতের তরলে 197665.8 J বেশি তাপ প্রয়োজন</div>
+        </div>
+      </div>
+      <div>
+        <div class="cq-box" style="margin-bottom:8px;">
+          <div class="cq-title">প্রশ্ন ৪ (শহীদ বীর উত্তম, ঢাকা)</div>
+          <p style="font-size:11px;">পাত্রের অভ্যন্তরীণ দৈর্ঘ্য 20cm, প্রস্থ 12cm, উচ্চতা 15cm। তরলে পূর্ণ। তাপমাত্রা 20°C → 45°C করতে 378 kJ লাগে। ঘনত্ব 1000 kgm⁻³।</p>
+        </div>
+        <div class="cq-qa">
+          <div class="q-label">ক. দৈর্ঘ্য প্রসারণ সহগ কাকে বলে?</div>
+          <div class="a-text">1 m দৈর্ঘ্যের কোনো কঠিন পদার্থের দণ্ডের তাপমাত্রা 1K বৃদ্ধির ফলে যতটুকু দৈর্ঘ্য বৃদ্ধি পায় তাকে দৈর্ঘ্য প্রসারণ সহগ বলে।</div>
+        </div>
+        <div class="cq-qa">
+          <div class="q-label">গ. তরলের শেষ তাপমাত্রা ফারেনহাইটে:</div>
+          <div class="math-step">C = 45°C → F = 9×45/5 + 32 = 81 + 32</div>
+          <div class="answer-box">✅ F = 113°F</div>
+        </div>
+        <div class="cq-qa">
+          <div class="q-label">ঘ. তরলটির আপেক্ষিক তাপ নির্ণয়:</div>
+          <div class="math-step">V = 20×12×15 = 3600 cm³ = 3.6×10⁻³ m³</div>
+          <div class="math-step">m = 1000×3.6×10⁻³ = 3.6 kg</div>
+          <div class="math-step">S = Q/(mΔθ) = 378×10³/(3.6×25)</div>
+          <div class="answer-box">✅ S = 4200 Jkg⁻¹K⁻¹ (পানি!) — নির্ণয় সম্ভব</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="author">✍️ Raktim Dey | EEE, AUST</div>
+    <div class="chapter">পদার্থবিজ্ঞান - অধ্যায় ৬ - বস্তুর উপর তাপের প্রভাব</div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 16: Solved CQ #5, 6 -->
+<!-- ============================================================ -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="title"><div class="icon">📝</div>Solved CQ — প্রশ্ন ৫ ও ৬</div>
+    <div class="slide-num">SLIDE 16</div>
+  </div>
+  <div class="slide-content">
+    <div class="two-col">
+      <div>
+        <div class="cq-box" style="margin-bottom:8px;">
+          <div class="cq-title">প্রশ্ন ৫ (ঘাটাইল ক্যান্টনমেন্ট স্কুল, টাঙ্গাইল)</div>
+          <p style="font-size:11px;">রেল লাইনের দুটি পাতের মধ্যে 2.2 cm ফাঁকা। 90m লোহার পাত। তাপমাত্রা 10°C বেড়ে গেল। α = 11.5×10⁻⁶ K⁻¹।</p>
+        </div>
+        <div class="cq-qa">
+          <div class="q-label">ক. ঘনীভবন কী?</div>
+          <div class="a-text">উষ্ণতা হ্রাস ঘটিয়ে কোনো পদার্থের বায়বীয় অবস্থা থেকে তরল অবস্থায় রূপান্তরিত হওয়ার প্রক্রিয়াকে ঘনীভবন বলে।</div>
+        </div>
+        <div class="cq-qa">
+          <div class="q-label">গ. লোহার পাতের দৈর্ঘ্য প্রসারণ (Δθ = 10°C):</div>
+          <div class="math-step">Δl = αl₁Δθ = 11.5×10⁻⁶×90×10</div>
+          <div class="answer-box">✅ Δl = 0.01035 m = 1.035 cm</div>
+        </div>
+        <div class="cq-qa">
+          <div class="q-label">ঘ. 18°C বাড়লে নিরাপদ কি?</div>
+          <div class="math-step">Δl' = 11.5×10⁻⁶×90×18 = 0.01863 m = 1.863 cm</div>
+          <div class="math-step">প্রতিটি পাত 1.863 cm বাড়বে, ফাঁকা = 2.2 cm</div>
+          <div class="math-step">1.863 cm &lt; 2.2 cm → ফাঁকা বাকি থাকে</div>
+          <div class="answer-box">✅ হ্যাঁ, ট্রেন নিরাপদে চলতে পারবে!</div>
+        </div>
+      </div>
+      <div>
+        <div class="cq-box" style="margin-bottom:8px;">
+          <div class="cq-title">প্রশ্ন ৬ (ইস্পাহানী পাবলিক স্কুল, কুমিল্লা)</div>
+          <p style="font-size:11px;">তারের ব্যাসার্ধ = 5.01 mm, দৈর্ঘ্য = 100 cm, γ = 50.1×10⁻⁶ K⁻¹, S = 400 Jkg⁻¹K⁻¹, ρ = 8960 kgm⁻³। তাপমাত্রা 150°C বৃদ্ধি।</p>
+        </div>
+        <div class="cq-qa">
+          <div class="q-label">গ. তামার তার উত্তপ্ত করতে তাপ:</div>
+          <div class="math-step">V = π×(5.01×10⁻³)²×1 = 7.89×10⁻⁴ m³</div>
+          <div class="math-step">m = ρV = 8960×7.89×10⁻⁴ = 0.7065 kg</div>
+          <div class="math-step">Q = mSΔθ = 0.7065×400×150</div>
+          <div class="answer-box">✅ Q = 42390 J ≈ 42392.17 J</div>
+        </div>
+        <div class="cq-qa">
+          <div class="q-label">ঘ. 10.06 mm রিং-এ প্রবেশ সম্ভব কি?</div>
+          <div class="math-step">β = 2γ/3 = 2×50.1×10⁻⁶/3 = 3.34×10⁻⁵ K⁻¹</div>
+          <div class="math-step">d₁ = 10.02 mm | A₁ = π/4×(10.02×10⁻³)² = 2.51×10⁻⁵ m²</div>
+          <div class="math-step">A₂ = A₁(1+βΔθ) = 2.51×10⁻⁵×(1+3.34×10⁻⁵×150) = 7.952×10⁻⁵ m²</div>
+          <div class="math-step">d₂ = √(4A₂/π) = 10.045 mm</div>
+          <div class="math-step">d₂ = 10.045 mm &lt; D = 10.06 mm</div>
+          <div class="answer-box">✅ হ্যাঁ, তামার তার রিং-এ প্রবেশ করানো যাবে!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="author">✍️ Raktim Dey | EEE, AUST</div>
+    <div class="chapter">পদার্থবিজ্ঞান - অধ্যায় ৬ - বস্তুর উপর তাপের প্রভাব</div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 17: Solved CQ #7, 8 -->
+<!-- ============================================================ -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="title"><div class="icon">📝</div>Solved CQ — প্রশ্ন ৭ (SSC 2018) ও প্রশ্ন ৮</div>
+    <div class="slide-num">SLIDE 17</div>
+  </div>
+  <div class="slide-content">
+    <div class="two-col">
+      <div>
+        <div class="cq-box" style="margin-bottom:8px;">
+          <div class="cq-title">প্রশ্ন ৭ — SSC পরীক্ষা ২০১৮</div>
+          <p style="font-size:11px;">200°C চুলার পাশে 15°C তে 3 kg কঠিন বস্তু। নির্দিষ্ট সময়ে 86°F তাপমাত্রা হলো। S = 361 Jkg⁻¹K⁻¹, বরফ গলনের সুপ্ততাপ 336000 Jkg⁻¹। 500 g গলিত বরফের পানিতে ছেড়ে দিলে মিশ্রণের সর্বোচ্চ তাপমাত্রা?</p>
+        </div>
+        <div class="cq-qa">
+          <div class="q-label">গ. 86°F → °C এবং বস্তুর শোষিত তাপ:</div>
+          <div class="math-step">C = (5F−160)/9 = (5×86−160)/9 = 270/9 = 30°C</div>
+          <div class="math-step">Δθ = 30−15 = 15K</div>
+          <div class="math-step">Q = mSΔθ = 3×361×15 = 16245 J</div>
+          <div class="answer-box">✅ শোষিত তাপ = 16245 J</div>
+        </div>
+        <div class="cq-qa">
+          <div class="q-label">ঘ. মিশ্রণের তাপমাত্রা:</div>
+          <div class="given-box">θ₁ (বস্তু) = 30°C | mw = 0.5 kg (0°C পানি) | S_w = 4200</div>
+          <div class="math-step">তাপ পরিমাপের মূলনীতি: Q_w = Q_solid</div>
+          <div class="math-step">0.5×4200×θ = 3×361×(30−θ)</div>
+          <div class="math-step">2100θ = 32490 − 1083θ</div>
+          <div class="math-step">3183θ = 32490</div>
+          <div class="answer-box">✅ θ = 10.21°C — মিশ্রণের সর্বোচ্চ তাপমাত্রা</div>
+        </div>
+      </div>
+      <div>
+        <div class="cq-box" style="margin-bottom:8px;">
+          <div class="cq-title">প্রশ্ন ৮ (বীরশ্রেষ্ঠ নূর মোহাম্মদ পাবলিক কলেজ)</div>
+          <p style="font-size:11px;">'ক' বস্তু: দৈর্ঘ্য 60cm, প্রস্থ 40cm, ভর 10kg। 'খ': বরফ 10 kg। উভয়ে একই তাপ প্রয়োগ। 'ক'-এর তাপমাত্রা 80°C বৃদ্ধি, উপরিপৃষ্ঠের ক্ষেত্রফল 0.12 m² বৃদ্ধি। S(ক) = 840 Jkg⁻¹K⁻¹, বরফ গলনের সুপ্ততাপ 3.36×10⁵ Jkg⁻¹।</p>
+        </div>
+        <div class="cq-qa">
+          <div class="q-label">গ. 'ক' বস্তুর দৈর্ঘ্য প্রসারণ সহগ:</div>
+          <div class="math-step">A₁ = 0.6×0.4 = 0.24 m² | ΔA = 0.12 m² | Δθ = 80K</div>
+          <div class="math-step">β = ΔA/(A₁Δθ) = 0.12/(0.24×80) = 6.25×10⁻³ K⁻¹</div>
+          <div class="math-step">α = β/2 = 6.25×10⁻³/2</div>
+          <div class="answer-box">✅ α = 3.125×10⁻³ K⁻¹</div>
+        </div>
+        <div class="cq-qa">
+          <div class="q-label">ঘ. কতটুকু বরফ গলানো যাবে?</div>
+          <div class="math-step">Q = mSΔθ = 10×840×80 = 672000 J</div>
+          <div class="math-step">Q = mL_f → m = Q/L_f</div>
+          <div class="math-step">= 672000 / (3.36×10⁵)</div>
+          <div class="answer-box">✅ m = 2 kg বরফ গলানো যাবে</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="author">✍️ Raktim Dey | EEE, AUST</div>
+    <div class="chapter">পদার্থবিজ্ঞান - অধ্যায় ৬ - বস্তুর উপর তাপের প্রভাব</div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 18: Solved CQ #9 -->
+<!-- ============================================================ -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="title"><div class="icon">📝</div>Solved CQ — প্রশ্ন ৯ (রাজউক উত্তরা মডেল কলেজ)</div>
+    <div class="slide-num">SLIDE 18</div>
+  </div>
+  <div class="slide-content">
+    <div class="cq-box" style="margin-bottom:12px;">
+      <div class="cq-title">উদ্দীপক</div>
+      <p style="font-size:12px;">25°C তাপমাত্রায় 500 g ভরের তামার পাত্রে 75°C তাপমাত্রার 250 ml পানি রাখা হলো। তাপ আদান-প্রদানে উভয়ের চূড়ান্ত তাপমাত্রা 65°C হলো। তাপ দেওয়ায় পানির আপাত প্রসারণ 1.5 ml, তামার আয়তন প্রসারণ সহগ γ = 5.01×10⁻⁵ K⁻¹, পানির ঘনত্ব 1000 kgm⁻³।</p>
+    </div>
+    <div class="two-col">
+      <div>
+        <div class="cq-qa">
+          <div class="q-label">ক. হুকের সূত্র লিখ।</div>
+          <div class="a-text">স্থিতিস্থাপক সীমার মধ্যে পীড়ন বিকৃতির সমানুপাতিক।</div>
+        </div>
+        <div class="cq-qa">
+          <div class="q-label">খ. তামার তার টেনে লম্বা করলে রোধের পরিবর্তন:</div>
+          <div class="a-text">R = ρL/A থেকে: আয়তন এক রেখে দৈর্ঘ্য n গুণ বাড়ালে, R₁/R₂ = (L₁/L₂)² = (A₂/A₁)²। অর্থাৎ রোধ দৈর্ঘ্যের বর্গের সমানুপাতে বৃদ্ধি পাবে।</div>
+        </div>
+        <div class="cq-qa">
+          <div class="q-label">গ. পানির প্রকৃত প্রসারণ:</div>
+          <div class="given-box">m_c = 0.5 kg | V₁ = 250 ml | γ = 5.01×10⁻⁵ K⁻¹ | Δθ = 40K</div>
+          <div class="math-step">ΔVc = γV₁Δθ = 5.01×10⁻⁵×250×40 = 0.501 ml</div>
+          <div class="math-step">Vᵣ = ΔVc + ΔVₐ = 0.501 + 1.5</div>
+          <div class="answer-box">✅ পানির প্রকৃত প্রসারণ = 2.001 ml</div>
+        </div>
+      </div>
+      <div>
+        <div class="cq-qa">
+          <div class="q-label">ঘ. চূড়ান্ত তাপমাত্রা আরো 8°C বৃদ্ধি করতে অতিরিক্ত পানি:</div>
+          <div class="given-box">
+            নতুন চূড়ান্ত তাপমাত্রা = 65+8 = 73°C<br>
+            অতিরিক্ত পানি m kg ধরা হচ্ছে<br>
+            m₁ (পানির ভর) = 1000×250×10⁻⁶ = 0.25 kg
+          </div>
+          <div class="math-step">প্রথমে S_c/S_w অনুপাত বের করি:</div>
+          <div class="math-step">m_c·S_c·Δθ_c' = m₁·S_w·Δθ_w'</div>
+          <div class="math-step">0.5×S_c×40 = 0.25×S_w×10</div>
+          <div class="math-step">S_c/S_w = 1/8</div>
+          <div class="math-step">অতিরিক্ত পানি যোগের পর:</div>
+          <div class="math-step">m_c·S_c·48 = (m+0.25)·S_w·2</div>
+          <div class="math-step">0.5×(1/8)×S_w×48 = (m+0.25)×S_w×2</div>
+          <div class="math-step">3 = (m+0.25)×2</div>
+          <div class="math-step">m+0.25 = 1.5 → m = 1.25 kg</div>
+          <div class="answer-box">✅ অতিরিক্ত 1.25 kg পানির প্রয়োজন</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="author">✍️ Raktim Dey | EEE, AUST</div>
+    <div class="chapter">পদার্থবিজ্ঞান - অধ্যায় ৬ - বস্তুর উপর তাপের প্রভাব</div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 19: Solved MCQ Part 1 -->
+<!-- ============================================================ -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="title"><div class="icon">✅</div>Solved MCQ — পর্ব ১ (প্রশ্ন ১–২০)</div>
+    <div class="slide-num">SLIDE 19</div>
+  </div>
+  <div class="slide-content" style="padding-top:12px;">
+    <div class="two-col">
+      <div>
+        <div class="mcq-item">
+          <div class="question">১. সুপ্ততাপ পরিবর্তন ঘটায় কোনটির?</div>
+          <div class="mcq-options">
+            <span class="mcq-option">ক. তাপমাত্রার</span>
+            <span class="mcq-option correct">খ. অবস্থার ✓</span>
+            <span class="mcq-option">গ. চাপের</span>
+            <span class="mcq-option">ঘ. তাপের</span>
+          </div>
+        </div>
+        <div class="mcq-item">
+          <div class="question">২. স্টিল বারের দৈর্ঘ্য 100m, 40°C তে 100.046m হলে α = ?</div>
+          <div class="mcq-options">
+            <span class="mcq-option correct">ক. 11.5×10⁻⁶ K⁻¹ ✓</span>
+            <span class="mcq-option">খ. 11×10⁻⁶</span>
+            <span class="mcq-option">গ. 23×10⁻⁶</span>
+            <span class="mcq-option">ঘ. 34.5×10⁻⁶</span>
+          </div>
+        </div>
+        <div class="mcq-item">
+          <div class="question">৫. α, β, γ সম্পর্ক কোনটি?</div>
+          <div class="mcq-options">
+            <span class="mcq-option">ক. 3α=2β=γ</span>
+            <span class="mcq-option">খ. α=6β=2γ</span>
+            <span class="mcq-option correct">গ. 6α=3β=2γ ✓</span>
+            <span class="mcq-option">ঘ. 6α=2β=3γ</span>
+          </div>
+        </div>
+        <div class="mcq-item">
+          <div class="question">৭. 10 kg বস্তুর তাপধারণ ক্ষমতা 4000 JK⁻¹ হলে আপেক্ষিক তাপ?</div>
+          <div class="mcq-options">
+            <span class="mcq-option">ক. 40000 Jkg⁻¹K⁻¹</span>
+            <span class="mcq-option correct">খ. 400 Jkg⁻¹K⁻¹ ✓</span>
+            <span class="mcq-option">গ. 40 Jkg⁻¹K⁻¹</span>
+            <span class="mcq-option">ঘ. 2.5×10⁻³</span>
+          </div>
+        </div>
+        <div class="mcq-item">
+          <div class="question">৯. রূপার আপেক্ষিক তাপ 230 Jkg⁻¹K⁻¹ হলে 5 kg রূপার তাপধারণ ক্ষমতা?</div>
+          <div class="mcq-options">
+            <span class="mcq-option">ক. 0.22 JK⁻¹</span>
+            <span class="mcq-option">খ. 46 JK⁻¹</span>
+            <span class="mcq-option">গ. 235 JK⁻¹</span>
+            <span class="mcq-option correct">ঘ. 1150 JK⁻¹ ✓</span>
+          </div>
+        </div>
+        <div class="mcq-item">
+          <div class="question">১০. 40° সেলসিয়াস = কত ফারেনহাইট?</div>
+          <div class="mcq-options">
+            <span class="mcq-option">ক. 40°F</span>
+            <span class="mcq-option">খ. 72°F</span>
+            <span class="mcq-option correct">গ. 104°F ✓</span>
+            <span class="mcq-option">ঘ. 313°F</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="mcq-item">
+          <div class="question">১১. কত তাপমাত্রায় সেলসিয়াস ও ফারেনহাইট একই পাঠ?</div>
+          <div class="mcq-options">
+            <span class="mcq-option">ক. 40°C</span>
+            <span class="mcq-option">খ. 40K</span>
+            <span class="mcq-option correct">গ. −40°C ✓</span>
+            <span class="mcq-option">ঘ. −40C</span>
+          </div>
+        </div>
+        <div class="mcq-item">
+          <div class="question">১২. কোনটির আপেক্ষিক তাপ বেশি?</div>
+          <div class="mcq-options">
+            <span class="mcq-option">ক. সীসা</span>
+            <span class="mcq-option">খ. লোহা</span>
+            <span class="mcq-option">গ. তামা</span>
+            <span class="mcq-option correct">ঘ. বরফ ✓</span>
+          </div>
+        </div>
+        <div class="mcq-item">
+          <div class="question">১৩. সীসার আপেক্ষিক তাপ কত?</div>
+          <div class="mcq-options">
+            <span class="mcq-option">ক. 510 Jkg⁻¹K⁻¹</span>
+            <span class="mcq-option">খ. 400 Jkg⁻¹K⁻¹</span>
+            <span class="mcq-option">গ. 230 Jkg⁻¹K⁻¹</span>
+            <span class="mcq-option correct">ঘ. 130 Jkg⁻¹K⁻¹ ✓</span>
+          </div>
+        </div>
+        <div class="mcq-item">
+          <div class="question">১৪. সুস্থ মানুষের দেহের তাপমাত্রা কত কেলভিন?</div>
+          <div class="mcq-options">
+            <span class="mcq-option">ক. 36.89 K</span>
+            <span class="mcq-option">খ. 98.4 K</span>
+            <span class="mcq-option">গ. 136.89 K</span>
+            <span class="mcq-option correct">ঘ. 309.89 K ✓</span>
+          </div>
+        </div>
+        <div class="mcq-item">
+          <div class="question">১৫. 100g পানির তাপমাত্রা 30→35°C করতে তাপ?</div>
+          <div class="mcq-options">
+            <span class="mcq-option">ক. 21 J</span>
+            <span class="mcq-option">খ. 210 J</span>
+            <span class="mcq-option correct">গ. 2100 J ✓</span>
+            <span class="mcq-option">ঘ. 21000 J</span>
+          </div>
+        </div>
+        <div class="mcq-item">
+          <div class="question">১৬. এক জুল = কত ক্যালরি?</div>
+          <div class="mcq-options">
+            <span class="mcq-option">ক. 42</span>
+            <span class="mcq-option">খ. 4.2</span>
+            <span class="mcq-option">গ. 2.4</span>
+            <span class="mcq-option correct">ঘ. 0.24 ✓</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="author">✍️ Raktim Dey | EEE, AUST</div>
+    <div class="chapter">পদার্থবিজ্ঞান - অধ্যায় ৬ - বস্তুর উপর তাপের প্রভাব</div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 20: Solved MCQ Part 2 -->
+<!-- ============================================================ -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="title"><div class="icon">✅</div>Solved MCQ — পর্ব ২ (প্রশ্ন ২১–৪৫)</div>
+    <div class="slide-num">SLIDE 20</div>
+  </div>
+  <div class="slide-content" style="padding-top:12px;">
+    <div class="two-col">
+      <div>
+        <div class="mcq-item">
+          <div class="question">২০. কোন সম্পর্কটি সঠিক?</div>
+          <div class="mcq-options">
+            <span class="mcq-option correct">ক. γ=3α ও β=2α ✓</span>
+            <span class="mcq-option">খ. γ=2β ও β=2α</span>
+            <span class="mcq-option">গ. β=α/2=γ/3</span>
+            <span class="mcq-option">ঘ. α=γ/2=β/3</span>
+          </div>
+        </div>
+        <div class="mcq-item">
+          <div class="question">২১. সঠিক সম্পর্ক কোনটি?</div>
+          <div class="mcq-options">
+            <span class="mcq-option">ক. α=2β=3γ</span>
+            <span class="mcq-option correct">খ. α=β/2=γ/3 ✓</span>
+            <span class="mcq-option">গ. 2α=3β=γ</span>
+            <span class="mcq-option">ঘ. 3α=2β=γ</span>
+          </div>
+        </div>
+        <div class="mcq-item">
+          <div class="question">২৩. কোন তাপমাত্রায় পানি ফুটতে থাকে?</div>
+          <div class="mcq-options">
+            <span class="mcq-option">ক. 32°F</span>
+            <span class="mcq-option">খ. 100°F</span>
+            <span class="mcq-option correct">গ. 212°F ✓</span>
+            <span class="mcq-option">ঘ. 373°F</span>
+          </div>
+        </div>
+        <div class="mcq-item">
+          <div class="question">২৪. 25°C ও 60°C পানি মিশ্রিত করলে?</div>
+          <div class="mcq-options">
+            <span class="mcq-option correct">ক. 25°C পানি তাপ গ্রহণ করবে ✓</span>
+            <span class="mcq-option">খ. 25°C পানি তাপ বর্জন করবে</span>
+            <span class="mcq-option">গ. 60°C পানি তাপ গ্রহণ করবে</span>
+            <span class="mcq-option">ঘ. উভয় অপরিবর্তিত</span>
+          </div>
+        </div>
+        <div class="mcq-item">
+          <div class="question">২৫. পানির ত্রৈধ বিন্দুর তাপমাত্রা কত K?</div>
+          <div class="mcq-options">
+            <span class="mcq-option">ক. −273</span>
+            <span class="mcq-option">খ. 1/273</span>
+            <span class="mcq-option">গ. 212</span>
+            <span class="mcq-option correct">ঘ. 273 ✓</span>
+          </div>
+        </div>
+        <div class="mcq-item">
+          <div class="question">৩৪. মোমের ক্ষেত্রে (চাপ ও গলনাংক):</div>
+          <div class="mcq-options">
+            <span class="mcq-option">ক. i</span>
+            <span class="mcq-option correct">খ. ii ও iii ✓</span>
+            <span class="mcq-option">গ. i ও iii</span>
+            <span class="mcq-option">ঘ. i, ii ও iii</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="mcq-item">
+          <div class="question">৩৬. কোন পদার্থের গলনাংক সবচেয়ে বেশি? (লেখচিত্র থেকে)</div>
+          <div class="mcq-options">
+            <span class="mcq-option">ক. A</span>
+            <span class="mcq-option correct">খ. B ✓</span>
+            <span class="mcq-option">গ. C</span>
+            <span class="mcq-option">ঘ. D</span>
+          </div>
+        </div>
+        <div class="mcq-item">
+          <div class="question">৩৮. মোমের স্ফুটনাংক কত?</div>
+          <div class="mcq-options">
+            <span class="mcq-option">ক. 45 K</span>
+            <span class="mcq-option correct">খ. 453 K ✓</span>
+            <span class="mcq-option">গ. 0°C</span>
+            <span class="mcq-option">ঘ. −273 K</span>
+          </div>
+        </div>
+        <div class="mcq-item">
+          <div class="question">৪২. কোন তাপমাত্রায় পানির ঘনত্ব সবচেয়ে কম?</div>
+          <div class="mcq-options">
+            <span class="mcq-option">ক. 4°C</span>
+            <span class="mcq-option">খ. 277 K</span>
+            <span class="mcq-option correct">গ. 373 K ✓</span>
+            <span class="mcq-option">ঘ. 0°C</span>
+          </div>
+        </div>
+        <div class="mcq-item">
+          <div class="question">৪৫. মানুষের দেহের তাপমাত্রা 38°C → কেলভিন?</div>
+          <div class="mcq-options">
+            <span class="mcq-option">ক. 273 K</span>
+            <span class="mcq-option">খ. 300 K</span>
+            <span class="mcq-option correct">গ. 311 K ✓</span>
+            <span class="mcq-option">ঘ. 338 K</span>
+          </div>
+        </div>
+        <div class="mcq-item">
+          <div class="question">৫২. ফারেনহাইট থার্মোমিটারে মৌলিক ভাগ সংখ্যা কত?</div>
+          <div class="mcq-options">
+            <span class="mcq-option">ক. 100</span>
+            <span class="mcq-option">খ. 150</span>
+            <span class="mcq-option correct">গ. 180 ✓</span>
+            <span class="mcq-option">ঘ. 212</span>
+          </div>
+        </div>
+        <div class="mcq-item">
+          <div class="question">৬৭. তামার β = 33.4×10⁻⁶ K⁻¹ হলে γ = ?</div>
+          <div class="mcq-options">
+            <span class="mcq-option">ক. 33.4×10⁻⁶</span>
+            <span class="mcq-option">খ. 46.7×10⁻⁶</span>
+            <span class="mcq-option correct">গ. 50.1×10⁻⁶ ✓</span>
+            <span class="mcq-option">ঘ. 66.8×10⁻⁶</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="author">✍️ Raktim Dey | EEE, AUST</div>
+    <div class="chapter">পদার্থবিজ্ঞান - অধ্যায় ৬ - বস্তুর উপর তাপের প্রভাব</div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 21: Solved MCQ Part 3 -->
+<!-- ============================================================ -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="title"><div class="icon">✅</div>Solved MCQ — পর্ব ৩ (প্রশ্ন ৭০–১৪০)</div>
+    <div class="slide-num">SLIDE 21</div>
+  </div>
+  <div class="slide-content" style="padding-top:12px;">
+    <div class="two-col">
+      <div>
+        <div class="mcq-item">
+          <div class="question">৭০. ক্ষেত্র প্রসারণ সহগ আয়তন প্রসারণ সহগের কত গুণ?</div>
+          <div class="mcq-options">
+            <span class="mcq-option">ক. 3</span>
+            <span class="mcq-option">খ. 2</span>
+            <span class="mcq-option">গ. 3/2</span>
+            <span class="mcq-option correct">ঘ. 2/3 ✓</span>
+          </div>
+        </div>
+        <div class="mcq-item">
+          <div class="question">৭৪. দুই রেলের মাঝে ফাঁকা না রাখলে কী হতো?</div>
+          <div class="mcq-options">
+            <span class="mcq-option">ক. ট্রেন মোড় নিতে পারত না</span>
+            <span class="mcq-option correct">খ. রেল বেঁকে দুর্ঘটনা ঘটত ✓</span>
+            <span class="mcq-option">গ. খরচ বেড়ে যেত</span>
+            <span class="mcq-option">ঘ. শব্দ বেড়ে যেত</span>
+          </div>
+        </div>
+        <div class="mcq-item">
+          <div class="question">৮১. তামা, সীসা ও রূপার আপেক্ষিক তাপের সমষ্টি?</div>
+          <div class="mcq-options">
+            <span class="mcq-option">ক. 660</span>
+            <span class="mcq-option">খ. 7600</span>
+            <span class="mcq-option">গ. 670</span>
+            <span class="mcq-option correct">ঘ. 760 Jkg⁻¹K⁻¹ ✓</span>
+          </div>
+        </div>
+        <div class="mcq-item">
+          <div class="question">৮৪. 4kg বস্তুর তাপধারণ ক্ষমতা 2000 JK⁻¹ হলে S = ?</div>
+          <div class="mcq-options">
+            <span class="mcq-option">ক. 800</span>
+            <span class="mcq-option correct">খ. 500 Jkg⁻¹K⁻¹ ✓</span>
+            <span class="mcq-option">গ. 2000</span>
+            <span class="mcq-option">ঘ. 3000</span>
+          </div>
+        </div>
+        <div class="mcq-item">
+          <div class="question">৯৩. কোনটির আপেক্ষিক তাপ সবচেয়ে কম?</div>
+          <div class="mcq-options">
+            <span class="mcq-option">ক. জলীয় বাষ্প</span>
+            <span class="mcq-option correct">খ. সীসা ✓</span>
+            <span class="mcq-option">গ. তামা</span>
+            <span class="mcq-option">ঘ. রূপা</span>
+          </div>
+        </div>
+        <div class="mcq-item">
+          <div class="question">১০৬. চাপ প্রয়োগে বস্তুর গলনাংক (মোম নয়)?</div>
+          <div class="mcq-options">
+            <span class="mcq-option">ক. বেড়ে যায়</span>
+            <span class="mcq-option">খ. কমে যায়</span>
+            <span class="mcq-option correct">গ. পরিবর্তিত হয় ✓</span>
+            <span class="mcq-option">ঘ. অপরিবর্তিত</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="mcq-item">
+          <div class="question">১০৮. 70.6 cm পারদ চাপে পানির স্ফুটনাংক?</div>
+          <div class="mcq-options">
+            <span class="mcq-option">ক. 102°C</span>
+            <span class="mcq-option">খ. 100°C</span>
+            <span class="mcq-option">গ. 99°C</span>
+            <span class="mcq-option correct">ঘ. 98°C ✓</span>
+          </div>
+        </div>
+        <div class="mcq-item">
+          <div class="question">১১৩. সুপ্ততাপ বস্তুর কী পরিবর্তন করে না?</div>
+          <div class="mcq-options">
+            <span class="mcq-option">ক. তাপ</span>
+            <span class="mcq-option correct">খ. তাপমাত্রা ✓</span>
+            <span class="mcq-option">গ. তাপ ও তাপমাত্রা</span>
+            <span class="mcq-option">ঘ. আন্তঃআণবিক বন্ধন</span>
+          </div>
+        </div>
+        <div class="mcq-item">
+          <div class="question">১২৪. সমভরের পানি ও বরফে একই তাপমাত্রা বৃদ্ধিতে অনুপাত?</div>
+          <div class="mcq-options">
+            <span class="mcq-option">ক. 1/4</span>
+            <span class="mcq-option">খ. 1/2</span>
+            <span class="mcq-option">গ. 1</span>
+            <span class="mcq-option correct">ঘ. 2 ✓</span>
+          </div>
+        </div>
+        <div class="mcq-item">
+          <div class="question">১২৫. 0°C বরফকে 0°C পানিতে পরিণত করতে (1 kg)?</div>
+          <div class="mcq-options">
+            <span class="mcq-option">ক. 4200 J</span>
+            <span class="mcq-option correct">খ. 336000 J ✓</span>
+            <span class="mcq-option">গ. 2100 J</span>
+            <span class="mcq-option">ঘ. 268000 J</span>
+          </div>
+        </div>
+        <div class="mcq-item">
+          <div class="question">১৩৫. সঠিক সম্পর্কগুলি:</div>
+          <div class="mcq-options">
+            <span class="mcq-option">ক. i ও ii</span>
+            <span class="mcq-option correct">খ. ii ও iii ✓</span>
+            <span class="mcq-option">গ. ii ও iii</span>
+            <span class="mcq-option">ঘ. i, ii ও iii</span>
+          </div>
+        </div>
+        <div class="mcq-item">
+          <div class="question">১৩৯. নিম্নস্থিরাংককে বলে (ii ও iii):</div>
+          <div class="mcq-options">
+            <span class="mcq-option">ক. i ও ii</span>
+            <span class="mcq-option">খ. i ও iii</span>
+            <span class="mcq-option correct">গ. ii ও iii ✓</span>
+            <span class="mcq-option">ঘ. i, ii ও iii</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="author">✍️ Raktim Dey | EEE, AUST</div>
+    <div class="chapter">পদার্থবিজ্ঞান - অধ্যায় ৬ - বস্তুর উপর তাপের প্রভাব</div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 22: SUMMARY / QUICK REVISION -->
+<!-- ============================================================ -->
+<div class="slide">
+  <div class="slide-header">
+    <div class="title"><div class="icon">🎯</div>Quick Revision — সারসংক্ষেপ ও গুরুত্বপূর্ণ পয়েন্ট</div>
+    <div class="slide-num">SLIDE 22</div>
+  </div>
+  <div class="slide-content" style="padding-top:15px;">
+    <div class="two-col">
+      <div>
+        <div class="section-title">🔑 গুরুত্বপূর্ণ সংজ্ঞা</div>
+        <ul class="numbered-list">
+          <li><span class="num">১</span><div><strong>তাপ:</strong> উষ্ণতার পার্থক্যের কারণে প্রবাহিত শক্তি। একক: J</div></li>
+          <li><span class="num">২</span><div><strong>তাপমাত্রা:</strong> বস্তুর তাপীয় অবস্থা যা তাপ গ্রহণ বা বর্জন নির্ধারণ করে। একক: K</div></li>
+          <li><span class="num">৩</span><div><strong>দৈর্ঘ্য প্রসারণ সহগ α:</strong> 1m দৈর্ঘ্যের বস্তুতে 1K তাপমাত্রা বৃদ্ধিতে দৈর্ঘ্য বৃদ্ধি।</div></li>
+          <li><span class="num">৪</span><div><strong>তাপধারণ ক্ষমতা C:</strong> তাপমাত্রা 1K বাড়াতে প্রয়োজনীয় তাপ। C = Q/Δθ</div></li>
+          <li><span class="num">৫</span><div><strong>আপেক্ষিক তাপ S:</strong> 1 kg বস্তুর তাপমাত্রা 1K বাড়াতে প্রয়োজনীয় তাপ।</div></li>
+          <li><span class="num">৬</span><div><strong>গলনাংক:</strong> যে তাপমাত্রায় কঠিন থেকে তরলে রূপান্তর শুরু হয়।</div></li>
+          <li><span class="num">৭</span><div><strong>স্ফুটনাংক:</strong> যে তাপমাত্রায় তরল থেকে বাষ্পে রূপান্তর হয়। চাপের উপর নির্ভরশীল।</div></li>
+          <li><span class="num">৮</span><div><strong>বাষ্পায়ন:</strong> যেকোনো তাপমাত্রায় উপরিতল থেকে বাষ্প হওয়া।</div></li>
+        </ul>
+      </div>
+      <div>
+        <div class="section-title">🔑 গুরুত্বপূর্ণ সূত্র ও মান</div>
+        <div class="highlight-box" style="margin-bottom:10px;">
+          <div class="hl-title">তাপমাত্রা রূপান্তর</div>
+          <div style="font-size:12px; line-height:2;">
+            C/5 = (F−32)/9 = (K−273)/5<br>
+            −40°C = −40°F (একই পাঠ)<br>
+            K = C + 273
+          </div>
+        </div>
+        <div class="highlight-box" style="margin-bottom:10px;">
+          <div class="hl-title">প্রসারণ সহগ সম্পর্ক</div>
+          <div style="font-size:12px; line-height:2;">
+            γ = 3α = 2β<br>
+            α = β/2 = γ/3<br>
+            Vᵣ = Vₐ + Vg
+          </div>
+        </div>
+        <div class="highlight-box" style="margin-bottom:10px;">
+          <div class="hl-title">আপেক্ষিক তাপ (Jkg⁻¹K⁻¹)</div>
+          <div style="font-size:11.5px; display:flex; flex-wrap:wrap; gap:5px; margin-top:5px;">
+            <span class="badge badge-blue">পানি: 4200</span>
+            <span class="badge badge-red">বরফ: 2100</span>
+            <span class="badge badge-green">জলীয় বাষ্প: 2000</span>
+            <span class="badge badge-blue">তামা: 400</span>
+            <span class="badge badge-red">রূপা: 230</span>
+            <span class="badge badge-green">সীসা: 130</span>
+          </div>
+        </div>
+        <div class="highlight-box">
+          <div class="hl-title">গুরুত্বপূর্ণ বিষয়</div>
+          <div style="font-size:11.5px; line-height:1.8;">
+            ✅ সুপ্ততাপ → অবস্থার পরিবর্তন (তাপমাত্রা পরিবর্তন নয়)<br>
+            ✅ বরফে চাপ বাড়লে গলনাংক কমে (পুনঃশিলীভবন)<br>
+            ✅ শূন্যস্থানে বাষ্পায়ন সবচেয়ে বেশি<br>
+            ✅ PV = nRT (আদর্শ গ্যাস সমীকরণ)<br>
+            ✅ βₚ (গ্যাস) = 1/T₁
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:15px; padding:15px; background: linear-gradient(135deg,#1e3c72,#2a5298); border-radius:12px; color:white;">
+      <p style="font-size:15px; font-weight:700;">🎓 Raktim Dey | EEE, AUST</p>
+      <p style="font-size:12px; opacity:0.8; margin-top:5px;">পদার্থবিজ্ঞান — অধ্যায় ৬: বস্তুর উপর তাপের প্রভাব | সম্পূর্ণ নোট</p>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <div class="author">✍️ Raktim Dey | EEE, AUST</div>
+    <div class="chapter">পদার্থবিজ্ঞান - অধ্যায় ৬ - বস্তুর উপর তাপের প্রভাব</div>
+  </div>
+</div>
+
+</body>
+</html>

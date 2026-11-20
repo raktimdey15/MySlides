@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<title>অধ্যায় ৪ : কাজ, ক্ষমতা ও শক্তি — Raktim Dey (EEE, AUST)</title>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+@page{size:A4 landscape;margin:0}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#e6ebf2;font-family:'Hind Siliguri','Noto Sans Bengali','Kalpurush','Nikosh','Vrinda',sans-serif;color:#1b2a41;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{counter-reset:pg}
+.slide{width:297mm;height:209.5mm;margin:8mm auto;background:#fff;position:relative;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 4px 22px rgba(0,0,0,.28);break-after:page;page-break-after:always;counter-increment:pg}
+.slide:last-child{break-after:auto;page-break-after:auto}
+@media print{html,body{background:#fff}.slide{margin:0;box-shadow:none}}
+/* footer (name on every slide) */
+.slide::after{content:"Raktim Dey (EEE, AUST)   •   পদার্থবিজ্ঞান – অধ্যায় ০৪ : কাজ, ক্ষমতা ও শক্তি";position:absolute;left:0;right:0;bottom:0;height:9mm;line-height:9mm;padding-left:12mm;background:#0b2a4a;color:#cfe3f7;font-size:9pt;letter-spacing:.2px;border-top:.8mm solid #ff8a1f}
+.slide::before{content:counter(pg);position:absolute;right:12mm;bottom:0;height:9mm;line-height:9mm;color:#fff;font-size:9.5pt;font-weight:700;z-index:3}
+.hd{height:15mm;flex:none;background:linear-gradient(90deg,#0b2a4a,#145a8a);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 12mm;border-bottom:1.2mm solid #ff8a1f}
+.hd h2{font-size:17pt;font-weight:700}
+.hd small{font-size:10pt;background:#ff8a1f;color:#fff;padding:.6mm 3.5mm;border-radius:5mm;font-weight:600}
+.bd{flex:1;padding:4.5mm 11mm 2mm;margin-bottom:9mm;font-size:11.5pt;line-height:1.5;overflow:hidden}
+.sm{font-size:10.5pt;line-height:1.45}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:7mm}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:5mm}
+.g12{display:grid;grid-template-columns:1.25fr 1fr;gap:7mm}
+.g21{display:grid;grid-template-columns:1fr 1.25fr;gap:7mm}
+h3{font-size:13pt;color:#0b2a4a;border-bottom:.5mm solid #ff8a1f;display:inline-block;margin:1.2mm 0 1.5mm}
+h4{font-size:11.5pt;color:#c0392b;margin:1mm 0}
+p{margin:1mm 0}
+ul{margin:1mm 0 1mm 6mm}
+li{margin:.6mm 0}
+sub,sup{line-height:0;font-size:.7em}
+.m{font-family:'Cambria Math','Times New Roman','Noto Serif',serif;font-size:1.04em}
+.f{display:inline-block;vertical-align:middle;text-align:center;margin:0 1px}
+.f>i{display:block;font-style:normal;padding:0 2px;line-height:1.25}
+.f>i:first-child{border-bottom:1px solid currentColor}
+.rt{border-top:1px solid currentColor;padding:0 2px}
+.box,.def,.fm,.note,.red,.sol,.gv{border-radius:2mm;margin:1.6mm 0}
+.box{background:#f1f7ff;border-left:1.3mm solid #145a8a;padding:2mm 4mm}
+.def{background:#eafaf1;border-left:1.3mm solid #17a35a;padding:2mm 4mm;font-weight:500}
+.fm{background:#fff3e0;border-left:1.3mm solid #ff8a1f;padding:2mm 4mm;text-align:center;font-size:14pt;font-weight:600}
+.note{background:#f4f4f6;border-left:1.3mm solid #8892a0;padding:1.5mm 4mm;font-size:10pt;color:#333}
+.red{background:#fdecea;border-left:1.3mm solid #e0312e;padding:2mm 4mm}
+.sol{background:#fbfcfe;border:.3mm solid #cfd9e6;padding:2mm 4mm}
+.gv{border-left:.7mm solid #333;padding:.5mm 0 .5mm 3mm;font-size:10pt;color:#333;margin:1.2mm 0}
+.q{background:#eef3fb;border:.4mm solid #2b5c9a;border-radius:2.5mm;padding:2mm 4mm;margin:1mm 0 2mm;font-weight:500}
+.lb{color:#c0392b;font-weight:700;margin-right:1.5mm}
+.sv{display:block;margin:1mm auto}
+.cap{text-align:center;font-weight:700;font-size:10.5pt;margin:.5mm 0 1.5mm}
+.tb{border-collapse:separate;border-spacing:1.2mm;width:100%}
+.tb th{background:#33383f;color:#fff;border-radius:2mm;padding:1.4mm;font-size:11pt}
+.tb td{background:#ececec;border-radius:2mm;padding:1.2mm 3mm;text-align:center;font-size:10.5pt}
+.tb td.y{background:#ffe6a3;font-size:13pt;font-weight:600}
+.pill{display:inline-block;background:#33383f;color:#fff;padding:.8mm 6mm;border-radius:1.5mm;font-weight:700;font-size:13pt;margin:1mm 0}
+.tag{display:inline-block;background:#fff0cf;border:.5mm solid #8a5a00;border-radius:2mm;padding:.5mm 6mm;font-weight:700;margin:1mm 0}
+.cardp{border-radius:3mm;padding:3mm 5mm;border-top:1.6mm solid #ff8a1f;background:#f5f9ff;box-shadow:0 1px 4px rgba(0,0,0,.15)}
+.cardp b.t{display:block;color:#c0392b;font-size:14pt;margin-bottom:1mm}
+.cardp li{list-style:none;margin-left:-1mm}
+.cardp li::before{content:"✓ ";color:#17a35a;font-weight:700}
+/* MCQ */
+.mq{margin:0 0 2.6mm;font-size:10.6pt;line-height:1.4}
+.mq .op{display:flex;flex-wrap:wrap;gap:1mm 5mm;margin:.6mm 0 0 4mm;font-size:10pt}
+.mq .op span{padding:0 1.5mm;border-radius:1.5mm}
+.mq .op span.c{background:#d7f3e2;border:.3mm solid #17a35a;font-weight:700}
+.mq .op span.c::after{content:" ✔";color:#17a35a}
+.mq .ex{margin:.8mm 0 0 4mm;background:#f2f8ec;border-left:1mm solid #17a35a;padding:.4mm 2.5mm;font-size:9.6pt}
+.mq .st{margin:.6mm 0 0 4mm;font-size:10pt}
+.big .mq{font-size:11.6pt;margin-bottom:4mm}.big .mq .op{font-size:11pt}
+/* cover */
+.cover{background:linear-gradient(135deg,#061a30,#0f5c8e);color:#fff;align-items:center;justify-content:center;text-align:center}
+.cover::before{content:"";position:absolute;right:-45mm;top:-45mm;bottom:auto;width:150mm;height:150mm;line-height:0;border-radius:50%;background:rgba(255,138,31,.2);z-index:0}
+.cover::after{content:"";left:-35mm;right:auto;bottom:-55mm;width:140mm;height:140mm;line-height:0;padding:0;border:0;border-radius:50%;background:rgba(18,181,166,.22)}
+.cover>*{position:relative;z-index:2}
+.cover .t0{font-size:16pt;letter-spacing:1px;color:#ffd08a;font-weight:600}
+.cover h1{font-size:46pt;font-weight:700;margin:4mm 0;text-shadow:0 2px 8px rgba(0,0,0,.4)}
+.cover .mt{display:inline-block;background:#fff;color:#0b2a4a;font-weight:800;font-size:20pt;padding:1.5mm 12mm;border-radius:2mm;letter-spacing:2px;margin:3mm 0}
+.cover .en{font-size:16pt;color:#cfe3f7;margin-bottom:12mm}
+.cover .by{font-size:14pt;border-top:.5mm solid rgba(255,255,255,.5);padding-top:4mm;line-height:1.7}
+.cover .by b{font-size:22pt;color:#ffd08a}
+</style>
+</head>
+<body>
+
+<!-- shared arrow markers -->
+<svg width="0" height="0" style="position:absolute"><defs>
+<marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#17a35a"/></marker>
+<marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#e0312e"/></marker>
+<marker id="mk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#111"/></marker>
+<marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1d6fd6"/></marker>
+</defs></svg>
+
+<!-- ============ 1. COVER ============ -->
+<section class="slide cover">
+  <div class="t0">পদার্থবিজ্ঞান · অধ্যায় ০৪</div>
+  <h1>কাজ, ক্ষমতা ও শক্তি</h1>
+  <div class="mt">MAIN TOPIC</div>
+  <div class="en">Work, Power &amp; Energy</div>
+  <div class="by">উপস্থাপনায়<br><b>Raktim Dey (EEE, AUST)</b></div>
+</section>
+
+<!-- ============ 2. AGENDA ============ -->
+<section class="slide"><div class="hd"><h2>এই অধ্যায়ে যা যা পড়তে হবে</h2><small>MAIN TOPIC</small></div>
+<div class="bd" style="font-size:12.5pt">
+<div class="g3" style="margin-top:6mm">
+ <div class="cardp"><b class="t">Part : 1</b><ul><li>কাজ এবং এর প্রকারভেদ</li><li>বিভিন্ন ধরনের কাজের উদাহরণ</li><li>কাজ রিলেটেড রাশিমালা</li></ul></div>
+ <div class="cardp"><b class="t">Part : 2</b><ul><li>ক্ষমতা এবং এর প্রকারভেদ</li><li>ক্ষমতার রিলেটেড রাশিমালা এবং সূত্র</li><li>শক্তি এবং শক্তির প্রকারভেদ</li><li>শক্তির নিত্যতা সূত্র</li><li>গতিশক্তি এবং বিভব শক্তি</li><li>কর্মদক্ষতা</li></ul></div>
+ <div class="cardp"><b class="t">Part : 3</b><ul><li>সকল সূত্র, একক এবং রাশিমালা</li><li>সংজ্ঞা সমূহ</li><li>অনুধাবন মূলক প্রশ্ন সমূহ</li><li>নিঞ্জা টেকনিক</li></ul></div>
+</div>
+</div></section>
+
+<!-- ============ 3. কাজ ============ -->
+<section class="slide"><div class="hd"><h2>কাজ (Work)</h2><small>Part 1</small></div>
+<div class="bd sm">
+<p>কাজ টপিকটি বুঝতে হলে আগে বুঝতে হবে <b>কাজ কি জিনিস!</b> আমি তিনভাবে বোঝাবো কাজ কি :</p>
+<div class="g2">
+<div>
+ <h3>Style : 1</h3>
+ <svg class="sv" viewBox="0 0 320 100" style="width:100mm"><line x1="20" y1="82" x2="300" y2="82" stroke="#111" stroke-width="3"/><text x="6" y="97" font-size="16">A</text><text x="304" y="97" font-size="16">B</text>
+ <g transform="translate(262,0)"><ellipse cx="20" cy="14" rx="15" ry="3" fill="#c0392b"/><rect x="13" y="6" width="14" height="8" fill="#c0392b"/><circle cx="20" cy="22" r="6" fill="#f2c7a0"/><rect x="12" y="29" width="16" height="26" rx="3" fill="#e84a5f"/><rect x="5" y="30" width="8" height="20" rx="2" fill="#f5b841"/><path d="M20 55 L14 80 M20 55 L30 80" stroke="#444" stroke-width="5" stroke-linecap="round"/><path d="M26 33 L38 48" stroke="#f2c7a0" stroke-width="4" stroke-linecap="round"/></g></svg>
+ <p>উপরের চিত্রে একটি ব্যক্তি A অবস্থান হতে B অবস্থানে গেল। এই পর্যন্ত সরণে যেতে যদি F পরিমাণ বল প্রয়োগ করা লাগে তাহলে সোজা বাংলায় <b>কাজ হবে A ও B এর দূরত্ব এবং প্রয়োগকৃত বলের গুণফল সমান।</b></p>
+ <h3>Style : 2</h3>
+ <div class="def">কোনো বস্তুর ওপর বল প্রয়োগের ফলে যদি বস্তুটির সরণ হয় তাহলে বল এবং বলের দিকের বলের প্রয়োগ বিন্দুর সরণের গুণফলকে কাজ বলে।</div>
+</div>
+<div>
+ <h3>এবার পদার্থ বিজ্ঞানের সাহায্যে ব্যাখ্যা করা যাক :</h3>
+ <svg class="sv" viewBox="0 0 320 100" style="width:100mm"><line x1="20" y1="60" x2="300" y2="60" stroke="#111" stroke-width="3"/><text x="6" y="66" font-size="16">A</text><text x="304" y="66" font-size="16">B</text><text x="150" y="28" font-size="16">F</text><line x1="172" y1="24" x2="235" y2="24" stroke="#17a35a" stroke-width="3" marker-end="url(#mg)"/><text x="155" y="90" font-size="16">X</text></svg>
+ <p>ধরা যাক, A বিন্দুতে অবস্থিত কোন বস্তুর ওপর AB বরাবর F বল প্রয়োগ করা হলো। এতে বস্তুটি AB বরাবরই X দূরত্ব অতিক্রম করে B বিন্দুতে পৌঁছালো। তাহলে F বল দ্বারা কাজ সম্পন্ন হবে</p>
+ <div class="fm"><span class="m">কাজ = বল × বলের দিকে সরণের উপাংশ</span><br><span class="m" style="font-size:12pt">W &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; F &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; X</span></div>
+ <p>এখানে, θ = 0°; cos 0° = 1</p>
+ <div class="fm">∴ W = Fx</div>
+</div>
+</div>
+</div></section>
+
+<!-- ============ 4. Style 3 ============ -->
+<section class="slide"><div class="hd"><h2>কাজ — Style : 3</h2><small>Part 1</small></div>
+<div class="bd sm">
+<div class="g21">
+<div>
+ <p><b>যদি একটি নির্দিষ্ট কোণ করে বল প্রয়োগ হয়!</b></p>
+ <svg class="sv" viewBox="0 0 380 250" style="width:100%"><line x1="40" y1="200" x2="340" y2="200" stroke="#111" stroke-width="2.5"/><line x1="40" y1="200" x2="220" y2="40" stroke="#111" stroke-width="2"/><line x1="220" y1="40" x2="220" y2="200" stroke="#111" stroke-width="2"/><path d="M208 200 V188 H220" fill="none" stroke="#111" stroke-width="1.5"/><path d="M80 200 A40 40 0 0 0 69.9 173.4" fill="none" stroke="#17a35a" stroke-width="2.5"/>
+ <g font-size="17"><text x="94" y="192" font-size="19">θ</text><text x="116" y="112">S</text><text x="124" y="226">X</text><text x="20" y="215">A</text><text x="346" y="207">B</text><text x="216" y="30">C</text><text x="214" y="226">D</text></g></svg>
+</div>
+<div>
+ <p>ধরা যাক, A বিন্দুতে বস্তুর ওপর AB বরাবর F বল প্রয়োগ করা হলে AC বরাবর S দূরত্ব অতিক্রম করে C বিন্দুতে আসে। AB ও AC এর অন্তর্ভুক্ত কোণ = θ। C বিন্দু থেকে AB এর ওপর CD লম্ব টানা হলো। তাহলে AB বরাবর বস্তুর সরণের উপাংশ হলো AD = x</p>
+ <p>এক্ষেত্রে F বল দ্বারা কাজ সম্পন্ন হবে</p>
+ <div class="box"><span class="m">কাজ = বল × বলের দিকে সরণের উপাংশ<br>∴ W = Fx &nbsp;… … … (i)</span></div>
+ <p>কিন্তু এখানে যে θ কোণ আছে, তাতে সমস্যা কি? চলো সমকোণী ত্রিভুজের কাছে যাই,</p>
+ <div class="g2" style="gap:3mm">
+  <div class="sol m">△ADC এ cos θ = <span class="f"><i>AD</i><i>AC</i></span><br>AD = AC cos θ<br>x = s cos θ &nbsp;… … … (ii)<br><span style="color:#c0392b;font-size:10pt">↳ এটাই আমাদের উপাংশ</span></div>
+  <div class="gv m">AD = x<br>AC = s</div>
+ </div>
+ <p>(i) ও (ii) হতে পাই,</p>
+ <div class="fm">W = FS cos θ</div>
+ <div class="gv">W = Work = কাজ<br>F = Force = বল<br>S = displacement = সরণ<br>θ = F এবং S এর মধ্যবর্তী কোণ</div>
+</div>
+</div>
+</div></section>
+
+<!-- ============ 5. একক, প্রকারভেদ ============ -->
+<section class="slide"><div class="hd"><h2>কাজের একক, মাত্রা ও প্রকারভেদ</h2><small>Part 1</small></div>
+<div class="bd">
+<div class="g2">
+<div>
+ <h3>কীভাবে সহজেই একক বের করতে হয় :</h3>
+ <div class="fm"><span class="m">W = Fx<br>= Nm<br>= J (জুল)</span></div>
+ <p>F এর একক N (নিউটন)<br>x এর একক m (মিটার)<br><b>Nm কে জুল লেখা হয়।</b></p>
+ <div class="def"><span class="lb" style="color:#17a35a">কাজের মাত্রা [ML<sup>2</sup>T<sup>−2</sup>]</span><br>কাজ একটি স্কেলার রাশি। এর মানে আছে, দিক নেই।</div>
+ <div class="tag">কাজের প্রকারভেদ</div>
+ <ul>
+  <li>বলের দ্বারা কাজ / ধনাত্মক কাজ</li><li>বলের বিরুদ্ধে কাজ বা ঋণাত্মক কাজ</li><li>পরিবর্তনশীল বল দ্বারা কাজ</li><li>অভিকর্ষ বলের বিপরীতে কাজ</li><li>মহাকর্ষ বল দ্বারা কৃত কাজ</li>
+ </ul>
+ <div class="note">SSC লেভেলে আমরা (i) ও (ii) নং সম্পর্কে জানব। বাকিগুলো সম্পর্কে ধারণা নিয়ে যাব উপরে ক্লাসে।</div>
+</div>
+<div>
+ <h3>বলের দ্বারা কাজ (ধনাত্মক কাজ)</h3>
+ <svg class="sv" viewBox="0 0 300 220" style="width:92%">
+  <rect x="50" y="60" width="190" height="12" fill="#d68a54" stroke="#222" stroke-width="2"/>
+  <rect x="62" y="72" width="8" height="118" fill="#d68a54" stroke="#222"/><rect x="74" y="72" width="8" height="118" fill="#d68a54" stroke="#222"/>
+  <rect x="210" y="72" width="8" height="118" fill="#d68a54" stroke="#222"/><rect x="222" y="72" width="8" height="118" fill="#d68a54" stroke="#222"/>
+  <g transform="translate(232,46) rotate(-28)"><rect width="40" height="12" rx="3" fill="#3d7fd1" stroke="#1c4c8c"/><rect x="15" y="-5" width="8" height="6" fill="#111"/></g>
+  <line x1="262" y1="85" x2="262" y2="165" stroke="#17a35a" stroke-width="3" stroke-dasharray="6 4" marker-end="url(#mg)"/>
+  <line x1="20" y1="190" x2="290" y2="190" stroke="#333" stroke-width="2"/>
+  <g transform="translate(250,174)"><rect width="40" height="12" rx="3" fill="#3d7fd1" opacity=".45"/></g>
+ </svg>
+ <div class="cap">চিত্র : ডাস্টার টেবিলের উপর থেকে নিচে পড়ার সময়</div>
+</div>
+</div>
+</div></section>
+
+<!-- ============ 6. ধনাত্মক / ঋণাত্মক ============ -->
+<section class="slide"><div class="hd"><h2>ধনাত্মক কাজ ও ঋণাত্মক কাজ</h2><small>Part 1</small></div>
+<div class="bd">
+<div class="g2">
+<div>
+ <h3>ধনাত্মক কাজ (বলের দ্বারা কাজ)</h3>
+ <div class="def">যদি বল প্রয়োগের ফলে বলের প্রয়োগ বিন্দু বলের দিকে সরে যায় বা বলের দিকে সরণের উপাংশ থাকে তাহলে সেই কাজকে ধনাত্মক কাজ বা বলের দ্বারা কাজ বলে।</div>
+ <svg class="sv" viewBox="0 0 300 220" style="width:90%">
+  <rect x="40" y="95" width="130" height="12" fill="#d68a54" stroke="#222" stroke-width="2"/>
+  <rect x="50" y="107" width="8" height="85" fill="#d68a54" stroke="#222"/><rect x="62" y="107" width="8" height="85" fill="#d68a54" stroke="#222"/>
+  <rect x="142" y="107" width="8" height="85" fill="#d68a54" stroke="#222"/><rect x="154" y="107" width="8" height="85" fill="#d68a54" stroke="#222"/>
+  <rect x="85" y="84" width="38" height="11" rx="3" fill="#3d7fd1" stroke="#1c4c8c"/><rect x="100" y="80" width="8" height="5" fill="#111"/>
+  <circle cx="215" cy="42" r="14" fill="#8a5a3c"/><rect x="198" y="58" width="34" height="66" rx="6" fill="#3b4a58"/><rect x="204" y="122" width="10" height="68" fill="#2c3640"/><rect x="218" y="122" width="10" height="68" fill="#2c3640"/>
+  <path d="M200 70 L128 92" stroke="#3b4a58" stroke-width="9" stroke-linecap="round"/>
+  <line x1="106" y1="170" x2="106" y2="110" stroke="#17a35a" stroke-width="3" marker-end="url(#mg)"/>
+  <line x1="20" y1="192" x2="290" y2="192" stroke="#333" stroke-width="2"/>
+ </svg>
+ <div class="cap">চিত্র : ডাস্টারটিকে নিচ থেকে টেবিলে রাখার সময়</div>
+</div>
+<div>
+ <h3>ঋণাত্মক কাজ (বলের বিরুদ্ধে কাজ)</h3>
+ <div class="red">যদি বল প্রয়োগের ফলে বলের প্রয়োগ বিন্দু বলের বিপরীত দিকে সরে যায় বা বলের বিপরীত দিকে সরণের উপাংশ থাকে তাহলে সেই কাজকে ঋণাত্মক কাজ বা বলের বিরুদ্ধে কাজ বলে।</div>
+ <div style="margin-top:6mm">
+  <div class="def">▪ বলের দিকের সাথে সরণের দিক যদি <b>সূক্ষ্মকোণ</b> তৈরি করে, তাহলে সেক্ষেত্রে <b>ধনাত্মক কাজ</b> হবে।</div>
+  <div class="red">▪ বলের দিকের সাথে সরণের দিক যদি <b>স্থূলকোণ</b> তৈরি করে, তাহলে সেক্ষেত্রে <b>ঋণাত্মক কাজ</b> হবে।</div>
+ </div>
+</div>
+</div>
+</div></section>
+
+<!-- ============ 7. ক্ষমতা ============ -->
+<section class="slide"><div class="hd"><h2>ক্ষমতা (Power)</h2><small>Part 2</small></div>
+<div class="bd">
+<p>কাজ সম্পাদনকারী কোনো ব্যক্তি বা উৎস (যেমন: ডায়নামো, ইঞ্জিন বা অন্য যন্ত্র) এর <b>কাজ করার হারকে ক্ষমতা বলে</b></p>
+<div class="def">এক কথায়, একক সময়ে ব্যক্তি বা উৎস দ্বারা সম্পাদিত কাজের পরিমাণ হলো ক্ষমতা।</div>
+<div class="g2">
+<div>
+ <div class="box m" style="line-height:2">t সময়ে কাজ করে W পরিমাণ<br>∴ 1 সময়ে কাজ করে <span class="f"><i>W</i><i>t</i></span> পরিমাণ</div>
+ <div class="fm m" style="text-align:left;line-height:2.3">P = <span class="f"><i>W</i><i>t</i></span><br>⇒ P = <span class="f"><i>Fs</i><i>t</i></span><br>⇒ P = F <span class="f"><i>s</i><i>t</i></span><br>⇒ P = FV &nbsp;&nbsp;<span style="font-size:10.5pt;font-weight:400">[ সমবেগের ক্ষেত্রে ]</span></div>
+</div>
+<div>
+ <h3>একক :</h3>
+ <p>কাজের একক J, সময়ের একক s</p>
+ <div class="box m"><span class="f"><i>J</i><i>s</i></span> = Js<sup>−1</sup> = Watt = ওয়াট<br>∴ 1W = <span class="f"><i>1J</i><i>1s</i></span> = 1Js<sup>−1</sup></div>
+ <p>বিভিন্ন প্রয়োজনে ওয়াটের হাজার গুণ বড় একক (1KW) এবং দশ লক্ষ গুণ বড় একক (1MW) ব্যবহার করা হয়।</p>
+ <div class="fm m" style="text-align:left">✓ 1 KW = 10<sup>3</sup> W<br>✓ 1 MW = 10<sup>6</sup> W<br>✓ 1 Hp = 746 W</div>
+</div>
+</div>
+</div></section>
+
+<!-- ============ 8. শক্তি ============ -->
+<section class="slide"><div class="hd"><h2>শক্তি (Energy)</h2><small>Part 3</small></div>
+<div class="bd">
+<div class="def" style="font-size:13pt"><b>শক্তি :</b> কোনো বস্তুর কাজ করার সামর্থ্যকে শক্তি বলে।</div>
+<p>বস্তু সর্বমোট যতখানি কাজ করতে পারে তাই হচ্ছে মোট কাজের পরিমাপ।</p>
+<div class="g2">
+<div>
+ <p><b style="color:#0b2a4a">মাত্রা : (Unit)</b></p>
+ <div class="box" style="font-style:italic">Since energy is capacity of doing work, therefore the SI unit of energy is same as work.</div>
+ <div class="fm m">E = [ML<sup>2</sup>T<sup>−2</sup>]</div>
+ <p>শক্তির মান আছে দিক নেই।</p>
+ <p>সাধারণত বিদ্যুৎ শক্তির হিসাব নিকাশের সময় কিলোওয়াট ঘন্টা (Kwh) এককটি ব্যবহৃত হয়।</p>
+ <div class="fm m" style="text-align:left;font-size:13pt">1KWh = 1000Wh = 1000 Js<sup>−1</sup>×3600 s<br>1KWh = 3.6×10<sup>6</sup>J</div>
+</div>
+<div>
+ <h3>উদাহরণ :</h3>
+ <svg class="sv" viewBox="0 0 380 110" style="width:100%">
+  <g><circle cx="45" cy="75" r="26" fill="#444" stroke="#111" stroke-width="3"/><circle cx="45" cy="75" r="11" fill="#e84a5f"/><circle cx="155" cy="75" r="26" fill="#444" stroke="#111" stroke-width="3"/><circle cx="155" cy="75" r="11" fill="#e84a5f"/>
+  <path d="M45 75 L80 50 L125 50 L155 75" stroke="#f5b841" stroke-width="6" fill="none" stroke-linejoin="round"/><rect x="80" y="34" width="45" height="16" rx="7" fill="#e84a5f"/><rect x="48" y="40" width="34" height="9" rx="3" fill="#666"/><path d="M130 50 L138 22 L158 20" stroke="#f5b841" stroke-width="5" fill="none"/><rect x="156" y="14" width="12" height="12" rx="3" fill="#e84a5f"/><rect x="88" y="62" width="30" height="14" rx="3" fill="#8a8f98"/></g>
+  <g stroke-linecap="round"><circle cx="245" cy="75" r="26" fill="none" stroke="#2f5d8a" stroke-width="6"/><circle cx="345" cy="75" r="26" fill="none" stroke="#2f5d8a" stroke-width="6"/>
+  <path d="M245 75 L272 42 L322 42 L345 75 M272 42 L295 75 L322 42 M245 75 L295 75" stroke="#f3836b" stroke-width="5" fill="none" stroke-linejoin="round"/><path d="M262 34 L284 34" stroke="#2f5d8a" stroke-width="6"/><path d="M322 42 L328 28 L345 28" stroke="#2f5d8a" stroke-width="6" fill="none"/><circle cx="295" cy="75" r="6" fill="#f5b841"/></g>
+ </svg>
+ <div class="cap">মোটরসাইকেলের শক্তি সাধারণ সাইকেল থেকে বেশি।</div>
+</div>
+</div>
+</div></section>
+
+<!-- ============ 9. শক্তির রূপান্তর ============ -->
+<section class="slide"><div class="hd"><h2>শক্তির রূপান্তর — Form of Energy</h2><small>Part 3</small></div>
+<div class="bd sm" style="padding-top:3mm">
+<svg class="sv" viewBox="0 0 940 150" style="width:100%">
+ <g stroke="#111" stroke-width="2.2" fill="none"><path d="M70 12 H870"/>
+ <path d="M70 12 V50 M170 12 V50 M270 12 V50 M370 12 V50 M470 12 V50 M570 12 V50 M670 12 V50 M770 12 V50 M870 12 V50" marker-end="url(#mk)"/></g>
+ <g stroke="#111" stroke-width="2.2" fill="none"><line x1="70" y1="12" x2="70" y2="52" marker-end="url(#mk)"/><line x1="170" y1="12" x2="170" y2="52" marker-end="url(#mk)"/><line x1="270" y1="12" x2="270" y2="52" marker-end="url(#mk)"/><line x1="370" y1="12" x2="370" y2="52" marker-end="url(#mk)"/><line x1="470" y1="12" x2="470" y2="52" marker-end="url(#mk)"/><line x1="570" y1="12" x2="570" y2="52" marker-end="url(#mk)"/><line x1="670" y1="12" x2="670" y2="52" marker-end="url(#mk)"/><line x1="770" y1="12" x2="770" y2="52" marker-end="url(#mk)"/><line x1="870" y1="12" x2="870" y2="52" marker-end="url(#mk)"/></g>
+ <g font-size="19" text-anchor="middle" font-weight="600">
+  <text x="70" y="75" fill="#c0392b">যান্ত্রিক শক্তি</text><text x="170" y="75">তাপ শক্তি</text><text x="270" y="75">শব্দ শক্তি</text><text x="370" y="75">রাসায়নিক শক্তি</text><text x="470" y="75">আলোক শক্তি</text><text x="570" y="75">সৌরশক্তি</text><text x="670" y="75">চুম্বক শক্তি</text><text x="770" y="75">বিদ্যুৎ শক্তি</text><text x="870" y="75">নিউক্লিয় শক্তি</text></g>
+ <g stroke="#111" stroke-width="2.2" fill="none"><line x1="70" y1="82" x2="70" y2="104"/><path d="M30 104 H110 M30 104 V124 M110 104 V124" /><line x1="30" y1="104" x2="30" y2="126" marker-end="url(#mk)"/><line x1="110" y1="104" x2="110" y2="126" marker-end="url(#mk)"/></g>
+ <g font-size="19" text-anchor="middle" font-weight="600" fill="#145a8a"><text x="30" y="148">স্থিতি শক্তি</text><text x="115" y="148">গতিশক্তি</text></g>
+</svg>
+<div class="g2" style="margin-top:1mm">
+<div>
+ <div class="tag" style="background:#ffe6a3">Potential Energy</div>
+ <svg class="sv" viewBox="0 0 300 150" style="width:78mm">
+  <rect width="300" height="150" rx="6" fill="#e8eef5"/>
+  <path d="M140 12 Q60 75 140 138" stroke="#222" stroke-width="6" fill="none"/><path d="M140 12 L205 75 L140 138" stroke="#555" stroke-width="2" fill="none"/>
+  <line x1="205" y1="75" x2="40" y2="75" stroke="#8b5a2b" stroke-width="4" marker-end="url(#mk)"/>
+  <circle cx="205" cy="75" r="8" fill="#f2c7a0"/><circle cx="238" cy="68" r="17" fill="#e1b48f"/><path d="M220 62 Q238 38 256 62 Z" fill="#555"/><rect x="222" y="86" width="40" height="52" rx="8" fill="#556b2f"/>
+ </svg>
+ <div class="cap">টানটান করা তীর → বিভব শক্তি জমা</div>
+</div>
+<div>
+ <p>উপরের চিত্রে তীরকে যখন টানটান করা হয়, ছোড়ার জন্য তখন যে শক্তি লাভ করে সেটিই হলো আমাদের বিভব শক্তি।</p>
+ <div class="def">পদার্থবিজ্ঞান বলে, ‘স্বাভাবিক অবস্থানে থেকে পরিবর্তন করে কোনো বস্তুকে অন্য কোন অবস্থানে আনলে বস্তু কাজ করার যে সামর্থ্য অর্জন করে তাকে বিভব শক্তি বলে।’</div>
+ <p>আরেকটু সহজ করে বলি, ধরো তোমার হাত থেকে ৫ টাকার একটি কয়েন পড়ে গেল। তুমি সেটিকে তুলতে চাইলে অভিকর্ষ বলের বিরুদ্ধে কাজ করতে হবে। এই যে উপরে তোলার পর কয়েনটির মধ্যে কিছু শক্তি জমা হয়েছে, এটিই হলো বিভব শক্তি।</p>
+ <h4>অভিকর্ষজ বিভব শক্তি</h4>
+ <div class="box">অভিকর্ষ বলের বিরুদ্ধে কাজ করে কোন বস্তুর অবস্থান পরিবর্তন করলে বস্তু কাজ করার যে সামর্থ্য লাভ করে তাকে অভিকর্ষজ বিভব শক্তি বলে।</div>
+</div>
+</div>
+</div></section>
+
+<!-- ============ 10. বিভব শক্তির পরিমাণ & গতিশক্তি ============ -->
+<section class="slide"><div class="hd"><h2>বিভব শক্তির পরিমাণ ও গতিশক্তি</h2><small>Part 3</small></div>
+<div class="bd sm">
+<div class="g2">
+<div>
+ <h3>বিভব শক্তির পরিমাণ</h3>
+ <svg class="sv" viewBox="0 0 200 150" style="width:62mm"><circle cx="100" cy="20" r="6" fill="#fff" stroke="#111" stroke-width="2.5"/><text x="96" y="10" font-size="14">m</text><line x1="100" y1="122" x2="100" y2="29" stroke="#17a35a" stroke-width="3" marker-end="url(#mg)"/><text x="110" y="80" font-size="16">h</text><line x1="30" y1="128" x2="170" y2="128" stroke="#111" stroke-width="2"/><path d="M34 140 L44 128 M54 140 L64 128 M74 140 L84 128 M94 140 L104 128 M114 140 L124 128 M134 140 L144 128 M154 140 L164 128" stroke="#111" stroke-width="1.5"/></svg>
+ <p>m ভরের কোনো বস্তুকে ভূপৃষ্ঠ থেকে h উচ্চতায় উঠাতে কৃত কাজই হচ্ছে বস্তুতে সঞ্চিত বিভব শক্তির পরিমাণ। এক্ষেত্রে কৃতকাজ হচ্ছে বস্তুর ওপর প্রযুক্ত অভিকর্ষজ বল তথা বস্তুর ওজন × উচ্চতা।</p>
+ <p>সুতরাং বিভব শক্তি উচ্চতার ওপর নির্ভরশীল — উচ্চতা বাড়লে বিভব শক্তি বাড়ে এবং h = 0 হলে বিভব শক্তি শূন্য।</p>
+ <div class="fm m">বিভব শক্তি = বস্তুর ওজন × উচ্চতা<br>E<sub>p</sub> = mgh</div>
+ <div class="note">একটি ঘরের মেঝের সাপেক্ষে কোনো বস্তুর বিভব শক্তি 60 J বলতে বোঝায় বস্তুর মধ্যে সঞ্চিত শক্তি দ্বারা বস্তুটি ঘরের মেঝেতে নেমে আসতে 60 J কাজ করতে পারে।</div>
+</div>
+<div>
+ <div class="tag" style="background:#ffe6a3">গতিশক্তি (Kinetic Energy)</div>
+ <svg class="sv" viewBox="0 0 280 150" style="width:78mm">
+  <rect width="280" height="150" rx="6" fill="#dff1fb"/><rect y="118" width="280" height="32" fill="#8bc34a"/>
+  <rect x="205" y="62" width="14" height="60" fill="#8b5a2b"/><circle cx="212" cy="45" r="32" fill="#4caf50"/><circle cx="188" cy="58" r="20" fill="#43a047"/><circle cx="238" cy="58" r="20" fill="#43a047"/>
+  <circle cx="198" cy="48" r="5" fill="#ffb300"/><circle cx="222" cy="40" r="5" fill="#ffb300"/><circle cx="212" cy="64" r="5" fill="#ffb300"/>
+  <circle cx="30" cy="95" r="10" fill="#f2c7a0"/><rect x="22" y="105" width="18" height="30" rx="4" fill="#1e88e5"/>
+  <path d="M50 118 L50 96 M50 96 L40 80 M50 96 L60 80" stroke="#6d4c41" stroke-width="4" fill="none"/><circle cx="50" cy="90" r="3.5" fill="#555"/>
+  <path d="M54 88 Q120 10 196 46" stroke="#e0312e" stroke-width="2" fill="none" stroke-dasharray="5 4" marker-end="url(#mr)"/>
+ </svg>
+ <div class="cap">চিত্র : ঢিল ছুড়ে আম পাড়া</div>
+ <div class="def">কোনো গতিশীল বস্তু তার গতির জন্য কাজ করার যে সামর্থ্য লাভ করে তাকে গতি শক্তি বলে।</div>
+ <p>কোনো স্থির বস্তুতে বেগের সঞ্চার করা বা গতিশীল বস্তুর বেগ বৃদ্ধি করার অর্থ হচ্ছে বস্তুটিতে ত্বরণ সৃষ্টি করা। আর এজন্য বস্তুটির ওপর বল প্রয়োগ করতে হবে ফলে কাজ হবে। এতে বস্তুটি যে কাজ করার সামর্থ্য লাভ করবে এবং এ কাজ বস্তুটির গতিশক্তি হিসেবে জমা থাকবে। সে কারণে সকল সচল বস্তুই গতিশক্তির অধিকারী।</p>
+</div>
+</div>
+</div></section>
+
+<!-- ============ 11. h সতর্কতা, সূত্র প্রতিপাদন ============ -->
+<section class="slide"><div class="hd"><h2>গতিশক্তির সূত্র প্রতিপাদন</h2><small>Part 3</small></div>
+<div class="bd sm">
+<div class="g2">
+<div>
+ <h3>h বের করার জন্য সতর্কতা :</h3>
+ <p>কোথা থেকে উচ্চতা পরিমাপ করা হচ্ছে তার ওপর বস্তুটির বিভব শক্তি নির্ভর করে। অর্থাৎ কোথায় আমরা h=0 ধরেছি সেটার উপর নির্ভর করবে বিভব শক্তি।</p>
+ <div class="box">ধরো, কোনো বিল্ডিং এর ৫ তলায় বস্তু আছে।<br>এটি যখন টেবিলের সাপেক্ষে থাকবে তখন এর বিভব আলাদা থাকবে। আবার যখন মেঝের সাপেক্ষে থাকবে তখন আরেক বিভব শক্তি। আবার যখন ভূপৃষ্ঠের সাপেক্ষে থাকবে তখন ভিন্ন বিভব শক্তি।</div>
+ <h3>সূত্র প্রতিপাদন</h3>
+ <p>কোনো বস্তু যখন স্থির অবস্থায় থাকে তখন কোন গতি শক্তি থাকে না।</p>
+ <svg class="sv" viewBox="0 0 300 70" style="width:80mm"><circle cx="40" cy="38" r="8" fill="none" stroke="#111" stroke-width="2.5"/><line x1="48" y1="38" x2="248" y2="38" stroke="#17a35a" stroke-width="3" marker-end="url(#mg)"/><circle cx="258" cy="38" r="8" fill="none" stroke="#111" stroke-width="2.5"/><text x="145" y="26" font-size="16">S</text><text x="145" y="64" font-size="16">F</text></svg>
+</div>
+<div>
+ <p>ধরা যাক, m ভরের একটি স্থির বস্তুর উপর F বল প্রয়োগ করায় বস্তু v বেগ প্রাপ্ত হলো। ধরা যাক, এ সময় বস্তুটি বলের দিকে s দূরত্ব অতিক্রম করে। বস্তুটিকে এই বেগ দিতে কৃত কাজই বস্তুর গতিশক্তি।</p>
+ <div class="box m" style="text-align:center">∴ গতিশক্তি = কৃতকাজ = বল × সরণ</div>
+ <div class="g2" style="gap:3mm">
+  <div class="sol m" style="line-height:2.1">E<sub>k</sub> = mas<br>E<sub>k</sub> = m <span class="f"><i>v<sup>2</sup></i><i>2</i></span><br>E<sub>k</sub> = <span class="f"><i>1</i><i>2</i></span>mv<sup>2</sup><br>E<sub>k</sub> ∝ v<sup>2</sup></div>
+  <div class="sol m" style="line-height:1.7">v<sup>2</sup> = u<sup>2</sup> + 2as<br>2as = v<sup>2</sup> − u<sup>2</sup><br>as = <span class="f"><i>v<sup>2</sup> − u<sup>2</sup></i><i>2</i></span><br>as = <span class="f"><i>v<sup>2</sup></i><i>2</i></span> &nbsp;<span style="font-size:9.5pt">এখানে, u<sup>2</sup> = 0</span></div>
+ </div>
+ <div class="def">অর্থাৎ "নির্দিষ্ট ভরের কোনো বস্তুর গতিশক্তি বেগের বর্গের সমানুপাতিক"। বস্তুর বেগ দ্বিগুণ হলে গতিশক্তি চার গুণ হবে।</div>
+</div>
+</div>
+</div></section>
+
+<!-- ============ 12. শক্তির সংরক্ষণশীলতা ============ -->
+<section class="slide"><div class="hd"><h2>শক্তির সংরক্ষণশীলতা নীতি</h2><small>Principle of Conservation of Energy</small></div>
+<div class="bd sm">
+<div class="def">শক্তির সৃষ্টি বা ধ্বংস নেই, এটি কেবল এক রূপ থেকে অন্য রূপে রূপান্তরিত হয়।</div>
+<div class="tag">Type : 1</div> মুক্তভাবে পড়ন্ত বস্তুর ক্ষেত্রে শক্তির সংরক্ষণশীলতা নীতি।
+<div class="g2" style="margin-top:1mm">
+<div>
+ <svg class="sv" viewBox="0 0 300 215" style="width:100%">
+  <line x1="40" y1="28" x2="270" y2="28" stroke="#111" stroke-width="2.5"/><circle cx="155" cy="28" r="7" fill="#fff" stroke="#111" stroke-width="2.5"/>
+  <line x1="40" y1="90" x2="270" y2="90" stroke="#888" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <line x1="30" y1="188" x2="280" y2="188" stroke="#111" stroke-width="2.5"/><path d="M34 200 L46 188 M58 200 L70 188 M82 200 L94 188 M106 200 L118 188 M130 200 L142 188 M154 200 L166 188 M178 200 L190 188 M202 200 L214 188 M226 200 L238 188 M250 200 L262 188" stroke="#111" stroke-width="1.5"/>
+  <line x1="95" y1="31" x2="95" y2="87" stroke="#e0312e" stroke-width="2.5" marker-end="url(#mr)"/><line x1="95" y1="93" x2="95" y2="186" stroke="#17a35a" stroke-width="2.5" marker-start="url(#mg)" marker-end="url(#mg)"/>
+  <line x1="155" y1="40" x2="155" y2="186" stroke="#17a35a" stroke-width="2.5" marker-start="url(#mg)" marker-end="url(#mg)"/>
+  <line x1="215" y1="31" x2="215" y2="87" stroke="#e0312e" stroke-width="2.5" marker-end="url(#mr)"/><line x1="215" y1="93" x2="215" y2="186" stroke="#17a35a" stroke-width="2.5" marker-start="url(#mg)" marker-end="url(#mg)"/>
+  <g font-size="16"><text x="150" y="16">A</text><text x="80" y="62">x</text><text x="62" y="145">h−x</text><text x="163" y="115">h</text><text x="222" y="62">x</text><text x="222" y="145">h−x</text><text x="46" y="94">B</text><text x="86" y="210">C</text></g>
+ </svg>
+</div>
+<div>
+ <div class="sol m" style="line-height:1.7"><b>A বিন্দুতে</b> বিভব শক্তি = mgh<br>A বিন্দুতে গতিশক্তি = 0<br>মোট শক্তি = mgh</div>
+ <div class="sol m" style="line-height:1.7"><b>B বিন্দুতে</b> বিভব শক্তি = mg(h − x) = mgh − mgx<br>B বিন্দুতে গতিশক্তি = <span class="f"><i>1</i><i>2</i></span>mv<sup>2</sup> = <span class="f"><i>1</i><i>2</i></span>m·2gx = mgx<br>মোট শক্তি = mgh − mgx + mgx = mgh</div>
+ <div class="gv m">পড়ন্ত বস্তুর ক্ষেত্রে, v<sup>2</sup> = u<sup>2</sup> + 2as<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v<sup>2</sup> = 2as = 2gx</div>
+</div>
+</div>
+</div></section>
+
+<!-- ============ 13. C বিন্দু + কর্মদক্ষতা ============ -->
+<section class="slide"><div class="hd"><h2>কর্মদক্ষতা (Efficiency)</h2><small>Part 3</small></div>
+<div class="bd sm">
+<div class="sol m" style="line-height:1.7"><b>C বিন্দুতে</b> বিভব শক্তি = 0 &nbsp;&nbsp;[কারণ h = 0] &nbsp;|&nbsp; গতিশক্তি = mgh &nbsp;|&nbsp; মোট শক্তি = mgh</div>
+<div class="g2">
+<div>
+ <p>শক্তির রূপান্তরের সহায়তায় আমরা আমাদের দৈনন্দিন জীবনের প্রয়োজনীয় মেটাই। যেমন : পেট্রোলিয়াম সঞ্চিত রাসায়নিক শক্তি গতি শক্তিতে রূপান্তরের মাধ্যমে আমরা ইঞ্জিন চালাতে পারি।</p>
+ <div class="red" style="font-weight:600">কর্মদক্ষতা কখনো 100% হয় না।</div>
+ <p>ইঞ্জিনে যতটুকু শক্তি পাওয়া যায় তাকে কার্যকর শক্তি বলে।</p>
+ <div class="def">কোনো যন্ত্রের কর্মদক্ষতা বলতে যন্ত্র থেকে মোট যে কার্যকর শক্তি পাওয়া যায় এবং মোট যে শক্তি দেয়া হয়েছে তার অনুপাতকে বোঝায়।</div>
+ <p>কর্মদক্ষতাকে <b>η</b> (গ্রিক ইটা) দ্বারা প্রকাশ করা হয়।</p>
+ <div class="fm m" style="text-align:left;line-height:2.2">η = <span class="f"><i>লভ্য কার্যকর শক্তি</i><i>মোট প্রদত্ত শক্তি</i></span> × 100%<br>η = <span class="f"><i>Output</i><i>Input</i></span> × 100%</div>
+</div>
+<div>
+ <svg class="sv" viewBox="0 0 340 190" style="width:100%">
+  <rect x="115" y="50" width="110" height="70" rx="10" fill="#e3eefa" stroke="#145a8a" stroke-width="3"/><text x="170" y="82" font-size="17" text-anchor="middle" font-weight="700" fill="#0b2a4a">যন্ত্র /</text><text x="170" y="104" font-size="17" text-anchor="middle" font-weight="700" fill="#0b2a4a">ইঞ্জিন</text>
+  <line x1="12" y1="85" x2="112" y2="85" stroke="#1d6fd6" stroke-width="4" marker-end="url(#mb)"/><text x="62" y="70" font-size="13" text-anchor="middle">Input</text><text x="62" y="108" font-size="12" text-anchor="middle">মোট প্রদত্ত শক্তি</text>
+  <line x1="228" y1="85" x2="328" y2="85" stroke="#17a35a" stroke-width="4" marker-end="url(#mg)"/><text x="280" y="70" font-size="13" text-anchor="middle">Output</text><text x="280" y="108" font-size="12" text-anchor="middle">কার্যকর শক্তি</text>
+  <line x1="170" y1="122" x2="170" y2="170" stroke="#e0312e" stroke-width="3" stroke-dasharray="5 4" marker-end="url(#mr)"/><text x="178" y="152" font-size="12" fill="#c0392b">অপচয় (তাপ, শব্দ…)</text>
+  <text x="170" y="30" font-size="15" text-anchor="middle" font-weight="700" fill="#c0392b">Output &lt; Input ⇒ η &lt; 100%</text>
+ </svg>
+</div>
+</div>
+</div></section>
+
+<!-- ============ 14. FORMULA ============ -->
+<section class="slide"><div class="hd"><h2>FORMULA — সূত্র, প্রতীক পরিচিতি ও একক</h2><small>Part 3</small></div>
+<div class="bd sm">
+<table class="tb m">
+<tr><th style="width:30%">সূত্র</th><th style="width:36%">প্রতীক পরিচিতি</th><th>একক</th></tr>
+<tr><td class="y" rowspan="3">W = Fs</td><td>F = বল</td><td>বলের একক নিউটন (N)</td></tr>
+<tr><td>S = সরণ</td><td>সরণের একক মিটার (m)</td></tr>
+<tr><td>W = কাজ</td><td>কাজের একক জুল (J)</td></tr>
+<tr><td class="y" rowspan="4">E<sub>k</sub> = <span class="f"><i>1</i><i>2</i></span>mv<sup>2</sup> = <span class="f"><i>p<sup>2</sup></i><i>2m</i></span></td><td>E<sub>k</sub> = গতিশক্তি</td><td>শক্তির একক জুল (J)</td></tr>
+<tr><td>m = ভর</td><td>ভরের একক kg</td></tr>
+<tr><td>p = ভরবেগ</td><td>বেগের একক ms<sup>−1</sup></td></tr>
+<tr><td>v = বেগ</td><td>ভরবেগের একক kgms<sup>−1</sup></td></tr>
+<tr><td class="y" style="line-height:1.7">W = <span class="f"><i>1</i><i>2</i></span>mv<sup>2</sup><br>W = mgh<br>E<sub>P</sub> = mgh</td><td>—</td><td>শক্তির একক জুল (J)</td></tr>
+<tr><td class="y" rowspan="2">P = <span class="f"><i>W</i><i>t</i></span></td><td rowspan="2">W = কাজ = mgh</td><td>ক্ষমতার (P) একক Watt (W)</td></tr>
+<tr><td>সময় (t) এর একক s</td></tr>
+<tr><td class="y">η = <span class="f"><i>লভ্য কার্যকর শক্তি/ক্ষমতা</i><i>মোট প্রদত্ত শক্তি/ক্ষমতা</i></span></td><td>—</td><td>η এর কোনো একক নেই</td></tr>
+</table>
+</div></section>
+
+<!-- ============ 15. TOPICWISE MATH Type 1 ============ -->
+<section class="slide"><div class="hd"><h2>TOPICWISE MATH — Type : 1</h2><small>কাজ</small></div>
+<div class="bd sm">
+<table class="tb m"><tr><th style="width:26%">সূত্র</th><th style="width:40%">প্রতীক পরিচিতি</th><th>একক</th></tr>
+<tr><td class="y" rowspan="3">W = Fs</td><td>F = বল</td><td rowspan="2">বলের একক নিউটন (N)</td></tr><tr><td>S = সরণ</td></tr><tr><td>W = কাজ</td><td>কাজের একক জুল (J)</td></tr></table>
+<div class="g2" style="margin-top:2mm">
+<div>
+ <div class="q">70 kg ভরের এক ব্যক্তি 200 m উঁচু পাহাড়ে আরোহণ করলে তিনি কত কাজ করেন?</div>
+ <b style="color:#17a35a">সমাধান :</b>
+ <div class="g2" style="gap:3mm"><div class="sol m" style="line-height:1.9">W = Fs<br>= (686×200) J<br>= 1.372×10<sup>5</sup> J</div>
+ <div class="gv m">Given,<br>ব্যক্তির ভর, m = 70 kg<br>F = mg = (70×9.8) N = 686 N<br>S = 200 m</div></div>
+</div>
+<div>
+ <div class="q">500 m গভীর কুয়া থেকে 60 kg লোহা তুলতে কত কাজ করতে হবে?</div>
+ <b style="color:#17a35a">সমাধান :</b>
+ <div class="g2" style="gap:3mm"><div class="sol m" style="line-height:1.9">W = Fh<br>= mgh<br>= (60×9.8×500) J<br>= 294×10<sup>3</sup> J</div>
+ <div class="gv m">Given,<br>m = 60 kg<br>h = 500 m<br>F = mg<br>W = ?</div></div>
+</div>
+</div>
+</div></section>
+
+<!-- ============ 16. Type 2 (a) ============ -->
+<section class="slide"><div class="hd"><h2>TOPICWISE MATH — Type : 2</h2><small>গতিশক্তি</small></div>
+<div class="bd sm">
+<table class="tb m"><tr><th style="width:26%">সূত্র</th><th style="width:40%">প্রতীক পরিচিতি</th><th>একক</th></tr>
+<tr><td class="y" rowspan="3">E<sub>k</sub> = <span class="f"><i>1</i><i>2</i></span>mv<sup>2</sup> = <span class="f"><i>p<sup>2</sup></i><i>2m</i></span></td><td>E<sub>k</sub> = গতিশক্তি &nbsp;|&nbsp; m = ভর</td><td>শক্তির একক জুল (J)</td></tr>
+<tr><td>p = ভরবেগ</td><td>বেগের একক ms<sup>−1</sup></td></tr><tr><td>v = বেগ</td><td>ভরবেগের একক kgms<sup>−1</sup></td></tr></table>
+<div class="g2" style="margin-top:2mm">
+<div>
+ <h4>সূত্রের ব্যাখ্যা :</h4>
+ <div class="sol m" style="line-height:2.1">E<sub>k</sub> = <span class="f"><i>1</i><i>2</i></span>mv<sup>2</sup><br>= <span class="f"><i>m<sup>2</sup>v<sup>2</sup></i><i>2m</i></span> &nbsp;&nbsp;<span style="font-size:9.5pt">[উভয় পক্ষকে m দ্বারা গুণ করে]</span><br>= <span class="f"><i>(mv)<sup>2</sup></i><i>2m</i></span><br>গতিশক্তি = <span class="f"><i>(p)<sup>2</sup></i><i>2m</i></span></div>
+</div>
+<div>
+ <div class="q">4000 kg ভরের একটি ট্রাক 54 kmh<sup>−1</sup> বেগে চলছে। 1000 kg ভরের একটি গাড়ি কত বেগে চললে এর গতিশক্তি ট্রাকটির গতিশক্তির সমান হবে।</div>
+ <b style="color:#17a35a">সমাধান :</b>
+ <div class="g2" style="gap:3mm"><div class="gv m" style="line-height:1.8"><b>ট্রাকের জন্য</b><br>m<sub>1</sub> = 4000 kg<br>v<sub>1</sub> = 54 kmh<sup>−1</sup> = <span class="f"><i>54×1000</i><i>3600</i></span><br>&nbsp;&nbsp;&nbsp;= 15 ms<sup>−1</sup><br>গতিশক্তি, E<sub>k<sub>1</sub></sub></div>
+ <div class="gv m" style="line-height:1.8"><b>গাড়ির জন্য</b><br>m<sub>2</sub> = 1000 kg<br>v<sub>2</sub> = ?<br><br>গতিশক্তি, E<sub>k<sub>2</sub></sub></div></div>
+</div>
+</div>
+</div></section>
+
+<!-- ============ 17. Type 2 (b) ============ -->
+<section class="slide"><div class="hd"><h2>Type : 2 — সমাধান ও ক্যালকুলেটর হ্যাকস</h2><small>গতিশক্তি</small></div>
+<div class="bd sm">
+<div class="g2">
+<div>
+ <div class="sol m" style="line-height:2.4"><b>প্রশ্নমতে,</b> E<sub>k<sub>1</sub></sub> = E<sub>k<sub>2</sub></sub><br>
+ <span class="f"><i>1</i><i>2</i></span>m<sub>1</sub>v<sub>1</sub><sup>2</sup> = <span class="f"><i>1</i><i>2</i></span>m<sub>2</sub>v<sub>2</sub><sup>2</sup><br>
+ m<sub>1</sub>v<sub>1</sub><sup>2</sup> = m<sub>2</sub>v<sub>2</sub><sup>2</sup><br>
+ v<sub>2</sub><sup>2</sup> = <span class="f"><i>m<sub>1</sub></i><i>m<sub>2</sub></i></span> v<sub>1</sub><sup>2</sup><br>
+ v<sub>2</sub> = <span style="font-size:1.3em">√</span><span class="rt"><span class="f"><i>m<sub>1</sub></i><i>m<sub>2</sub></i></span></span> v<sub>1</sub><br>
+ v<sub>2</sub> = <span style="font-size:1.3em">√</span><span class="rt"><span class="f"><i>4000</i><i>1000</i></span></span> ×15<br>
+ <b>v<sub>2</sub> = 30 ms<sup>−1</sup></b></div>
+</div>
+<div>
+ <div style="border:.7mm solid #17a35a;border-radius:3mm;padding:3mm 5mm;margin-top:2mm">
+  <h4 style="color:#17a35a;font-size:13pt">ক্যালকুলেটর হ্যাকস :</h4>
+  <p class="m" style="color:#0b2a4a;font-size:13pt"><b><i>kmh<sup>−1</sup></i> কে <i>ms<sup>−1</sup></i> এ কনভার্ট :</b></p>
+  <p style="font-size:14pt;margin-top:2mm;text-align:center"><span class="tag" style="font-size:12pt">মান</span> → <span class="tag" style="font-size:12pt">Shift</span> → <span class="tag" style="font-size:12pt">CONST</span> → <span class="tag" style="font-size:12pt">19</span> → <span class="tag" style="font-size:12pt">=</span></p>
+ </div>
+ <svg class="sv" viewBox="0 0 100 120" style="width:34mm;margin-top:4mm"><rect x="10" y="5" width="80" height="110" rx="7" fill="#d6e4f5" stroke="#111" stroke-width="3"/><rect x="18" y="13" width="64" height="18" fill="#fff4dc" stroke="#111" stroke-width="2"/><circle cx="35" cy="58" r="13" fill="#d98aa0" stroke="#111" stroke-width="2.5"/><circle cx="65" cy="58" r="13" fill="#ffb86b" stroke="#111" stroke-width="2.5"/><circle cx="35" cy="92" r="13" fill="#9db8ee" stroke="#111" stroke-width="2.5"/><circle cx="65" cy="92" r="13" fill="#6fdc8c" stroke="#111" stroke-width="2.5"/><g font-size="20" text-anchor="middle" font-weight="700"><text x="35" y="65">+</text><text x="65" y="65">−</text><text x="35" y="99">÷</text><text x="65" y="99">×</text></g></svg>
+</div>
+</div>
+</div></section>
+
+<!-- ============ 18. 36 km/h ============ -->
+<section class="slide"><div class="hd"><h2>TOPICWISE MATH — Type : 2 (উদাহরণ)</h2><small>গতিশক্তি</small></div>
+<div class="bd">
+<div class="q">36 kmh<sup>−1</sup> দ্রুতিতে গতিশীল একটি ট্রাকের গতিবেগ কি পরিমাণ বৃদ্ধি করলে এটি দ্বিগুণ গতিশক্তি সম্পন্ন হয়।</div>
+<b style="color:#17a35a">সমাধান :</b>
+<div class="g2" style="margin-top:2mm">
+<div class="sol m" style="line-height:2.3">ট্রাকের আদি গতিশক্তি = E<sub>k<sub>1</sub></sub><br>ট্রাকের শেষ গতিশক্তি = E<sub>k<sub>2</sub></sub><br><br>
+<b>প্রশ্নমতে,</b> 2 E<sub>k<sub>1</sub></sub> = E<sub>k<sub>2</sub></sub><br>
+2 · <span class="f"><i>1</i><i>2</i></span>m<sub>1</sub>v<sub>1</sub><sup>2</sup> = <span class="f"><i>1</i><i>2</i></span>m<sub>2</sub>v<sub>2</sub><sup>2</sup><br>
+2v<sub>1</sub><sup>2</sup> = v<sub>2</sub><sup>2</sup><br>
+v<sub>2</sub> = <span style="font-size:1.3em">√</span><span class="rt">2×10<sup>2</sup></span><br>
+<b>v<sub>2</sub> = 14.142 ms<sup>−1</sup></b><br><br>
+গতিবেগের পরিবর্তন ∆V = V<sub>2</sub> − V<sub>1</sub> = 14.142 − 10 = <b>4.142 ms<sup>−1</sup></b></div>
+<div>
+ <div class="gv m" style="line-height:1.9">V<sub>1</sub> = 36 kmh<sup>−1</sup><br>&nbsp;&nbsp;&nbsp;&nbsp;= <span class="f"><i>36×1000</i><i>3600</i></span><br>&nbsp;&nbsp;&nbsp;&nbsp;= 10 ms<sup>−1</sup></div>
+ <div class="note">ট্রাকের ভর একই থাকে (m<sub>1</sub> = m<sub>2</sub>), তাই দুই পাশ থেকে ভর কাটা গেছে।</div>
+</div>
+</div>
+</div></section>
+
+<!-- ============ 19. Type 3 ============ -->
+<section class="slide"><div class="hd"><h2>TOPICWISE MATH — Type : 3</h2><small>গতিশক্তি ও কাজ</small></div>
+<div class="bd">
+<div class="q">5 g ভরের একটি গুলি 300 ms<sup>−1</sup> বেগে ছুটে গিয়ে 2 cm পুরু তক্তাকে ভেদ করে যায়। 8 cm পুরু অনুরূপ একটি তক্তাকে ভেদ করতে গুলিটি কত গতিশক্তি লাভ করবে?</div>
+<b style="color:#17a35a">সমাধান :</b>
+<div class="g12" style="margin-top:2mm">
+<div>
+ <div class="sol m" style="line-height:2.1">E<sub>k<sub>1</sub></sub> = <span class="f"><i>1</i><i>2</i></span>mv<sup>2</sup> = <span class="f"><i>1</i><i>2</i></span>×0.005×300<sup>2</sup> = 225 J</div>
+ <p>বাধাদানকারী বল F হলে,</p>
+ <div class="sol m" style="line-height:2.1">গুলি কর্তৃক কৃতকাজ, W = E<sub>k<sub>1</sub></sub> = Fs<sub>1</sub><br>225 = F×0.02<br><b>F = 11250 N</b></div>
+ <div class="sol m" style="line-height:2.1">W = E<sub>k<sub>2</sub></sub> = Fs<sub>2</sub><br>= (11250×0.08)<br><b>= 900 J</b></div>
+</div>
+<div class="gv m" style="line-height:1.9">গুলির বেগ, v = 300 ms<sup>−1</sup><br>সরণ, s<sub>1</sub> = 0.02 m<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s<sub>2</sub> = 0.08 m<br>m = 0.005 kg<br>গতিশক্তি, E<sub>k<sub>2</sub></sub> = ?</div>
+</div>
+</div></section>
+
+<!-- ============ 20. Type 4 ============ -->
+<section class="slide"><div class="hd"><h2>TOPICWISE MATH — Type : 4</h2><small>কাজ–শক্তি উপপাদ্য</small></div>
+<div class="bd sm">
+<table class="tb m"><tr><th style="width:30%">সূত্র</th><th>প্রতীক পরিচিতি</th></tr>
+<tr><td class="y" rowspan="4" style="line-height:1.9">W = <span class="f"><i>1</i><i>2</i></span>mv<sup>2</sup><br>W = mgh<br>E<sub>P</sub> = mgh</td><td>m = বস্তুর ভর &nbsp;|&nbsp; h = উচ্চতা</td></tr><tr><td>E<sub>p</sub> = বিভব শক্তি</td></tr><tr><td>E<sub>k</sub> = গতিশক্তি</td></tr></table>
+<div class="g2" style="margin-top:1mm">
+<div>
+ <h4>সূত্রের ব্যাখ্যা :</h4>
+ <div class="box m">কাজ শক্তি উপপাদ্য &nbsp;W = <span class="f"><i>1</i><i>2</i></span>mv<sup>2</sup><br>বিভব শক্তি &nbsp;W = mgh = <span class="f"><i>1</i><i>2</i></span>mv<sup>2</sup></div>
+ <ul><li>কোনো বস্তুর ওপর প্রযুক্ত বল দ্বারা কৃতকাজ বস্তুটির গতিশক্তি পরিবর্তনের সমান ; W = ∆E<sub>k</sub></li>
+ <li>কোন কণা একটি পূর্ণ চক্র সম্পন্ন করে তার আদি অবস্থানে ফিরে আসলে কণাটির উপর প্রযুক্ত বল দ্বারা সম্পাদিত কাজের পরিমাণ শূন্য হবে। কারণ "মহাবিশ্বে শক্তির পরিমাণ নির্দিষ্ট"</li></ul>
+</div>
+<div>
+ <div class="sol m" style="line-height:2.1">W = Fs = mgh<br>= m<span style="font-size:1.4em">(</span><span class="f"><i>v<sup>2</sup> − u<sup>2</sup></i><i>2</i></span><span style="font-size:1.4em">)</span><br>= <span class="f"><i>1</i><i>2</i></span>mv<sup>2</sup> − <span class="f"><i>1</i><i>2</i></span>mu<sup>2</sup><br>= E<sub>k</sub> (শেষ) − E<sub>k</sub> (আদি)</div>
+ <div class="gv m" style="line-height:1.8">v<sup>2</sup> = u<sup>2</sup> + 2as<br>as = <span class="f"><i>v<sup>2</sup> − u<sup>2</sup></i><i>2</i></span><br>মোট শক্তি = 0 + বিভব শক্তি<br>W = mgh = <span class="f"><i>1</i><i>2</i></span>mv<sup>2</sup></div>
+ <div class="def">∴ বল দ্বারা কৃতকাজ বস্তুর গতিশক্তির পরিবর্তনের সমান।</div>
+</div>
+</div>
+</div></section>
+
+<!-- ============ 21. Type 4 উদাহরণ ============ -->
+<section class="slide"><div class="hd"><h2>Type : 4 — উদাহরণ (শক্তির নিত্যতা)</h2><small>কাজ–শক্তি</small></div>
+<div class="bd sm">
+<div class="q">দেখাও যে, A ও C বিন্দুতে বস্তুটির মোট শক্তি অপরিবর্তনীয়।</div>
+<div class="g21">
+<div>
+ <svg class="sv" viewBox="0 0 300 200" style="width:100%">
+  <line x1="40" y1="22" x2="280" y2="22" stroke="#111" stroke-width="2" stroke-dasharray="6 4"/>
+  <circle cx="120" cy="22" r="7" fill="#fff" stroke="#111" stroke-width="2.5"/><circle cx="120" cy="75" r="7" fill="#fff" stroke="#111" stroke-width="2.5"/><circle cx="120" cy="140" r="7" fill="#fff" stroke="#111" stroke-width="2.5"/>
+  <line x1="120" y1="30" x2="120" y2="68" stroke="#17a35a" stroke-width="2.5" marker-end="url(#mg)"/><line x1="120" y1="83" x2="120" y2="133" stroke="#17a35a" stroke-width="2.5" marker-end="url(#mg)"/><line x1="120" y1="148" x2="120" y2="178" stroke="#17a35a" stroke-width="2.5" marker-end="url(#mg)"/>
+  <line x1="127" y1="140" x2="190" y2="140" stroke="#111" stroke-width="2"/>
+  <line x1="190" y1="24" x2="190" y2="138" stroke="#e0312e" stroke-width="2.5" marker-end="url(#mr)"/><line x1="240" y1="24" x2="240" y2="182" stroke="#e0312e" stroke-width="2.5" marker-end="url(#mr)"/>
+  <line x1="30" y1="184" x2="285" y2="184" stroke="#111" stroke-width="2.5"/><path d="M34 196 L46 184 M58 196 L70 184 M82 196 L94 184 M106 196 L118 184 M130 196 L142 184 M154 196 L166 184 M178 196 L190 184 M202 196 L214 184 M226 196 L238 184 M250 196 L262 184 M274 196 L286 184" stroke="#111" stroke-width="1.4"/>
+  <g font-size="15"><text x="100" y="18">A</text><text x="100" y="80">B</text><text x="100" y="145">C</text><text x="196" y="85">78.4 m</text><text x="246" y="105">100 m</text><text x="248" y="30" font-size="13">m = 10 kg</text></g>
+ </svg>
+ <div class="box"><b>Concept :</b><br>(i) সর্বোচ্চ উচ্চতায় বস্তুর গতিশক্তি শূন্য<br>(ii) সর্বোচ্চ উচ্চতায় বস্তুর বিভব শক্তি সর্বোচ্চ</div>
+</div>
+<div>
+ <div class="sol m" style="line-height:1.75"><b>A বিন্দুতে</b> মোট শক্তি = E<sub>A</sub><br>গতিশক্তি = 0<br>বিভব শক্তি E<sub>p<sub>A</sub></sub> = mgh = (10×9.8×100) J = <b>9800 J</b></div>
+ <div class="sol m" style="line-height:1.75"><b>C বিন্দুতে</b> মোট শক্তি = E<sub>C</sub><br>বিভব শক্তি E<sub>p<sub>C</sub></sub> = mgx = (10×9.8×21.6) J = 2116.8 J &nbsp;<span style="font-size:9.5pt">[x = 100 − 78.4 = 21.6 m]</span><br>গতিশক্তি = <span class="f"><i>1</i><i>2</i></span>mv<sup>2</sup> = <span class="f"><i>1</i><i>2</i></span>×10×1536.64 = 7683.2 J<br>E<sub>C</sub> = (2116.8 + 7683.2) J = <b>9800 J</b><br><b>∴ E<sub>C</sub> = E<sub>A</sub></b></div>
+ <div class="gv m">v<sup>2</sup> = u<sup>2</sup> + 2as ⇒ v<sup>2</sup> = 2as = 2×9.8×78.4 ⇒ v<sup>2</sup> = 1536.64</div>
+</div>
+</div>
+</div></section>
+
+<!-- ============ 22. Type 5 ============ -->
+<section class="slide"><div class="hd"><h2>TOPICWISE MATH — Type : 5</h2><small>ক্ষমতা</small></div>
+<div class="bd sm">
+<table class="tb m"><tr><th style="width:26%">সূত্র</th><th style="width:34%">প্রতীক পরিচিতি</th><th>একক</th></tr>
+<tr><td class="y" rowspan="2">P = <span class="f"><i>W</i><i>t</i></span></td><td rowspan="2">W = কাজ = mgh</td><td>ক্ষমতার (P) একক Watt (W)</td></tr><tr><td>সময় (t) এর একক s</td></tr></table>
+<p><b>সূত্রের ব্যাখ্যা :</b> কোনো বস্তু একক সময়ে যে পরিমাণ কাজ করে তাকে ঐ বস্তুর ক্ষমতা বলে।</p>
+<p>ধরি, m ভরের কোনো বস্তুকে অভিকর্ষজ ত্বরণ g এর বিপরীত দিকে h উচ্চতায় উঠানো হয় এবং কৃতকাজ হয় W. &nbsp;<b class="m">W = mgh</b></p>
+<h3>উদাহরণ :</h3>
+<div class="q">50 kg ভরের এক ব্যক্তি প্রতিটি 25 cm উঁচু 30 টি সিঁড়ি 15 s উঠতে পারে। তার ক্ষমতা কত ?</div>
+<b style="color:#17a35a">সমাধান :</b>
+<div class="g12" style="margin-top:1mm">
+<div class="sol m" style="line-height:2.1">P = <span class="f"><i>W</i><i>t</i></span> = <span class="f"><i>mgh</i><i>t</i></span> = <span class="f"><i>50×9.8×7.5</i><i>15</i></span> = <b>245 watt</b></div>
+<div class="gv m" style="line-height:1.8">Given,<br>m = 50 kg<br>h = 25×30 cm = 7.5 m<br>t = 15 s</div>
+</div>
+</div></section>
+
+<!-- ============ CQ 1 (a) ============ -->
+<section class="slide"><div class="hd"><h2>প্রশ্ন নং: ০১</h2><small>SOLVED CQ</small></div>
+<div class="bd sm">
+<div class="g21">
+<div>
+ <svg class="sv" viewBox="0 0 240 230" style="width:100%">
+  <line x1="40" y1="22" x2="200" y2="22" stroke="#111" stroke-width="2" stroke-dasharray="6 4"/><circle cx="105" cy="22" r="7" fill="#fff" stroke="#111" stroke-width="2.5"/>
+  <line x1="105" y1="30" x2="105" y2="180" stroke="#17a35a" stroke-width="2.5" marker-end="url(#mg)"/>
+  <circle cx="145" cy="188" r="7" fill="#fff" stroke="#111" stroke-width="2.5"/><line x1="145" y1="180" x2="145" y2="100" stroke="#1d6fd6" stroke-width="2.5" marker-end="url(#mb)"/>
+  <line x1="200" y1="24" x2="200" y2="190" stroke="#e0312e" stroke-width="2.5" marker-start="url(#mr)" marker-end="url(#mr)"/>
+  <line x1="30" y1="196" x2="215" y2="196" stroke="#111" stroke-width="2.5"/><path d="M34 208 L46 196 M58 208 L70 196 M82 208 L94 196 M106 208 L118 196 M130 208 L142 196 M154 208 L166 196 M178 208 L190 196" stroke="#111" stroke-width="1.4"/>
+  <g font-size="14"><text x="92" y="16">A</text><text x="150" y="150" fill="#1d6fd6" font-size="12">19.6 ms⁻¹</text><text x="100" y="212" font-size="14">B</text><text x="206" y="110">120 m</text></g>
+ </svg>
+</div>
+<div>
+ <div class="q">চিত্রে একটি বস্তু A হতে 120 m উঁচু হতে ফেলে দেওয়া হলো। একই সময় অপর একটি বস্তু B কে 19.6 ms<sup>−1</sup> বেগে খাড়া উপরের দিকে নিক্ষেপ করা হলো।</div>
+ <p><span class="lb">ক.</span> বিভব শক্তি কাকে বলে?<br><span class="lb">খ.</span> গতিশক্তি ঋণাত্মক হতে পারে কি না- ব্যাখ্যা কর।<br><span class="lb">গ.</span> 3 s পরে A বস্তুটির বেগ নির্ণয় কর।<br><span class="lb">ঘ.</span> ভূমি হতে বস্তুতে মিলিত হবে কি? গাণিতিক বিশ্লেষণ দাও।</p>
+</div>
+</div>
+<h3 style="color:#c0392b">০১ নং প্রশ্নের উত্তর</h3>
+<div class="def"><span class="lb">ক)</span> স্বাভাবিক অবস্থানে থেকে কোনো বস্তুকে পরিবর্তন করে অন্য কোনো অবস্থান বা অবস্থায় আনলে বস্তু কাজ করার যে সামর্থ্য অর্জন করে তাকে বিভব শক্তি বলে।</div>
+<div class="box"><span class="lb">খ)</span> কোনো বস্তুর ভর m এবং বেগ v হলে, গতিশক্তি, E<sub>k</sub> = <span class="f"><i>1</i><i>2</i></span>mv<sup>2</sup>। এখানে, m ভর সর্বদা ধনাত্মক এবং বেগ v ধনাত্মক বা ঋণাত্মক হতে পারে। কিন্তু বেগের বর্গ সবসময়ই ধনাত্মক। সুতরাং <b>গতিশক্তি ঋণাত্মক হতে পারে না।</b></div>
+</div></section>
+
+<!-- ============ CQ 1 (b) ============ -->
+<section class="slide"><div class="hd"><h2>প্রশ্ন নং: ০১ — (গ) ও (ঘ)</h2><small>SOLVED CQ</small></div>
+<div class="bd sm">
+<div class="g2">
+<div>
+ <h3><span class="lb">গ)</span></h3>
+ <div class="sol m" style="line-height:2">আমরা জানি, v = u + gt<br>= 0 + 9.8×3<br>= <b>29.4 ms<sup>−1</sup></b></div>
+ <div class="gv m">Here,<br>আদিবেগ, u = 0 ms<sup>−1</sup><br>সময়, t = 3 s<br>অভিকর্ষজ ত্বরণ, g = 9.8 ms<sup>−2</sup><br>শেষ বেগ, v = ?</div>
+ <div class="def">∴ 3 s পর A বস্তুটির বেগ 29.4 ms<sup>−1</sup></div>
+</div>
+<div>
+ <h3><span class="lb">ঘ)</span></h3>
+ <p>ধরি, t সময় পর A ও B বস্তুদ্বয় h উচ্চতায় মিলিত হবে।</p>
+ <div class="sol m" style="line-height:1.85"><b>B বস্তুর ক্ষেত্রে,</b> h = u<sub>B</sub>t − <span class="f"><i>1</i><i>2</i></span>gt<sup>2</sup> &nbsp;[নিক্ষেপ]<br>
+ <b>A বস্তুর ক্ষেত্রে,</b> H − h = u<sub>A</sub>t + <span class="f"><i>1</i><i>2</i></span>gt<sup>2</sup> &nbsp;[h এর মান বসিয়ে]<br>
+ H − u<sub>B</sub>t + <span class="f"><i>1</i><i>2</i></span>gt<sup>2</sup> = <span class="f"><i>1</i><i>2</i></span>gt<sup>2</sup> ⇒ H = u<sub>B</sub>t<br>
+ t = <span class="f"><i>H</i><i>u<sub>B</sub></i></span> = <span class="f"><i>120</i><i>19.6</i></span> = 6.12 s</div>
+ <div class="gv m">A বস্তুর আদিবেগ, u<sub>A</sub> = 0 ms<sup>−1</sup><br>B বস্তুর আদিবেগ, u<sub>B</sub> = 19.6 ms<sup>−1</sup><br>g = 9.8 ms<sup>−2</sup>, উচ্চতা H = 120 m</div>
+ <p>যদি A বস্তুটি মাটিতে পড়তে সময় বেশি লাগে তবে এক্ষেত্রে A ও B বস্তুদ্বয় মিলিত হতে পারবে। A হতে মাটিতে পড়তে প্রয়োজনীয় সময় t′ হলে,</p>
+ <div class="sol m" style="line-height:1.85">H = u<sub>A</sub>t′ + <span class="f"><i>1</i><i>2</i></span>gt′<sup>2</sup> = <span class="f"><i>1</i><i>2</i></span>gt′<sup>2</sup> &nbsp;[u<sub>A</sub> = 0]<br>t′ = <span style="font-size:1.3em">√</span><span class="rt"><span class="f"><i>2H</i><i>g</i></span></span> = <span style="font-size:1.3em">√</span><span class="rt"><span class="f"><i>2×120</i><i>9.8</i></span></span> = 4.95 s &nbsp;⇒ &nbsp;<b>t &gt; t′</b></div>
+ <div class="red">যেহেতু, t এখানে t′ অপেক্ষা বড় ∴ ভূমি ছাড়া বস্তুদ্বয় মিলিত হতে পারবে না।</div>
+</div>
+</div>
+</div></section>
+
+<!-- ============ CQ 2 (a) ============ -->
+<section class="slide"><div class="hd"><h2>প্রশ্ন নং: ০২</h2><small>SOLVED CQ</small></div>
+<div class="bd sm">
+<div class="g21">
+<div>
+ <svg class="sv" viewBox="0 0 300 215" style="width:100%">
+  <line x1="40" y1="22" x2="200" y2="22" stroke="#111" stroke-width="2" stroke-dasharray="6 4"/>
+  <circle cx="110" cy="22" r="7" fill="#fff" stroke="#111" stroke-width="2.5"/><circle cx="110" cy="70" r="7" fill="#fff" stroke="#111" stroke-width="2.5"/><circle cx="110" cy="125" r="7" fill="#fff" stroke="#111" stroke-width="2.5"/><circle cx="110" cy="180" r="7" fill="#fff" stroke="#111" stroke-width="2.5"/>
+  <line x1="110" y1="30" x2="110" y2="170" stroke="#17a35a" stroke-width="2.5" marker-end="url(#mg)"/>
+  <line x1="185" y1="24" x2="185" y2="186" stroke="#e0312e" stroke-width="2.5" marker-end="url(#mr)"/>
+  <line x1="30" y1="187" x2="215" y2="187" stroke="#111" stroke-width="2.5"/><path d="M34 199 L46 187 M58 199 L70 187 M82 199 L94 187 M106 199 L118 187 M130 199 L142 187 M154 199 L166 187 M178 199 L190 187 M202 199 L214 187" stroke="#111" stroke-width="1.4"/>
+  <g font-size="15"><text x="92" y="18">A</text><text x="92" y="75">B</text><text x="92" y="130">C</text><text x="92" y="204">D</text><text x="192" y="110">50 m</text><text x="215" y="30" font-size="13">m = 10 kg</text><text x="215" y="48" font-size="13">g = 9.8 ms⁻²</text></g>
+ </svg>
+</div>
+<div>
+ <div class="q">চিত্রে, A হতে বস্তুটি B বিন্দুতে বিনা বাধায় নেমে আসে এবং এর গতিশক্তি 1960 J</div>
+ <p><span class="lb">ক.</span> বায়োমাস শক্তি কাকে বলে?<br><span class="lb">খ.</span> কোন কোন ক্ষেত্রে কাজ সংঘটিত হয় না?<br><span class="lb">গ.</span> AB = দূরত্ব কত?<br><span class="lb">ঘ.</span> যদি AC = 25 m হয় তবে A, C এবং D বিন্দুতে শক্তির রূপান্তর প্রক্রিয়াটি শক্তির নিত্যতা সূত্র অনুসরণ করে, ব্যাখ্যা কর।</p>
+</div>
+</div>
+<h3 style="color:#c0392b">০২ নং প্রশ্নের উত্তর</h3>
+<div class="g2">
+<div>
+ <div class="def"><span class="lb">ক)</span> যেসকল জৈব পদার্থকে শক্তিতে রূপান্তর করা যায় তাদের বায়োমাস বলে। বায়োমাস থেকে প্রাপ্ত শক্তিকে বায়োমাস শক্তি বলে।</div>
+ <div class="box"><span class="lb">খ)</span> আমরা জানি, <span class="m">W = Fs cos θ</span>। এখানে, F, s ও cos θ এর যেকোনো একটি শূন্য হলেই কাজ W শূন্য হবে। θ = 90° হলে, W = Fs cos 90° = 0<br>∴ F ও S যেকোনো একটি শূন্য হলে এবং বল প্রয়োগে বস্তু বলের লম্ব বরাবর সরে গেলে কাজ সংঘটিত হয় না।</div>
+</div>
+<div>
+ <div class="sol m" style="line-height:1.9"><span class="lb">গ)</span> ধরি, B এর উচ্চতা h<sub>B</sub><br>B অবস্থানে বিভব শক্তি E<sub>p<sub>B</sub></sub> = mgh<sub>A</sub> − E<sub>k<sub>B</sub></sub><br>mgh<sub>B</sub> = 10×9.8×50 − 1960<br>h<sub>B</sub> = <span class="f"><i>2940</i><i>10×9.8</i></span> = 30 m<br>∴ AB = h<sub>A</sub> − h<sub>B</sub> = 50 − 30 = <b>20 m</b></div>
+ <div class="gv m">বস্তুর ভর, m = 10 kg<br>A এর উচ্চতা, h<sub>A</sub> = 50 m<br>B অবস্থান গতিশক্তি, E<sub>k<sub>B</sub></sub> = 1960 J<br>g = 9.8 ms<sup>−2</sup></div>
+</div>
+</div>
+</div></section>
+
+<!-- ============ CQ 2 (b) ============ -->
+<section class="slide"><div class="hd"><h2>প্রশ্ন নং: ০২ — (ঘ)</h2><small>SOLVED CQ</small></div>
+<div class="bd sm">
+<div class="gv m" style="display:flex;gap:10mm"><div>A বিন্দুর উচ্চতা, h<sub>A</sub> = 50 m</div><div>C বিন্দুর উচ্চতা, h<sub>C</sub> = 50 − 25 = 25 m</div><div>D বিন্দুর উচ্চতা, h<sub>D</sub> = 0 m</div><div>A বিন্দুর বেগ, v<sub>A</sub> = 0</div></div>
+<p>We know, <b>মোট শক্তি = গতিশক্তি + বিভব শক্তি</b></p>
+<div class="g3">
+ <div class="sol m" style="line-height:1.9"><b>A বিন্দুর মোট শক্তি,</b><br>E<sub>A</sub> = E<sub>k<sub>A</sub></sub> + E<sub>p<sub>A</sub></sub><br>= <span class="f"><i>1</i><i>2</i></span>mv<sub>A</sub><sup>2</sup> + mgh<sub>A</sub><br>= <span class="f"><i>1</i><i>2</i></span>×10×0 + 10×9.8×50<br><b>= 4900 J</b></div>
+ <div class="sol m" style="line-height:1.9"><b>C বিন্দুতে বস্তুর বেগ,</b><br>v<sub>C</sub> = <span style="font-size:1.3em">√</span><span class="rt">2g(h<sub>A</sub> − h<sub>C</sub>)</span><br>= <span style="font-size:1.3em">√</span><span class="rt">2×9.8(50 − 25)</span><br>= 22.13 ms<sup>−1</sup> &nbsp;(v<sub>C</sub><sup>2</sup> = 490)<br><b>C বিন্দুর মোট শক্তি,</b><br>E<sub>C</sub> = <span class="f"><i>1</i><i>2</i></span>mv<sub>C</sub><sup>2</sup> + mgh<sub>C</sub><br>= <span class="f"><i>1</i><i>2</i></span>×10×490 + 10×9.8×25<br><b>= 4900 J</b></div>
+ <div class="sol m" style="line-height:1.9"><b>D বিন্দুতে বস্তুর বেগ,</b><br>v<sub>D</sub><sup>2</sup> = u<sup>2</sup> + 2gh<br>= 0 + 2×9.8×50 = 980 m<sup>2</sup>s<sup>−2</sup><br><b>D বিন্দুর মোট শক্তি,</b><br>E<sub>D</sub> = <span class="f"><i>1</i><i>2</i></span>mv<sub>D</sub><sup>2</sup> + mgh<sub>D</sub><br>= <span class="f"><i>1</i><i>2</i></span>×10×980 + 10×9.8×0<br><b>= 4900 J</b></div>
+</div>
+<div class="fm">∴ E<sub>A</sub> = E<sub>C</sub> = E<sub>D</sub></div>
+<div class="def">∴ A, C, D বিন্দুতে শক্তির রূপান্তর প্রক্রিয়া শক্তির নিত্যতা সূত্র অনুসরণ করে।</div>
+</div></section>
+
+<!-- ============ CQ 3 ============ -->
+<section class="slide"><div class="hd"><h2>প্রশ্ন নং: ০৩</h2><small>SOLVED CQ</small></div>
+<div class="bd sm">
+<div class="q">120 m উচ্চতায় 20 kg ভরের একটি বস্তু রাখা আছে।</div>
+<p><span class="lb">ক.</span> কর্মদক্ষতা কাকে বলে? &nbsp; <span class="lb">খ.</span> লব্ধ কার্যকর শক্তি কর্মদক্ষতার ওপর নির্ভর করে কেন? &nbsp; <span class="lb">গ.</span> বস্তুটির মুক্তভাবে পড়তে দিলে ভূমি স্পর্শের ঠিক পূর্ব মুহূর্তে বেগ কত হবে? &nbsp; <span class="lb">ঘ.</span> ভূমি হতে কত উচ্চতায় পড়ন্ত বস্তুর গতিশক্তি বিভব শক্তির এক-তৃতীয়াংশ হবে? গাণিতিকভাবে বিশ্লেষণ কর।</p>
+<h3 style="color:#c0392b">০৩ নং প্রশ্নের উত্তর</h3>
+<div class="g2">
+<div>
+ <div class="def"><span class="lb">ক)</span> কোনো যন্ত্রের কার্যকর ক্ষমতা ও ঐ যন্ত্রের প্রদত্ত ক্ষমতার অনুপাতকে কর্মদক্ষতা বলে।</div>
+ <div class="box"><span class="lb">খ)</span> কর্মদক্ষতা হচ্ছে কোনো যন্ত্রের মোট গৃহীত শক্তির কত অংশ কাজে রূপান্তরিত হতে পারে তার শতকরা। কর্মদক্ষতা যত বেশি সেটি তার দ্বারা শোষিত শক্তির তত বেশি অংশ কাজে রূপান্তরিত করতে সক্ষম। কর্মদক্ষতা কমের ক্ষেত্রেও দেখা যায় গৃহীত শক্তির কম অংশ কাজে রূপান্তরিত হয়। তাই বলা যায়, কর্মদক্ষতা লভ্য কার্যকর শক্তির উপর নির্ভর করে।</div>
+ <div class="sol m" style="line-height:1.9"><span class="lb">গ)</span> মুক্তভাবে ছেড়ে দিলে ভূমি স্পর্শের পূর্বমুহূর্তে বেগ v,<br>v = <span style="font-size:1.3em">√</span><span class="rt">u<sup>2</sup> + 2gh</span> = <span style="font-size:1.3em">√</span><span class="rt">0<sup>2</sup> + 2×9.8×120</span> = <b>48.5 ms<sup>−1</sup></b></div>
+ <div class="gv m">m = 20 kg, h = 120 m, g = 9.8 ms<sup>−2</sup>, u = 0 [স্থির ছিল]</div>
+</div>
+<div>
+ <span class="lb">ঘ)</span> ধরি, ভূমি হতে x উচ্চতায় পড়ন্ত বস্তুটির গতিশক্তি বিভব শক্তির এক-তৃতীয়াংশ হবে। এক্ষেত্রে বস্তুর উচ্চতা, h = 120 m
+ <div style="display:grid;grid-template-columns:1.3fr 1fr;gap:3mm;align-items:center">
+ <div class="sol m" style="line-height:1.9">x উচ্চতায় বিভব শক্তি = mgx<br>গতিশক্তি = <span class="f"><i>1</i><i>3</i></span>×mgx<br>∴ mgx + <span class="f"><i>1</i><i>3</i></span>mgx = mgh<br><span class="f"><i>4</i><i>3</i></span>mgx = mgh ⇒ <span class="f"><i>4</i><i>3</i></span>x = h<br>x = <span class="f"><i>3</i><i>4</i></span>×120 = <b>90 m</b></div>
+ <svg viewBox="0 0 140 190" style="width:100%"><line x1="10" y1="20" x2="110" y2="20" stroke="#111" stroke-width="2" stroke-dasharray="5 4"/><circle cx="70" cy="20" r="6" fill="#fff" stroke="#111" stroke-width="2.5"/><line x1="70" y1="27" x2="70" y2="165" stroke="#17a35a" stroke-width="2.5" marker-end="url(#mg)"/><line x1="115" y1="22" x2="115" y2="167" stroke="#e0312e" stroke-width="2.5" marker-end="url(#mr)"/><line x1="25" y1="100" x2="25" y2="167" stroke="#e0312e" stroke-width="2.5" marker-end="url(#mr)" marker-start="url(#mr)"/><line x1="10" y1="170" x2="135" y2="170" stroke="#111" stroke-width="2.5"/><g font-size="13"><text x="40" y="90">x</text><text x="62" y="130">…</text><text x="75" y="105" font-size="11">120 m</text></g></svg>
+ </div>
+ <div class="def">ভূমি হতে 90 m উচ্চতায় বস্তুর গতিশক্তি বিভব শক্তির এক-তৃতীয়াংশ হবে।</div>
+</div>
+</div>
+</div></section>
+
+<!-- ============ CQ 4 (a) ============ -->
+<section class="slide"><div class="hd"><h2>প্রশ্ন নং: ০৪</h2><small>SOLVED CQ</small></div>
+<div class="bd">
+<div class="q">একটি বস্তুর ভর 20 g। বস্তুটিকে নির্দিষ্ট বেগে বাধাহীনভাবে খাড়া উপরের দিকে নিক্ষেপ করা হলো। 10 s পর ভূপৃষ্ঠ থেকে সর্বোচ্চ উচ্চতায় পৌঁছায়।</div>
+<p><span class="lb">ক.</span> গতিশক্তি কাকে বলে? &nbsp;&nbsp;<span class="lb">খ.</span> ক্ষমতার মাত্রা নির্ণয় কর। &nbsp;&nbsp;<span class="lb">গ.</span> নিক্ষিপ্ত বস্তুর সর্বোচ্চ কত উচ্চতায় পৌঁছেছিল? &nbsp;&nbsp;<span class="lb">ঘ.</span> নিক্ষেপের 4 s পর বস্তুটির অর্জিত যান্ত্রিক শক্তি নির্ণয় কর।</p>
+<h3 style="color:#c0392b">০৪ নং প্রশ্নের উত্তর</h3>
+<div class="def"><span class="lb">ক)</span> কোনো গতিশীল বস্তু তার গতির জন্য কাজ করার যে সামর্থ্য লাভ করে তাকে গতিশক্তি বলে।</div>
+<div class="g2">
+<div class="sol m" style="line-height:2.25"><span class="lb">খ)</span> We know, ক্ষমতা = <span class="f"><i>কাজ</i><i>সময়</i></span><br>= <span class="f"><i>বল × সরণ</i><i>সময়</i></span> = <span class="f"><i>ভর × ত্বরণ × সরণ</i><i>সময়</i></span><br>= <span class="f"><i>ভর × সরণ × সরণ</i><i>(সময়)<sup>2</sup> × সময়</i></span><br>= <span class="f"><i>ভর × (দৈর্ঘ্য)<sup>2</sup></i><i>(সময়)<sup>3</sup></i></span></div>
+<div>
+ <div class="fm m" style="line-height:2.1;margin-top:8mm">[P] = <span class="f"><i>ML<sup>2</sup></i><i>T<sup>3</sup></i></span><br>= ML<sup>2</sup>T<sup>−3</sup></div>
+</div>
+</div>
+</div></section>
+
+<!-- ============ CQ 4 (b) ============ -->
+<section class="slide"><div class="hd"><h2>প্রশ্ন নং: ০৪ — (গ) ও (ঘ)</h2><small>SOLVED CQ</small></div>
+<div class="bd sm">
+<div class="g2">
+<div>
+ <span class="lb">গ)</span> ধরি, নিক্ষিপ্ত বস্তু সর্বোচ্চ h উচ্চতায় পৌঁছাবে। We know,
+ <div class="sol m" style="line-height:2">v = u − gt ⇒ u = v + gt = gt<br>= 9.8×10 = 98 ms<sup>−1</sup><br>আবার, v<sup>2</sup> = u<sup>2</sup> − 2gh ⇒ h = <span class="f"><i>u<sup>2</sup> − v<sup>2</sup></i><i>2g</i></span><br>= <span class="f"><i>98<sup>2</sup></i><i>2×9.8</i></span> = <b>490 m</b></div>
+ <div class="gv m">সর্বোচ্চ উচ্চতায় বেগ, v = 0<br>সময়, t = 10 s<br>g = 9.8 ms<sup>−2</sup><br>নিক্ষিপ্ত বেগ, u = ?</div>
+</div>
+<div>
+ <span class="lb">ঘ)</span> 4 s এ অতিক্রান্ত দূরত্ব,
+ <div class="sol m" style="line-height:1.95">h = ut − <span class="f"><i>1</i><i>2</i></span>gt<sup>2</sup> = 98×4 − <span class="f"><i>1</i><i>2</i></span>×9.8×4<sup>2</sup> = 313.6 m<br>আবার, 4 s পর বেগ, v = u − gt = 98 − 9.8×4 = 58.8 ms<sup>−1</sup><br>∴ 4 s পর বস্তুটির অর্জিত যান্ত্রিক শক্তি = E<sub>k</sub> + E<sub>p</sub><br>= <span class="f"><i>1</i><i>2</i></span>mv<sup>2</sup> + mgh<br>= <span class="f"><i>1</i><i>2</i></span>×0.02×(58.8)<sup>2</sup> + 0.02×9.8×313.6<br><b>= 96.04 J</b></div>
+ <div class="gv m">আদিবেগ, u = 98 ms<sup>−1</sup><br>সময়, t = 4 s<br>ভর, m = 20 g = 0.02 kg</div>
+</div>
+</div>
+</div></section>
+
+<!-- ============ CQ 5 (a) ============ -->
+<section class="slide"><div class="hd"><h2>প্রশ্ন নং: ০৫</h2><small>SOLVED CQ</small></div>
+<div class="bd">
+<div class="q">একটি যন্ত্রের সাহায্যে 500 kg পানি 5 মিনিটে 50 m উচ্চতায় উঠানো হলো। যন্ত্রটির কর্মদক্ষতা 45%. আবার, 4 kg ভরের একটি বস্তুকে 40 ms<sup>−1</sup> বেগে খাড়া উপরের দিকে নিক্ষেপ করা হলো।</div>
+<p><span class="lb">ক.</span> কাজ কাকে বলে?<br><span class="lb">খ.</span> কর্মদক্ষতার মান 1 এর বেশি হয় না কেন?<br><span class="lb">গ.</span> উক্ত বস্তুটির কত উচ্চতায় বিভবশক্তি গতিশক্তির দ্বিগুণ হবে?<br><span class="lb">ঘ.</span> যন্ত্রটির কর্মদক্ষতা 10% বেশি হলে ব্যয়িত শক্তির কি পরিমাণ পরিবর্তন হবে তা গাণিতিকভাবে বিশ্লেষণ কর।</p>
+<h3 style="color:#c0392b">০৫ নং প্রশ্নের উত্তর</h3>
+<div class="def"><span class="lb">ক)</span> কোনো বস্তুর উপর প্রযুক্ত বল ও বলের দিকে সরণের উপাংশের গুণফলকে কাজ বলে।</div>
+<div class="box"><span class="lb">খ)</span> কর্মদক্ষতা হলো মোট কার্যকর শক্তি ও মোট প্রদত্ত শক্তির অনুপাত।
+<div class="m" style="text-align:center;margin:1mm">কর্মদক্ষতা = <span class="f"><i>লভ্য কার্যকর শক্তি</i><i>মোট প্রদত্ত শক্তি</i></span></div>
+কোনো যন্ত্র মোট প্রদত্ত শক্তির চেয়ে বেশি শক্তি ব্যবহারে কাজ করতে পারে না। তাই কর্মদক্ষতার মান 1 এর বেশি হয় না।</div>
+</div></section>
+
+<!-- ============ CQ 5 (b) ============ -->
+<section class="slide"><div class="hd"><h2>প্রশ্ন নং: ০৫ — (গ) ও (ঘ)</h2><small>SOLVED CQ</small></div>
+<div class="bd sm">
+<div class="g2">
+<div>
+ <span class="lb">গ)</span> ধরি, h উচ্চতায় বস্তুর বিভব শক্তি গতি শক্তির দ্বিগুণ হবে।
+ <div class="sol m" style="line-height:1.95"><b>শর্তমতে,</b> E<sub>p</sub> = 2E<sub>k</sub><br>mgh = 2×<span class="f"><i>1</i><i>2</i></span>mv<sup>2</sup> ⇒ gh = v<sup>2</sup><br>বা, gh = u<sup>2</sup> − 2gh &nbsp;[v<sup>2</sup> = u<sup>2</sup> − 2gh]<br>বা, 3gh = u<sup>2</sup><br>বা, h = <span class="f"><i>u<sup>2</sup></i><i>3g</i></span> = <span class="f"><i>40<sup>2</sup></i><i>3×9.8</i></span> = <b>54.42 m</b></div>
+ <div class="gv m">নিক্ষিপ্ত বেগ, u = 40 ms<sup>−1</sup><br>g = 9.8 ms<sup>−2</sup><br>বস্তুর ভর, m = 4 kg</div>
+ <div class="def">ভূমি হতে 54.42 m উচ্চতায় বিভবশক্তি গতিশক্তির দ্বিগুণ হবে।</div>
+</div>
+<div>
+ <span class="lb">ঘ)</span>
+ <div class="sol m" style="line-height:1.9">কার্যকর শক্তি W = mgh = 500×9.8×50 = 245000 J<br>
+ ব্যয়িত শক্তি = <span class="f"><i>কার্যকর শক্তি</i><i>η</i></span><br>
+ পরিবর্তিত ব্যয়িত শক্তি − যন্ত্রটির ব্যয়িত শক্তি<br>= <span class="f"><i>245000</i><i>55%</i></span> − <span class="f"><i>245000</i><i>45%</i></span><br>= 445454.55 J − 544444.44 J<br><b>= −98989.9 J</b></div>
+ <div class="gv m">পানির ভর, m = 500 kg<br>সময়, t = 5 min = 300 s<br>g = 9.8 ms<sup>−2</sup>, উচ্চতা, h = 50 m<br>কর্মদক্ষতা, η = 45%<br>10% বৃদ্ধিতে η = (45 + 10)% = 55%</div>
+ <div class="def">যেহেতু মান ঋণাত্মক, সুতরাং এখানে ব্যয়িত শক্তি হ্রাস দেখা যাচ্ছে। ব্যয়িত শক্তি 98989.9 J হ্রাস পায়।</div>
+</div>
+</div>
+</div></section>
+
+<!-- ============ CQ 6 (a) ============ -->
+<section class="slide"><div class="hd"><h2>প্রশ্ন নং: ০৬</h2><small>SOLVED CQ</small></div>
+<div class="bd">
+<div class="q"><b>দৃশ্যপট-১ :</b> 588W ক্ষমতার একজন লোক 300g ভরের একটি বলকে 40m/s বেগে উপরের দিকে ছুঁড়ে দেন।<br><b>দৃশ্যপট-২ :</b> 2KW ক্ষমতার একটি মোটর 20s এ 100kg ভরের একটি বস্তুকে 20m উচ্চতায় তুলতে পারে।</div>
+<p><span class="lb">ক.</span> এক জুল কাকে বলে ?<br><span class="lb">খ.</span> ভরবেগ ও গতিশক্তি মধ্যে সম্পর্ক ব্যাখ্যা কর।<br><span class="lb">গ.</span> দৃশ্যপট -১ এ কত উচ্চতায় ক্রিকেট বলটির বিভব শক্তি ও গতিশক্তি সমান হবে?<br><span class="lb">ঘ.</span> দৃশ্যপট-২ এ মোটরের কর্মদক্ষতা নির্ণয়ের মাধ্যমে শক্তির অপচয়ের পরিমাণ ও প্রক্রিয়া ব্যাখ্যা কর।</p>
+<h3 style="color:#c0392b">০৬ নং প্রশ্নের উত্তর</h3>
+<div class="def"><span class="lb">ক)</span> কোনো বস্তুর ওপর এক নিউটন বল প্রয়োগের ফলে যদি বস্তুটির বলের দিকে এক মিটার সরণ হয় তবে সম্পন্ন কাজের পরিমাণকে এক জুল বলে।</div>
+<div class="sol m" style="line-height:2"><span class="lb">খ)</span> গতিশক্তি, E<sub>k</sub> = <span class="f"><i>1</i><i>2</i></span>mv<sup>2</sup> &nbsp;&nbsp;|&nbsp;&nbsp; ভরবেগ, P = mv ⇒ P<sup>2</sup> = m<sup>2</sup>v<sup>2</sup><br>
+<span class="f"><i>P<sup>2</sup></i><i>2m</i></span> = <span class="f"><i>mv<sup>2</sup></i><i>2</i></span> ⇒ <span class="f"><i>P<sup>2</sup></i><i>2m</i></span> = E<sub>k</sub><br>
+বস্তুর ভর ধ্রুবক তাই E<sub>k</sub> ∝ P<sup>2</sup> &nbsp;— <b>গতিশক্তি বস্তুর ভরবেগের বর্গের সমানুপাতিক।</b></div>
+</div></section>
+
+<!-- ============ CQ 6 (b) ============ -->
+<section class="slide"><div class="hd"><h2>প্রশ্ন নং: ০৬ — (গ) ও (ঘ)</h2><small>SOLVED CQ</small></div>
+<div class="bd sm">
+<div class="g2">
+<div>
+ <span class="lb">গ)</span> ধরি, h উচ্চতায় বলটির বিভব শক্তি ও গতিশক্তি সমান।
+ <div class="sol m" style="line-height:1.95">E<sub>p</sub> = E<sub>k</sub><br>বা, mgh = <span class="f"><i>1</i><i>2</i></span>mv<sup>2</sup><br>বা, gh = <span class="f"><i>1</i><i>2</i></span>(u<sup>2</sup> − 2gh)<br>বা, gh = <span class="f"><i>1</i><i>2</i></span>u<sup>2</sup> − gh<br>বা, 2gh = <span class="f"><i>1</i><i>2</i></span>u<sup>2</sup> ⇒ 4gh = u<sup>2</sup><br>বা, h = <span class="f"><i>u<sup>2</sup></i><i>4g</i></span> = <span class="f"><i>40<sup>2</sup></i><i>4×9.8</i></span> = <b>40.82 m</b></div>
+ <div class="gv m">নিক্ষিপ্ত বেগ, u = 40 ms<sup>−1</sup><br>g = 9.8 ms<sup>−2</sup><br>বিভব শক্তি E<sub>p</sub>, গতিশক্তি E<sub>k</sub></div>
+</div>
+<div>
+ <span class="lb">ঘ)</span>
+ <div class="sol m" style="line-height:1.9">মোটরের কার্যকর ক্ষমতা, P′ = <span class="f"><i>mgh</i><i>t</i></span> = <span class="f"><i>100×9.8×20</i><i>20</i></span> = 980 W<br>
+ মোটরটির কর্মদক্ষতা, η = <span class="f"><i>P′</i><i>P</i></span>×100% = <span class="f"><i>980</i><i>2000</i></span>×100% = 49% = 0.49<br>
+ শক্তির অপচয় = (1 − η)Pt = (1 − 0.49)×2000×20 = <b>20400 J</b><br>
+ প্রদানকৃত শক্তি, Pt = 2000×20 = 40000 J</div>
+ <div class="gv m">বস্তুর ভর, m = 100 kg<br>সময়, t = 20 s<br>মোটরের ক্ষমতা, P = 2 KW<br>উচ্চতা, h = 20 m</div>
+ <div class="def">দেখা যায় 40000 J শক্তি প্রদানে 20400 J শক্তি অপচয় হয়।</div>
+</div>
+</div>
+</div></section>
+
+<!-- ============ CQ 7 (a) ============ -->
+<section class="slide"><div class="hd"><h2>প্রশ্ন নং: ০৭</h2><small>SOLVED CQ</small></div>
+<div class="bd">
+<div class="q">৩টি মোটরের কর্মদক্ষতা যথাক্রমে 35%, 40%, 45%. তাদের প্রত্যেকটির ক্ষমতা 0.5 KW. প্রথম মোটরের সাহায্যে ভূপৃষ্ঠ হতে 20m উচ্চতায় রাখা ট্যাংকে পানি তুলতে 5 min সময় লাগে।</div>
+<p><span class="lb">ক.</span> ক্ষমতা কাকে বলে?<br><span class="lb">খ.</span> সমান বল প্রয়োগ করলেও সকল ক্ষেত্রে কাজ সমান হয় না কেন?<br><span class="lb">গ.</span> ট্যাংকটি পূর্ণ অবস্থায় পানির অর্জিত বিভব শক্তি নির্ণয় কর।<br><span class="lb">ঘ.</span> তিনটি মোটর দিয়ে পৃথকভাবে ট্যাংকটি পূর্ণ করার জন্য কৃতকার্যের কোনো পরিবর্তন হবে কি? যৌক্তিক মতামত দাও।</p>
+<h3 style="color:#c0392b">০৭ নং প্রশ্নের উত্তর</h3>
+<div class="def"><span class="lb">ক)</span> একক সময়ে কৃতকাজকে ক্ষমতা বলে।</div>
+<div class="box"><span class="lb">খ)</span> আমরা জানি, কাজ = বল × বলের দিকে সরণের উপাংশ। F বল প্রয়োগের ফলে বলের দিকের সরণ S হলে, কাজ = W = Fs. আবার সরণ θ কোণে হলে W = Fs cosθ. θ যদি 90° হয় তবে W = 0 হয়।<br>তাই বলা যায় সমান বল প্রয়োগ করা হলেও সকল ক্ষেত্রে কাজ সমান হয় না।</div>
+</div></section>
+
+<!-- ============ CQ 7 (b) ============ -->
+<section class="slide"><div class="hd"><h2>প্রশ্ন নং: ০৭ — (গ) ও (ঘ)</h2><small>SOLVED CQ</small></div>
+<div class="bd sm">
+<div class="g2">
+<div>
+ <span class="lb">গ)</span> We know, η = <span class="f"><i>P′</i><i>P</i></span>
+ <div class="sol m" style="line-height:1.95">P′ = ηP = 35%×500 W = 175 W<br>ধরি, ট্যাংকের পানির ভর m kg, পানির অর্জিত বিভব শক্তি V<br><span class="f"><i>mgh</i><i>t</i></span> = 175 ⇒ mgh = 175×300<br><b>V = mgh = 52500 J</b></div>
+ <div class="gv m">মোটরের কর্মদক্ষতা, η = 35%<br>ক্ষমতা, P = 0.5KW = 500W<br>ট্যাংকের উচ্চতা, h = 20 m<br>সময়, t = 5 min = 300s</div>
+</div>
+<div>
+ <span class="lb">ঘ)</span> গ হতে পাই, V = 52500 J
+ <div class="sol m" style="line-height:1.9">mgh = 52500 ⇒ m = <span class="f"><i>52500</i><i>9.8×20</i></span> = 267.85 kg<br>
+ ১ম মোটর কর্তৃক কৃত কাজ, W = Pt = mgh = 52500 J, t<sub>1</sub> = 5 min<br>
+ W = P<sub>2</sub>t<sub>2</sub> = η<sub>2</sub>Pt<sub>2</sub> ⇒ t<sub>2</sub> = <span class="f"><i>W</i><i>η<sub>2</sub>P</i></span> = <span class="f"><i>52500</i><i>0.40×500</i></span> = 262.5 s = 4.375 min<br>
+ t<sub>3</sub> = <span class="f"><i>W</i><i>η<sub>3</sub>P</i></span> = <span class="f"><i>52500</i><i>0.45×500</i></span> = 233.33 s = 3.89 min<br>
+ <b>t<sub>1</sub> ≠ t<sub>2</sub> ≠ t<sub>3</sub></b></div>
+ <div class="gv m">১ম মোটরের η<sub>1</sub> = 35%, ২য় মোটরের η<sub>2</sub> = 40%, ৩য় মোটরের η<sub>3</sub> = 45%, P = 500 W</div>
+ <div class="def">কৃতকাজের পরিবর্তন না হলেও সময়ের পরিবর্তন লক্ষ করা যায়।</div>
+</div>
+</div>
+</div></section>
+
+<!-- ============ CQ 8 (a) ============ -->
+<section class="slide"><div class="hd"><h2>প্রশ্ন নং: ০৮</h2><small>SOLVED CQ</small></div>
+<div class="bd">
+<div class="q">রহিমের ভর 40 kg করিমের ভর 80 kg. তারা উভয়েই নির্দিষ্ট অবস্থান থেকে 200m দৌড় প্রতিযোগিতা শুরু করলে যথাক্রমে 100s ও 200s এ গন্তব্যে পৌঁছায়। প্রতিযোগিতা শেষে তাদের বিজ্ঞান শিক্ষক বলেন, তোমাদের দুজনের ক্ষমতা ভিন্ন হলেও কৃতকাজ সমান হয়েছে।</div>
+<p><span class="lb">ক.</span> এক ওয়াট = কত Hp?<br><span class="lb">খ.</span> কোনো যন্ত্রের কর্মদক্ষতা 70% বলতে কী বোঝায়?<br><span class="lb">গ.</span> প্রথম বালকের কর্মদক্ষতা 40% হলে ক্ষমতা কত?<br><span class="lb">ঘ.</span> বিজ্ঞান শিক্ষকের উক্তিটির যৌক্তিক কারণ ছিল কি? তোমার মতামত দাও।</p>
+<h3 style="color:#c0392b">০৮ নং প্রশ্নের উত্তর</h3>
+<div class="def"><span class="lb">ক)</span> এক ওয়াট = 1.34×10<sup>−3</sup> Hp</div>
+<div class="box"><span class="lb">খ)</span> কোনো যন্ত্রের কর্মদক্ষতা 70% বলতে বোঝায়, ঐ যন্ত্রে 100 J শক্তি দেয়া হলে তা থেকে 70 J লভ্য কার্যকর শক্তি হবে।
+<div class="m" style="text-align:center;margin-top:1mm">η = <span class="f"><i>E<sub>output</sub></i><i>E<sub>Input</sub></i></span> × 100% &nbsp;&nbsp;অথবা&nbsp;&nbsp; η = <span class="f"><i>P<sub>output</sub></i><i>P<sub>Input</sub></i></span> × 100%</div></div>
+</div></section>
+
+<!-- ============ CQ 8 (b) ============ -->
+<section class="slide"><div class="hd"><h2>প্রশ্ন নং: ০৮ — (গ) ও (ঘ)</h2><small>SOLVED CQ</small></div>
+<div class="bd sm">
+<div class="g2">
+<div>
+ <span class="lb">গ)</span> ১ম বালকের কার্যকর ক্ষমতা, P<sub>1</sub> = <span class="f"><i>m<sub>1</sub>a<sub>1</sub>s</i><i>t<sub>1</sub></i></span> …(i)
+ <div class="sol m" style="line-height:1.95">এখানে, s = u<sub>1</sub>t + <span class="f"><i>1</i><i>2</i></span>a<sub>1</sub>t<sub>1</sub><sup>2</sup> ⇒ s = <span class="f"><i>1</i><i>2</i></span>a<sub>1</sub>t<sub>1</sub><sup>2</sup><br>a<sub>1</sub> = <span class="f"><i>2s</i><i>t<sub>1</sub><sup>2</sup></i></span> = <span class="f"><i>2×200</i><i>100<sup>2</sup></i></span> = 0.04 ms<sup>−2</sup><br>(i) নং এ a এর মান বসিয়ে, P<sub>1</sub> = <span class="f"><i>40×0.04×200</i><i>100</i></span> = 3.2 W<br>ক্ষমতা = <span class="f"><i>P<sub>1</sub></i><i>η</i></span> = <span class="f"><i>3.2</i><i>0.4</i></span> = <b>8 W</b></div>
+ <div class="gv m">অতিক্রান্ত দূরত্ব, s = 200 m<br>সময়, t = 100 s<br>কর্মদক্ষতা, η = 40%</div>
+</div>
+<div>
+ <span class="lb">ঘ)</span>
+ <div class="sol m" style="line-height:1.85">১ম বালকের কৃতকাজ, W<sub>1</sub> = m<sub>1</sub>a<sub>1</sub>s = 40×0.04×200 = 320 J<br>
+ ত্বরণ, a<sub>2</sub> = <span class="f"><i>2s</i><i>t<sub>2</sub><sup>2</sup></i></span> = <span class="f"><i>2×200</i><i>200<sup>2</sup></i></span> = 0.01 ms<sup>−2</sup><br>
+ ২য় বালকের কৃতকাজ, W<sub>2</sub> = m<sub>2</sub>a<sub>2</sub>s = 80×0.01×200 = 160 J<br>
+ কার্যকর ক্ষমতা P<sub>2</sub> = <span class="f"><i>W<sub>2</sub></i><i>t<sub>2</sub></i></span> = <span class="f"><i>160</i><i>200</i></span> = 0.8 W<br>
+ <b>W<sub>1</sub> ≠ W<sub>2</sub> &nbsp;,&nbsp; P<sub>1</sub> ≠ P<sub>2</sub></b></div>
+ <div class="gv m">s = 200 m, t<sub>2</sub> = 200 s<br>m<sub>2</sub> = 80 kg, m<sub>1</sub> = 40 kg<br>P<sub>1</sub> = 3.2 W</div>
+ <div class="red">∴ বিজ্ঞান শিক্ষকের উক্তিটির কোনো যৌক্তিক কারণ ছিল না।</div>
+</div>
+</div>
+</div></section>
+
+<!-- ============ CQ 9 (a) ============ -->
+<section class="slide"><div class="hd"><h2>প্রশ্ন নং: ০৯</h2><small>SOLVED CQ</small></div>
+<div class="bd">
+<div class="q">1 kW ক্ষমতার একটি ইঞ্জিন দ্বারা 100 kg পানি 5m উচ্চতায় তুলতে 10s সময় লাগে।</div>
+<p><span class="lb">ক.</span> হটস্পট কি?<br><span class="lb">খ.</span> কোনো বৈদ্যুতিক উৎপাদন কেন্দ্রের ক্ষমতা 200 MW বলতে কী বোঝায়?<br><span class="lb">গ.</span> সম্পূর্ণ পানি উত্তোলন করতে কৃতকাজের পরিমাণ নির্ণয় কর।<br><span class="lb">ঘ.</span> যদি সম্পূর্ণ পানি উত্তোলন করতে 2s সময় বেশি লাগে তবে কর্মদক্ষতার কিরূপ পরিবর্তন হবে বিশ্লেষণ কর।</p>
+<h3 style="color:#c0392b">০৯ নং প্রশ্নের উত্তর</h3>
+<div class="def"><span class="lb">ক)</span> ভূতাত্ত্বিক পরিবর্তনের ফলে গলিত ম্যাগমা উপরের দিকে উঠে যে স্থানে জমা হয় তাকে হটস্পট বলে।</div>
+<div class="box"><span class="lb">খ)</span> কোনো বৈদ্যুতিক উৎপাদন কেন্দ্রের ক্ষমতা 200 MW বলতে বোঝায়, ঐ বৈদ্যুতিক উৎপাদন কেন্দ্র হতে প্রতি সেকেন্ডে 200 MJ শক্তি সরবরাহ হয়।</div>
+</div></section>
+
+<!-- ============ CQ 9 (b) ============ -->
+<section class="slide"><div class="hd"><h2>প্রশ্ন নং: ০৯ — (গ) ও (ঘ)</h2><small>SOLVED CQ</small></div>
+<div class="bd sm">
+<div class="g2">
+<div>
+ <span class="lb">গ)</span> আমরা জানি,
+ <div class="sol m" style="line-height:2">W = mgh = 100×9.8×5 = <b>4.9×10<sup>3</sup> J</b></div>
+ <div class="gv m">পানির ভর, m = 100 kg<br>উচ্চতা, h = 5 m<br>কৃতকাজ, W = ?</div>
+ <div class="def">∴ সম্পূর্ণ পানি উত্তোলনে কৃতকাজ 4.9×10<sup>3</sup> J</div>
+</div>
+<div>
+ <span class="lb">ঘ)</span>
+ <div class="sol m" style="line-height:1.85"><b>১ম বার</b> কার্যকর ক্ষমতা, P<sub>1</sub> = <span class="f"><i>W</i><i>t<sub>1</sub></i></span> = <span class="f"><i>4.9×10<sup>3</sup></i><i>10</i></span> = 490 W<br>
+ <b>২য় বার</b> কার্যকর ক্ষমতা, P<sub>2</sub> = <span class="f"><i>W</i><i>t<sub>2</sub></i></span> = <span class="f"><i>4.9×10<sup>3</sup></i><i>12</i></span> = 408.32 W<br>
+ ১ম বার কর্মদক্ষতা, η<sub>1</sub> = <span class="f"><i>P<sub>1</sub></i><i>P</i></span>×100% = <span class="f"><i>490</i><i>1000</i></span>×100% = 49 %<br>
+ ২য় বার কর্মদক্ষতা, η<sub>2</sub> = <span class="f"><i>P<sub>2</sub></i><i>P</i></span>×100% = <span class="f"><i>408.32</i><i>1000</i></span>×100% = 40.833 %<br>
+ <b>কর্মদক্ষতা হ্রাস পায় = (49 − 40.833)% = 8.167 %</b></div>
+ <div class="gv m">কৃতকাজ, W = 4.9×10<sup>3</sup> J<br>সময়, t = 10 s<br>2 s পর t = 10 + 2 = 12 s<br>ক্ষমতা, P = 1 KW = 1000 W</div>
+</div>
+</div>
+</div></section>
+
+<!-- ============ CQ 10 (a) ============ -->
+<section class="slide"><div class="hd"><h2>প্রশ্ন নং: ১০</h2><small>SOLVED CQ</small></div>
+<div class="bd">
+<div class="q">8 kg ও 4 kg ভরের দুটি বস্তু একই সরলরেখা বরাবর চলছিল। উহাদের বেগ 15 ms<sup>−1</sup> ও 10 ms<sup>−1</sup> যথাক্রমে ছিল। কোনো এক সময় প্রথম বস্তুটি দ্বিতীয় বস্তুটিকে ধাক্কা দেয়। ফলে প্রথম বস্তুর বেগ 10 ms<sup>−1</sup> হয়।</div>
+<p><span class="lb">ক.</span> নিউক্লিয় শক্তি কি?<br><span class="lb">খ.</span> একটি হালকা বস্তু ও একটি ভারী বস্তু উভয়ের ভরবেগ সমান হলে কোনটির গতিশক্তি বেশি হবে?<br><span class="lb">গ.</span> প্রথম বস্তুর বলের ঘাত কত?<br><span class="lb">ঘ.</span> উদ্দীপকের ঘটনায় গতিশক্তি সংরক্ষিত হয় কি? গাণিতিকভাবে বিশ্লেষণ কর।</p>
+<h3 style="color:#c0392b">১০ নং প্রশ্নের উত্তর</h3>
+<div class="def"><span class="lb">ক)</span> নিউক্লিয় ফিশন বিক্রিয়ায় উৎপন্ন শক্তিই নিউক্লিয় শক্তি।</div>
+<div class="box"><span class="lb">খ)</span> আমরা জানি, ভরবেগ ও গতিশক্তি মধ্যে সম্পর্ক—
+<div class="m" style="text-align:center;margin:1mm">T = <span class="f"><i>P<sup>2</sup></i><i>2m</i></span> &nbsp;⇒&nbsp; T ∝ <span class="f"><i>1</i><i>m</i></span></div>
+তাহলে বলা যায় যার ভর বেশি তার গতিশক্তি কম। তাই একটি হালকা এবং একটি ভারী বস্তুর ভরবেগ সমান হলে <b>হালকা বস্তুর গতিশক্তি ভারী বস্তু অপেক্ষা বেশি।</b></div>
+</div></section>
+
+<!-- ============ CQ 10 (b) ============ -->
+<section class="slide"><div class="hd"><h2>প্রশ্ন নং: ১০ — (গ) ও (ঘ)</h2><small>SOLVED CQ</small></div>
+<div class="bd sm">
+<div class="g2">
+<div>
+ <span class="lb">গ)</span> আমরা জানি,
+ <div class="sol m" style="line-height:1.95">বলের ঘাত = ভরবেগের পরিবর্তন<br>= m<sub>1</sub>(u<sub>1</sub> − v<sub>1</sub>) = 8 (15 − 10)<br>= <b>40 kgms<sup>−1</sup></b></div>
+ <div class="gv m">প্রথম বস্তুর ভর, m<sub>1</sub> = 8 kg<br>সংঘর্ষের পূর্বে ১ম বস্তুর বেগ, u<sub>1</sub> = 15 ms<sup>−1</sup><br>সংঘর্ষের পর বেগ, v<sub>1</sub> = 10 ms<sup>−1</sup></div>
+ <div class="gv m">১ম বস্তুর ভর, m<sub>1</sub> = 8 kg; ২য় বস্তুর ভর, m<sub>2</sub> = 4 kg<br>সংঘর্ষের পূর্বে: u<sub>1</sub> = 15 ms<sup>−1</sup>, u<sub>2</sub> = 10 ms<sup>−1</sup><br>সংঘর্ষের পর: ১ম বেগ v<sub>1</sub> = 10 ms<sup>−1</sup>, ২য় বেগ v<sub>2</sub> = ?</div>
+</div>
+<div>
+ <span class="lb">ঘ)</span> ভরবেগের সংরক্ষণ সূত্রানুসারে,
+ <div class="sol m" style="line-height:1.85">m<sub>1</sub>u<sub>1</sub> + m<sub>2</sub>u<sub>2</sub> = m<sub>1</sub>v<sub>1</sub> + m<sub>2</sub>v<sub>2</sub><br>v<sub>2</sub> = <span class="f"><i>m<sub>1</sub>u<sub>1</sub> + m<sub>2</sub>u<sub>2</sub> − m<sub>1</sub>v<sub>1</sub></i><i>m<sub>2</sub></i></span> = <span class="f"><i>8×15 + 4×10 − 8×10</i><i>4</i></span> = <b>20 ms<sup>−1</sup></b><br>
+ সংঘর্ষের পূর্বে বস্তুদ্বয়ের গতিশক্তি,<br>T = <span class="f"><i>1</i><i>2</i></span>m<sub>1</sub>u<sub>1</sub><sup>2</sup> + <span class="f"><i>1</i><i>2</i></span>m<sub>2</sub>u<sub>2</sub><sup>2</sup> = <span class="f"><i>1</i><i>2</i></span>×8×15<sup>2</sup> + <span class="f"><i>1</i><i>2</i></span>×4×10<sup>2</sup> = 1100 J<br>
+ সংঘর্ষের পর বস্তুদ্বয়ের গতিশক্তি,<br>T′ = <span class="f"><i>1</i><i>2</i></span>m<sub>1</sub>v<sub>1</sub><sup>2</sup> + <span class="f"><i>1</i><i>2</i></span>m<sub>2</sub>v<sub>2</sub><sup>2</sup> = <span class="f"><i>1</i><i>2</i></span>×8×10<sup>2</sup> + <span class="f"><i>1</i><i>2</i></span>×4×20<sup>2</sup> = 1200 J<br>
+ <b>T ≠ T′</b></div>
+ <div class="red">অতএব বলা যায়, গতিশক্তি সংরক্ষিত হয়নি।</div>
+</div>
+</div>
+</div></section>
+
+<!-- ============ MCQ 1 ============ -->
+<section class="slide"><div class="hd"><h2>SOLVED MCQ (১ – ৮)</h2><small>অনুধাবন ও MCQ</small></div>
+<div class="bd" style="padding-top:3.5mm">
+<div class="g2">
+<div>
+ <div class="mq"><b>১)</b> 70 kg ভরের এক ব্যক্তি 200m উঁচু পাহাড়ে আরোহণ করলে তিনি কত কাজ করেন ? [g = 9.8 ms<sup>−2</sup>]
+  <div class="op"><span class="c">ক) 1.37×10<sup>5</sup> J</span><span>খ) 1.37×10<sup>−5</sup> J</span><span>গ) 1.372×10<sup>3</sup> J</span><span>ঘ) 1.372×10<sup>−3</sup> J</span></div>
+  <div class="ex"><b>তথ্য/ব্যাখ্যা :</b> W = mgh = 70×9.8×200 = 1.37×10<sup>5</sup> J</div></div>
+ <div class="mq"><b>২)</b> 500 kg ভরের একটি বস্তু 20 ms<sup>−1</sup> বেগে চলছে। বস্তুটিতে 0.5 ms<sup>−2</sup> মন্দন সৃষ্টি হয়। 10 s পর গতিশক্তি কত হবে ?
+  <div class="op"><span class="c">ক) 5.625×10<sup>4</sup> J</span><span>খ) 1×10<sup>5</sup> J</span><span>গ) 1.125×10<sup>5</sup></span><span>ঘ) 1.5625×10<sup>5</sup></span></div>
+  <div class="ex"><b>তথ্য/ব্যাখ্যা :</b> v = u − at = 20 − 0.5×10 = 15 ms<sup>−1</sup>; E<sub>k</sub> = <span class="f"><i>1</i><i>2</i></span>mv<sup>2</sup> = <span class="f"><i>1</i><i>2</i></span>×500×(15)<sup>2</sup> = 5.625×10<sup>4</sup> J</div></div>
+ <div class="mq"><b>৩)</b> নিশাত 10 kg মাল নিয়ে 850m উঁচু একটি পাহাড়ে আরোহণ করেন। তার নিজের ভর 55 kg। তার দ্বারা কৃতকাজ কত ? [g = 9.8 ms<sup>−2</sup>]
+  <div class="op"><span>ক) 4.6×10<sup>5</sup> J</span><span class="c">খ) 5.4×10<sup>5</sup> J</span><span>গ) 5.5×10<sup>5</sup> J</span><span>ঘ) 8.3×10<sup>5</sup> J</span></div>
+  <div class="ex"><b>তথ্য/ব্যাখ্যা :</b> W = mgh = (10 + 55)×9.8×850 = 5.4×10<sup>5</sup> J</div></div>
+ <div class="mq"><b>৪)</b> 60 kg ভরের একজন দৌড়বিদ 12.5 s এ 100m দূরত্ব অতিক্রম করলে তার গতিশক্তি কত জুল হবে ?
+  <div class="op"><span>ক) 240 J</span><span>খ) 480 J</span><span class="c">গ) 1920 J</span><span>ঘ) 3840 J</span></div>
+  <div class="ex"><b>তথ্য/ব্যাখ্যা :</b> v = <span class="f"><i>s</i><i>t</i></span> = <span class="f"><i>100</i><i>12.5</i></span> = 8; ∴ E<sub>k</sub> = <span class="f"><i>1</i><i>2</i></span>×60×(8)<sup>2</sup> = 1920 J</div></div>
+</div>
+<div>
+ <div class="mq"><b>৫)</b> 5 kg ভরের একটি বস্তুকে 50m উঁচু দালানের ছাঁদ থেকে নিচে ফেলা হলে ভূমি স্পর্শ করার আগ মুহূর্তে গতিশক্তি কত ?
+  <div class="op"><span>ক) 245 J</span><span>খ) 490 J</span><span>গ) 1225 J</span><span class="c">ঘ) 2450 J</span></div>
+  <div class="ex"><b>তথ্য/ব্যাখ্যা :</b> v<sup>2</sup> = u<sup>2</sup> + 2gh = 2gh = 2×9.8×50 = 980; E<sub>k</sub> = <span class="f"><i>1</i><i>2</i></span>×5×980 = 2450 J</div></div>
+ <div class="mq"><b>৬)</b> 50 kg ভরের এক বালক 7 ms<sup>−1</sup> বেগে দৌড়ালে তার গতিশক্তি কত ?
+  <div class="op"><span>ক) 350 J</span><span>খ) 490 J</span><span class="c">গ) 1225 J</span><span>ঘ) 3430 J</span></div>
+  <div class="ex"><b>তথ্য/ব্যাখ্যা :</b> E<sub>k</sub> = <span class="f"><i>1</i><i>2</i></span>mv<sup>2</sup> = <span class="f"><i>1</i><i>2</i></span>×50×(7)<sup>2</sup> = 1225 J</div></div>
+ <div class="mq"><b>৭)</b> 40 kg ভরের এক বালক 12 s এ 6m উঁচু সিঁড়ি অতিক্রম করলে তার ক্ষমতা কত ওয়াট হবে ?
+  <div class="op"><span>ক) 20</span><span>খ) 32.66</span><span class="c">গ) 196</span><span>ঘ) 786</span></div>
+  <div class="ex"><b>তথ্য/ব্যাখ্যা :</b> P = <span class="f"><i>mgh</i><i>t</i></span> = <span class="f"><i>40×9.8×6</i><i>12</i></span> = 196 W</div></div>
+ <div class="mq"><b>৮)</b> একটি যন্ত্র 200 kg ভরের একটি বস্তুকে মাটি থেকে 50m উচ্চতায় 50 s সময়ে তুলতে পারে। যন্ত্রটির ক্ষমতা কত ? [g = 10 ms<sup>−2</sup>]
+  <div class="op"><span>ক) 0.12 kW</span><span class="c">খ) 2 kW</span><span>গ) 6 kW</span><span>ঘ) 300 kW</span></div>
+  <div class="ex"><b>তথ্য/ব্যাখ্যা :</b> P = <span class="f"><i>mgh</i><i>t</i></span> = <span class="f"><i>200×10×50</i><i>50</i></span> = 2000 W = 2 kW</div></div>
+</div>
+</div>
+</div></section>
+
+<!-- ============ MCQ 2 ============ -->
+<section class="slide"><div class="hd"><h2>SOLVED MCQ (৯ – ১৬)</h2><small>অনুধাবন ও MCQ</small></div>
+<div class="bd" style="padding-top:3.5mm">
+<div class="g2">
+<div>
+ <div class="mq"><b>৯)</b> 5 MeV = কত জুল ?
+  <div class="op"><span>ক) 3.2×10<sup>−11</sup> J</span><span>খ) 3.2×10<sup>−11</sup> J</span><span class="c">গ) 8×10<sup>−13</sup> J</span><span>ঘ) 8×10<sup>−11</sup> J</span></div>
+  <div class="ex"><b>তথ্য/ব্যাখ্যা :</b> 1 MeV = 1.6×10<sup>−13</sup> J ∴ 5 MeV = (1.6×10<sup>−13</sup>×5) J = 8×10<sup>−13</sup> J</div></div>
+ <div class="mq"><b>১০)</b> একটি যন্ত্র 200 kg ভরের একটি বস্তুকে 50 s সময়ে ভূমি হতে 30m উপরে উঠাতে পারে। যন্ত্রটির ক্ষমতা কত ?
+  <div class="op"><span>ক) 0.12 kW</span><span class="c">খ) 1.176 kW</span><span>গ) 6.2 kW</span><span>ঘ) 300 kW</span></div>
+  <div class="ex"><b>তথ্য/ব্যাখ্যা :</b> P = <span class="f"><i>mgh</i><i>t</i></span> = <span class="f"><i>200×9.8×30</i><i>50</i></span> = 1176 W = 1.176 kW</div></div>
+ <div class="mq"><b>১১)</b> একটি ইঞ্জিনের কর্মদক্ষতা 45%। এতে 90 J শক্তি সরবরাহ করলে কতটুকু কাজে রূপান্তর হবে ?
+  <div class="op"><span>ক) 80 J</span><span>খ) 49.51 J</span><span>গ) 45 J</span><span class="c">ঘ) 40.5 J</span></div>
+  <div class="ex"><b>তথ্য/ব্যাখ্যা :</b> η = <span class="f"><i>E<sub>o</sub></i><i>E<sub>1</sub></i></span>×100% ⇒ E<sub>o</sub> = <span class="f"><i>E<sub>1</sub>×η</i><i>100%</i></span> = <span class="f"><i>90×45%</i><i>100%</i></span> = 40.5 J</div></div>
+ <div class="mq"><b>১২)</b> 7 kg ভরের একটি বস্তুকে ভূপৃষ্ঠ হতে 15m উচ্চতায় তুললে বিভবশক্তি কত হবে ?
+  <div class="op"><span>ক) 1470 J</span><span class="c">খ) 1029 J</span><span>গ) 735 J</span><span>ঘ) 570 J</span></div>
+  <div class="ex"><b>তথ্য/ব্যাখ্যা :</b> V = mgh = 7×9.8×15 = 1029 J</div></div>
+</div>
+<div>
+ <div class="mq"><b>১৩)</b> 60 kg ভরের এক ব্যক্তি 2 km উঁচু পর্বতে আরোহণ করলে তিনি কত কাজ সম্পন্ন করেন ?
+  <div class="op"><span class="c">ক) 1.176×10<sup>6</sup> J</span><span>খ) 1.478×10<sup>4</sup> J</span><span>গ) 1.2×10<sup>5</sup> J</span><span>ঘ) 5.889×10<sup>5</sup> J</span></div>
+  <div class="ex"><b>তথ্য/ব্যাখ্যা :</b> W = mgh = 60×9.8×2000 = 1.176×10<sup>6</sup> J</div></div>
+ <div class="mq"><b>১৪)</b> 3000 J গতিশক্তি বিশিষ্ট একজন দৌড়বিদের বেগ 10 ms<sup>−1</sup> হলে তার ভর কত ?
+  <div class="op"><span>ক) 50 kg</span><span>খ) 160 kg</span><span>গ) 70 kg</span><span class="c">ঘ) 60 kg</span></div>
+  <div class="ex"><b>তথ্য/ব্যাখ্যা :</b> E<sub>k</sub> = <span class="f"><i>1</i><i>2</i></span>mv<sup>2</sup> ⇒ m = <span class="f"><i>2E<sub>k</sub></i><i>v<sup>2</sup></i></span> = <span class="f"><i>2×3000</i><i>(10)<sup>2</sup></i></span> = 60 kg</div></div>
+ <div class="mq"><b>১৫)</b> 1 kWh = কত ?
+  <div class="op"><span class="c">ক) 3.6×10<sup>6</sup> J</span><span>খ) 7.6×10<sup>6</sup> J</span><span>গ) 3.6×10<sup>5</sup> J</span><span>ঘ) 4.8×10<sup>6</sup> J</span></div>
+  <div class="ex"><b>তথ্য/ব্যাখ্যা :</b> 1 kWh = 1000 Wh; 1 Wh = 3600 J ∴ 1000 Wh = 3600×1000 = 3.6×10<sup>6</sup> J</div></div>
+ <div class="mq"><b>১৬)</b> 1 Wh = কত ?
+  <div class="op"><span>ক) 3.6×10<sup>6</sup> J</span><span class="c">খ) 3600 J</span><span>গ) 3.6×10<sup>2</sup> J</span><span>ঘ) কোনটিই নয়</span></div></div>
+</div>
+</div>
+</div></section>
+
+<!-- ============ MCQ 3 ============ -->
+<section class="slide"><div class="hd"><h2>SOLVED MCQ (১৭ – ২৪)</h2><small>অনুধাবন ও MCQ</small></div>
+<div class="bd" style="padding-top:3.5mm">
+<div class="g2">
+<div>
+ <div class="mq"><b>১৭)</b> 1 kg ভরের এক পাখি ভূপৃষ্ঠ থেকে 10 m উপর দিয়ে 10 ms<sup>−1</sup> বেগে উড়ে যাচ্ছে। এ অবস্থায় পাখিটির বিভবশক্তি কত ?
+  <div class="op"><span>ক) 10 J</span><span>খ) 50 J</span><span class="c">গ) 98 J</span><span>ঘ) 980 J</span></div>
+  <div class="ex"><b>তথ্য/ব্যাখ্যা :</b> V = mgh = 1×9.8×10 = 98 J</div></div>
+ <div class="mq"><b>১৮)</b> 20 kg ভরের একটি বস্তুকে ভূপৃষ্ঠ হতে কত উচ্চতায় উঠালে বিভবশক্তি 600 J হবে ?
+  <div class="op"><span class="c">ক) 3.06 m</span><span>খ) 3.5 m</span><span>গ) 2.46 m</span><span>ঘ) 2.9 m</span></div>
+  <div class="ex"><b>তথ্য/ব্যাখ্যা :</b> V = mgh ⇒ h = <span class="f"><i>V</i><i>mg</i></span> = <span class="f"><i>600</i><i>20×9.8</i></span> = 3.06 m</div></div>
+ <div class="mq"><b>১৯)</b> 1260 J গতিশক্তি বিশিষ্ট কোনো দৌড়বিদের বেগ 6 ms<sup>−1</sup> হলে তার ভর কত ?
+  <div class="op"><span>ক) 50 kg</span><span>খ) 60 kg</span><span class="c">গ) 70 kg</span><span>ঘ) 80 kg</span></div>
+  <div class="ex"><b>তথ্য/ব্যাখ্যা :</b> m = <span class="f"><i>2E<sub>k</sub></i><i>v<sup>2</sup></i></span> = <span class="f"><i>2×1260</i><i>(6)<sup>2</sup></i></span> = 70 kg</div></div>
+ <div class="mq"><b>২০)</b> 1 cal = ?
+  <div class="op"><span class="c">ক) 4.2 J</span><span>খ) 4.8 J</span><span>গ) 0.24 J</span><span>ঘ) 5.2 J</span></div></div>
+</div>
+<div>
+ <div class="mq"><b>২১)</b> কোনো বস্তুর বেগ 3 গুণ করা হলে গতিশক্তি বাড়ে -
+  <div class="op"><span>ক) 300%</span><span>খ) 600%</span><span class="c">গ) 800%</span><span>ঘ) 900%</span></div>
+  <div class="ex"><b>তথ্য/ব্যাখ্যা :</b> E<sub>k</sub> ∝ v<sup>2</sup> ∴ বেগ 3 গুণ হলে গতিশক্তি হবে 9 গুণ বা 900% অর্থাৎ, গতিশক্তি বাড়বে 800%।</div></div>
+ <div class="mq"><b>২২)</b> শক্তির একক কোনটি ?
+  <div class="op"><span>ক) Ns<sup>−1</sup></span><span>খ) kgms<sup>−1</sup></span><span>গ) Nkgms<sup>−1</sup></span><span class="c">ঘ) kgm<sup>2</sup>s<sup>−2</sup></span></div></div>
+ <div class="mq"><b>২৩)</b> বস্তুর বেগ তিনগুণ হলে গতিশক্তি কত হবে ?
+  <div class="op"><span>ক) এক-তৃতীয়াংশ</span><span>খ) তিনগুণ</span><span>গ) ছয়গুণ</span><span class="c">ঘ) নয়গুণ</span></div>
+  <div class="ex"><b>তথ্য/ব্যাখ্যা :</b> E<sub>k</sub> ∝ v<sup>2</sup> ∴ বেগ তিনগুণ হলে গতিশক্তি হবে নয়গুণ</div></div>
+ <div class="mq"><b>২৪)</b> সৌরশক্তি দিয়ে তৈরি করা যায় কোনটি ?
+  <div class="op"><span>ক) জলবিদ্যুৎ</span><span>খ) নিউক্লিয়ার বিদ্যুৎ কেন্দ্র</span><span class="c">গ) বিদ্যুৎ</span><span>ঘ) তাপবিদ্যুৎ কেন্দ্র</span></div></div>
+</div>
+</div>
+</div></section>
+
+<!-- ============ MCQ 4 ============ -->
+<section class="slide"><div class="hd"><h2>SOLVED MCQ (২৫ – ৩২)</h2><small>অনুধাবন ও MCQ</small></div>
+<div class="bd big" style="padding-top:4mm">
+<div class="g2">
+<div>
+ <div class="mq"><b>২৫)</b> ক্ষমতার মাত্রা কোনটি ?
+  <div class="op"><span>ক) ML<sup>2</sup>T<sup>−2</sup></span><span class="c">খ) ML<sup>2</sup>T<sup>−3</sup></span><span>গ) MLT<sup>−2</sup></span><span>ঘ) ML<sup>−1</sup>T<sup>−2</sup></span></div></div>
+ <div class="mq"><b>২৬)</b> বল ও বেগের গুণফল কী ?
+  <div class="op"><span>ক) কাজ</span><span>খ) শক্তি</span><span class="c">গ) ক্ষমতা</span><span>ঘ) ভরবেগ</span></div></div>
+ <div class="mq"><b>২৭)</b> কাজের মাত্রা কোনটি ?
+  <div class="op"><span>ক) ML<sup>2</sup>T<sup>−3</sup></span><span class="c">খ) ML<sup>2</sup>T<sup>−2</sup></span><span>গ) MLT<sup>−2</sup></span><span>ঘ) ML<sup>−1</sup>T<sup>−2</sup></span></div></div>
+ <div class="mq"><b>২৮)</b> নিচের কোনটি অনবায়নযোগ্য শক্তির উৎস ?
+  <div class="op"><span class="c">ক) নিউক্লিয়ার শক্তি</span><span>খ) বায়োমাস</span><span>গ) সৌরশক্তি</span><span>ঘ) বায়ুশক্তি</span></div></div>
+</div>
+<div>
+ <div class="mq"><b>২৯)</b> নিচের কোনটি যান্ত্রিক শক্তির অংশ ?
+  <div class="op"><span>ক) তড়িৎশক্তি</span><span class="c">খ) গতিশক্তি</span><span>গ) রাসায়নিক শক্তি</span><span>ঘ) চৌম্বকশক্তি</span></div></div>
+ <div class="mq"><b>৩০)</b> তাপ বিদ্যুৎকেন্দ্রের প্রধান উপাদান কোনটি ?
+  <div class="op"><span class="c">ক) কয়লা</span><span>খ) খনিজ তেল</span><span>গ) বাতাস</span><span>ঘ) সৌরশক্তি</span></div></div>
+ <div class="mq"><b>৩১)</b> বায়োগ্যাস উৎপাদনে গোবর ও পানির মিশ্রণের অনুপাত -
+  <div class="op"><span class="c">ক) ১ : ২</span><span>খ) ২ : ১</span><span>গ) ২ : ৩</span><span>ঘ) ৪ : ৫</span></div></div>
+ <div class="mq"><b>৩২)</b> শক্তির সবচেয়ে সাধারণ রূপ কোনটি ?
+  <div class="op"><span>ক) তাপশক্তি</span><span>খ) তড়িৎশক্তি</span><span>গ) শব্দশক্তি</span><span class="c">ঘ) যান্ত্রিক শক্তি</span></div></div>
+</div>
+</div>
+</div></section>
+
+<!-- ============ MCQ 5 ============ -->
+<section class="slide"><div class="hd"><h2>SOLVED MCQ (৩৩ – ৪০)</h2><small>অনুধাবন ও MCQ</small></div>
+<div class="bd big" style="padding-top:4mm">
+<div class="g2">
+<div>
+ <div class="mq"><b>৩৩)</b> গাড়ির ইঞ্জিনে শক্তির রূপান্তরের ক্ষেত্রে কোনটি সঠিক ?
+  <div class="op"><span>ক) যান্ত্রিক শক্তি → রাসায়নিক শক্তি</span><span class="c">খ) রাসায়নিক শক্তি → যান্ত্রিক শক্তি</span><span>গ) তাপ শক্তি → রাসায়নিক শক্তি</span><span>ঘ) রাসায়নিক শক্তি → তড়িৎ শক্তি</span></div></div>
+ <div class="mq"><b>৩৪)</b> বিভব শক্তির একক কোনটি ?
+  <div class="op"><span>ক) প্যাসকেল</span><span>খ) নিউটন</span><span>গ) ওয়াট</span><span class="c">ঘ) জুল</span></div></div>
+ <div class="mq"><b>৩৫)</b> স্থিতিশক্তি বেশি কোন পদার্থে ?
+  <div class="op"><span class="c">ক) কঠিন</span><span>খ) তরল</span><span>গ) বায়বীয়</span><span>ঘ) গ্যাসীয়</span></div></div>
+ <div class="mq"><b>৩৬)</b> 1 kW = কত অশ্ব ক্ষমতা ?
+  <div class="op"><span class="c">ক) 1.34</span><span>খ) 746</span><span>গ) 1.34×10<sup>5</sup></span><span>ঘ) 7.46×10<sup>5</sup></span></div></div>
+</div>
+<div>
+ <div class="mq"><b>৩৭)</b> ম্যাগমা কী ?
+  <div class="op"><span>ক) বায়োমাস</span><span>খ) ডায়নামো</span><span>গ) তাপশক্তি</span><span class="c">ঘ) গলিত শিলা</span></div></div>
+ <div class="mq"><b>৩৮)</b> কোন রাশি যুগলের মাত্রা ভিন্ন ?
+  <div class="op"><span>ক) দ্রুতি, বেগ</span><span class="c">খ) কাজ, ক্ষমতা</span><span>গ) ত্বরণ, মন্দন</span><span>ঘ) বল, ওজন</span></div></div>
+ <div class="mq"><b>৩৯)</b> কোনো বস্তুর নির্দিষ্ট উচ্চতায় বিভবশক্তি কীরূপ ?
+  <div class="op"><span>ক) বস্তুর বেগের সমানুপাতিক</span><span>খ) ভরের বর্গের সমানুপাতিক</span><span>গ) ভরের ব্যস্তানুপাতিক</span><span class="c">ঘ) ভরের সমানুপাতিক</span></div></div>
+ <div class="mq"><b>৪০)</b> কর্মদক্ষতা -
+  <div class="st">i) 100% এর অধিক হতে পারে না<br>ii) একটি এককবিহীন রাশি<br>iii) লভ্য কার্যকর শক্তি ও মোট প্রদত্ত শক্তির অনুপাত</div>
+  নিচের কোনটি সঠিক?
+  <div class="op"><span>ক) i ও ii</span><span>খ) i ও iii</span><span>গ) ii ও iii</span><span class="c">ঘ) i, ii ও iii</span></div></div>
+</div>
+</div>
+</div></section>
+
+<!-- ============ MCQ 6 (41-43) ============ -->
+<section class="slide"><div class="hd"><h2>SOLVED MCQ (৪১ – ৪৩)</h2><small>চিত্রভিত্তিক MCQ</small></div>
+<div class="bd" style="padding-top:3.5mm">
+<div class="g21">
+<div>
+ <div class="note" style="font-weight:600">❑ নিচের চিত্র থেকে ৪১ ও ৪২ নং প্রশ্নের উত্তর দাও :</div>
+ <svg class="sv" viewBox="0 0 260 230" style="width:100%">
+  <line x1="60" y1="20" x2="215" y2="20" stroke="#111" stroke-width="2" stroke-dasharray="6 4"/><circle cx="130" cy="20" r="7" fill="#fff" stroke="#111" stroke-width="2.5"/>
+  <line x1="130" y1="28" x2="130" y2="196" stroke="#17a35a" stroke-width="2.5" marker-end="url(#mg)"/>
+  <line x1="118" y1="68" x2="142" y2="68" stroke="#111" stroke-width="2"/><line x1="118" y1="140" x2="142" y2="140" stroke="#111" stroke-width="2"/>
+  <line x1="185" y1="22" x2="185" y2="66" stroke="#e0312e" stroke-width="2.5" marker-end="url(#mr)"/><line x1="185" y1="142" x2="185" y2="190" stroke="#e0312e" stroke-width="2.5" marker-start="url(#mr)" marker-end="url(#mr)"/>
+  <line x1="55" y1="22" x2="55" y2="190" stroke="#e0312e" stroke-width="2.5" marker-start="url(#mr)" marker-end="url(#mr)"/>
+  <line x1="40" y1="194" x2="225" y2="194" stroke="#111" stroke-width="2.5"/><path d="M44 206 L56 194 M68 206 L80 194 M92 206 L104 194 M116 206 L128 194 M140 206 L152 194 M164 206 L176 194 M188 206 L200 194 M212 206 L224 194" stroke="#111" stroke-width="1.4"/>
+  <g font-size="14"><text x="110" y="16">P</text><text x="108" y="72">Q</text><text x="108" y="144">R</text><text x="120" y="218">S</text><text x="192" y="50">20 m</text><text x="192" y="172">10 m</text><text x="12" y="112">60 m</text><text x="168" y="14" font-size="13">m = 2 kg</text></g>
+ </svg>
+</div>
+<div>
+ <div class="mq"><b>৪১)</b> P অবস্থানে বিভবশক্তি কত ?
+  <div class="op"><span>ক) 588 J</span><span>খ) 784 J</span><span>গ) 980 J</span><span class="c">ঘ) 1176 J</span></div>
+  <div class="ex"><b>তথ্য/ব্যাখ্যা :</b> V = mgh = 2×9.8×60 = 1176 J</div></div>
+ <div class="mq"><b>৪২)</b> উক্ত চিত্রের ক্ষেত্রে -
+  <div class="st">i) Q বিন্দুতে গতিশক্তি – বিভবশক্তি = 0<br>ii) P বিন্দুতে বিভবশক্তি = 6×R বিন্দুতে বিভবশক্তি<br>iii) PR অংশের গতিশক্তির পরিবর্তন &lt; RS অংশের গতিশক্তির পরিবর্তন</div>
+  নিচের কোনটি সঠিক?
+  <div class="op"><span>ক) i</span><span class="c">খ) ii</span><span>গ) ii ও iii</span><span>ঘ) i, ii ও iii</span></div>
+  <div class="ex">P তে h = 60 m এবং R তে h = 10 m ⇒ বিভবশক্তি 6 গুণ।</div></div>
+ <div class="mq"><b>৪৩)</b> ML<sup>2</sup>T<sup>−3</sup> মাত্রাটি কিসের ?
+  <div class="st">i) ব্যয়িত শক্তি &nbsp; ii) কাজের হার &nbsp; iii) ক্ষমতা</div>
+  নিচের কোনটি সঠিক?
+  <div class="op"><span>ক) i ও ii</span><span>খ) i ও iii</span><span class="c">গ) ii ও iii</span><span>ঘ) i, ii ও iii</span></div></div>
+</div>
+</div>
+</div></section>
+
+<!-- ============ MCQ 7 (44-46) ============ -->
+<section class="slide"><div class="hd"><h2>SOLVED MCQ (৪৪ – ৪৬)</h2><small>চিত্রভিত্তিক MCQ</small></div>
+<div class="bd" style="padding-top:3.5mm">
+<div class="g21">
+<div>
+ <div class="note" style="font-weight:600">❑ নিচের চিত্র থেকে ৪৪ ও ৪৫ নং প্রশ্নের উত্তর দাও :</div>
+ <svg class="sv" viewBox="0 0 260 220" style="width:100%">
+  <circle cx="110" cy="30" r="7" fill="#fff" stroke="#111" stroke-width="2.5"/><text x="104" y="18" font-size="14">m</text>
+  <line x1="40" y1="38" x2="190" y2="38" stroke="#111" stroke-width="2.5"/><line x1="40" y1="108" x2="190" y2="108" stroke="#111" stroke-width="2.5"/><line x1="40" y1="178" x2="190" y2="178" stroke="#111" stroke-width="2.5"/>
+  <circle cx="110" cy="100" r="7" fill="#fff" stroke="#111" stroke-width="2.5"/><circle cx="110" cy="170" r="7" fill="#fff" stroke="#111" stroke-width="2.5"/>
+  <line x1="110" y1="38" x2="110" y2="92" stroke="#17a35a" stroke-width="2.5" marker-end="url(#mg)"/><line x1="110" y1="108" x2="110" y2="162" stroke="#17a35a" stroke-width="2.5" marker-end="url(#mg)"/>
+  <g font-size="15"><text x="198" y="43">A</text><text x="198" y="113">B</text><text x="198" y="183">C</text><text x="90" y="75">h₁</text><text x="90" y="146">h₂</text></g>
+ </svg>
+</div>
+<div>
+ <div class="mq"><b>৪৪)</b> B বিন্দুতে বস্তুটির বিভবশক্তি কত ?
+  <div class="op"><span class="c">ক) mgh<sub>1</sub></span><span>খ) mgh<sub>2</sub></span><span>গ) mg(h<sub>1</sub>+h<sub>2</sub>)</span><span>ঘ) mg(h<sub>1</sub>−h<sub>2</sub>)</span></div></div>
+ <div class="mq"><b>৪৫)</b> পড়ন্ত অবস্থায় ভূপৃষ্ঠ হতে কত উচ্চতায় এর গতিশক্তি বিভবশক্তির ৩ গুণ হবে ?
+  <div class="op"><span>ক) <span class="f"><i>h<sub>1</sub></i><i>4</i></span></span><span>খ) <span class="f"><i>h<sub>2</sub></i><i>3</i></span></span><span>গ) <span class="f"><i>(h<sub>1</sub>+h<sub>2</sub>)</i><i>3</i></span></span><span class="c">ঘ) <span class="f"><i>(h<sub>1</sub>+h<sub>2</sub>)</i><i>4</i></span></span></div>
+  <div class="ex">C থেকে y উচ্চতায় E<sub>k</sub> = 3E<sub>p</sub>: mg(h<sub>1</sub>+h<sub>2</sub>−y) = 3mgy ⇒ y = <span class="f"><i>h<sub>1</sub>+h<sub>2</sub></i><i>4</i></span></div></div>
+ <div class="mq"><b>৪৬)</b> একটি ফিশন বিক্রিয়ায় নির্গত শক্তি -
+  <div class="st">i) 200 MeV &nbsp; ii) 1.6×10<sup>−19</sup> eV &nbsp; iii) 3.2×10<sup>−11</sup> J</div>
+  নিচের কোনটি সঠিক?
+  <div class="op"><span>ক) i</span><span>খ) ii</span><span class="c">গ) i ও iii</span><span>ঘ) i, ii ও iii</span></div></div>
+</div>
+</div>
+</div></section>
+
+<!-- ============ MCQ 8 (47-48) ============ -->
+<section class="slide"><div class="hd"><h2>SOLVED MCQ (৪৭ – ৪৮)</h2><small>চিত্রভিত্তিক MCQ</small></div>
+<div class="bd" style="padding-top:3.5mm">
+<div class="g21">
+<div>
+ <div class="note" style="font-weight:600">❑ নিচের চিত্র থেকে ৪৭ ও ৪৮ নং প্রশ্নের উত্তর দাও :</div>
+ <svg class="sv" viewBox="0 0 260 230" style="width:90%">
+  <line x1="50" y1="26" x2="200" y2="26" stroke="#111" stroke-width="2" stroke-dasharray="6 4"/><circle cx="110" cy="26" r="7" fill="#fff" stroke="#111" stroke-width="2.5"/><text x="100" y="14" font-size="14">m</text>
+  <line x1="110" y1="34" x2="110" y2="194" stroke="#17a35a" stroke-width="2.5" marker-end="url(#mg)"/>
+  <line x1="98" y1="120" x2="122" y2="120" stroke="#111" stroke-width="2"/>
+  <line x1="180" y1="28" x2="180" y2="192" stroke="#e0312e" stroke-width="2.5" marker-end="url(#mr)"/>
+  <line x1="60" y1="122" x2="60" y2="192" stroke="#e0312e" stroke-width="2.5" marker-start="url(#mr)" marker-end="url(#mr)"/>
+  <line x1="40" y1="196" x2="215" y2="196" stroke="#111" stroke-width="2.5"/><path d="M44 208 L56 196 M68 208 L80 196 M92 208 L104 196 M116 208 L128 196 M140 208 L152 196 M164 208 L176 196 M188 208 L200 196" stroke="#111" stroke-width="1.4"/>
+  <g font-size="15"><text x="82" y="22">R</text><text x="80" y="125">Q</text><text x="104" y="220">P</text><text x="188" y="110">h</text><text x="42" y="160">x</text></g>
+ </svg>
+</div>
+<div>
+ <div class="mq"><b>৪৭)</b> R হতে Q তে পৌঁছালে গতিশক্তি কত ?
+  <div class="op"><span>ক) 0</span><span>খ) mgx</span><span>গ) mgh</span><span class="c">ঘ) mg(h − x)</span></div>
+  <div class="ex">R থেকে Q পর্যন্ত নামার উচ্চতা = (h − x) ⇒ E<sub>k</sub> = mg(h − x)</div></div>
+ <div class="mq"><b>৪৮)</b> m ভরের বস্তুকে R থেকে মুক্তভাবে পড়তে দিলে -
+  <div class="st">i) বস্তুতে গতি সঞ্চার হবে<br>ii) গতিশক্তি বিভবশক্তিতে রূপান্তরিত হবে<br>iii) দূরত্ব বাড়লে বেগ বাড়বে</div>
+  নিচের কোনটি সঠিক?
+  <div class="op"><span class="c">ক) i ও ii</span><span>খ) i ও iii</span><span>গ) ii ও iii</span><span>ঘ) i, ii ও iii</span></div>
+  <div class="note">মূল সমাধানে ক) i ও ii টিক দেওয়া ছিল। তবে পড়ন্ত বস্তুতে বিভবশক্তিই গতিশক্তিতে রূপান্তরিত হয়, তাই পদার্থবিজ্ঞানের দৃষ্টিতে (i) ও (iii) অর্থাৎ খ) যুক্তিসঙ্গত।</div></div>
+</div>
+</div>
+</div></section>
+
+<!-- ============ MCQ 9 (49-50) ============ -->
+<section class="slide"><div class="hd"><h2>SOLVED MCQ (৪৯ – ৫০)</h2><small>চিত্রভিত্তিক MCQ</small></div>
+<div class="bd" style="padding-top:3.5mm">
+<div class="g21">
+<div>
+ <div class="note" style="font-weight:600">❑ নিচের চিত্র থেকে ৪৯ ও ৫০ নং প্রশ্নের উত্তর দাও :</div>
+ <svg class="sv" viewBox="0 0 380 240" style="width:100%">
+  <line x1="55" y1="200" x2="55" y2="14" stroke="#111" stroke-width="2.2" marker-end="url(#mk)"/><line x1="55" y1="200" x2="360" y2="200" stroke="#111" stroke-width="2.2" marker-end="url(#mk)"/>
+  <g stroke="#111" stroke-width="2"><line x1="49" y1="165" x2="61" y2="165"/><line x1="49" y1="130" x2="61" y2="130"/><line x1="49" y1="95" x2="61" y2="95"/><line x1="49" y1="60" x2="61" y2="60"/></g>
+  <g font-size="14" text-anchor="end"><text x="44" y="170">5</text><text x="44" y="135">10</text><text x="44" y="100">15</text><text x="44" y="65">20</text></g>
+  <polyline points="55,200 125,95 205,95 232,130 297,130 335,200" fill="none" stroke="#1d6fd6" stroke-width="3.5" stroke-linejoin="round"/>
+  <g font-size="15"><text x="38" y="216">O</text><text x="118" y="86">A</text><text x="204" y="86">B</text><text x="236" y="122">C</text><text x="297" y="122">D</text><text x="338" y="195">E</text><text x="355" y="216">X</text><text x="42" y="12">Y</text><text x="185" y="222">সময়</text><text x="108" y="150" font-size="14">গাড়ির ভর = 1500 kg</text>
+  <text x="8" y="115" transform="rotate(-90 14 115)" font-size="14">বেগ</text></g>
+ </svg>
+</div>
+<div>
+ <div class="mq"><b>৪৯)</b> কোন অংশে বেগ সময়ের সমানুপাতে বৃদ্ধি পায় ?
+  <div class="op"><span class="c">ক) OA অংশে</span><span>খ) AB অংশে</span><span>গ) CD অংশে</span><span>ঘ) DE অংশে</span></div>
+  <div class="ex">OA অংশে বেগ-সময় লেখচিত্র মূলবিন্দুগামী সরলরেখা, তাই v ∝ t।</div></div>
+ <div class="mq"><b>৫০)</b> সর্বোচ্চ গতিশক্তি কত ?
+  <div class="op"><span>ক) 3.38×10<sup>5</sup> J</span><span>খ) 3.38×10<sup>4</sup> J</span><span>গ) 1.69×10<sup>5</sup> J</span><span class="c">ঘ) 1.69×10<sup>4</sup> J</span></div>
+  <div class="ex"><b>তথ্য/ব্যাখ্যা :</b> E<sub>k</sub> = <span class="f"><i>1</i><i>2</i></span>mv<sup>2</sup> = <span class="f"><i>1</i><i>2</i></span>×1500×(15)<sup>2</sup> = 1.69×10<sup>4</sup> J</div></div>
+</div>
+</div>
+</div></section>
+
+<!-- ============ THANK YOU ============ -->
+<section class="slide cover">
+  <div class="t0">অধ্যায় ০৪ · কাজ, ক্ষমতা ও শক্তি</div>
+  <h1>ধন্যবাদ</h1>
+  <div class="mt">THANK YOU</div>
+  <div class="en">Work · Power · Energy</div>
+  <div class="by">স্লাইড তৈরি ও উপস্থাপনায়<br><b>Raktim Dey (EEE, AUST)</b></div>
+</section>
+
+</body>
+</html>

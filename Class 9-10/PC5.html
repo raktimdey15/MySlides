@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<title>অধ্যায় ৫ – পদার্থের অবস্থা ও চাপ | Raktim Dey (EEE, AUST)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+@page{size:A4 landscape;margin:0}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{font-family:'Hind Siliguri','Noto Sans Bengali','Kalpurush','Nikosh','SolaimanLipi',sans-serif;background:#c9d3e3;color:#16213e;counter-reset:s}
+.slide{width:297mm;height:209mm;position:relative;overflow:hidden;margin:8mm auto;counter-increment:s;
+ background:linear-gradient(#c5d1e6,#c5d1e6) center calc(100% - 10mm)/calc(100% - 24mm) .3mm no-repeat,linear-gradient(180deg,#fff,#f3f7ff);
+ box-shadow:0 2mm 8mm rgba(0,0,0,.3);page-break-after:always;break-after:page}
+.slide:last-of-type{page-break-after:auto;break-after:auto}
+.slide::before{content:"Raktim Dey (EEE, AUST)   |   পদার্থবিজ্ঞান – অধ্যায় ৫ : পদার্থের অবস্থা ও চাপ";position:absolute;left:12mm;bottom:0;height:10mm;line-height:10mm;font-size:9.5pt;font-weight:600;color:#14307a}
+.slide::after{content:counter(s);position:absolute;right:12mm;bottom:1.5mm;min-width:8mm;height:7mm;line-height:7mm;text-align:center;font-size:9.5pt;font-weight:700;color:#fff;background:#1747a6;border-radius:4mm;padding:0 2mm}
+.hd{height:21mm;background:linear-gradient(100deg,#0b1f4d 0%,#1747a6 55%,#0f9aa8 100%);color:#fff;display:flex;align-items:center;padding:0 12mm;border-bottom:1.3mm solid #fbbf24;position:relative}
+.hd h1{font-size:21pt;font-weight:700;line-height:1.2}
+.hd .tag{margin-left:auto;background:#fbbf24;color:#10224f;font-weight:700;font-size:11pt;padding:1mm 4mm;border-radius:4mm}
+.bd{position:absolute;top:21mm;bottom:10mm;left:0;right:0;padding:5mm 12mm;font-size:12pt;line-height:1.55;overflow:hidden}
+.sm{font-size:11pt;line-height:1.5}.xs{font-size:10.3pt;line-height:1.45}
+i{font-family:'Cambria Math','STIX Two Math','Times New Roman',serif}
+sub,sup{font-size:70%}
+fr{display:inline-block;vertical-align:middle;text-align:center;margin:0 1mm;line-height:1.2}
+fr n{display:block;border-bottom:1.1px solid currentColor;padding:0 1.2mm}
+fr d{display:block;padding:0 1.2mm}
+.def{background:#e6f8ee;border-left:1.8mm solid #12a150;border-radius:2mm;padding:2.5mm 4mm;font-weight:600;color:#075e2f;margin-bottom:3mm}
+.fm{background:linear-gradient(135deg,#ffeaa8,#ffd45e);border-radius:3mm;padding:2mm 5mm;box-shadow:0 .8mm 1.6mm rgba(0,0,0,.2);text-align:center;font-size:15pt;font-weight:600;display:inline-block}
+.card{background:#fff;border:.3mm solid #d3def2;border-radius:3mm;padding:3mm 4mm;box-shadow:0 .6mm 1.6mm rgba(20,33,61,.13)}
+.sub{font-weight:700;color:#0b2a6f;font-size:13.5pt;margin:1.5mm 0 1mm}
+.row{display:flex;gap:6mm;align-items:flex-start}.col{flex:1}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:5mm}.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:5mm}
+.c{text-align:center}.mt{margin-top:3mm}.mt2{margin-top:5mm}
+.ft{display:grid;grid-template-columns:1fr 1.7fr .9fr;gap:2.5mm;align-items:stretch}
+.ft .h{background:#3a3f4b;color:#fff;font-weight:700;text-align:center;border-radius:2mm;padding:1.3mm;box-shadow:0 .6mm 1mm rgba(0,0,0,.25)}
+.ft .k{background:#ffe8a3;border-radius:2.5mm;display:flex;align-items:center;justify-content:center;font-size:14pt;padding:2mm;box-shadow:0 .6mm 1mm rgba(0,0,0,.2)}
+.ft .v{background:#ececec;border-radius:2.5mm;padding:2mm 3.5mm;display:flex;flex-direction:column;justify-content:center;box-shadow:0 .6mm 1mm rgba(0,0,0,.2)}
+.ft.sm2{font-size:10.5pt;line-height:1.35}.ft.sm2 .k{font-size:12.5pt}
+.dt{border-collapse:separate;border-spacing:0 1.6mm;width:100%}
+.dt th{background:#3a3f4b;color:#fff;padding:1.6mm;border-radius:2mm}
+.dt td{text-align:center;padding:1.5mm}.dt td.a{background:#ffe8a3;border-radius:2mm}.dt td.b{background:#ececec;border-radius:2mm}
+.note{background:#fff3cd;border-left:1.6mm solid #f59e0b;border-radius:2mm;padding:2mm 4mm}
+.hl{color:#d62839;font-weight:700}.bl{color:#0b2a6f;font-weight:700}.gr{color:#0a8f4a;font-weight:700}
+.qb{border:.5mm solid #1747a6;border-radius:3mm;background:#f2f6ff;padding:2.5mm 4mm;margin-bottom:3mm}
+.qb h4{color:#d62839;font-size:12.5pt}
+.sol{background:#fff;border-left:1.4mm solid #1747a6;border-radius:2mm;padding:2mm 4mm;margin:1.5mm 0;box-shadow:0 .4mm 1.2mm rgba(0,0,0,.1)}
+.sol .l{margin:.3mm 0}.ans{color:#0a8f4a;font-weight:700}
+.lab{display:inline-block;background:#0a8f4a;color:#fff;font-weight:700;border-radius:2mm;padding:0 2.5mm;margin-right:1.5mm}
+.mq{background:#fff;border:.3mm solid #cfe0d6;border-left:1.6mm solid #0a8f4a;border-radius:3mm;padding:2mm 4mm;margin-bottom:3.2mm;box-shadow:0 .5mm 1.4mm rgba(0,0,0,.12);font-size:11.3pt;line-height:1.45}
+.mq .qt{font-weight:600;color:#1a1a40}
+.tg{font-size:8.5pt;background:#fde2e4;color:#b3122b;border-radius:3mm;padding:0 2mm;margin-left:1.5mm;font-weight:700}
+.rf{font-size:8.5pt;color:#555;font-weight:500}
+.op{display:grid;grid-template-columns:repeat(4,1fr);gap:2mm;margin:1.4mm 0}
+.op span{background:#f1f4fa;border-radius:2mm;padding:.4mm 2.5mm}
+.op span.ok{background:#c9f2d8;border:.3mm solid #0a8f4a;font-weight:700;color:#065f2e}
+.ex{background:#edfaf2;border:.3mm solid #12a150;border-radius:2.5mm;padding:1.4mm 3mm;font-size:10.3pt;line-height:1.4}
+.ex b.t{color:#0a8f4a}
+.cover{background:radial-gradient(circle at 80% 30%,#1f8fb0 0,transparent 45%),linear-gradient(120deg,#07163b,#12399a 60%,#0f8fa0)}
+.cover::before,.cover::after{color:#fff}.cover::after{background:#fbbf24;color:#10224f}
+.cover .in{position:absolute;inset:0 0 10mm 0;padding:22mm 18mm}
+.cover h2{color:#fbbf24;font-size:20pt;letter-spacing:.5mm}
+.cover h1{color:#fff;font-size:44pt;line-height:1.2;margin:4mm 0}
+.cover .mt1{display:inline-block;background:#3a3f4b;color:#fff;font-weight:700;font-size:20pt;padding:1.5mm 8mm;border-radius:2mm;letter-spacing:1mm;box-shadow:0 1mm 2mm rgba(0,0,0,.4)}
+.cover .by{position:absolute;left:18mm;bottom:20mm;color:#fff;border-left:2mm solid #fbbf24;padding-left:5mm}
+.cover .by b{font-size:22pt;display:block}.cover .by span{font-size:13pt;color:#cfe6ff}
+svg{display:block}
+@media print{body{background:none}.slide{margin:0;box-shadow:none}}
+</style>
+</head>
+<body>
+
+<!-- ============ SVG SPRITE ============ -->
+<svg style="position:absolute;width:0;height:0" aria-hidden="true">
+<defs>
+<marker id="aG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#12a150"/></marker>
+<marker id="aR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#d62839"/></marker>
+<marker id="aB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0b2a6f"/></marker>
+<marker id="aK" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#222"/></marker>
+<pattern id="hatch" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="4" height="4" fill="#ffb3c8"/><line x1="0" y1="0" x2="0" y2="4" stroke="#e0457b" stroke-width="2"/></pattern>
+</defs>
+<symbol id="subbase" viewBox="0 0 340 200">
+ <path d="M10 20V175A110 14 0 0 0 230 175V20" fill="#e4f0ff" stroke="#222" stroke-width="1.6"/>
+ <ellipse cx="120" cy="20" rx="110" ry="14" fill="#f6faff" stroke="#222" stroke-width="1.6"/>
+ <g fill="none" stroke="#38a3e8" stroke-dasharray="4 3"><path d="M10 45A110 12 0 0 0 230 45"/><path d="M10 95A110 12 0 0 0 230 95"/><path d="M10 120A110 12 0 0 0 230 120"/><path d="M10 148A110 12 0 0 0 230 148"/></g>
+ <path d="M70 70V135A50 8 0 0 0 170 135V70" fill="#fff" stroke="#222" stroke-width="1.6"/>
+ <ellipse cx="120" cy="70" rx="50" ry="8" fill="#fff" stroke="#222" stroke-width="1.6"/>
+ <path d="M228 20H310M170 70H310M170 135H310" stroke="#222" stroke-width="1"/>
+</symbol>
+<symbol id="hydbase" viewBox="0 0 340 190">
+ <path d="M40 60H70V150H220V90H300V165H40Z" fill="#7ecbff"/>
+ <path d="M40 40V165H300V70" fill="none" stroke="#222" stroke-width="2"/>
+ <path d="M70 40V150H220V70" fill="none" stroke="#222" stroke-width="2"/>
+ <rect x="46" y="55" width="18" height="6" fill="#6ee06e" stroke="#2a8a2a"/>
+ <rect x="52" y="22" width="6" height="33" fill="#9aa0a6"/>
+ <rect x="222" y="84" width="76" height="7" fill="url(#hatch)" stroke="#c0245f"/>
+ <rect x="256" y="46" width="8" height="38" fill="#9aa0a6"/>
+</symbol>
+</svg>
+
+<!-- ============ 1. COVER ============ -->
+<section class="slide cover"><div class="in">
+ <h2>পদার্থবিজ্ঞান</h2>
+ <h1>অধ্যায় ৫<br>পদার্থের অবস্থা ও চাপ</h1>
+ <div class="mt1">MAIN TOPIC</div>
+ <p style="color:#d6e6ff;margin-top:8mm;font-size:14pt;max-width:150mm">চাপ • ঘনত্ব • প্লবতা • আর্কিমিডিসের সূত্র • প্যাসকেলের সূত্র • বায়ুর চাপ • স্থিতিস্থাপকতা • পদার্থের অবস্থা</p>
+ <div class="by"><span>উপস্থাপনায়</span><b>Raktim Dey (EEE, AUST)</b></div>
+ <svg style="position:absolute;right:16mm;top:28mm" width="105mm" height="130mm" viewBox="0 0 210 260">
+  <circle cx="105" cy="100" r="85" fill="#fff" opacity=".95" stroke="#fbbf24" stroke-width="6"/>
+  <circle cx="105" cy="100" r="70" fill="#eef4ff" stroke="#1747a6" stroke-width="2"/>
+  <g stroke="#1747a6" stroke-width="2"><path d="M105 38v10M105 152v10M43 100h10M157 100h10M61 56l7 7M149 144l-7-7M149 56l-7 7M61 144l7-7"/></g>
+  <path d="M60 140A60 60 0 0 1 150 140" fill="none" stroke="#d62839" stroke-width="5" stroke-dasharray="3 6"/>
+  <path d="M105 100L140 62" stroke="#d62839" stroke-width="5" stroke-linecap="round"/><circle cx="105" cy="100" r="8" fill="#14307a"/>
+  <text x="105" y="135" text-anchor="middle" font-size="16" font-weight="700" fill="#14307a">P = F/A</text>
+  <path d="M105 190v30" stroke="#fff" stroke-width="10"/>
+  <path d="M60 235Q105 215 150 235" stroke="#9fd8ff" stroke-width="4" fill="none"/>
+  <path d="M30 248Q105 222 180 248" stroke="#9fd8ff" stroke-width="4" fill="none"/>
+  <path d="M175 195q8 14 0 20q-8-6 0-20z" fill="#7ecbff"/><path d="M35 205q6 11 0 16q-6-5 0-16z" fill="#7ecbff"/>
+ </svg>
+</div></section>
+
+<!-- ============ 2. INTRO ============ -->
+<section class="slide"><div class="hd"><h1>অধ্যায় ৫ : পদার্থের অবস্থা ও চাপ</h1><span class="tag">ভূমিকা</span></div><div class="bd">
+ <div class="card" style="font-size:12.5pt">আমরা সবাই পদার্থের তিনটি অবস্থা অর্থাৎ কঠিন, তরল ও বায়বীয় অবস্থা সম্পর্কে জানি। এ অধ্যায়ে আমরা পদার্থ তার এ তিন অবস্থাতে কিভাবে চাপ প্রয়োগ করে এবং এ তিন অবস্থায় স্থিতিস্থাপক ধর্ম কিভাবে কাজ করে তা পড়ব। সবশেষে আমরা পদার্থের চতুর্থ অবস্থা, প্লাজমা নিয়ে আলোচনা করব।</div>
+ <div class="sub mt" style="font-size:15pt;color:#0b2a6f">এ অধ্যায়ে যেসব বিষয়ের উপর আলোকপাত করা হয়েছে তা নিম্নরূপ :</div>
+ <div class="g3 mt">
+  <div class="card"><div class="sub">১. চাপ</div></div>
+  <div class="card"><div class="sub">২. ঘনত্ব এবং দৈনন্দিন জীবনে এর ব্যবহার</div></div>
+  <div class="card"><div class="sub">৩. তরলের ভেতর চাপ</div>▢ আর্কিমিডিসের সূত্র এবং প্লবতা<br>▢ বস্তুর ভেসে থাকা এবং ডুবে যাওয়া<br>▢ বাংলাদেশ নৌপথে দুর্ঘটনার কারণ<br>▢ প্যাসকেলের সূত্র</div>
+  <div class="card"><div class="sub">৪. বাতাসের চাপ</div>▢ টরিসেলির পরীক্ষা<br>▢ বাতাসের চাপ এবং আবহাওয়া</div>
+  <div class="card"><div class="sub">৫. স্থিতিস্থাপকতা</div></div>
+  <div class="card"><div class="sub">৬. স্থিতিস্থাপকতা পদার্থের তিন অবস্থা : কঠিন, তরল ও গ্যাস</div>▢ পদার্থের আণবিক গতিতত্ত্ব<br>▢ পদার্থের চতুর্থ অবস্থা</div>
+ </div>
+</div></section>
+
+<!-- ============ 3. PRESSURE ============ -->
+<section class="slide"><div class="hd"><h1>১. চাপ (Pressure)</h1><span class="tag">অধ্যায় ৫</span></div><div class="bd">
+ <div class="def" style="font-size:13.5pt">“ কোনো বল কোনো ক্ষেত্রের উপর লম্বভাবে ক্রিয়া করলে ক্ষেত্রের প্রতি একক ক্ষেত্রফলের উপর প্রযুক্ত বলকে চাপ বলা হয়। ”</div>
+ <div class="card c" style="font-size:13.5pt"><i>A</i> ক্ষেত্রফলে প্রযুক্ত বল <i>F</i> &nbsp;&nbsp; ∴ ১ একক ক্ষেত্রফলে প্রযুক্ত বল = <fr><n><i>F</i></n><d><i>A</i></d></fr></div>
+ <div class="ft mt2" style="margin-top:6mm"><div class="h">সূত্র</div><div class="h">চলকের পরিচয়</div><div class="h">একক</div>
+  <div class="k"><i>P</i> = <fr><n><i>F</i></n><d><i>A</i></d></fr></div>
+  <div class="v"><div><i>P</i> = চাপ</div><div><i>F</i> = বল</div><div><i>A</i> = ক্ষেত্রফল</div></div>
+  <div class="v c"><fr><n><i>N</i></n><d><i>m</i><sup>2</sup></d></fr> অথবা <i>Pa</i></div></div>
+ <div class="g2 mt2" style="margin-top:8mm"><div class="card"><span class="bl">মাত্রা [<i>P</i>] :</span> <i>ML</i><sup>−1</sup><i>T</i><sup>−2</sup></div><div class="card"><b>চাপ একটি স্কেলার রাশি।</b></div></div>
+</div></section>
+
+<!-- ============ 4. DENSITY ============ -->
+<section class="slide"><div class="hd"><h1>২. ঘনত্ব (Density) এবং দৈনন্দিন জীবনে এর ব্যবহার</h1><span class="tag">ঘনত্ব</span></div><div class="bd sm">
+ <div class="row"><div class="col" style="flex:2.4">
+ <div class="def">বস্তুর একক আয়তনের ভরকে তার উপাদানের ঘনত্ব বলে।</div>
+ <p>অর্থাৎ একক আয়তনে কোনো বস্তুর পদার্থের পরিমাণ হলো ভর। আমরা যদি সমান আয়তনের এক টুকরো লোহা এবং এক টুকরো কাঠকে পানিতে ছেড়ে দিই তাহলে দেখব কাঠের টুকরো ভেসে আছে তবে লোহার টুকরা ডুবে গেছে। কেননা ঘনত্ব ভরের সমানুপাতিক। এখানে লোহার ভর বেশি বলে তার ঘনত্বও বেশি। এবং এ কারণেই লোহার টুকরোটি ডুবে যায়। আর ঘনত্ব কম থাকায় কাঠের টুকরা ভেসে থাকবে।</p>
+ <div class="card c mt"><i>V</i> আয়তনের ভর <i>m</i> &nbsp; ∴ ১ একক আয়তনের ভর = <fr><n><i>m</i></n><d><i>v</i></d></fr> &nbsp; ∴ <i>ρ</i> = <fr><n><i>m</i></n><d><i>v</i></d></fr></div>
+ <div class="ft mt"><div class="h">সূত্র</div><div class="h">চলকের পরিচয়</div><div class="h">একক</div>
+  <div class="k"><i>ρ</i> = <fr><n><i>m</i></n><d><i>v</i></d></fr></div>
+  <div class="v"><div><i>ρ</i> = ঘনত্ব</div><div><i>m</i> = ভর</div><div><i>v</i> = আয়তন</div></div>
+  <div class="v c"><fr><n><i>kg</i></n><d><i>m</i><sup>3</sup></d></fr><div>অথবা, <i>gm/cc</i></div></div></div>
+ <p class="mt"><span class="bl">মাত্রা [<i>ρ</i>] :</span> <i>ML</i><sup>−3</sup></p>
+ <p class="gr">ঘনত্ব উপাদান ও তাপমাত্রার উপর নির্ভরশীল। এটি একটি স্কেলার রাশি।</p>
+ </div>
+ <div class="col c"><svg width="55mm" height="140mm" viewBox="0 0 100 250" style="margin:0 auto">
+  <rect x="25" y="10" width="50" height="190" rx="3" fill="#fff" stroke="#555" stroke-width="2"/>
+  <rect x="27" y="14" width="46" height="92" fill="#e5e44a"/><rect x="27" y="106" width="46" height="16" fill="#8e2b1e"/>
+  <rect x="27" y="122" width="46" height="30" fill="#4fb6ac"/><rect x="27" y="152" width="46" height="46" fill="#3da54a"/>
+  <g stroke="#333" stroke-width="1.2"><path d="M27 40h8M27 70h8M27 100h8M27 130h8M27 160h8M27 190h8"/></g>
+  <g font-size="7" fill="#222"><text x="38" y="43">50 ml</text><text x="38" y="163">20</text><text x="38" y="193">10</text><text x="38" y="133">30</text></g>
+  <path d="M10 215Q50 190 90 215L98 232H2Z" fill="#f04a3a"/><ellipse cx="50" cy="232" rx="48" ry="8" fill="#e23c2c"/>
+ </svg></div></div>
+</div></section>
+
+<!-- ============ 5. DENSITY TABLE ============ -->
+<section class="slide"><div class="hd"><h1>বিভিন্ন পদার্থের ঘনত্ব</h1><span class="tag">ঘনত্ব</span></div><div class="bd">
+ <div style="width:150mm;margin:4mm auto 0"><table class="dt" style="font-size:14pt">
+  <tr><th>পদার্থ</th><th>ঘনত্ব</th></tr>
+  <tr><td class="a">বাতাস</td><td class="b">0.00127</td></tr><tr><td class="a">কর্ক</td><td class="b">0.25</td></tr>
+  <tr><td class="a">কাঠ</td><td class="b">0.4 – 0.5</td></tr><tr><td class="a">মানবদেহ</td><td class="b">0.995</td></tr>
+  <tr><td class="a">পানি</td><td class="b">1.00</td></tr><tr><td class="a">কাঁচ</td><td class="b">2.60</td></tr>
+  <tr><td class="a">লোহা</td><td class="b">7.80</td></tr><tr><td class="a">পারদ</td><td class="b">13.60</td></tr>
+  <tr><td class="a">সোনা</td><td class="b">19.30</td></tr></table></div>
+</div></section>
+
+<!-- ============ 6. DAILY USE 1 ============ -->
+<section class="slide"><div class="hd"><h1>দৈনন্দিন জীবনে ঘনত্বের ব্যবহার</h1><span class="tag">ঘনত্ব</span></div><div class="bd">
+ <div class="g3" style="align-items:start">
+  <div class="card"><div class="sub">১। পরিচালন (Convection)</div>পরিচালন (Convection) পদ্ধতির মাধ্যমে পানি কিংবা গ্যাসকে গরম করা হয়। এ প্রক্রিয়ায় পানি কিংবা গ্যাসকে যে পাত্রে রাখা হয় তা উত্তপ্ত করা হয়। পাত্রের নিচের পানি বা গ্যাস কিছুক্ষণের মধ্যে প্রসারিত হয় এবং ঘনত্ব কমে যায় (যেহেতু আয়তন ঘনত্বের ব্যস্তানুপাতিক)। ফলে কম ঘনত্ব যুক্ত পানি বা গ্যাস পাত্রের উপরে আসতে থাকে এবং পাত্রের উপরের শীতল পানি বা গ্যাস নিচে এসে জমা হয়। কিছুক্ষণ পর সেটাও উত্তপ্ত হয়ে উপরে উঠে যায় এবং এভাবেই অনবরত চলতে থাকে।</div>
+  <div class="card"><div class="sub">২। ফানুস</div>ফানুসের নিচে আগুন জ্বালানোর ফলে তার ভিতরের বায়ু উত্তপ্ত হয়ে ঘনত্ব কমে যায়। ফলে ফানুস ধীরে ধীরে উপরে উঠে যায়।</div>
+  <div class="card"><div class="sub">৩। পচা ডিম সনাক্তকরণ</div>ডিম ভাল না পচা তা সনাক্তকরণ করা যায়। যদি ডিম পচা হয় তাহলে তা পানিতে ভেসে থাকবে। কেননা ডিমে যখন পচন ধরা শুরু হয় তখন তার ভিতরের কঠিন পদার্থ গ্যাসে পরিণত হওয়া শুরু করে। এ গ্যাস ধীরে ধীরে ডিমের খোসা ভেদ করে পরিবেশে চলে যায়। ফলে ডিমের ভর কমে গিয়ে ঘনত্ব হ্রাস পায়। এ কারণে যথেষ্ট পচা ডিমকে আমরা পানিতে ভেসে থাকতে দেখব।</div>
+ </div>
+</div></section>
+
+<!-- ============ 7. DAILY USE 2 ============ -->
+<section class="slide"><div class="hd"><h1>দৈনন্দিন জীবনে ঘনত্বের ব্যবহার (চলমান)</h1><span class="tag">ঘনত্ব</span></div><div class="bd">
+ <div class="row"><div class="col" style="flex:1.7">
+  <div class="card"><div class="sub">৪। পুকুরের পানির তাপমাত্রা</div>গ্রীষ্মকালে দেখা যায় পুকুরের উপরের পানি উষ্ণ তবে নিচের পানি শীতল। এক্ষেত্রে তাপ উপর থেকে আসার কারণে পানি গরম হয়ে ঘনত্ব কমে উপরের দিকেই রয়ে যায়। ফলে সমগ্র পুকুরের পানি সমানভাবে উত্তপ্ত হতে পারে না।</div>
+  <div class="card mt2"><div class="sub">৫। বিপজ্জনক ঘটনা</div>কিছু বিপজ্জনক ঘটনার সাথেও ঘনত্ব জড়িত বটে! যেমন- বেলুন উড়ানোর জন্য প্রায় সময়ই ব্যয়বহুল হিলিয়াম গ্যাসের পরিবর্তে ব্যবহার করা হয় হাইড্রোজেন এবং মিথেন গ্যাস যা বায়ুর তুলনায় হালকা। এ দুইটি গ্যাস অতি মাত্রায় দাহ্য হওয়ায় অগ্নিকাণ্ড ঘটার একটি বিরাট সম্ভাবনা থাকে।</div></div>
+ <div class="col c"><svg width="85mm" height="125mm" viewBox="0 0 170 250" style="margin:0 auto;border-radius:3mm">
+  <defs><radialGradient id="lg" cx="50%" cy="75%" r="70%"><stop offset="0" stop-color="#ffd27a"/><stop offset=".45" stop-color="#f26a2a"/><stop offset="1" stop-color="#7a1c0e"/></radialGradient></defs>
+  <rect width="170" height="250" fill="#0b0b18"/>
+  <path d="M40 95Q40 20 85 20Q130 20 130 95L112 175H58Z" fill="url(#lg)"/>
+  <path d="M85 20Q62 90 70 175M85 20Q108 90 100 175" stroke="#2a0f08" stroke-width="2" fill="none"/>
+  <path d="M42 70H128" stroke="#222" stroke-width="10" opacity=".75"/>
+  <ellipse cx="85" cy="176" rx="28" ry="7" fill="#ffd27a"/>
+  <path d="M85 150q-12 28 0 44q12-16 0-44z" fill="#fff2a8"/><path d="M85 170q-5 12 0 20q5-8 0-20z" fill="#ff9a2e"/>
+  <g fill="#fff" opacity=".8"><circle cx="20" cy="225" r="1.5"/><circle cx="50" cy="235" r="1.2"/><circle cx="130" cy="232" r="1.5"/><circle cx="150" cy="218" r="1.2"/><circle cx="25" cy="40" r="1"/><circle cx="148" cy="55" r="1"/></g>
+ </svg></div></div>
+</div></section>
+
+<!-- ============ 8. PRESSURE IN LIQUIDS ============ -->
+<section class="slide"><div class="hd"><h1>৩. তরলের ভেতর চাপ (Pressure in liquids)</h1><span class="tag">তরল</span></div><div class="bd">
+ <div class="def">তরল পদার্থের ভিতরে কোনো বিন্দুতে চাপ বলতে ঠিক ঐ বিন্দুর চারদিকে প্রতি একক ক্ষেত্রফলের উপর লম্বভাবে অনুভূত বলকে বুঝায়।</div>
+ <p>একটি পাত্রকে তরল দ্বারা পূর্ণ করে তরলের পৃষ্ঠ হতে <i>h</i> m নিচে <i>A</i> ক্ষেত্রফল বিশিষ্ট একটি তল বিবেচনা করি। তরলের ঘনত্ব <i>ρ</i> এবং অভিকর্ষজ ত্বরণ <i>g</i>।</p>
+ <div class="row mt"><div class="col" style="flex:1.5">
+  <div class="card" style="font-size:12.5pt;line-height:1.9">
+   এখানে, <i>A</i> ক্ষেত্রফলে প্রযুক্ত বল = তরলের ওজন<br>
+   বা, <i>F</i> = <i>mg</i><br>বা, <i>F</i> = <i>ρVg</i> &nbsp;[∵ <i>V</i> = আয়তন]<br>
+   বা, <i>F</i> = <i>Ahρg</i> ….. ….. ….. (i)<br>
+   আমরা জানি, চাপ, <i>P</i> = <fr><n><i>F</i></n><d><i>A</i></d></fr> = <fr><n><i>Ahρg</i></n><d><i>A</i></d></fr> &nbsp;[(i) নং হতে]<br>
+   <span class="fm" style="font-size:14pt">∴ <i>P</i> = <i>hρg</i></span></div>
+  <div class="note mt">তাই বলা যায়, তরলের মধ্যে কোনো বিন্দুতে চাপ নির্ভর করে তরলের ঘনত্ব এবং তরলের মুক্ত তল হতে বিন্দুর গভীরতার উপর।</div></div>
+ <div class="col c"><svg width="80mm" height="82mm" viewBox="0 0 200 200" style="margin:0 auto">
+  <path d="M30 20V170Q30 185 45 185H155Q170 185 170 170V20" fill="none" stroke="#555" stroke-width="3"/>
+  <path d="M30 20Q22 14 18 22" fill="none" stroke="#555" stroke-width="3"/>
+  <path d="M31 95H169V170Q169 183 155 183H45Q31 183 31 170Z" fill="#b7d3ff"/><path d="M31 95H169" stroke="#3b82f6" stroke-width="2"/>
+  <g stroke="#777"><path d="M150 45h15M150 62h15M150 80h15M150 115h15M150 135h15M150 155h15"/></g>
+  <ellipse cx="100" cy="140" rx="35" ry="10" fill="none" stroke="#10224f" stroke-width="2.5"/>
+  <path d="M70 97V136" stroke="#0b2a6f" stroke-width="2.5" marker-start="url(#aB)" marker-end="url(#aB)"/>
+  <text x="58" y="122" font-size="16" fill="#0b2a6f">h</text><text x="96" y="145" font-size="15" fill="#0b2a6f">A</text>
+ </svg></div></div>
+</div></section>
+
+<!-- ============ 9. ARCHIMEDES 1 ============ -->
+<section class="slide"><div class="hd"><h1>আর্কিমিডিসের সূত্র এবং প্লবতা (Archimedes Law And Buoyancy)</h1><span class="tag">প্লবতা</span></div><div class="bd sm">
+ <div class="row"><div class="col" style="flex:1.9">
+  <div class="def"><span style="color:#0b2a6f">প্রবাহী (Fluid) :</span> যে পদার্থ প্রবাহিত হয় বা হতে পারে তাকে প্রবাহী বলা হয়। তরল ও বায়বীয় পদার্থই হলো প্রবাহী।</div>
+  <div class="def"><span style="color:#0b2a6f">প্লবতা :</span> কোনো প্রবাহী অর্থাৎ তরল বা বায়বীয় পদার্থে আংশিক বা সম্পূর্ণরূপে নিমজ্জিত কোনো বস্তুর উপর তরল বা বায়বীয় পদার্থ লম্বভাবে যে ঊর্ধ্বমুখী লব্ধি বল প্রয়োগ করে তাকে প্লবতা বলে।</div>
+  <p>তাহলে চলো বন্ধুরা একটি পরীক্ষার মাধ্যমে প্লবতার মান বের করি। ধরি, <i>A</i> প্রস্থচ্ছেদের এবং <i>h</i> উচ্চতার একটি সিলিন্ডার <i>ρ</i> ঘনত্বের তরলে সম্পূর্ণ নিমজ্জিত অবস্থায় আছে। তরলের মুক্ত তল হতে সিলিন্ডারের উপরের ও নিচের পৃষ্ঠের গভীরতা যথাক্রমে <i>h</i><sub>1</sub> ও <i>h</i><sub>2</sub>। অর্থাৎ, <i>h</i> = <i>h</i><sub>2</sub> − <i>h</i><sub>1</sub></p>
+  <p class="mt">স্বাভাবিকভাবে, সিলিন্ডারটি প্রতি বিন্দুতে তরল দ্বারা চাপ অনুভব করবে। খেয়াল কর, বক্রপৃষ্ঠের তরল কর্তৃক প্রযুক্ত পার্শ্বচাপজনিত বল পরস্পর সমান ও বিপরীতমুখী হওয়ায় নাকচ হয়ে যায়। কিন্তু তরল সিলিন্ডারের উপরিপৃষ্ঠের তুলনায় নিম্নপৃষ্ঠে বেশি চাপ প্রয়োগ করে (যেহেতু স্থির তরলে চাপ উচ্চতার সমানুপাতিক)। ফলে <i>SR</i> পৃষ্ঠে তরল বেশি বল প্রয়োগ করে এবং <i>PQ</i> পৃষ্ঠে কম বল প্রয়োগ করে (যেহেতু চাপ বলের সমানুপাতিক)। সিলিন্ডারের উপরিপৃষ্ঠে ও ঊর্ধ্বমুখী লব্ধি বল।</p></div>
+ <div class="col c"><svg width="100mm" height="62mm" viewBox="0 0 340 200"><use href="#subbase" width="340" height="200"/>
+  <g stroke-width="1.8" fill="none"><path d="M255 22V68M255 72V133" stroke="#12a150" marker-start="url(#aG)" marker-end="url(#aG)"/><path d="M296 22V133" stroke="#12a150" marker-start="url(#aG)" marker-end="url(#aG)"/>
+  <path d="M108 46V66M132 46V66" stroke="#d62839" marker-end="url(#aR)"/><path d="M108 162V142M132 162V142" stroke="#d62839" marker-end="url(#aR)"/></g>
+  <g font-size="15" fill="#14307a" font-style="italic"><text x="262" y="50">h₁</text><text x="262" y="106">h</text><text x="303" y="82">h₂</text></g>
+  <g font-size="14" fill="#222"><text x="48" y="68">P</text><text x="176" y="68">Q</text><text x="48" y="140">S</text><text x="176" y="140">R</text></g></svg>
+  <p class="hl" style="font-size:11pt">চিত্র : প্লবতার মান নির্ণয়</p></div></div>
+</div></section>
+
+<!-- ============ 10. ARCHIMEDES 2 ============ -->
+<section class="slide"><div class="hd"><h1>প্লবতার মান নির্ণয় – গাণিতিক প্রমাণ</h1><span class="tag">প্লবতা</span></div><div class="bd">
+ <div class="g2" style="align-items:start">
+ <div class="card" style="font-size:12.5pt;line-height:2">
+  <i>PQ</i> – এ তরল কর্তৃক নিম্নমুখী বল, <i>F</i><sub>1</sub> = <i>Ah</i><sub>1</sub><i>ρg</i><br>
+  <i>SR</i> – এ &nbsp;“ &nbsp;“ &nbsp;ঊর্ধ্বমুখী &nbsp;“ , <i>F</i><sub>2</sub> = <i>Ah</i><sub>2</sub><i>ρg</i><br>
+  সুতরাং, প্লবতা <i>F</i> = <i>F</i><sub>2</sub> − <i>F</i><sub>1</sub> &nbsp;[∵ <i>F</i><sub>2</sub> &gt; <i>F</i><sub>1</sub>]<br>
+  &emsp;&emsp;&emsp;&nbsp;= <i>Ah</i><sub>2</sub><i>ρg</i> − <i>Ah</i><sub>1</sub><i>ρg</i><br>
+  &emsp;&emsp;&emsp;&nbsp;= <i>A</i>(<i>h</i><sub>2</sub> − <i>h</i><sub>1</sub>)<i>ρg</i><br>
+  &emsp;&emsp;&emsp;&nbsp;= <i>Ahρg</i><br>
+  &emsp;&emsp;&emsp;&nbsp;= <i>Vρg</i> &nbsp;[<i>V</i> = <i>hA</i> = সিলিন্ডারের আয়তন = বস্তু কর্তৃক অপসারিত প্রবাহীর ওজন]<br>
+  <span class="gr" style="font-size:11pt">[যেহেতু বস্তু তার নিজের আয়তনের সমান আয়তনের তরল অপসারণ করবে।]</span></div>
+ <div>
+  <div class="svg c"><svg width="100mm" height="62mm" viewBox="0 0 340 200" style="margin:0 auto"><use href="#subbase" width="340" height="200"/>
+  <g stroke-width="1.8" fill="none"><path d="M255 22V68M255 72V133" stroke="#12a150" marker-start="url(#aG)" marker-end="url(#aG)"/><path d="M296 22V133" stroke="#12a150" marker-start="url(#aG)" marker-end="url(#aG)"/>
+  <path d="M108 46V66M132 46V66" stroke="#d62839" marker-end="url(#aR)"/><path d="M108 162V142M132 162V142" stroke="#d62839" marker-end="url(#aR)"/></g>
+  <g font-size="15" fill="#14307a" font-style="italic"><text x="262" y="50">h₁</text><text x="262" y="106">h</text><text x="303" y="82">h₂</text></g>
+  <g font-size="14" fill="#222"><text x="48" y="68">P</text><text x="176" y="68">Q</text><text x="48" y="140">S</text><text x="176" y="140">R</text></g></svg></div>
+  <div class="note mt"><b>তোমাদের অনেকের মনেই হয়তো প্রশ্ন আসতে পারে প্লবতা সর্বদা ঊর্ধ্বেই কেন ক্রিয়া করবে?</b> কারণ – সিলিন্ডারের নিম্নপৃষ্ঠে তরল কর্তৃক প্রদত্ত ঊর্ধ্বমুখী বল, উপরিপৃষ্ঠে প্রদত্ত নিম্নমুখী বলের তুলনায় বেশি। ফলস্বরূপ প্লবতাও ঊর্ধ্বে ক্রিয়া করে।</div></div></div>
+</div></section>
+
+<!-- ============ 11. ARCHIMEDES PRINCIPLE ============ -->
+<section class="slide"><div class="hd"><h1>আর্কিমিডিসের নীতি</h1><span class="tag">প্লবতা</span></div><div class="bd sm">
+ <div class="def">কোনো বস্তুকে স্থির তরল বা বায়বীয় পদার্থে আংশিক বা সম্পূর্ণরূপে নিমজ্জিত করলে বস্তুটি কিছু ওজন হারায় বলে মনে হয়। এ হারানো ওজন বস্তুটির দ্বারা অপসারিত তরল বা বায়বীয় পদার্থের ওজনের সমান।</div>
+ <div class="row"><div class="col" style="flex:1.6"><p>চিত্রে, তরলে নিমজ্জিত গোলকের <i>W</i> নিম্নমুখী হয়ে ক্রিয়া করছে। অপরদিকে প্লবতা <i>F<sub>b</sub></i> ঠিক একই বরাবর ঊর্ধ্বমুখীভাবে ক্রিয়া করছে। এই ঊর্ধ্বমুখী বলের জন্যই তরলে নিমজ্জিত বস্তু ওজন হারায় বলে মনে হয়।</p>
+  <div class="fm mt" style="font-size:12.5pt;border:.5mm solid #10224f;background:#fff9e0">প্লবতা = বস্তু কর্তৃক অপসারিত প্রবাহীর ওজন = বস্তুর হারানো ভর</div></div>
+  <div class="col c"><svg width="55mm" height="42mm" viewBox="0 0 180 140"><path d="M25 10V120Q25 132 37 132H143Q155 132 155 120V10" fill="#a9c4cf" stroke="#667" stroke-width="3"/><path d="M25 10V120Q25 132 37 132H143Q155 132 155 120V10Z" fill="none"/><rect x="26" y="10" width="128" height="38" fill="#fff" opacity=".35"/>
+   <circle cx="90" cy="82" r="24" fill="#d3e6ea" stroke="#111" stroke-width="2.5"/><path d="M90 58V6" stroke="#0b2a6f" stroke-width="2" marker-end="url(#aB)"/><path d="M90 106V136" stroke="#0b2a6f" stroke-width="2" marker-end="url(#aB)"/>
+   <text x="96" y="22" font-size="13" fill="#0b2a6f">F</text><text x="101" y="25" font-size="9" fill="#0b2a6f">b</text><text x="98" y="132" font-size="13" fill="#0b2a6f">W</text></svg></div></div>
+ <div class="sub mt" style="font-size:14pt">▢ বস্তুর ভেসে থাকা এবং ডুবে যাওয়া :</div>
+ <p><i>ρ</i><sub>1</sub> ঘনত্বের একটি বস্তু এবং <i>ρ</i><sub>2</sub> ঘনত্বের তরল বিবেচনা করি। মনে করি, বস্তুটির ওজন এবং বস্তু কর্তৃক অপসারিত তরলের ওজন যথাক্রমে <i>W</i><sub>1</sub> ও <i>W</i><sub>2</sub>। বস্তুটির ভাসন ও নিমজ্জনের ক্ষেত্রে তিনটি অবস্থার সৃষ্টি হতে পারে -</p>
+ <div class="g3 mt">
+  <div class="card"><b>i) বস্তুটি তরলে ডুবে যাবে, যদি-</b><div class="c mt"><i>W</i><sub>1</sub> &gt; <i>W</i><sub>2</sub><br><i>ρ</i><sub>1</sub> &gt; <i>ρ</i><sub>2</sub></div></div>
+  <div class="card"><b>ii) বস্তুটি তরলে সম্পূর্ণ নিমজ্জিত অবস্থায় ভাসবে, যদি-</b><div class="c mt"><i>W</i><sub>1</sub> = <i>W</i><sub>2</sub><br><i>ρ</i><sub>1</sub> = <i>ρ</i><sub>2</sub></div></div>
+  <div class="card"><b>iii) বস্তুটি আংশিক নিমজ্জিত অবস্থায় ভাসবে, যদি-</b><div class="c mt"><i>W</i><sub>1</sub> &lt; <i>W</i><sub>2</sub><br><i>ρ</i><sub>1</sub> &lt; <i>ρ</i><sub>2</sub></div></div></div>
+</div></section>
+
+<!-- ============ 12. BOAT + PASCAL ============ -->
+<section class="slide"><div class="hd"><h1>বাংলাদেশে নৌপথে দুর্ঘটনার কারণ ও প্যাসকেলের সূত্র</h1><span class="tag">প্লবতা</span></div><div class="bd">
+ <div class="card"><div class="sub">▢ বাংলাদেশে নৌপথে দুর্ঘটনার কারণ :</div>নৌযান পানিতে ভাসে কারণ এর ভিতরটা ফাঁপা। ফলে নৌযানে যে আয়তনের পানি অপসারণ করে তার ওজন নৌযানের ওজনের চেয়ে অনেক বেশি হয়। এতে নৌযান পানিতে নামানোর পর প্রথমে ডুবতে শুরু করে। খানিকটা ডুবার পর যখন অপসারিত পানির ওজন নৌযানের ওজনের সমান হয় তখন নৌযানটি ভাসতে থাকে। একটি নৌযান যখন তৈরি করা হয় এজন্য তখন তার আকার ও আকৃতি এমন করা হয় যে পানিতে নামালে ডুবন্ত অংশ কর্তৃক অপসারিত পানির ওজন নৌযানের ওজনের সমান হয়। অতএব যখন ধারণ ক্ষমতার বেশি যাত্রী উঠানো হয় তখন নৌযান ডুবে যায়। এছাড়া দুর্যোগপূর্ণ আবহাওয়া, অন্যকিছুর সাথে সংঘর্ষ, যন্ত্রপাতি ও নকশার ত্রুটি, মালপত্রের অনিয়মিত সংরক্ষণ ইত্যাদি কারনেও নৌপথে দুর্ঘটনা ঘটে থাকে।</div>
+ <div class="c" style="margin-top:7mm"><div class="fm" style="font-size:16pt;border:.6mm solid #7a5200">প্যাসকেলের সূত্র :</div></div>
+ <div class="def" style="margin-top:4mm;font-size:13pt">আবদ্ধ পাত্রে তরল বা বায়বীয় পদার্থের কোনো অংশ বাইরে থেকে চাপ প্রয়োগ করলে সেই চাপ কিছু মাত্র না কমে তরল বা বায়বীয় পদার্থের সর্বদিকে সমানভাবে সঞ্চালিত হয় এবং তরল বা বায়বীয় পদার্থের সংলগ্ন পাত্রের গায়ে লম্বভাবে ক্রিয়া করে।</div>
+</div></section>
+
+<!-- ============ 13. PASCAL APPLICATION 1 ============ -->
+<section class="slide"><div class="hd"><h1>প্যাসকেলের সূত্রের ব্যবহারিক ক্রিয়া, বলবৃদ্ধিকরণ</h1><span class="tag">প্যাসকেল</span></div><div class="bd">
+ <div class="def">আবদ্ধ তরল পদার্থের ক্ষুদ্রতম অংশের উপর পিস্টন দ্বারা কোনো বল প্রয়োগ করলে এর বৃহত্তম পিস্টনে সেই বলের বহুগুণ বেশি বল প্রযুক্ত হতে পারে, একে বল বৃদ্ধিকরণ নীতি বলে।</div>
+ <div class="c"><svg width="125mm" height="70mm" viewBox="0 0 340 190" style="margin:0 auto"><use href="#hydbase" width="340" height="190"/>
+  <path d="M55 5V28" stroke="#222" stroke-width="2" marker-end="url(#aK)"/><path d="M260 44V8" stroke="#222" stroke-width="2" marker-end="url(#aK)"/>
+  <g font-size="15" fill="#222" font-style="italic"><text x="70" y="16">F₁</text><text x="272" y="22">F₂</text><text x="45" y="80">A₁</text><text x="250" y="110">A₂</text><text x="8" y="130">C₁</text><text x="312" y="130">C₂</text></g></svg></div>
+ <p class="mt">ধরি, <i>C</i><sub>1</sub> ও <i>C</i><sub>2</sub> দুটি সিলিন্ডার। এদের প্রস্থচ্ছেদের ক্ষেত্রফল <i>A</i><sub>1</sub> ও <i>A</i><sub>2</sub>। সিলিন্ডার দুটি একটি নল দ্বারা সংযুক্ত এবং প্রত্যেক সিলিন্ডার একটি করে পিস্টন নিচ্ছিদ্রভাবে লাগান আছে। সিলিন্ডার দুটি তরল দ্বারা পূর্ণ করা আছে। যদি ছোট পিস্টনে <i>F</i><sub>1</sub> বল প্রয়োগ করা হয় তাহলে ছোট পিস্টনে অনুভূত চাপ হবে <fr><n><i>F</i><sub>1</sub></n><d><i>A</i><sub>1</sub></d></fr>। প্যাসকেলের সূত্রানুসারে এ চাপ তরল পদার্থ দ্বারা সর্বদিকে সঞ্চালিত হবে।</p>
+</div></section>
+
+<!-- ============ 14. PASCAL APPLICATION 2 ============ -->
+<section class="slide"><div class="hd"><h1>বলবৃদ্ধিকরণ – সূত্র নির্ণয়</h1><span class="tag">প্যাসকেল</span></div><div class="bd">
+ <div class="row"><div class="col" style="font-size:13pt;line-height:2.1">
+  ∴ বড় পিস্টনে প্রযুক্ত ঊর্ধ্বচাপ হবে <fr><n><i>F</i><sub>1</sub></n><d><i>A</i><sub>1</sub></d></fr><br>
+  ∴ বড় পিস্টনে অনুভূত ঊর্ধ্বমুখী বল <i>F</i><sub>2</sub> = চাপ × ক্ষেত্রফল<br>
+  বা, <i>F</i><sub>2</sub> = <fr><n><i>F</i><sub>1</sub></n><d><i>A</i><sub>1</sub></d></fr> × <i>A</i><sub>2</sub><br>
+  <div class="fm" style="margin:2mm 0;font-size:17pt"><fr><n><i>F</i><sub>2</sub></n><d><i>F</i><sub>1</sub></d></fr> = <fr><n><i>A</i><sub>2</sub></n><d><i>A</i><sub>1</sub></d></fr></div><br>
+  <span class="gr">তাই বলা যায়, বড় পিস্টনের প্রস্থচ্ছেদের ক্ষেত্রফল যত বেশি হবে বলও তত বেশি অনুভূত হবে।</span></div>
+  <div class="col c"><svg width="110mm" height="60mm" viewBox="0 0 340 190"><use href="#hydbase" width="340" height="190"/>
+  <path d="M55 5V28" stroke="#222" stroke-width="2" marker-end="url(#aK)"/><path d="M260 44V8" stroke="#222" stroke-width="2" marker-end="url(#aK)"/>
+  <g font-size="15" fill="#222" font-style="italic"><text x="70" y="16">F₁</text><text x="272" y="22">F₂</text></g></svg></div></div>
+ <div class="c mt2"><svg width="190mm" height="62mm" viewBox="0 0 360 120">
+  <g stroke="#555" stroke-width="2"><path d="M20 50H25M20 50V110H100V50M100 50H105" fill="none"/><path d="M135 50V110H215V50" fill="none"/><path d="M250 50V110H330V50" fill="none"/></g>
+  <rect x="21" y="68" width="78" height="40" fill="#b9c2cc"/><rect x="136" y="64" width="78" height="44" fill="#b9c2cc"/><rect x="251" y="70" width="78" height="38" fill="#b9c2cc"/>
+  <path d="M21 68H99M136 64H214M251 70H329" stroke="#6b7280" stroke-width="2"/>
+  <path d="M60 4V60" stroke="#e8c4a8" stroke-width="12" stroke-linecap="round"/><path d="M45 20Q60 -4 75 20V50" fill="#f0d4bf" stroke="#d1a98d"/><rect x="55" y="40" width="9" height="42" rx="4" fill="#f0d4bf" stroke="#d1a98d"/>
+  <path d="M150 6Q185 -4 215 20L205 40Q185 30 170 38" fill="#f0d4bf" stroke="#d1a98d"/><rect x="171" y="36" width="9" height="46" rx="4" fill="#f0d4bf" stroke="#d1a98d"/><rect x="184" y="34" width="9" height="46" rx="4" fill="#f0d4bf" stroke="#d1a98d"/>
+  <path d="M270 6Q300 -6 320 8V40" fill="#f0d4bf" stroke="#d1a98d"/><rect x="278" y="22" width="8" height="58" rx="4" fill="#f0d4bf" stroke="#d1a98d"/><rect x="290" y="22" width="8" height="58" rx="4" fill="#f0d4bf" stroke="#d1a98d"/><rect x="302" y="22" width="8" height="58" rx="4" fill="#f0d4bf" stroke="#d1a98d"/>
+  <path d="M100 66H125" stroke="#c0392b" stroke-dasharray="4 3"/></svg></div>
+</div></section>
+
+<!-- ============ 15. AIR PRESSURE ============ -->
+<section class="slide"><div class="hd"><h1>৪. বাতাসের চাপ (Air Pressure)</h1><span class="tag">বায়ুচাপ</span></div><div class="bd">
+ <div class="def">বায়ুমণ্ডল তার ওজনের জন্য ভূপৃষ্ঠে প্রতি একক ক্ষেত্রফলে লম্বভাবে যে পরিমান বল প্রয়োগ করে তাকে ঐ স্থানের বায়ুমণ্ডলীয় চাপ বলে। পৃথিবী পৃষ্ঠে বাতাসের চাপ <b>10<sup>5</sup> <i>Nm</i><sup>−2</sup></b>। তবে মানুষের শরীরের ভিতরে রক্তের চাপ বাইরের এ চাপ অপেক্ষা বেশি বলে মানুষ সাধারণত বাতাসের এ চাপ অনুভব করে না।</div>
+ <div class="card" style="margin-top:5mm">বায়ুমণ্ডলের চাপ নির্ভর করে বায়ুমণ্ডলের উচ্চতা এবং বায়ুর ঘনত্বের উপর। ভূপৃষ্ঠ অর্থাৎ সমুদ্র সমতলে বায়ুর সাধারন চাপ হলো <span class="hl">76cm</span> পারদস্তম্ভের চাপের সমান। ভূপৃষ্ঠের সমুদ্র সমতল থেকে যত উপরে উঠা যায় তত বায়ুস্তম্ভের ওজন এবং ঘনত্ব হ্রাস পায়। এজন্য বেশি উচ্চতায় উঠলে শ্বাস-প্রশ্বাস নেয়া কষ্টকর হয়। নিশ্চয়ই তোমরা এতক্ষণে পর্বতারোহণের সময় পর্বতারোহীরা অক্সিজেন সিলিন্ডার কেন ব্যবহার করেন তার উত্তর পেয়ে গিয়েছ।</div>
+ <div class="g2" style="margin-top:7mm;text-align:center">
+  <div class="card" style="background:#fff3cd"><div style="font-size:24pt;font-weight:700;color:#d62839">10<sup>5</sup> <i>Nm</i><sup>−2</sup></div>পৃথিবী পৃষ্ঠে বাতাসের চাপ</div>
+  <div class="card" style="background:#e6f8ee"><div style="font-size:24pt;font-weight:700;color:#0a8f4a">76 cm Hg</div>সমুদ্র সমতলে বায়ুর সাধারণ চাপ</div></div>
+</div></section>
+
+<!-- ============ 16. TORRICELLI ============ -->
+<section class="slide"><div class="hd"><h1>টরিসেলির পরীক্ষা</h1><span class="tag">বায়ুচাপ</span></div><div class="bd sm">
+ <div class="row"><div class="col" style="flex:3.3">
+  <p>প্রায় এক মিটার লম্বা, একমুখ খোলা এবং সুষম ব্যাসযুক্ত পুরু কাচের নল নিয়ে পরীক্ষাটি করতে হবে। নলটি বিশুদ্ধ পারদ দ্বারা পূর্ণ করে কাচনলের খোলা মুখ আঙুল দিয়ে আটকিয়ে নলটিকে উল্টা করে একটি পারদপূর্ণ পাত্রের মধ্যে ডুবাতে হবে। এবার আঙ্গুল সরিয়ে নলে খাড়া করে রাখার ব্যবস্থা করলে দেখা যাবে পারদ কিছুদূর নেমে এসে স্থির হয় দাঁড়িয়ে আছে। বায়ুমণ্ডলের চাপের কারণের এমন হচ্ছে। পাত্রের পারদের উপর বায়ুমণ্ডল সর্বদা চাপ দিচ্ছে। এ চাপ পারদের মধ্য দিয়ে সঞ্চালিত হয়ে নলের ভিতরে ঊর্ধ্বমুখে ক্রিয়া করে। এই চাপই নলের ভিতরে পারদস্তম্ভকে ধরে রাখে। এ চাপ না থাকলে অভিকর্ষের জন্য নলের ভিতরের পারদ নিচে নেমে আসত। সুতরাং বায়ুমণ্ডলীয় চাপ এবং নলের পারদস্তম্ভের চাপ সমান। সাধারণ ক্ষেত্রে নলের ভিতরে যে পারদস্তম্ভ থাকবে তার উচ্চতা প্রায় <b>76 cm</b>। তার মানে বায়ুমণ্ডলের চাপ 76 cm উঁচু পারদস্তম্ভকে ধরে রাখতে সক্ষম। এভাবে তরল স্তম্ভের উচ্চতা ব্যবহার করে বায়ুমণ্ডলীয় চাপের পরিমাণ করা যায়।</p>
+  <div class="note mt">কাচনলে যে পারদস্তম্ভ দাঁড়িয়ে থাকে তার উপর নলের বদ্ধ প্রান্ত পর্যন্ত স্থান শূন্য। এই শূন্য স্থানকে <b>টরিসেলির শূন্যস্থান</b> বলে। এখানে সামান্য পারদ বাষ্প থাকে। <b>বায়ুর চাপ পরিমাণ করার যন্ত্রকে ব্যারোমিটার বলে।</b> এ ব্যারোমিটার টরিসেলির এ পদ্ধতি দিয়েই তৈরি।</div></div>
+ <div class="col c"><svg width="62mm" height="150mm" viewBox="0 0 170 380" style="margin:0 auto">
+  <path d="M65 40Q65 8 90 8Q115 8 115 40V300H65Z" fill="#fff" stroke="#555" stroke-width="3"/>
+  <rect x="67" y="120" width="46" height="180" fill="#98a4b3"/>
+  <path d="M10 300H160V335Q160 350 145 350H25Q10 350 10 335Z" fill="#fff" stroke="#555" stroke-width="3"/><path d="M12 305H158V335Q158 348 145 348H25Q12 348 12 335Z" fill="#98a4b3"/>
+  <path d="M30 120H130M30 300H130" stroke="#222" stroke-dasharray="6 4" stroke-width="1.5"/>
+  <path d="M30 122V298" stroke="#222" stroke-width="1.6" marker-start="url(#aK)" marker-end="url(#aK)"/>
+  <text x="34" y="215" font-size="16" font-weight="700" fill="#d62839">76 cm</text>
+  <text x="90" y="75" font-size="11" text-anchor="middle" fill="#0b2a6f">শূন্যস্থান</text>
+  <path d="M90 82V114" stroke="#0b2a6f" stroke-width="1.5" marker-end="url(#aB)" stroke-dasharray="3 2"/>
+  <text x="85" y="372" font-size="11" text-anchor="middle" fill="#333">পারদপূর্ণ পাত্র</text></svg></div></div>
+</div></section>
+
+<!-- ============ 17. AIR + WEATHER ============ -->
+<section class="slide"><div class="hd"><h1>বাতাসের চাপ এবং আবহাওয়া</h1><span class="tag">বায়ুচাপ</span></div><div class="bd">
+ <div class="def" style="font-size:13pt">আমরা ব্যারোমিটারে পারদস্তম্ভের উচ্চতার পরিবর্তন দেখে বায়ুমণ্ডলীয় চাপের পরিবর্তন বুঝতে পারি।</div>
+ <div class="g3" style="margin-top:5mm;align-items:start">
+  <div class="card"><div class="sub" style="color:#d62839">১. উচ্চতা ধীরে ধীরে কমলে</div>ব্যারোমিটারে পারদ স্তম্ভের উচ্চতা ধীরে ধীরে কমতে থাকলে বোঝা যাবে। বায়ুতে জলীয় বাষ্পের পরিমাণ ধীরে ধীরে বাড়ছে। কারণ জলীয় বাষ্প বায়ুর চেয়ে হালকা। এক্ষেত্রে <b>বৃষ্টিপাতের সম্ভাবনা</b> আছে।</div>
+  <div class="card"><div class="sub" style="color:#d62839">২. হঠাৎ খুব কমে গেলে</div>হঠাৎ যদি পারদস্তম্ভের উচ্চতা খুব কমে যায় তবে বুঝতে হবে চারদিকে বায়ুমণ্ডলের চাপ সহসা কমে গেছে এবং ঐ স্থানে নিম্নচাপের সৃষ্টি হয়েছে। পার্শ্ববর্তী উচ্চচাপের অঞ্চল থেকে বায়ু প্রবল বেগে নিম্নচাপের অঞ্চলে ছুটে আসবে। সুতরাং <b>ঝড়ের সম্ভাবনা</b> আছে।</div>
+  <div class="card"><div class="sub" style="color:#0a8f4a">৩. উচ্চতা ধীরে ধীরে বাড়লে</div>ব্যারোমিটারে পারদস্তম্ভের উচ্চতা ধীরে ধীরে বাড়লে বুঝতে হবে বায়ুমণ্ডল থেকে জলীয় বাষ্প অপসারিত হচ্ছে এবং শুষ্ক বাতাস সেই স্থান দখল করেছে। অতএব <b>আবহাওয়া শুষ্ক ও পরিষ্কার</b> থাকবে।</div></div>
+</div></section>
+
+<!-- ============ 18. ELASTICITY 1 ============ -->
+<section class="slide"><div class="hd"><h1>৫. স্থিতিস্থাপকতা (Elasticity)</h1><span class="tag">স্থিতিস্থাপকতা</span></div><div class="bd">
+ <div class="def">বাহ্যিক বল প্রয়োগ করে কোনো বস্তুর আকার বা আয়তন বা উভয়ের পরিবর্তনের চেষ্টা করলে, যে ধর্মের জন্য বস্তুটি এই প্রচেষ্টাকে বাধা দেয় এবং বল অপসারিত করলে পুনরায় পূর্বের আকার বা আয়তন ফিরে পায় সেই ধর্মকে স্থিতিস্থাপকতা বলে।</div>
+ <div class="note" style="color:#0a6b38;background:#e6f8ee;border-color:#12a150;font-weight:600">যে সীমার বেশি বল প্রয়োগ করলে বস্তু আর পূর্বের অবস্থা ফিরে পায় না তাকে স্থিতিস্থাপক সীমা বলে।</div>
+ <div class="g2 mt2" style="margin-top:6mm;align-items:start">
+  <div class="card"><div class="sub">বিকৃতি (Strain) :</div>বাইরে থেকে বল প্রয়োগ করলে পদার্থের আকার বা দৈর্ঘ্যের যে আপেক্ষিক পরিবর্তন হয় তাকে বিকৃতি বলে।<div class="c mt"><span class="fm" style="font-size:14pt">বিকৃতি = <fr><n><i>L</i>−<i>L<sub>o</sub></i></n><d><i>L<sub>o</sub></i></d></fr> = <fr><n>Δ<i>L</i></n><d><i>L<sub>o</sub></i></d></fr></span></div></div>
+  <div class="card"><div class="sub">পীড়ন (Stress) :</div>একক ক্ষেত্রফল বিকৃতির কারণে পদার্থের ভেতর যে বল তৈরি হয় সেটাই হচ্ছে পীড়ন।<div class="c mt"><span class="fm" style="font-size:14pt">পীড়ন = <fr><n><i>F</i></n><d><i>A</i></d></fr></span></div></div></div>
+</div></section>
+
+<!-- ============ 19. HOOKE + YOUNG ============ -->
+<section class="slide"><div class="hd"><h1>হুকের সূত্র (Hooke’s Law) ও ইয়ং’স মডুলাস</h1><span class="tag">স্থিতিস্থাপকতা</span></div><div class="bd sm">
+ <div class="row"><div class="col" style="flex:2.2">
+  <div class="def" style="margin-bottom:2mm"><span style="color:#0b2a6f">হুকের সূত্র (Hooke’s Law) :</span> স্থিতিস্থাপক সীমার ভিতরে পীড়ন বিকৃতির সমানুপাতিক।</div>
+  <div>অর্থাৎ, পীড়ন ∝ বিকৃতি<br>বা, পীড়ন = ধ্রুবক × বিকৃতি</div>
+  <p class="mt">প্রত্যেক পদার্থের পীড়ন এবং বিকৃতির সাথে সম্পর্কযুক্ত ধ্রুবকটিকে <b>স্থিতিস্থাপক গুণাঙ্ক</b> বলে।</p>
+  <p class="mt">ধরি, <i>A</i> প্রস্থচ্ছেদের একটা তারের দৈর্ঘ্য <i>L<sub>o</sub></i>, এর সাথে <i>W</i> ওজনের একটা ভর ঝুলিয়ে দেয়া হলে দৈর্ঘ্য বেড়ে হল <i>L</i>। এ বর্ধিত দৈর্ঘ্যের তারটির ভেতর একটি পাল্টা বল <i>T</i> তৈরি করেছে।</p>
+  <p class="mt">কাজেই পীড়ন হচ্ছে <fr><n><i>T</i></n><d><i>A</i></d></fr> এবং বিকৃতি হচ্ছে : <fr><n><i>L</i>−<i>L<sub>o</sub></i></n><d><i>L<sub>o</sub></i></d></fr></p>
+  <div class="card mt" style="font-size:13pt">অতএব, <fr><n><i>T</i></n><d><i>A</i></d></fr> ∝ <fr><n><i>L</i>−<i>L<sub>o</sub></i></n><d><i>L<sub>o</sub></i></d></fr> &nbsp;⟹&nbsp; <fr><n><i>T</i></n><d><i>A</i></d></fr> = <i>Y</i>(<fr><n><i>L</i>−<i>L<sub>o</sub></i></n><d><i>L<sub>o</sub></i></d></fr>) &nbsp;যা ইয়ং এর গুণাঙ্ক</div>
+  <p class="mt">এই ধ্রুবকের নাম <b class="gr">ইয়াংস মডুলাস</b> (Young’s Modulus)</p></div>
+ <div class="col c"><svg width="58mm" height="130mm" viewBox="0 0 200 250" style="margin:0 auto">
+  <rect x="55" y="30" width="14" height="140" fill="#fff" stroke="#222" stroke-width="2"/><rect x="55" y="30" width="14" height="14" fill="#fff" stroke="#222"/>
+  <circle cx="62" cy="37" r="2.5" fill="#12a150"/><circle cx="62" cy="163" r="2.5" fill="#12a150"/>
+  <path d="M30 30V170" stroke="#d62839" stroke-width="2" marker-start="url(#aR)" marker-end="url(#aR)"/><text x="12" y="106" font-size="16" fill="#222">L<tspan font-size="10" dy="4">o</tspan></text>
+  <rect x="135" y="30" width="14" height="180" fill="#fff" stroke="#222" stroke-width="2"/><circle cx="142" cy="37" r="2.5" fill="#12a150"/><circle cx="142" cy="203" r="2.5" fill="#12a150"/>
+  <path d="M175 30V210" stroke="#d62839" stroke-width="2" marker-start="url(#aR)" marker-end="url(#aR)"/><text x="180" y="125" font-size="16" fill="#222">L</text>
+  <path d="M112 150V70" stroke="#12a150" stroke-width="2" marker-end="url(#aG)"/><text x="106" y="165" font-size="16" fill="#222">T</text>
+  <circle cx="142" cy="220" r="9" fill="#fff" stroke="#222" stroke-width="2"/><path d="M142 230V248" stroke="#12a150" stroke-width="2" marker-end="url(#aG)"/><text x="120" y="248" font-size="16" fill="#222">W</text></svg></div></div>
+</div></section>
+
+<!-- ============ 20. BULK MODULUS ============ -->
+<section class="slide"><div class="hd"><h1>বাল্ক মডুলাস (আয়তনীয় গুণাঙ্ক)</h1><span class="tag">স্থিতিস্থাপকতা</span></div><div class="bd">
+ <div class="row"><div class="col" style="flex:1.7;font-size:13pt;line-height:1.9">
+  <p>আবার, <i>V<sub>o</sub></i> আয়তনের গ্যাস থাকা একটি সিলিন্ডার বিবেচনা করি। গ্যাসে <i>P</i> চাপ দেওয়ায় গ্যাসের আয়তন কমে <i>V</i> হয়ে গেলো। অতএব পীড়ন হচ্ছে <i>P</i> এবং বিকৃতি : <fr><n><i>V</i>−<i>V<sub>o</sub></i></n><d><i>V<sub>o</sub></i></d></fr></p>
+  <div class="card c mt" style="font-size:14pt">অতএব, <i>P</i> ∝ <fr><n><i>V</i>−<i>V<sub>o</sub></i></n><d><i>V<sub>o</sub></i></d></fr><br><i>P</i> = <i>B</i>(<fr><n><i>V</i>−<i>V<sub>o</sub></i></n><d><i>V<sub>o</sub></i></d></fr>)</div>
+  <p class="mt">এ ধ্রুবককে <b class="gr">বাল্ক মডুলাস</b> (Bulk Modulus) বা <b class="gr">আয়তনীয় গুণাঙ্ক</b> বলে।</p>
+  <p>ইয়াংস মডুলাস ও বাল্ক মডুলাস উভয়ের একক <b class="gr"><i>Nm</i><sup>−2</sup></b> অথবা <b class="gr"><i>Pa</i></b>।</p></div>
+ <div class="col c"><svg width="95mm" height="105mm" viewBox="0 0 250 270" style="margin:0 auto">
+  <rect x="20" y="40" width="85" height="110" fill="#e9eef7" stroke="#cfd8e8"/><rect x="35" y="55" width="40" height="70" fill="#7aa6e8"/><path d="M20 150L50 135H105" fill="none"/>
+  <circle cx="190" cy="50" r="12" fill="#3b82f6"/><path d="M165 38L205 30" stroke="#999" fill="none"/>
+  <rect x="150" y="75" width="40" height="40" fill="none" stroke="#bbb"/><rect x="200" y="100" width="35" height="50" fill="none" stroke="#bbb"/>
+  <text x="38" y="105" font-size="14" fill="#fff">E=mc²</text>
+  <path d="M95 195Q110 130 150 140Q190 130 200 195V225H95Z" fill="#3b82f6"/><circle cx="148" cy="118" r="26" fill="#f5c9a6"/>
+  <path d="M120 112Q125 80 150 85Q180 85 175 130Q165 100 150 100Q130 100 120 112Z" fill="#222"/><path d="M122 112Q118 150 128 155" stroke="#222" stroke-width="12" fill="none" stroke-linecap="round"/>
+  <circle cx="140" cy="118" r="7" fill="none" stroke="#333" stroke-width="1.5"/><circle cx="158" cy="118" r="7" fill="none" stroke="#333" stroke-width="1.5"/>
+  <path d="M10 225L55 215H125V250H10Z" fill="#e5e7eb" stroke="#555" stroke-width="2"/><circle cx="68" cy="232" r="3" fill="#fff" stroke="#555"/>
+  <path d="M120 245L200 225L235 240L150 262Z" fill="#fff" stroke="#333" stroke-width="2"/><path d="M185 232L195 248" stroke="#333"/>
+  <path d="M25 40V20H105V40" fill="#cfe2ff" stroke="#bbb"/></svg></div></div>
+</div></section>
+
+<!-- ============ 21. STATES ============ -->
+<section class="slide"><div class="hd"><h1>৬. পদার্থের তিন অবস্থা : কঠিন, তরল এবং গ্যাস</h1><span class="tag">পদার্থের অবস্থা</span></div><div class="bd xs">
+ <div class="sub" style="font-size:13.5pt;margin-top:0">▢ পদার্থের আণবিক গতিতত্ত্ব (Molecular Kinetic theory of matter) :</div>
+ <div class="row"><div class="col" style="flex:2.5">
+  <p>পদার্থের অণুগুলো গতিশীল অবস্থায় আছে, এই ধারণা ধরে নেওয়াই পদার্থের আণবিক গতিতত্ত্বের মূল বিষয়।</p>
+  <p class="mt">i) যেকোনো পদার্থ অসংখ্য ক্ষুদ্র ক্ষুদ্র কনার সমন্বয়ে গঠিত, যাদের অণু বলে।<br>ii) অণুগুলো এত ক্ষুদ্র যে তাদেরকে বিন্দুবৎ বিবেচনা করা হয়।<br>iii) অণুগুলা সর্বদা গতিশীল।<br>
+  iv) গ্যাসের ক্ষেত্রে অণুগুলা বেশ দূরে দূরে থাকে, এজন্য তাদের মধ্যে কোনো আকর্ষণ বা বিকর্ষণ বল কাজ করে না বললেই চলে। তরলের ক্ষেত্রে অণুগুলো কিছুটা দূরে থাকলেও তাদের মধ্যে আকর্ষণ বল কাজ করে এবং তরলকে পাত্রের আকার ধারণ করতে বাধ্য করে। কঠিন পদার্থের অণুগুলো খুব কাছাকাছি থাকে এবং তাদের মধ্যে তীব্র আকর্ষণ বল কাজ করে বিধায় কঠিন পদার্থের নিজস্ব আকার ও আয়তন আছে।<br>
+  v) গ্যাসের ও তরলের ক্ষেত্রে অণুগুলো এলোমেলো ছুটোছুটি করে বলে এরা পরস্পরের সাথে এবং পাত্রের দেয়ালের সাথে সংঘর্ষে লিপ্ত হয়।</p></div>
+  <div class="col c"><svg width="50mm" height="50mm" viewBox="0 0 160 160" style="margin:0 auto">
+   <g stroke="#111" stroke-width="5" fill="none"><path d="M60 15L78 28L100 20M78 28V52L55 62L35 50V40M55 62V85L78 98L100 85L115 65M100 85V110L78 125L65 135M115 65L128 50M78 98V120"/><path d="M78 52L100 65L115 65"/></g>
+   <g stroke="#111" stroke-width="1.2"><circle cx="60" cy="15" r="9" fill="#30c28a"/><circle cx="78" cy="28" r="9" fill="#ffd21f"/><circle cx="100" cy="20" r="9" fill="#2aa7ff"/><circle cx="78" cy="52" r="9" fill="#ff5e9a"/><circle cx="55" cy="62" r="9" fill="#7c83e8"/><circle cx="35" cy="45" r="9" fill="#7c83e8"/><circle cx="100" cy="65" r="9" fill="#7c83e8"/><circle cx="115" cy="65" r="9" fill="#2aa7ff"/><circle cx="55" cy="88" r="9" fill="#2aa7ff"/><circle cx="78" cy="98" r="9" fill="#ff5e9a"/><circle cx="100" cy="85" r="9" fill="#40d0a0"/><circle cx="100" cy="112" r="9" fill="#40d0a0"/><circle cx="78" cy="125" r="9" fill="#9bd400"/><circle cx="62" cy="135" r="9" fill="#ffd21f"/><circle cx="66" cy="148" r="8" fill="#ff5e9a"/></g></svg></div></div>
+ <div class="card" style="margin-top:4mm;background:#fff7e0"><div class="sub" style="margin-top:0">▢ পদার্থের চতুর্থ অবস্থা (Fourth state of matter) :</div>পদার্থের চতুর্থ অবস্থার নাম <b>প্লাজমা</b>। এই প্লাজমা হল অতি উচ্চ তাপমাত্রায় আয়নিত গ্যাস। প্লাজমার বড় উৎস হল সূর্য। অন্যান্য নক্ষত্রগুলোও প্লাজমার উৎস। প্রায় কয়েক হাজার ডিগ্রি সেলসিয়াস তাপমাত্রায় প্লাজমা অবস্থার উৎপত্তি হয়। গ্যাসের ন্যায় প্লাজমার নির্দিষ্ট আকার বা আয়তন নেই। বর্তমানে হালকা নিউক্লিয়াসকে একত্র করে ফিউশান পদ্ধতিতে শক্তি তৈরি করার জন্য প্লাজমা ব্যবহারের চেষ্টা করা হয়।</div>
+</div></section>
+
+<!-- ============ 22. FORMULA TABLE 1 ============ -->
+<section class="slide"><div class="hd"><h1>Formula Table (১)</h1><span class="tag">সূত্র সারণি</span></div><div class="bd">
+ <div class="ft sm2"><div class="h">সূত্র</div><div class="h">চলকের পরিচয়</div><div class="h">একক</div>
+  <div class="k"><i>P</i> = <fr><n><i>F</i></n><d><i>A</i></d></fr></div><div class="v"><div><i>P</i> = চাপ</div><div><i>F</i> = বল</div><div><i>A</i> = ক্ষেত্রফল</div></div><div class="v c"><fr><n>N</n><d>m<sup>2</sup></d></fr> বা Pa (প্যাসকেল)</div>
+  <div class="k"><i>ρ</i> = <fr><n><i>m</i></n><d><i>V</i></d></fr></div><div class="v"><div><i>ρ</i> = ঘনত্ব</div><div><i>m</i> = ভর</div><div><i>V</i> = আয়তন</div></div><div class="v c">kg/m<sup>3</sup> অথবা gm/cc</div>
+  <div class="k"><i>P</i> = <i>hρg</i></div><div class="v"><div><i>P</i> = স্থির তরলে কোনো বিন্দুতে চাপ।</div><div><i>h</i> = তরলের উপরিপৃষ্ঠ হতে বিন্দুর দূরত্ব</div><div><i>ρ</i> = ঘনত্ব</div><div><i>g</i> = অভিকর্ষজ ত্বরণ</div></div><div class="v c"><fr><n>N</n><d>m<sup>2</sup></d></fr> বা Pa (প্যাসকেল)</div>
+  <div class="k"><i>F</i> = <i>Ahρg</i></div><div class="v"><div><i>F</i> = কোনো বিন্দুতে তরল দ্বারা প্রদত্ত বল</div><div><i>h</i> = উচ্চতা</div><div><i>ρ</i> = তরলের ঘনত্ব</div><div><i>g</i> = অভিকর্ষজ ত্বরণ</div></div><div class="v c">N বা নিউটন</div>
+  <div class="k"><i>F</i> = <i>Vρg</i></div><div class="v"><div><i>V</i> = বস্তুর আয়তন</div><div><i>ρ</i> = তরলের ঘনত্ব</div><div><i>g</i> = অভিকর্ষজ ত্বরণ</div></div><div class="v c">N বা নিউটন</div></div>
+</div></section>
+
+<!-- ============ 23. FORMULA TABLE 2 ============ -->
+<section class="slide"><div class="hd"><h1>Formula Table (২)</h1><span class="tag">সূত্র সারণি</span></div><div class="bd" style="padding-top:3mm">
+ <div class="ft sm2" style="font-size:9.8pt;line-height:1.3;gap:2mm"><div class="h">সূত্র</div><div class="h">চলকের পরিচয়</div><div class="h">একক</div>
+  <div class="k"><fr><n><i>F</i><sub>2</sub></n><d><i>F</i><sub>1</sub></d></fr> = <fr><n><i>A</i><sub>2</sub></n><d><i>A</i><sub>1</sub></d></fr></div><div class="v"><div><i>F</i><sub>1</sub> = ছোট পিস্টনে প্রযুক্ত বল</div><div><i>F</i><sub>2</sub> = বড় পিস্টনে অনুভূত বল</div><div><i>A</i><sub>1</sub> = ছোট পিস্টনের ক্ষেত্রফল</div><div><i>A</i><sub>2</sub> = বড় পিস্টনের ক্ষেত্রফল</div></div><div class="v c">—</div>
+  <div class="k">বিকৃতি = <fr><n><i>L</i>−<i>L</i><sub>0</sub></n><d><i>L</i><sub>0</sub></d></fr></div><div class="v"><div><i>L</i><sub>0</sub> = বস্তুর দৈর্ঘ্য</div><div><i>L</i> = পরিবর্তিত দৈর্ঘ্য</div></div><div class="v c">নেই</div>
+  <div class="k">পীড়ন = <fr><n><i>F</i></n><d><i>A</i></d></fr></div><div class="v"><div><i>F</i> = প্রতিরোধ বল</div><div><i>A</i> = প্রস্থচ্ছেদের ক্ষেত্রফল</div></div><div class="v c">Pa</div>
+  <div class="k">স্থিতিস্থাপক গুণাঙ্ক = <fr><n>পীড়ন</n><d>বিকৃতি</d></fr></div><div class="v c">—</div><div class="v c"><i>Nm</i><sup>−2</sup></div>
+  <div class="k"><fr><n><i>T</i></n><d><i>A</i></d></fr> = <i>Y</i>(<fr><n><i>L</i>−<i>L</i><sub>0</sub></n><d><i>L</i><sub>0</sub></d></fr>)</div><div class="v"><div><i>T</i> = টান বল &nbsp; <i>A</i> = প্রস্থচ্ছেদের ক্ষেত্রফল</div><div><i>L</i><sub>0</sub> = বস্তুর দৈর্ঘ্য &nbsp; <i>L</i> = পরিবর্তিত দৈর্ঘ্য</div><div><i>Y</i> = ইয়াং মডুলাস</div></div><div class="v c">—</div>
+  <div class="k"><i>P</i> = <i>B</i>(<fr><n><i>V</i>−<i>V</i><sub>0</sub></n><d><i>V</i><sub>0</sub></d></fr>)</div><div class="v"><div><i>P</i> = পীড়ন &nbsp; <i>V</i><sub>0</sub> = আয়তন</div><div><i>V</i> = পরিবর্তিত আয়তন</div><div><i>B</i> = বাল্ক মডুলাস</div></div><div class="v c">—</div></div>
+</div></section>
+
+<!-- ============ 24. MATH T1 ============ -->
+<section class="slide"><div class="hd"><h1>TOPICWISE MATH – Type 1 : <i>P</i> = <fr><n><i>F</i></n><d><i>A</i></d></fr></h1><span class="tag">Type Wise Math</span></div><div class="bd sm">
+ <div class="g2" style="align-items:start">
+ <div><div class="qb"><b>১.</b> কোনো ব্যক্তির ভর 80 kg হলে এবং তার জুতার ক্ষেত্রফল 88 <i>cm</i><sup>2</sup> হলে, ঐ ব্যক্তি কর্তৃক প্রযুক্ত চাপের পরিমাণ কত?</div>
+  <div class="sol"><span class="lab">উত্তর :</span> এখানে, ভর <i>m</i> = 80 <i>kg</i>, ক্ষেত্রফল, <i>A</i> = 88 <i>cm</i><sup>2</sup>
+   <div class="l">এখানে, ব্যক্তির ওজনই জুতার উপর বল হিসেবে ক্রিয়া করে। অর্থাৎ <i>W</i> = <i>F</i></div>
+   <div class="l">এখানে, ওজন <i>W</i> = <i>mg</i> = (80×9.8) <i>N</i> = 784 <i>N</i></div>
+   <div class="l">∴ চাপ <i>P</i> = <fr><n><i>F</i></n><d><i>A</i></d></fr> = <fr><n><i>W</i></n><d><i>A</i></d></fr> = <fr><n>784 <i>N</i></n><d>88×10<sup>−4</sup><i>m</i><sup>2</sup></d></fr> = <span class="ans">89090.9 <i>Pa</i></span></div></div></div>
+ <div><div class="qb"><b>২.</b> 60 <i>m</i><sup>2</sup> ক্ষেত্রফলবিশিষ্ট একটি বস্তুর চাপ 4.9×10<sup>8</sup> <i>Nm</i><sup>−2</sup> হলে, প্রযুক্ত বলের পরিমাণ কত?</div>
+  <div class="sol"><span class="lab">উত্তর :</span> আমরা জানি, <i>P</i> = <fr><n><i>F</i></n><d><i>A</i></d></fr>
+   <div class="l">⇒ <i>F</i> = (60×4.9×10<sup>8</sup>) <i>N</i> = 2.94×10<sup>10</sup> <i>N</i></div>
+   <div class="l ans">∴ প্রযুক্ত বলের পরিমাণ 2.94×10<sup>10</sup> N</div></div></div></div>
+</div></section>
+
+<!-- ============ 25. MATH T2 + T3 ============ -->
+<section class="slide"><div class="hd"><h1>TOPICWISE MATH – Type 2 : <i>ρ</i> = <fr><n><i>m</i></n><d><i>v</i></d></fr> &nbsp;|&nbsp; Type 3 : <i>P</i> = <i>hρg</i></h1><span class="tag">Type Wise Math</span></div><div class="bd sm">
+ <div class="g2" style="align-items:start">
+ <div><div class="qb"><b>Type 2 – ১.</b> একটি নিরেট বস্তুর ওজন 4.99N। এটি পানিতে ডুবালে 1000<i>cm</i><sup>3</sup> আয়তনের পানি অপসারণ করে। বস্তুটির পানিতে ওজন 2.39N। 1 <i>cm</i><sup>3</sup> পানির ভর = 1<i>gm</i>। বস্তুটির ঘনত্ব কত?</div>
+  <div class="sol"><span class="lab">উত্তর :</span> বস্তুটি তার আয়তনের সমান পানি অপসারণ করবে।
+   <div class="l">দেওয়া আছে, বস্তুর আয়তন <i>V</i> = 1000<i>cm</i><sup>3</sup> = 1000×10<sup>−6</sup><i>m</i><sup>3</sup></div>
+   <div class="l">পানিতে বস্তুর ওজন, <i>W</i> = <i>mg</i> ⇒ 2.39 = <i>m</i>×9.8 ⇒ <i>m</i> = 0.244 <i>kg</i></div>
+   <div class="l">আমরা জানি, ঘনত্ব <i>ρ</i> = <fr><n><i>m</i></n><d><i>v</i></d></fr> = <fr><n>0.244<i>kg</i></n><d>1000×10<sup>−6</sup><i>m</i><sup>3</sup></d></fr> = 243.877<i>kgm</i><sup>−3</sup></div>
+   <div class="l ans">∴ বস্তুটির ঘনত্ব 243.877 <i>kgm</i><sup>−3</sup></div></div>
+  <svg width="45mm" height="36mm" viewBox="0 0 200 160" style="margin:2mm auto 0"><rect x="30" y="70" width="140" height="85" rx="14" fill="#38bdf8"/><rect x="30" y="60" width="140" height="12" fill="#c9eefc"/><path d="M30 70V60H170V70" fill="#bfe9fb"/>
+   <circle cx="100" cy="62" r="42" fill="#ff9a5a"/><path d="M100 20A42 42 0 0 1 100 104Z" fill="#ff4d79"/><path d="M58 62H142" stroke="#fff" stroke-opacity=".0"/><path d="M58 70H142A42 42 0 0 1 58 70Z" fill="#1d7fd1"/><path d="M100 70V104A42 42 0 0 0 142 70Z" fill="#1260b3"/></svg></div>
+ <div><div class="qb"><b>Type 3 – ১.</b> একটি পুকুরের তলদেশে চাপ 2.94×10<sup>6</sup><i>Pa</i> হলে ঐ পুকুরের গভীরতা কত?</div>
+  <div class="sol"><span class="lab">উত্তর :</span> দেওয়া আছে, চাপ <i>P</i> = 2.94×10<sup>6</sup><i>Pa</i>
+   <div class="l">আমরা জানি, তরলের ঘনত্ব <i>ρ</i> = 1000<i>kgm</i><sup>−3</sup></div>
+   <div class="l">জানা আছে, <i>P</i> = <i>hρg</i></div>
+   <div class="l">∴ <i>h</i> = <fr><n><i>P</i></n><d><i>ρg</i></d></fr> = <fr><n>2.94×10<sup>6</sup><i>Pa</i></n><d>1000<i>kgm</i><sup>−3</sup>×9.8<i>ms</i><sup>−2</sup></d></fr> = 300<i>m</i></div>
+   <div class="l ans">∴ পুকুরের গভীরতা 300 <i>m</i>।</div></div></div></div>
+</div></section>
+
+<!-- ============ 26. MATH T4 ============ -->
+<section class="slide"><div class="hd"><h1>TOPICWISE MATH – Type 4 : প্লবতা <i>F<sub>B</sub></i> = <i>Vρg</i></h1><span class="tag">Type Wise Math</span></div><div class="bd">
+ <div class="qb"><b>১.</b> একটি বস্তুর ক্ষেত্রফল 300<i>cm</i><sup>2</sup>, এর উচ্চতা 1m, বস্তুটির ভর 55kg। বস্তুটিকে পানিতে নিমজ্জিত করা হলে ওজন নির্ণয় কর।</div>
+ <div class="sol" style="font-size:12.5pt;line-height:1.9"><span class="lab">উত্তর :</span> এখানে, ক্ষেত্রফল <i>A</i> = 300<i>cm</i><sup>2</sup> = 300×10<sup>−4</sup><i>m</i><sup>2</sup>
+  <div class="l">উচ্চতা <i>h</i> = 1 <i>m</i> &emsp; ভর <i>m</i> = 55 <i>kg</i> &emsp; পানির ঘনত্ব <i>ρ</i> = 1000 <i>kgm</i><sup>−3</sup></div>
+  <div class="l">বাতাসে বস্তুর ওজন <i>W</i> = <i>mg</i> = (55×9.8) <i>N</i> = 539 <i>N</i></div>
+  <div class="l">প্লবতা <i>F<sub>b</sub></i> = <i>Vρg</i> = {(300×10<sup>−4</sup>×1)×1000×9.8} <i>N</i> = 294 <i>N</i></div>
+  <div class="l">আমরা জানি, প্লবতা = বাতাসে বস্তুর ওজন – পানিতে বস্তুর ওজন</div>
+  <div class="l">∴ পানিতে বস্তুর ওজন = বাতাসে বস্তুর ওজন – প্লবতা</div>
+  <div class="l"><i>W′</i> = <i>W</i> − <i>F<sub>b</sub></i> = (539 − 294) <i>N</i> = 245 <i>N</i></div>
+  <div class="l ans">∴ পানিতে নিমজ্জিত করলে বস্তুর ওজন হবে 245 N</div></div>
+</div></section>
+
+<!-- ============ 27. MATH T5 + T6 ============ -->
+<section class="slide"><div class="hd"><h1>TOPICWISE MATH – Type 5 &amp; Type 6</h1><span class="tag">Type Wise Math</span></div><div class="bd xs">
+ <div class="g2" style="align-items:start">
+ <div><div class="qb" style="font-size:11pt"><b>Type 5 : <fr><n><i>F</i><sub>2</sub></n><d><i>F</i><sub>1</sub></d></fr> = <fr><n><i>A</i><sub>2</sub></n><d><i>A</i><sub>1</sub></d></fr></b><br><b>১.</b> একটি হাইড্রোলিক প্রেসারে ছোট ও বড় পিস্টনের ব্যাসার্ধ যথাক্রমে 8m ও 16m। ছোট পিস্টনের উপর 80N বল প্রয়োগ করা হলে, বড় পিস্টনের উপর অনুভূত বল নির্ণয় কর।</div>
+  <div class="sol"><span class="lab">উত্তর :</span> দেওয়া আছে,
+   <div class="l">ছোট পিস্টনে প্রযুক্ত বল <i>F</i><sub>1</sub> = 80 <i>N</i></div><div class="l">ছোট পিস্টনের ব্যাসার্ধ <i>r</i><sub>1</sub> = 8 <i>m</i> &emsp; বড় পিস্টনের ব্যাসার্ধ <i>r</i><sub>2</sub> = 16 <i>m</i></div>
+   <div class="l">আমরা জানি, <fr><n><i>F</i><sub>2</sub></n><d><i>F</i><sub>1</sub></d></fr> = <fr><n><i>A</i><sub>2</sub></n><d><i>A</i><sub>1</sub></d></fr></div>
+   <div class="l">⇒ <i>F</i><sub>2</sub> = <fr><n><i>πr</i><sub>2</sub><sup>2</sup></n><d><i>πr</i><sub>1</sub><sup>2</sup></d></fr>×<i>F</i><sub>1</sub> = <fr><n><i>r</i><sub>2</sub><sup>2</sup></n><d><i>r</i><sub>1</sub><sup>2</sup></d></fr>×<i>F</i><sub>1</sub> = (<fr><n>16</n><d>8</d></fr>)<sup>2</sup>×80 = 320 <i>N</i></div>
+   <div class="l ans">∴ বড় পিস্টনের উপর অনুভূত বল 320 N</div></div></div>
+ <div><div class="qb" style="font-size:11pt"><b>Type 6 : <fr><n><i>T</i></n><d><i>A</i></d></fr> = <i>Y</i>(<fr><n><i>L</i>−<i>L<sub>o</sub></i></n><d><i>L<sub>o</sub></i></d></fr>)</b><br><b>১.</b> একটি তারের উপাদানের ইয়ংস মডুলাস 3×10<sup>3</sup><i>Nm</i><sup>−2</sup>। তারের ব্যাস 3cm ও আদিদৈর্ঘ্য 0.9cm হলে, 10032 N বল প্রয়োগের পর দৈর্ঘ্য কত হবে? দেওয়া আছে, আদি দৈর্ঘ্য <i>L<sub>o</sub></i> = 0.9<i>m</i> এবং ব্যাস <i>d</i> = 0.03<i>m</i></div>
+  <div class="sol"><span class="lab">উত্তর :</span> দেওয়া আছে, আদি দৈর্ঘ্য <i>L</i><sub>0</sub> = 0.9<i>m</i> এবং ব্যাস <i>d</i> = 0.03<i>m</i>
+   <div class="l"><i>A</i> = {3.1416×(<fr><n>0.03</n><d>2</d></fr>)<sup>2</sup>} <i>m</i><sup>2</sup> = 7.0686×10<sup>−4</sup><i>m</i><sup>2</sup></div>
+   <div class="l">বল, <i>T</i> = 10032<i>N</i> &emsp; ইয়ংস মডুলাস, <i>Y</i> = 2×10<sup>13</sup><i>Nm</i><sup>−2</sup></div>
+   <div class="l">আমরা জানি, <fr><n><i>T</i></n><d><i>A</i></d></fr> = <i>Y</i>(<fr><n><i>L</i>−<i>L<sub>o</sub></i></n><d><i>L</i><sub>0</sub></d></fr>)</div>
+   <div class="l">⇒ <fr><n>10032</n><d>7.0686×10<sup>−4</sup></d></fr> = 2×10<sup>13</sup>×(<fr><n><i>L</i> − 0.9</n><d>0.9</d></fr>) &nbsp;∴ <i>L</i> = 0.9<i>m</i></div>
+   <div class="l ans">∴ 10032 N বল, প্রয়োগের পর পরিবর্তিত দৈর্ঘ্য 0.9m হবে।</div></div></div></div>
+</div></section>
+
+<!-- ============ 28. MATH T7 ============ -->
+<section class="slide"><div class="hd"><h1>TOPICWISE MATH – Type 7 : <i>P</i> = <i>B</i>(<fr><n><i>V</i>−<i>V<sub>o</sub></i></n><d><i>V<sub>o</sub></i></d></fr>)</h1><span class="tag">Type Wise Math</span></div><div class="bd">
+ <div class="row"><div class="col" style="flex:2.6">
+ <div class="qb"><b>১.</b> কিছু পরিমাণ কেরোসিনকে তার মোট আয়তনের 0.9% সংকুচিত করতে কি পরিমাণ চাপ দিতে হবে? (কেরোসিনের আয়তন গুণাঙ্ক 2.3×10<sup>8</sup><i>Nm</i><sup>−2</sup>)</div>
+ <div class="sol" style="font-size:12.5pt;line-height:1.9"><span class="lab">উত্তর :</span> দেওয়া আছে, আয়তন বিকৃতি = <fr><n><i>V</i>−<i>V<sub>o</sub></i></n><d><i>V</i><sub>0</sub></d></fr> = 0.9% = 0.009
+  <div class="l">আয়তন গুণাঙ্ক <i>B</i> = 2.3×10<sup>8</sup><i>Nm</i><sup>−2</sup></div>
+  <div class="l">আমরা জানি, চাপ <i>P</i> = <i>B</i>(<fr><n><i>V</i>−<i>V<sub>o</sub></i></n><d><i>V<sub>o</sub></i></d></fr>) = (2.3×10<sup>8</sup>×0.009)<i>Nm</i><sup>−2</sup> = 2070000 <i>Nm</i><sup>−2</sup></div>
+  <div class="l ans">কেরোসিনকে তার মোট আয়তনের 0.9% সংকুচিত করতে 2070000 Nm<sup>−2</sup> চাপ দিতে হবে।</div></div></div>
+ <div class="col c"><svg width="60mm" height="80mm" viewBox="0 0 200 270" style="margin:6mm auto 0">
+  <rect x="85" y="40" width="105" height="170" rx="10" fill="#3b82f6" transform="rotate(-6 137 125)"/><rect x="95" y="52" width="85" height="35" rx="4" fill="#dbeafe" transform="rotate(-6 137 70)"/><text x="165" y="78" font-size="18" fill="#1e3a8a" text-anchor="end" transform="rotate(-6 137 70)">3</text>
+  <g transform="rotate(-6 137 125)" fill="#fff"><rect x="98" y="100" width="30" height="26" rx="5" opacity=".9"/><rect x="138" y="100" width="30" height="26" rx="5" opacity=".9"/><rect x="98" y="138" width="30" height="26" rx="5" opacity=".9"/><rect x="138" y="138" width="30" height="26" rx="5" opacity=".9"/>
+  <path d="M105 113H121M113 105V121" stroke="#3b82f6" stroke-width="4"/><path d="M146 113H160" stroke="#3b82f6" stroke-width="4"/><path d="M106 146L120 158M120 146L106 158" stroke="#3b82f6" stroke-width="4"/><path d="M146 148H160M146 155H160" stroke="#3b82f6" stroke-width="4"/></g>
+  <circle cx="45" cy="75" r="11" fill="#222"/><path d="M45 88V150L28 255M45 150L62 255M45 100L85 98M45 100L20 135" stroke="#33415c" stroke-width="9" fill="none" stroke-linecap="round"/><path d="M45 88V135" stroke="#8fb7e8" stroke-width="14"/></svg></div></div>
+</div></section>
+
+<!-- ============ 29. CQ1 ============ -->
+<section class="slide"><div class="hd"><h1>SOLVED CQ – ১। ঢাকা বোর্ড-২০১৭</h1><span class="tag">Solved CQ</span></div><div class="bd xs">
+ <div class="qb"><h4>১। ঢাকা বোর্ড - ২০১৭</h4>20 <i>cm</i><sup>2</sup> ক্ষেত্রফল ও 10 <i>cm</i> উচ্চতাবিশিষ্ট একটি বস্তুর বাতাসে ও পানিতে ওজন যথাক্রমে 9.8 <i>N</i> এবং 7.84 <i>N</i> এখানে <i>g</i> = 9.8 <i>ms</i><sup>2</sup><br>ক. আর্কিমিডিসের সূত্রটি বিবৃত কর। &emsp; খ. কোনো বস্তু ভাষা এবং নিমজ্জনের শর্তগুলো উল্লেখ কর। &emsp; গ. বস্তুর উপাদানের ঘনত্ব নির্ণয় কর। &emsp; ঘ. উদ্দীপকটি আর্কিমিডিসের সূত্র মেনে চলে কি না – গাণিতিকভাবে বিশ্লেষণ কর।</div>
+ <div class="g2" style="align-items:start">
+ <div><div class="sol"><span class="lab">ক.</span> কোনো বস্তুকে স্থির তরল বা বায়বীয় পদার্থে আংশিক বা সম্পূর্ণরূপে ডুবালে বস্তুটি কিছু ওজন হারায় বলে মনে হয়। এ হারানো ওজন বস্তুটির দ্বারা অপসারিত তরলের ওজনের সমান।</div>
+  <div class="sol"><span class="lab">খ.</span> বস্তুর ওজন ও বস্তু কর্তৃক অপসারিত তরলের ওজন যথাক্রমে <i>W</i><sub>1</sub> ও <i>W</i><sub>2</sub>। বস্তুটি ভাসা ও নিমজ্জনের শর্তগুলো হলো:-
+   <div class="l">১) <i>W</i><sub>1</sub> &gt; <i>W</i><sub>2</sub> এবং <i>ρ</i><sub>1</sub> &gt; <i>ρ</i><sub>2</sub> হলে বস্তুটি সম্পূর্ণরূপে ডুবে যাবে।</div>
+   <div class="l">২) <i>W</i><sub>1</sub> = <i>W</i><sub>2</sub> এবং <i>ρ</i><sub>1</sub> = <i>ρ</i><sub>2</sub> হলে সম্পূর্ণ নিমজ্জিত অবস্থায় ভাসবে।</div>
+   <div class="l">৩) <i>W</i><sub>1</sub> &lt; <i>W</i><sub>2</sub> এবং <i>ρ</i><sub>1</sub> &lt; <i>ρ</i><sub>2</sub> হলে আংশিক নিমজ্জিত অবস্থায় ভাসবে।</div></div>
+  <div class="sol"><span class="lab">গ.</span> বস্তুর ক্ষেত্রফল <i>A</i> = 20 <i>cm</i><sup>2</sup> ও উচ্চতা <i>h</i> = 10 <i>cm</i><br>∴ আয়তন <i>V</i> = (20×10) <i>cm</i><sup>3</sup> = 200 <i>cm</i><sup>3</sup> = 200×10<sup>−6</sup> <i>m</i><sup>3</sup>
+   <div class="l">বস্তুটির বাতাসে ওজন, <i>w</i> = 9.8 <i>N</i></div>
+   <div class="l">আমরা জানি, <i>m</i> = <fr><n><i>w</i></n><d><i>g</i></d></fr> = <fr><n>9.8 <i>N</i></n><d>9.8 <i>ms</i><sup>−2</sup></d></fr> = 1 <i>kg</i></div>
+   <div class="l">ঘনত্ব, <i>ρ</i> = <fr><n><i>m</i></n><d><i>v</i></d></fr> = <fr><n>1 <i>kg</i></n><d>200×10<sup>−6</sup> <i>m</i><sup>3</sup></d></fr> = 5000 <i>kgm</i><sup>−3</sup></div>
+   <div class="l ans">∴ বস্তুর উপাদানের ঘনত্ব 5000 kgm<sup>−3</sup></div></div></div>
+ <div><div class="sol"><span class="lab">ঘ)</span> দেওয়া আছে, বস্তুটির বাতাসে ওজন <i>w</i> = 9.8 <i>N</i>; পানিতে ওজন, <i>W′</i> = 7.84 <i>N</i>
+   <div class="l">‘গ’ হতে পাই, আয়তন V = 200×10<sup>−6</sup> <i>m</i><sup>3</sup></div>
+   <div class="l">আমরা জানি, পানির ঘনত্ব, <i>ρ′</i> = 1000 <i>kgm</i><sup>−3</sup></div>
+   <div class="l">বস্তুটি আর্কিমিডিসের সূত্র মেনে চলবে যদি বস্তুটির হারানো ওজন বস্তুটির দ্বারা অপসারিত তরলের ওজনের সমান হয়।</div>
+   <div class="l">∴ বস্তু দ্বারা অপসারিত তরলের ওজন = <i>Vρ′g</i> = 200×10<sup>−6</sup>×1000×9.8 <i>N</i> = 1.96 <i>N</i></div>
+   <div class="l">বস্তুটির হারানো ওজন, <i>W</i><sub>1</sub> = <i>w</i> − <i>W′</i> = (9.8 − 7.84) <i>N</i> = 1.96 <i>N</i></div>
+   <div class="l ans">∴ অপসারিত তরলের ওজন = <i>W</i><sub>1</sub> ; পরিশেষে বলা যায়, উদ্দীপকটি আর্কিমিডিসের সূত্র মেনে চলে।</div></div>
+  <svg width="62mm" height="30mm" viewBox="0 0 220 100" style="margin:2mm auto 0"><path d="M0 70Q27 55 55 70T110 70T165 70T220 70V100H0Z" fill="#7ec8f4"/><path d="M0 82Q27 67 55 82T110 82T165 82T220 82" fill="none" stroke="#fff" stroke-width="2" opacity=".7"/>
+   <circle cx="150" cy="40" r="11" fill="#f2c9a0"/><path d="M120 62L140 52M150 51L178 32L192 12" stroke="#e8b585" stroke-width="7" fill="none" stroke-linecap="round"/><path d="M185 18L199 6M190 22L205 14" stroke="#e8b585" stroke-width="3"/><circle cx="154" cy="38" r="2" fill="#222"/><path d="M148 46Q153 51 158 44" stroke="#c0392b" stroke-width="2" fill="none"/>
+   <path d="M138 28Q150 18 164 28" stroke="#6b4b2a" stroke-width="5" fill="none"/></svg></div></div>
+</div></section>
+
+<!-- ============ 30. CQ2 ============ -->
+<section class="slide"><div class="hd"><h1>SOLVED CQ – ২। যশোর বোর্ড-২০১৭</h1><span class="tag">Solved CQ</span></div><div class="bd xs">
+ <div class="qb"><h4>২। যশোর বোর্ড - ২০১৭</h4>একটি পাত্র পানি দিয়ে এবং একটি পাত্র কেরোসিন দিয়ে পরিপূর্ণ আছে। প্রথম পাত্রটির উচ্চতা 75 <i>cm</i> এবং পানি ও কেরোসিনের ঘনত্ব যথাক্রমে 1000 <i>kgm</i><sup>−3</sup> এবং 800 <i>kgm</i><sup>−3</sup> অপর একটি বস্তু আছে যার আয়তন 400 <i>cm</i><sup>3</sup>।<br>ক. হুকের সূত্রটি লিখ। &emsp; খ. বেড়িবাঁধ তৈরি করার সময় বাঁধের উপরের অংশ চওড়া রাখা হয় কেন? &emsp; গ. প্রথম পাত্রের তলদেশে চাপের পরিমাপ নির্ণয় কর। &emsp; ঘ. প্রথম বস্তুটিকে ১ম ও ২য় পাত্রের তরলের মধ্যে ছেড়ে দিলে কোন পাত্রে প্লবতার মান বেশি হবে- তা গাণিতিকভাবে বিশ্লেষণ কর।</div>
+ <div class="g2" style="align-items:start">
+ <div><div class="sol"><span class="lab">ক.</span> হুকের সূত্রটি হল – স্থিতিস্থাপক সীমার মধ্যে পীড়ন বিকৃতির সমানুপাতিক</div>
+  <div class="sol"><span class="lab">খ.</span> বেড়িবাঁধের উপরের অংশ হতে নিচের অংশে চাপ বেশি হওয়ায় উপরের অংশ চওড়া রাখা হয়।
+   <div class="l">আমরা জানি, তরলের অভ্যন্তরে চাপ গভীরতার সমানুপাতিক। বেড়িবাঁধের নিচের অংশে পানির চাপ একারণে বেশি থাকে। এই অতিরিক্ত চাপ থেকে বেড়িবাঁধকে রক্ষার উদ্দেশ্যে নিচের অংশ তুলনামূলক চওড়া রাখা হয়।</div></div>
+  <div class="sol"><span class="lab">গ.</span> দেওয়া আছে, প্রথম পাত্রটির উচ্চতা, <i>h</i> = 75 <i>cm</i> = 0.75 <i>m</i>; পানির ঘনত্ব, <i>ρ</i> = 1000 <i>kgm</i><sup>−3</sup>
+   <div class="l">আমরা জানি, চাপ, <i>P</i> = <i>hρg</i> = (0.75×1000×9.8) <i>Pa</i> = 7350 <i>Pa</i></div>
+   <div class="l ans">প্রথম পাত্রের তলদেশে চাপের পরিমাপ 7350 Pa</div></div>
+  <svg width="45mm" height="32mm" viewBox="0 0 200 140" style="margin:2mm auto 0"><path d="M30 10V120H110V10" fill="#cfe6ff" stroke="#667" stroke-width="3"/><rect x="31" y="30" width="78" height="89" fill="#b7d3ff"/><path d="M110 118H195V132H85" fill="#9fc8f5" stroke="#667" stroke-width="2"/>
+   <g fill="none" stroke="#3b82f6" stroke-width="2.5"><path d="M110 50Q150 40 170 118"/><path d="M110 72Q140 66 158 118"/><path d="M110 95Q128 92 142 118"/></g><g stroke="#667"><path d="M105 50h5M105 72h5M105 95h5"/></g></svg></div>
+ <div><div class="sol"><span class="lab">ঘ.</span> দেওয়া আছে, বস্তুটির আয়তন, <i>V</i> = 400 <i>cm</i><sup>3</sup> = 400×10<sup>−6</sup> <i>m</i><sup>3</sup> = 4×10<sup>−4</sup> <i>m</i><sup>3</sup>
+   <div class="l">পানির ঘনত্ব, <i>ρ</i> = 1000 <i>kgm</i><sup>−3</sup> &emsp; কেরোসিনের ঘনত্ব, <i>ρ′</i> = 800 <i>kgm</i><sup>−3</sup></div>
+   <div class="l">∴ প্রথম পাত্রের প্লবতা, <i>F</i> = <i>Vρg</i> = (4×10<sup>−4</sup>×1000×9.8) <i>N</i> = 3.92 <i>N</i></div>
+   <div class="l">∴ দ্বিতীয় পাত্রের প্লবতা, <i>F′</i> = <i>Vρ′g</i> = (4×10<sup>−4</sup>×800×9.8) <i>N</i> = 3.14 <i>N</i></div>
+   <div class="l">∴ <i>F</i> &gt; <i>F′</i></div>
+   <div class="l ans">প্রথম বস্তুটিকে ১ম ও ২য় পাত্রের মধ্যে ছেড়ে দিলে ১ম পাত্রে প্লবতার মান বেশি হবে।</div></div></div></div>
+</div></section>
+
+<!-- ============ 31. CQ3 (a) ============ -->
+<section class="slide"><div class="hd"><h1>SOLVED CQ – ৩। বরিশাল বোর্ড-২০১৭ (ক, খ, গ)</h1><span class="tag">Solved CQ</span></div><div class="bd xs">
+ <div class="qb"><h4>৩। বরিশাল বোর্ড - ২০১৭</h4><i>d</i><sub>1</sub> = 20 <i>cm</i> &emsp; <i>d</i><sub>2</sub> = 40 <i>cm</i> &emsp; গোলকের ব্যাসার্ধ, <i>r</i> = 5 <i>cm</i> &emsp; ঘনত্ব, <i>ρ</i> = 1000 <i>kgm</i><sup>−3</sup></div>
+ <div class="row"><div class="col" style="flex:2.3">
+  <div class="sol"><b>ক.</b> আপেক্ষিক তাপ কি?<br><span class="lab">উত্তর</span> একক ভরের কোনো বস্তুর তাপমাত্রা এক একক বাড়াতে যে পরিমাণ তাপের প্রয়োজন হয় তাকে আপেক্ষিক তাপ বলে।</div>
+  <div class="sol"><b>খ.</b> ভবন তৈরিতে লোহার রড ব্যাবহার করা হয় কেন?<br><span class="lab">উত্তর</span> লোহার স্থিতিস্থাপকতা তুলনামূলকভাবে বেশি হয়। প্রয়োজন অনুসারে লোহাকে আকৃতি প্রদান করা সম্ভব। এছাড়া তুলনামূলকভাবে দাম কম এবং অন্যান্য ধাতুর চেয়ে সহজলভ্য। এ কারণেই ভবন তৈরিতে লোহার রড ব্যাবহার করা হয়।</div>
+  <div class="sol"><b>গ.</b> গোলকের ভর নির্ণয় কর।<br><span class="lab">উত্তর</span> দেওয়া আছে, গোলকের ব্যাসার্ধ, <i>r</i> = 5 <i>cm</i> = 0.05 <i>m</i>; ঘনত্ব, <i>ρ</i> = 1050 <i>kgm</i><sup>−3</sup>
+   <div class="l">∴ আয়তন, <i>V</i> = <fr><n>4</n><d>3</d></fr><i>πr</i><sup>3</sup> = <fr><n>4</n><d>3</d></fr>×3.1416×(0.05)<sup>3</sup></div>
+   <div class="l">আমরা জানি, <i>m</i> = <i>ρV</i> = (10500×5.24×10<sup>−4</sup>) <i>kg</i> = 5.5 <i>kg</i></div>
+   <div class="l ans">∴ গোলকের ভর, 5.5 kg</div></div></div>
+  <div class="col c"><svg width="80mm" height="50mm" viewBox="0 0 340 190" style="margin-top:3mm"><use href="#hydbase" width="340" height="190"/>
+   <path d="M55 5V28" stroke="#222" stroke-width="2" marker-end="url(#aK)"/><path d="M260 44V8" stroke="#222" stroke-width="2" marker-end="url(#aK)"/>
+   <ellipse cx="260" cy="70" rx="40" ry="14" fill="#fff" fill-opacity=".6" stroke="#222"/><path d="M222 72Q260 90 298 72" fill="none" stroke="#222"/></svg>
+   <p class="rf">(ঘ-তে ব্যবহৃত বল-বর্ধক ব্যবস্থা)</p></div></div>
+</div></section>
+
+<!-- ============ 32. CQ3 (b) ============ -->
+<section class="slide"><div class="hd"><h1>SOLVED CQ – ৩। বরিশাল বোর্ড-২০১৭ (ঘ)</h1><span class="tag">Solved CQ</span></div><div class="bd xs">
+ <div class="qb"><b>ঘ.</b> ছোট পিস্টনে 15 <i>N</i> বল প্রয়োগ করলে বড় পিস্টনের বস্তুকে উঠানো যাবে কি? গাণিতিকভাবে ব্যাখ্যা কর।</div>
+ <div class="row"><div class="col" style="flex:2.4"><div class="sol" style="font-size:11.5pt;line-height:1.8"><span class="lab">উত্তর</span> দেওয়া আছে,
+  <div class="l">ছোট পিস্টনের ব্যাস, <i>d</i><sub>1</sub> = 20 <i>cm</i> ∴ ব্যাসার্ধ, <i>r</i><sub>1</sub> = <fr><n><i>d</i><sub>1</sub></n><d>2</d></fr> = <fr><n>20 <i>cm</i></n><d>2</d></fr> = 10 <i>cm</i> = 0.1 <i>m</i></div>
+  <div class="l">বড় পিস্টনের ব্যাস, <i>d</i><sub>2</sub> = 40 <i>cm</i> ∴ ব্যাসার্ধ, <i>r</i><sub>2</sub> = <fr><n>40 <i>cm</i></n><d>2</d></fr> = 20 <i>cm</i> = 0.2 <i>m</i></div>
+  <div class="l">ছোট পিস্টনে প্রযুক্ত বল, <i>F</i><sub>1</sub> = 15 <i>N</i> &emsp; ধরি, বড় পিস্টনে প্রযুক্ত বল, <i>F</i><sub>2</sub></div>
+  <div class="l">আমরা জানি, <fr><n><i>F</i><sub>2</sub></n><d><i>F</i><sub>1</sub></d></fr> = <fr><n><i>A</i><sub>2</sub></n><d><i>A</i><sub>1</sub></d></fr> ⇒ <fr><n><i>F</i><sub>2</sub></n><d><i>F</i><sub>1</sub></d></fr> = <fr><n><i>πr</i><sub>2</sub><sup>2</sup></n><d><i>πr</i><sub>1</sub><sup>2</sup></d></fr> ⇒ <fr><n><i>F</i><sub>2</sub></n><d><i>F</i><sub>1</sub></d></fr> = <fr><n><i>r</i><sub>2</sub><sup>2</sup></n><d><i>r</i><sub>1</sub><sup>2</sup></d></fr></div>
+  <div class="l">⇒ <i>F</i><sub>2</sub> = 15×(<fr><n>0.2</n><d>0.1</d></fr>)<sup>2</sup> <i>N</i> = 60 <i>N</i></div>
+  <div class="l">‘গ’ হতে পাই, গোলকের ভর 5.5 <i>kg</i>; ওজন <i>W</i> = <i>mg</i> = 5.5×9.8 <i>N</i> = 53.9 <i>N</i></div>
+  <div class="l">∴ <i>F</i><sub>2</sub> &gt; <i>W</i></div>
+  <div class="l ans">∴ ছোট পিস্টনে 15 N বল প্রয়োগ করে বড় পিস্টনের বস্তুটিকে উঠানো যাবে।</div></div></div>
+  <div class="col c"><svg width="62mm" height="75mm" viewBox="0 0 160 190" style="margin:3mm auto 0">
+   <circle cx="80" cy="115" r="52" fill="#a9d8f8" stroke="#555" stroke-width="2"/><rect x="68" y="25" width="24" height="42" fill="#cfe6ff" stroke="#555" stroke-width="2"/>
+   <rect x="68" y="35" width="24" height="9" fill="#f5a35a" stroke="#555"/><path d="M80 2V34" stroke="#555" stroke-width="3"/><path d="M80 48V70" stroke="#d62839" stroke-width="3" marker-end="url(#aR)"/><text x="88" y="64" font-size="14" fill="#d62839">P</text>
+   <g stroke="#1d6fd1" stroke-width="2.5" fill="none"><path d="M10 100H38" marker-end="url(#aB)"/><path d="M10 125H38" marker-end="url(#aB)"/><path d="M20 160L42 150" marker-end="url(#aB)"/><path d="M150 100H122" marker-end="url(#aB)"/><path d="M150 125H122" marker-end="url(#aB)"/><path d="M140 160L118 150" marker-end="url(#aB)"/><path d="M80 188V172" marker-end="url(#aB)"/></g></svg></div></div>
+</div></section>
+
+<!-- ============ 33. CQ4 ============ -->
+<section class="slide"><div class="hd"><h1>SOLVED CQ – ৪। দিনাজপুর বোর্ড-২০১৭</h1><span class="tag">Solved CQ</span></div><div class="bd xs" style="font-size:10.2pt;line-height:1.4">
+ <div class="qb" style="padding:2mm 4mm"><h4>৪। দিনাজপুর বোর্ড - ২০১৭</h4>900 <i>m</i><sup>3</sup> আয়তনের এবং 300<i>kg</i> ভরের একটি জলযান পানিতে ভেসে থাকে৷ তখন উহার উপর 2.94×10<sup>6</sup> <i>N</i> প্লবতা কাজ করে। জলযানটির আকার অপরিবর্তনীয় রেখে সম্পূর্ণ নিমজ্জিত অবস্থায় সাবমেরিন হিসেবে চালাতে চেষ্টা করা হলো।<br>ক. প্লবতা কাকে বলে? &emsp; খ. নির্দিষ্ট তরলে নির্দিষ্ট গভীরতায় কোনো বিন্দুতে চাপের তারতম্যের কারণ কি? &emsp; গ. ভেসে থাকা অবস্থায় জলযানটির কত অংশ পানিতে ডুবে থাকে? &emsp; ঘ. কি ধরনের পরিবর্তনের ফলে উল্লিখিত শেষোক্ত চেষ্টা সফল হবে?</div>
+ <div class="g2" style="align-items:start">
+ <div><div class="sol"><span class="lab">ক.</span> তরল বা বায়বীয় পদার্থে আংশিক বা সম্পূর্ণরূপে নিমজ্জিত কোনো বস্তুর উপর তরল বা বায়বীয় পদার্থ লম্বভাবে যে ঊর্ধ্বমুখী বল প্রয়োগ করে তাকে প্লবতা বলে।</div>
+  <div class="sol"><span class="lab">খ.</span> নির্দিষ্ট তরলে নির্দিষ্ট গভীরতায় কোনো বিন্দুতে অভিকর্ষজ ত্বরণের ভিন্নতার কারণে চাপের তারতম্য ঘটে।
+   <div class="l">আমরা জানি, <i>ρ</i> ঘনত্ব বিশিষ্ট তরলে <i>h</i> গভীরতায় চাপ <i>P</i> = <i>hρg</i> যেখানে <i>g</i> হচ্ছে অভিকর্ষজ ত্বরণ। এখানে তরল ও গভীরতা নির্দিষ্ট <i>h</i> ও <i>ρ</i> ধ্রুবক। এক্ষেত্রে <i>h</i> ও <i>g</i> সমানুপাতিক। তবে <i>g</i> এর মান পৃথিবীর বিভিন্ন স্থানে বিভিন্ন হয়। এ তারতম্যের কারণেই নির্দিষ্ট তরলে নির্দিষ্ট গভীরতায় চাপেরও তারতম্য ঘটতে পারে।</div></div>
+  <div class="sol"><span class="lab">গ.</span> দেওয়া আছে, জলযানের আয়তন, <i>V</i> = 900<i>m</i><sup>3</sup>; ভর, <i>m</i> = 300 <i>kg</i>; প্লবতা, <i>F<sub>b</sub></i> = 2.94×10<sup>6</sup> <i>N</i>; পানির ঘনত্ব, <i>ρ</i> = 1000 <i>kgm</i><sup>−3</sup>
+   <div class="l">ধরি, ডুবন্ত অংশের আয়তন <i>V′</i>; <i>F<sub>b</sub></i> = <i>V′ρg</i> ⇒ 2.94×10<sup>6</sup> = <i>V′</i>×1000×9.8 ∴ <i>V′</i> = 300 <i>m</i><sup>3</sup></div>
+   <div class="l">এখন, <fr><n><i>V′</i></n><d><i>V</i></d></fr> = <fr><n>300</n><d>900</d></fr> ⇒ <fr><n><i>V′</i></n><d><i>V</i></d></fr> = <fr><n>1</n><d>3</d></fr> ⇒ <i>V′</i> = <fr><n>1</n><d>3</d></fr><i>V</i></div>
+   <div class="l ans">∴ ভেসে থাকা অবস্থায় জলযানটির <fr><n>1</n><d>3</d></fr> অংশ পানিতে ডুবে থাকবে।</div></div></div>
+ <div><div class="sol"><span class="lab">ঘ.</span> দেওয়া আছে, জলযানের ভর, <i>m</i> = 300 <i>kg</i>; পানির ঘনত্ব <i>ρ</i> = 1000 <i>kgm</i><sup>−3</sup>
+   <div class="l">জলযানটির আকার অপরিবর্তনীয় থাকলে এর আয়তনও অপরিবর্তনীয় হবে। ∴ আয়তন, <i>V</i> = 900 <i>m</i><sup>3</sup></div>
+   <div class="l">আমরা জানি, কোনো বস্তু ও তরলের ঘনত্ব সমান হলে বস্তুটি তরলে সম্পূর্ণ নিমজ্জিত অবস্থায় ভাসবে।</div>
+   <div class="l">সম্পূর্ণ নিমজ্জিত অবস্থায় ভাসমান জলযান কর্তৃক অপসারিত পানির ওজন, <i>W</i> = <i>Vρg</i> = (900×1000×9.8) <i>N</i> = 8.82×10<sup>6</sup> <i>N</i></div>
+   <div class="l">ধরি, জলযানের পরিবর্তিত ভর = <i>m′</i>। আমরা জানি, <i>W</i> = <i>m′g</i> ⇒ 8.82×10<sup>6</sup> = <i>m′</i>×9.8 ∴ <i>m′</i> = 9×10<sup>5</sup> <i>kg</i></div>
+   <div class="l">∴ ভর বৃদ্ধি করতে হবে = <i>m′</i> − <i>m</i> = (9×10<sup>5</sup> − 300) <i>kg</i> = 8.997×10<sup>5</sup><i>kg</i></div>
+   <div class="l ans">পরিশেষে বলা যায়, জলযানের ভর 8.997×10<sup>5</sup> kg বৃদ্ধি করতে পারলে উল্লিখিত শেষোক্ত চেষ্টা সফল হবে।</div></div></div></div>
+</div></section>
+
+<!-- ============ 34. CQ5 ============ -->
+<section class="slide"><div class="hd"><h1>SOLVED CQ – ৫। চট্টগ্রাম বোর্ড-২০১৬</h1><span class="tag">Solved CQ</span></div><div class="bd xs">
+ <div class="row"><div style="width:92mm"><svg width="92mm" height="62mm" viewBox="0 0 400 220"><use href="#subbase" width="340" height="200" x="0" y="0"/>
+   <g stroke="#12a150" stroke-width="1.8" fill="none"><path d="M262 22V68M262 72V133" marker-start="url(#aG)" marker-end="url(#aG)"/><path d="M305 22V190" marker-start="url(#aG)" marker-end="url(#aG)"/><path d="M262 140V190" marker-start="url(#aG)" marker-end="url(#aG)"/>
+   <path d="M170 135H312M230 190H320" stroke="#222" stroke-width="1"/></g>
+   <g font-size="14" fill="#14307a"><text x="268" y="52">h₁ = 20cm</text><text x="268" y="106">h₂</text><text x="312" y="108">h = 1m</text><text x="268" y="170">h₃ = 30cm</text></g>
+   <g font-size="14" fill="#222" font-weight="700"><text x="52" y="66">A</text><text x="176" y="66">B</text><text x="176" y="142">C</text><text x="52" y="142">D</text></g></svg></div>
+  <div class="col"><div class="qb"><h4>৫। চট্টগ্রাম বোর্ড ২০১৬</h4><i>ABCD</i> সিলিন্ডারের ব্যাসার্ধ 5<i>cm</i><br>ক. তরলের আপাত প্রসারণ কাকে বলে? খ. আমরা বায়ুমণ্ডলের চাপ অনুভব করি না কেন? ব্যাখ্যা কর। গ. উদ্দীপকের <i>C</i> বিন্দুতে তরলের চাপ নির্ণয় কর। ঘ. উদ্দীপকের তথ্য থেকে প্রমান কর যে, “সিলিন্ডার কর্তৃক অপসারিত তরলের ওজন সিলিন্ডারের উপর ক্রিয়ারত ঊর্ধ্বমুখী লব্ধিবলের সমান”</div></div></div>
+ <div class="g2" style="align-items:start">
+ <div><div class="sol"><span class="lab">ক.</span> কোনো পাত্রে তরল রেখে তাপ দিলে পাত্রের প্রসারণ বিবেচনায় না এলে তরলের যে প্রসারণ পাওয়া যায় তাকে তরলের আপাত প্রসারণ বলে।</div>
+  <div class="sol"><span class="lab">খ.</span> বায়ুমণ্ডল প্রতিনিয়ত আমাদের শরীরে চাপ দিচ্ছে। কিন্তু মানুষের শরীরের ভিতরে রক্তের চাপ বায়ুমণ্ডলের চাপ অপেক্ষা বেশি। একারণেই আমরা বায়ুমণ্ডলের চাপ অনুভব করি না।</div>
+  <div class="sol"><span class="lab">গ.</span> দেওয়া আছে, <i>h</i> = 1 <i>m</i> ও <i>h</i><sub>3</sub> = 30<i>cm</i> = 0.3<i>m</i>
+   <div class="l">∴ তরলের গভীরতা, <i>h′</i> = <i>h</i> − <i>h</i><sub>3</sub> = (1 − 0.3) <i>m</i> = 0.7 <i>m</i>; ধরি, তরলের ঘনত্ব = <i>ρ</i></div>
+   <div class="l">আমরা জানি, <i>P</i> = <i>h′ρg</i> = (0.7×<i>ρ</i>×9.8)<i>Pa</i> = 6.86 <i>ρPa</i></div>
+   <div class="l ans">∴ উদ্দীপকের C বিন্দুতে তরলের চাপ 6.86 <i>ρPa</i></div></div></div>
+ <div><div class="sol"><span class="lab">ঘ.</span> দেওয়া আছে, <i>h</i><sub>1</sub> = 20 <i>cm</i> = 0.2<i>m</i>; <i>h</i><sub>3</sub> = 30 <i>cm</i> = 0.3 m; <i>h</i> = 1<i>m</i>; সিলিন্ডারের ব্যাসার্ধ <i>r</i> = 5<i>cm</i> = 0.05<i>m</i>
+   <div class="l">উচ্চতা <i>h</i><sub>2</sub> = <i>h</i> − (<i>h</i><sub>1</sub> + <i>h</i><sub>3</sub>) = {1 − (0.2 + 0.3)}<i>m</i> = 0.5 <i>m</i></div>
+   <div class="l">ও আয়তন, <i>V</i> = <i>πr</i><sup>2</sup><i>h</i><sub>2</sub> = 3.1416×(0.05<i>m</i>)<sup>2</sup>×0.5<i>m</i> = 3.927×10<sup>−3</sup><i>m</i><sup>3</sup></div>
+   <div class="l">ধরি, তরলের ঘনত্ব = <i>ρ</i>; আমরা জানি, <i>m</i> = <i>ρv</i> = <i>ρ</i>×3.927×10<sup>−3</sup><i>m</i><sup>3</sup> = 3.927×10<sup>−3</sup> <i>ρ</i>kg</div>
+   <div class="l">প্লবতা, <i>F<sub>b</sub></i> = <i>Vρg</i> = (3.927×10<sup>−3</sup>×<i>ρ</i>×9.8) <i>N</i> = 38.48×10<sup>−3</sup> <i>ρN</i></div>
+   <div class="l">এবং সিলিন্ডার কর্তৃক অপসারিত তরলের ওজন, <i>W</i> = <i>mg</i> = 3.927×10<sup>−3</sup> <i>ρkg</i>×9.8 = 38.48×10<sup>−3</sup> <i>ρN</i></div>
+   <div class="l ans">∴ F<sub>b</sub> = W &nbsp; পরিশেষে বলা যায়, উল্লিখিত উক্তিটি যথার্থ প্রমাণিত হয়েছে।</div></div></div></div>
+</div></section>
+
+<!-- ============ 35. CQ6 ============ -->
+<section class="slide"><div class="hd"><h1>SOLVED CQ – ৬। যশোর বোর্ড-২০১৫</h1><span class="tag">Solved CQ</span></div><div class="bd xs">
+ <div class="qb"><h4>৬। যশোর বোর্ড - ২০১৫</h4>400 <i>cm</i><sup>2</sup> ভূমির ক্ষেত্রফল বিশিষ্ট একটি পাত্রকে পানিতে নিমজ্জিত করা হয়। পানির উপরিতল থেকে পাত্রের উপর পৃষ্ঠের গভীরতা 15<i>cm</i> পাত্রের উচ্চতা 90 <i>cm</i> পানিসহ পাত্রের ভর 36.5 <i>kg</i>।<br>ক. পীড়ন কি ? খ. সব পদার্থে স্থিতিস্থাপকতা একইরকম হয় না কেন ? গ. পাত্রের ভূমির প্রযুক্ত বল কত ? ঘ. সমুদ্রের পানি দ্বারা পূর্ণ পাত্রের ভর 36.6 <i>kg</i> হলে পাত্রটি এই অবস্থায় সমুদ্রের পানিতে ছেড়ে দিলে কী অবস্থায় থাকবে গাণিতিক বিশ্লেষণ এর মাধ্যমে মতামত দাও।</div>
+ <div class="g2" style="align-items:start">
+ <div><div class="sol"><span class="lab">ক.</span> একক ক্ষেত্রফলে বিকৃতির কারণে পদার্থের ভেতরে যে বল তৈরি হয় সেটাই হচ্ছে পীড়ন।</div>
+  <div class="sol"><span class="lab">খ.</span> ঢাকা বোর্ড - ২০১৭ এর অনুরূপ</div>
+  <div class="sol"><span class="lab">গ.</span> দেওয়া আছে, বস্তুটির উচ্চতা, <i>h</i> = 0.1 <i>m</i>; ভর, <i>m</i> = 5.5<i>kg</i>; ক্ষেত্রফল, <i>A</i> = 300<i>cm</i><sup>2</sup> = 0.03 <i>m</i><sup>2</sup>
+   <div class="l">আয়তন, <i>V</i> = <i>Ah</i> = (0.03×0.1) <i>m</i><sup>3</sup> = 3×10<sup>−3</sup> <i>m</i><sup>3</sup>; আমরা জানি, তরলের ঘনত্ব, <i>ρ</i> = 1000 <i>kgm</i><sup>−3</sup></div>
+   <div class="l">বাতাসে বস্তুটির ওজন, <i>W</i> = <i>mg</i> = (5.5×9.8) <i>N</i> = 53.9 <i>N</i></div>
+   <div class="l">এবং বস্তু কর্তৃক অপসারিত তরলের ওজন, <i>W′</i> = <i>Vρg</i> = (3×10<sup>−3</sup>×1000×9.8)<i>N</i> = 29.4 <i>N</i></div>
+   <div class="l">∴ পানিতে বস্তুর ওজন = (53.9 − 29.4)<i>N</i> = 24.5 <i>N</i></div>
+   <div class="l ans">∴ বস্তুটির পানিতে ওজন 24.5 N</div></div></div>
+ <div><div class="sol"><span class="lab">ঘ.</span> দেওয়া আছে, বস্তুটির ভর <i>m</i> = 5.5 <i>kg</i>
+   <div class="l">আমরা জানি, কোনো বস্তু ও তরলের ঘনত্ব সমান হলে বস্তুটি তরলে সম্পূর্ণ নিমজ্জিত অবস্থায় ভাসবে।</div>
+   <div class="l">পানির ঘনত্ব, <i>ρ</i> = 1000 <i>kgm</i><sup>−3</sup> &emsp; বস্তুর ঘনত্ব, <i>ρ</i> = 1000 <i>kgm</i><sup>−3</sup></div>
+   <div class="l">আমরা জানি, <i>ρ</i> = <fr><n><i>m</i></n><d><i>v</i></d></fr> ∴ <i>V</i> = <fr><n><i>m</i></n><d><i>ρ</i></d></fr> = <fr><n>5.5 <i>kg</i></n><d>1000 <i>kgm</i><sup>−3</sup></d></fr> = 5.5<i>kg</i>×10<sup>−3</sup><i>m</i><sup>3</sup></div>
+   <div class="l ans">পরিশেষে বলা যায়, বস্তুটির সমান ভরের কোনো বস্তুর আয়তন 5.5<i>kg</i>×10<sup>−3</sup><i>m</i><sup>3</sup> হলে, বস্তুটি পানিতে সম্পূর্ণ নিমজ্জিত অবস্থায় ভাসবে।</div></div></div></div>
+</div></section>
+
+<!-- ============ 36. CQ7 ============ -->
+<section class="slide"><div class="hd"><h1>SOLVED CQ – ৭</h1><span class="tag">Solved CQ</span></div><div class="bd xs">
+ <div class="qb"><h4>৭।</h4>একটি লোহার টুকরার ভর 3.3 <i>kg</i>। লোহার টুকরাটিকে 80 <i>cm</i><sup>3</sup> আয়তনের একটি কর্কের সাথে বেঁধে পানিতে ছেড়ে দেওয়া হলো। লোহা ও কর্কের ঘনত্ব যথাক্রমে 8000 <i>kgm</i><sup>−3</sup> এবং 400<i>kgm</i><sup>−3</sup>।<br>ক) চাপের একক কি? &emsp; খ) পচা মৃত মাছ পানিতে ভাসে কেন? &emsp; গ) লোহার টুকরার আয়তন নির্ণয় কর। &emsp; ঘ) কর্ক বাঁধা অবস্থায় লোহার টুকরা পানিতে ভাসবে না ডুববে- গাণিতিকভাবে ব্যাখ্যা দাও।</div>
+ <div class="g2" style="align-items:start">
+ <div><div class="sol"><span class="lab">ক)</span> চাপের একক প্যাসকেল (<i>Pa</i>) বা <i>Nm</i><sup>−2</sup>।</div>
+  <div class="sol"><span class="lab">খ)</span> পানির ঘনত্বের তুলনায় পচা মৃত মাছের ঘনত্ব কম হওয়ায় তা পানিতে ভাসে।
+   <div class="l">আমরা জানি, কোনো বস্তুর ঘনত্ব তরলের ঘনত্বের তুলনায় কম হলে তা ঐ তরলে ভাসে। মাছ পচে গেলে তার ঘনত্ব পানির থেকে কমে যায়। আর এ কারণেই পচা মৃত মাছ পানিতে ভাসে।</div></div>
+  <div class="sol"><span class="lab">গ)</span> দেওয়া আছে, লোহার টুকরার ভর <i>m</i> = 3.3<i>kg</i>; ঘনত্ব <i>ρ</i> = 8000 <i>kgm</i><sup>−3</sup>
+   <div class="l">আমরা জানি, <i>ρ</i> = <fr><n><i>m</i></n><d><i>V</i></d></fr> ∴ <i>V</i> = <fr><n>3.3 <i>kg</i></n><d>8000<i>kgm</i><sup>−3</sup></d></fr> = 4.125×10<sup>−4</sup> <i>m</i><sup>3</sup></div>
+   <div class="l ans">∴ লোহার টুকরার আয়তন 4.125×10<sup>−4</sup> m<sup>3</sup></div></div></div>
+ <div><div class="sol"><span class="lab">ঘ)</span> দেওয়া আছে, লোহার টুকরার ভর <i>m</i> = 3.3<i>kg</i>; ঘনত্ব <i>ρ</i> = 8000 <i>kgm</i><sup>−3</sup>
+   <div class="l">কর্কের আয়তন <i>V′</i> = 80 <i>cm</i><sup>3</sup> = 80×10<sup>−6</sup><i>m</i><sup>3</sup> এবং ঘনত্ব <i>ρ′</i> = 400<i>kgm</i><sup>−3</sup></div>
+   <div class="l">‘গ’ হতে পাই, লোহার টুকরার আয়তন <i>v</i> = 4.125×10<sup>−4</sup> <i>m</i><sup>3</sup></div>
+   <div class="l">কর্কের ভর <i>m′</i> = <i>ρ′V′</i> = 400×80×10<sup>−6</sup> <i>kg</i> = 0.032<i>kg</i></div>
+   <div class="l">কর্ক ও লোহার মিলিত ভর <i>m″</i> = <i>m</i> + <i>m′</i> = (3.3 + 0.032)<i>kg</i> = 3.332<i>kg</i></div>
+   <div class="l">এবং মিলিত আয়তন <i>V″</i> = <i>V</i> + <i>V′</i> = (4.125×10<sup>−4</sup> + 80×10<sup>−6</sup>)<i>m</i><sup>3</sup> = 4.925×10<sup>−4</sup> <i>m</i><sup>3</sup></div>
+   <div class="l">∴ মিলিত অবস্থায় ঘনত্ব <i>ρ″</i> = <fr><n><i>m″</i></n><d><i>V″</i></d></fr> = <fr><n>3.332kg</n><d>4.925×10<sup>−4</sup> m<sup>3</sup></d></fr> = 6765.48 <i>kgm</i><sup>−3</sup></div>
+   <div class="l">এখানে, <i>ρ″</i> &gt; <i>ρ<sub>w</sub></i></div>
+   <div class="l ans">পানির তুলনায় বস্তুর ঘনত্ব বেশি হলে তা পানিতে ডুবে যায়। তাই বলা যায়, কর্ক বাঁধা অবস্থায় লোহার টুকরার ঘনত্ব পানির ঘনত্বের তুলনায় বেশি বলে লোহার টুকরা পানিতে ডুবে যাবে।</div></div></div></div>
+</div></section>
+
